@@ -34,7 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    navbar.title("支付详情")
+    // navbar.title("支付详情")
     if (this.data.by == "card") {
       let code = this.data.code;
       if (code == 400) {

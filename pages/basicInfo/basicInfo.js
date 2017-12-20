@@ -158,7 +158,8 @@ Page({
 
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
-    navbar.title("基础信息")
+    // navbar.title("基础信息")
+    
     // 提示可修改项目
     var title = "重要提示";
     var content = "* 姓名、生日、性别只能修改一次\r\n* 身高、体重每周可以修改一次";

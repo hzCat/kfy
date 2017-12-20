@@ -86,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    navbar.title("个卡明细");
+    // navbar.title("个卡明细");
     this.setData({
       modalOn: false,
     })
