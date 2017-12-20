@@ -36,6 +36,7 @@
   clear: both;
 }
 
+
 /* vip部分 */
 
 
@@ -200,4 +201,77 @@ button {
 
 .group-step {
   border-top: 0;
+}
+
+.tvip {
+  margin: 0 24rpx;
+  margin-top: 50rpx;
+  border-radius: 16rpx;
+  color: #fff;
+  position: relative;
+}
+
+.tvip>.level-img {
+  width: 160rpx;
+  height: 31rpx;
+  margin-top: 26rpx;
+  margin-left: 50rpx;
+}
+
+.tvip>.tvip-bg {
+  width:160rpx;
+  height:160rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.tvip .tvip-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.tvip .tvip-con>text {
+  font-size: 24rpx;
+  margin-left: 50rpx;
+  line-height: 46rpx;
+}
+
+.tvip .tvip-con>text:first-child {
+  margin-top: 24rpx;
+}
+
+.tvip .tvip-con>text:last-child {
+  margin-bottom: 44rpx;
+}
+.tvip .tvip-con:last-child{
+  margin-bottom:72rpx;
+}
+.tvip>.t-btn-group{
+  width: 100%;
+  padding-left:50rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top:8rpx;
+  padding-bottom:34rpx;
+}
+.tvip>.t-btn-group button{
+  width:220rpx;
+  height:72rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  border:1rpx solid #fff;
+  border-radius: 36rpx;
+  background: transparent;
+  margin:0;
+  padding:0;
+}
+.tvip .is-open{
+  position: absolute;
+  right: 50rpx;
+  top:26rpx;
+  font-size: 30rpx;
 }
