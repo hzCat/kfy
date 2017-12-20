@@ -38,7 +38,7 @@ Page({
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
     let that = this;
-    navbar.title("个人中心");
+    // navbar.title("个人中心");
     this.setData({
       modalOn: false,
     });

@@ -28,9 +28,7 @@ Page({
       navbar.title("购买成功")
     } else if (this.data.isSuccess == "false") {
       navbar.title("购买失败")
-    } else {
-      navbar.title("会员卡购买")
-    }
+    } 
   },
   jump(e) {
     util.jump("switch", "/pages/usercenter/usercenter");

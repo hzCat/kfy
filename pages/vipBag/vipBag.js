@@ -16,7 +16,7 @@ Page({
 
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
-    navbar.title("会员卡包");
+    // navbar.title("会员卡包");
     var that = this;
     //   从缓存获取vip的信息
     wx.getStorage({

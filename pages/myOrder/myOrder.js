@@ -85,7 +85,7 @@ Page({
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
     let that = this;
-    navbar.title("我的订单");
+    // navbar.title("我的订单");
     that.setData({
       modalOn: false,
     })

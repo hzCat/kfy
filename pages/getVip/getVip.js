@@ -22,7 +22,7 @@ Page({
     openedLevel: null,
     modalOn: false,
     getNumber: false,
-    webview:false,
+    webview: false,
   },
 
   /*** 生命周期函数--监听页面加载*/
@@ -88,11 +88,15 @@ Page({
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
     let that = this;
-    navbar.title("个人会员卡办理");
+    if (that.data.userType == "personal") {
+      navbar.title("个人会员卡办理");
+    }else{
+      navbar.title("团餐会员卡办理");
+    }
     this.setData({
       modalOn: false,
       getNumber: false,
-      webview:false,
+      webview: false,
     });
     // 获取用户信息
     wx.getStorage({
@@ -356,9 +360,9 @@ Page({
   },
 
   // 打开web-view,另一种实现用户协议的方法
-  openweb(){
+  openweb() {
     this.setData({
-      webview:true
+      webview: true
     })
   }
 })

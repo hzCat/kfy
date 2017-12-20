@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    navbar.title("功夫元");
+    // navbar.title("功夫元");
     this.setData({
       modalOn: false,
     })
