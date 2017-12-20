@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/getVip/getVip",
+    "pages/chargeMoney/chargeMoney",
+    "pages/paysuccess/paysuccess",
+    "pages/usercenter/usercenter",
+    "pages/basicInfo/basicInfo",
+    "pages/myOrder/myOrder",
+    "pages/vipBag/vipBag",
+    "pages/vipCard/vipCard",
+    "pages/cardInfo/cardInfo",
+    "pages/relatePhone/relatePhone",
+    "pages/hasNoOrder/hasNoOrder",
+    "pages/chargeSuccFail/chargeSuccFail",
+    "pages/consumeDetails/consumeDetails",
+    "pages/alreadyPay/alreadyPay",
+    "pages/scanpay/scanpay",
+    "pages/groupInfo/groupInfo",
+    "pages/groupCharge/groupCharge",
+    "pages/afterBuyVip/afterBuyVip"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f9f9f9",
+    "navigationBarTitleText": "功夫元",
+    "navigationBarTextStyle":"black",
+    "onReachBottomDistance":0
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#fdaf31",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"icon/icon_home_n.png",
+        "selectedIconPath":"icon/icon_home_selected.png"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "个人中心",
+        "iconPath": "icon/icon_persionalCerter.png",
+        "selectedIconPath": "icon/icon_persionalCerter-selected.png"
+      }
+    ]
+  }
+}

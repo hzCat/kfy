@@ -1,0 +1,120 @@
+.container {
+  background: #f0f0f0;
+}
+
+/* 金额选择 */
+
+.choose-money {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0 40rpx;
+  padding-top: 24rpx;
+  padding-bottom: 47rpx;
+  background: #fff;
+}
+
+.choose-money>button {
+  width: 186rpx;
+  border-radius: 0rpx;
+  margin: 0 0rpx 0 8rpx;
+  background: #fff;
+  color: #333;
+  margin-top: 24rpx;
+  font-size: 32rpx;
+}
+
+.choose-money>.btn-not-3 {
+  margin-right: 48rpx;
+}
+.choose-money>.btn-3 {
+  margin:0;
+  margin-top:24rpx;
+}
+.choose-money>.btn-center{
+  margin-left:0;
+}
+
+.choose-money>button::after {
+  border-radius: 0rpx;
+  border: 1rpx solid #999;
+}
+
+.choose-money>input {
+  background: #f2f2f2;
+  width: 100%;
+  height: 88rpx;
+  font-size: 32rpx;
+  margin-top: 24rpx;
+  padding: 0 33rpx;
+}
+
+.choose-money .selected {
+  background: #fdaf31;
+  color: #fff;
+}
+
+/* 会员信息 */
+
+.vip-info {
+  padding: 0rpx 41rpx 47rpx 41rpx;
+  border-top: 1px dashed #dbdbdb;
+  background: #fff;
+}
+
+.vip-info .vip-1 {
+  margin-top: 48rpx;
+}
+
+.flex {
+  display: flex;
+}
+
+.vip-info .vip-img {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 39rpx;
+}
+
+.vip-1>view:first-child, .vip-2>view:first-child {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.vip-info .vip-text {
+  font-size: 30rpx;
+  color: #999;
+}
+.vip-info .vip-text>view{
+  line-height: 46rpx;
+}
+.vip-info .vip-2 {
+  margin-top: 50rpx;
+}
+
+.vip-info .vip-con {
+  margin-top: 6rpx;
+  padding-top: 18rpx;
+  justify-content: left;
+  align-items: center;
+}
+
+/* .vip-info .vip-text>view {
+    margin-top: 18rpx;
+} */
+
+/* 支付按钮 */
+
+.pay-btn-group {
+  margin: 32rpx 41rpx 0 41rpx;
+}
+
+/* .pay-btn-group .checkbox{
+   padding:0;
+   margin-top:29rpx;
+} */
+
+.check-con {
+  margin-top: 29rpx;
+}

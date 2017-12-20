@@ -1,0 +1,203 @@
+.header-switch {
+  /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+  height: 99rpx;
+  background: #fff;
+}
+
+.header-switch>view {
+  float: left;
+  line-height: 92rpx;
+  text-align: center;
+  width: 375rpx;
+  font-size: 30rpx;
+  border-bottom: 4px solid transparent;
+  transition: border 0.5s linear;
+}
+
+.header-switch>.personal {
+  width: 374rpx;
+}
+
+.header-switch>.line {
+  width: 1rpx;
+  height: 67rpx;
+  background: #dbdbdb;
+  margin-top: 16rpx;
+}
+
+.header-switch>.selected {
+  color: #fdaf31;
+  border-bottom: 4px solid #fdaf31;
+}
+
+.clear {
+  clear: both;
+}
+
+/* vip部分 */
+
+
+/* .vip-detail .vip .card-bg{
+    width:702rpx;
+    height:226rpx;
+    position:absolute;
+    z-index: 1;
+    right:0;
+    top:0;
+} */
+
+.p-vip {
+  margin-top: 8rpx;
+  transition: all 0.5s linear;
+}
+
+.p-vip .vip {
+  position: relative;
+  margin: 0 24rpx;
+  color: #fff;
+  padding: 25rpx 40rpx 34rpx 40rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #dbdbdb;
+  border-radius: 16rpx;
+  margin-top: 24rpx;
+}
+
+.p-vip .vip image {
+  width: 135rpx;
+  height: 31rpx;
+}
+
+.p-vip .vip .line-1 {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.p-vip .vip .line-1>view:last-child {
+  margin-top: 6rpx;
+}
+
+.p-vip .vip .line-2 {
+  position: relative;
+  z-index: 2;
+  margin-top: 34rpx;
+  padding-bottom: 25rpx;
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+
+.strong {
+  font-size: 36rpx;
+}
+
+.strong-2 {
+  font-size: 30rpx;
+}
+
+.p-vip .vip .btn-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.p-vip .vip .btn-group button,
+.p-vip .vip .btn-group-2 button {
+  background: transparent;
+  /* border: 1rpx solid #fff; */
+  border-radius: 36rpx;
+  padding: 0;
+  height: 72rpx;
+  width: 220rpx;
+  font-size: 30rpx;
+  line-height: 72rpx;
+  margin: 0;
+  margin-right: -8rpx;
+}
+
+.p-vip .vip .btn-group button::after,
+.p-vip .vip .btn-group-2 button::after {
+  background: transparent;
+  border: 0;
+}
+
+.p-vip .vip .line-2>view {
+  line-height: 45rpx;
+}
+
+
+/* vip-2 部分 */
+
+.btn-group-2,
+.btn-group-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-group-2 button,
+.btn-group-2 button {
+  width: 252rpx;
+}
+
+.btn-group-2 button:first-child {
+  margin-left: -8rpx;
+}
+
+.btn-group-2 button:last-child {
+  margin-right: -8rpx;
+}
+
+.p-vip .vip-2 {}
+
+button {
+  border: 1rpx solid #fff;
+}
+
+
+/* vip-3 部分*/
+
+
+/* 两个按钮时不用 */
+
+
+/* .p-vip .vip-3 .btn-group-2{
+  justify-content: flex-end;
+} */
+
+.p-vip .vip-3 {}
+
+
+/* 团餐vip */
+
+.g-vip {
+  transition: all 0.5s linear;
+}
+
+
+/* 按钮组 */
+
+.btn-group>view {
+  height: 96rpx;
+  line-height: 96rpx;
+  width: 100%;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  text-align: center;
+}
+
+.btn-group>view:nth-child(2) {
+  border-left: 1px solid #dbdbdb;
+}
+
+
+/* 团餐 */
+
+.group-step {
+  border-top: 0;
+}

@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+.success-img{
+    margin-top:100rpx;
+}
+.title {
+    margin-top:60rpx;
+    font-size: 40rpx;
+    color: #000;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    font-size: 30rpx;
+    color: #888;
+    text-align: left;
+    /* width: 450rpx; */
+    margin-top:59rpx;
+}
+
+.info-2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 30rpx;
+    color: #888;
+    text-align: left;
+    width: 308rpx;
+    margin-top:63rpx;
+}
+
+button {
+    height: 70rpx;
+    width: 360rpx;
+    line-height: 70rpx;
+    font-size: 32rpx;
+    margin-top:83rpx;
+}
+
+/* 失败 */
+
+.fail-info, .fail-info-2 {
+    width: 417rpx;
+}

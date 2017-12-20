@@ -1,0 +1,53 @@
+<view class="container">
+  <view class="group-step">
+    <!-- 完成后加  step-on   -->
+    <view class='step-top'>
+      <view class='step-1'>
+        <view class='num step-on'>1</view>
+        <view class='line'></view>
+      </view>
+      <view class='step-2'>
+        <view class='num'>2</view>
+      </view>
+
+    </view>
+    <view class='step-bottom'>
+      <!-- 完成后加 step-on-t   -->
+      <view class='step-1'>
+        <view class='text step-on-t'>填写资料</view>
+      </view>
+      <view class='step-2'>
+        <view class='text'>联系汇款</view>
+      </view>
+    </view>
+  </view>
+  <view class='charge-account'>
+    <text>充值账户：</text>
+    <text>134-0865-1234</text>
+  </view>
+  <view class='money-num'>
+    <view class='input-con'>
+      <label>汇款单号/流水号</label>
+      <input placeholder='必填' placeholder-style='color：#999'></input>
+    </view>
+    <view class='input-con'>
+      <label>汇款金额</label>
+      <input placeholder='必填' placeholder-style='color：#999' value="1200.00"></input>
+    </view>
+  </view>
+  <view class='other-info'>
+    <view class='input-con'>
+      <label>备注</label>
+      <input placeholder='选填' placeholder-style='color：#999'></input>
+    </view>
+    <view class='input-con'>
+      <label>联系手机</label>
+      <input placeholder='选填' placeholder-style='color：#999' value="13345678901"></input>
+    </view>
+  </view>
+  <view class='service-phonenumber'>
+    <text>客服电话：</text>
+    <text>028-88888888</text>
+  </view>
+  <button class="submit">提交</button>
+</view>

@@ -1,0 +1,250 @@
+.container {
+  /* width: 100vw;
+    height: 10; */
+  background: #f0f0f0;
+  padding-bottom: 128rpx;
+  overflow: auto;
+}
+
+/* 订单顶部信息 */
+
+.pay-top-info {
+  display: flex;
+  width: 100%;
+  height: 88rpx;
+  padding-left: 41rpx;
+  padding-right: 41rpx;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dbdbdb;
+  background: #fff;
+}
+
+/* 订单详情 */
+
+.order-detail {
+  background: #fafafa;
+  padding-bottom: 34rpx;
+}
+
+.order-title {
+  padding-left: 41rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  margin-top: 24rpx;
+  margin-bottom: 48rpx;
+  border-top: 1px solid #dbdbdb;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.order-one {
+  display: flex;
+  height: 57rpx;
+  justify-content: space-between;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.order-one>view:nth-child(1) {
+  width: 230rpx;
+  height: 42rpx;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.order-one>view:nth-child(2) {
+  /* position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-left: -41rpx; */
+  margin-left: -170rpx;
+}
+.order-one>view:nth-child(3) {
+  width:110rpx;
+}
+
+/* 更多按钮 */
+
+.show-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9rpx;
+}
+
+.show-more>.show-more-icon {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.icon-rotate {
+  transform: rotateX(180deg);
+}
+
+.show-more>.show-more-text {
+  font-size: 30rpx;
+  color: #999;
+  margin-left: 13rpx;
+}
+
+/* 合计 */
+
+.price-total {
+  /* height:284rpx; */
+  width: 100%;
+  background: #fff;
+  padding: 0 41rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.price {
+  display: flex;
+  font-size: 30rpx;
+  justify-content: space-between;
+}
+
+/* 优惠提示信息 */
+
+.discount-type {
+  background: #f95257;
+  padding: 5rpx 29rpx;
+  box-sizing: border-box;
+  color: #fff;
+  border-radius: 5px;
+  position: absolute;
+  left: 77rpx;
+  font-size: 23rpx;
+}
+
+.price2{
+  font-size: 30rpx;
+}
+.discount-con{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  padding-top: 47rpx;
+}
+
+.discount {
+  padding-top: 33rpx;
+  position: relative;
+  padding-bottom: 14rpx;
+  border-bottom: 1px dashed #dbdbdb;
+}
+.discount-con{
+  margin-bottom:32rpx;
+}
+
+.price-num {
+  color: #fdaf31;
+  font-weight: bold;
+}
+
+/* 支付按钮 */
+
+.pay-click-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 0;
+  /* border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb; */
+  border:0;
+  background: #fdaf31;
+  color: #fff;
+}
+
+.pay-click-btn::after {
+  border-radius: 0;
+  border:0;
+}
+
+/* 应支付 */
+
+.should-pay {
+  text-align: right;
+  height: 99rpx;
+  line-height: 99rpx;
+  font-size: 28rpx;
+}
+
+.should-pay text:first-child {
+  font-size: 28rpx;
+  margin-right: 25rpx;
+}
+
+.should-pay text:last-child {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+/* 支付选择 */
+
+.pay-choose {
+  width: 100%;
+  margin-top:32rpx;
+  bottom: 94rpx;
+  font-size: 24rpx;
+}
+
+/* 可以将height修改为88 最后一行单独设置80rpx */
+
+.pay-choose>view {
+  height: 80rpx;
+  padding: 0 41rpx;
+  border-bottom: 1px solid #dbdbdb;
+  background: #fff;
+}
+
+/* .pay-choose>view:last-child{
+    height:80rpx;
+} */
+
+.pay-choose image {
+  width: 44rpx;
+  height: 34rpx;
+}
+
+.pay-choose view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pay-choose .card-name {
+  font-size: 34rpx;
+}
+
+.pay-choose view image {
+  margin-right: 22rpx;
+}
+
+.pay-choose .tips {
+  margin-left: 22rpx;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  background: #b3b3b3;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+.pay-choose .wechat-pay image {
+  width: 44rpx;
+  height: 44rpx;
+}

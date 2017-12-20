@@ -1,0 +1,76 @@
+<view class="container">
+  <view class='pay-top-info'>
+    <view class='order'>订单: {{orderData.orderNo}}</view>
+    <view class='order-time'>{{orderData.createTime}}</view>
+  </view>
+  <!-- 详细订单 -->
+  <view class="order-detail">
+    <view class="order-title">菜品</view>
+    <view class='order-one' wx:for="{{orderData.detailList}}" wx:key="index" wx:if="{{index<showNum}}">
+      <view>{{item.disheName}}</view>
+      <view>×{{item.disheQty}}</view>
+      <view>￥{{item.disheSaleAmt}}</view>
+    </view>
+    <!-- 更多按钮 -->
+    <view class="show-more" wx:if="{{orderData.detailList.length>4}}" bindtap="showMore">
+      <image class="show-more-icon {{showNum>4?'icon-rotate':'aaaaaaa'}}" src="../../icon/icon24_24.png"></image>
+      <view class="show-more-text">更多菜品({{orderData.detailList.length}})</view>
+    </view>
+  </view>
+  <!-- 合计 -->
+  <view class="price-total">
+    <view class="price total">
+      <view>小计</view>
+      <view class="price-num">￥{{orderData.orderAmt||'0.00'}}</view>
+    </view>
+    <!-- 优惠信息 -->
+    <view class="price2 discount">
+      <view class="discount-con" wx:for="{{offMoney.offerDetailList}}" wx:key="index">
+        <view>{{item.offerTypeDisplayName}}</view>
+        <view class="price-num">-￥{{item.offerAmt||'0.00'}}</view>
+      </view>
+    </view>
+
+    <view class="should-pay">
+      <text class="bluegreen">待支付</text>
+      <text class="orange">￥</text>
+      <text class="orange">{{orderData.payAmt||'0.00'}}</text>
+    </view>
+  </view>
+  <!-- 支付按钮 -->
+  <view class='pay-choose' wx:if="{{orderData.orderStatus=='NOT_PAY'}}">
+    <view class="personal-card" data-payment="VIP_CARD" bindtap="choosePay" wx:if="{{cardList.settlementInfoList[0].vipScope=='VIP'}}">
+      <view>
+        <image src="../../icon/icon_vipcard.png"></image>
+        <view class='card-name'>个人卡</view>
+        <view class="tips">{{cardList.settlementInfoList[0].baseSettlementProportion}}折(余额: ￥{{cardList.settlementInfoList[0].cardBalance?cardList.settlementInfoList[0].cardBalance:'0.00'}})
+        </view>
+      </view>
+      <icon type="success" color="#fdaf31" wx:if="{{choosePay=='VIP_CARD'}}"></icon>
+    </view>
+    <view class='group-card' data-payment="TVIP_CARD" bindtap="choosePay" wx:if="{{cardList.settlementInfoList[1].vipScope=='TVIP'}}">
+      <view>
+        <image src="../../icon/icon_vipcard-g.png"></image>
+        <view class='card-name'>团餐卡</view>
+        <view class="tips">{{cardList.settlementInfoList[1].baseSettlementProportion}}折(余额: ￥{{cardList.settlementInfoList[1].cardBalance?cardList.settlementInfoList[1].cardBalance:'0.00'}})</view>
+      </view>
+      <icon type="success" color="#fdaf31" wx:if="{{choosePay=='TVIP_CARD'}}"></icon>
+    </view>
+    <view class='wechat-pay' data-payment="wechat" bindtap="choosePay">
+      <view>
+        <image src="../../icon/wechat.png"></image>
+        <view class='card-name'>微信</view>
+        <view class="tips">充值将获得额外赠送,详见会员权益 </view>
+      </view>
+      <icon type="success" color="#fdaf31" wx:if="{{choosePay=='wechat'}}"></icon>
+    </view>
+  </view>
+  <!-- <button class="pay-click-btn" bindtap="payClick" disabled='{{orderData.orderStatusDisplayName=="已过期"}}'>{{orderData.orderStatusDisplayName=="已过期"?'已经过期(订单保留4小时)':'立即支付'}}</button>
+</view> -->
+  <button class="pay-click-btn" bindtap="payClick" disabled='{{orderData.orderStatus!="NOT_PAY"}}'>立即支付</button>
+</view>
+
+
+
+<!-- 遮罩 -->
+<view class="stop-modal" wx:if="{{modalOn}}"></view>

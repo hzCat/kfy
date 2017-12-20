@@ -1,0 +1,57 @@
+<view class="container">
+<!-- 进度 -->
+  <view class="group-step">
+    <view class='step-top'>
+      <view class='step-1'>
+        <view class='num step-on'>1</view>
+        <view class='line'></view>
+      </view>
+      <view class='step-2'>
+        <view class='num'>2</view>
+        <view class='line'></view>
+      </view>
+      <view class='step-3'>
+        <view class='num'>3</view>
+      </view>
+    </view>
+    <view class='step-bottom'>
+      <view class='step-1'>
+        <view class='text step-on-t'>填写资料</view>
+      </view>
+      <view class='step-2'>
+        <view class='text'>联系汇款</view>
+      </view>
+      <view class='step-3'>
+        <view class='text'>办理成功</view>
+      </view>
+    </view>
+  </view>
+  <!-- 信息 -->
+  <view class='getInfo'>
+    <view class='input-con'>
+      <label>公司/组织名称</label>
+      <input placeholder='必填项' placeholder-style='color:#999'></input>
+    </view>
+    <view class='input-con'>
+      <label>联系手机</label>
+      <input type="number" placeholder='必填项' placeholder-style='color:#999'></input>
+    </view>
+    <view class='input-con'>
+      <label>联系人</label>
+      <input placeholder='必填项' placeholder-style='color:#999'></input>
+    </view>
+
+  </view>
+  <!-- 地址 -->
+  <view class="other-info">
+    <view class='input-con'>
+      <label>配送地址</label>
+      <input placeholder='可选项' placeholder-style='color:#999'></input>
+    </view>
+    <view class='input-con'>
+      <label>汇款单号/流水号</label>
+      <input placeholder='可选项' placeholder-style='color:#999'></input>
+    </view>
+  </view>
+  <button class='submit' disabled='{{false}}'>提交</button>
+</view>

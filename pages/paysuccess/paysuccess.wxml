@@ -1,0 +1,28 @@
+<view class="container" wx:if="{{isSucc=='true'}}">
+  <!-- 图标 -->
+  <!-- <image src="../../img/paysuccess/pay-success.png" class='success-img'></image> -->
+  <icon class='success-img' type="success" color="#fdaf31" size="100"></icon>
+  <!-- 支付成功 -->
+  <view class="success">支付成功</view>
+  <!-- 价格 -->
+  <view class="pay-price">￥{{orderPrice||'0.00'}}</view>
+  <!-- 订单号 -->
+  <view class="order-num">订单:{{orderId||'无'}}</view>
+  <!-- 用餐愉快 -->
+  <view class='wish'>祝您用餐愉快!</view>
+  <!-- 再扫一个按钮 -->
+  <button bindtap="scanPayInfo">再扫一个</button>
+  <!-- 返回个人中心 -->
+  <button bindtap="jumpToCenter" class='success-btn2'>返回个人中心</button>
+</view>
+<!-- 失败 -->
+<view class='container' wx:if="{{isSucc=='false'}}">
+  <icon class='success-img' type="warn" color="#f76260" size="100"></icon>
+  <view class="success">支付失败</view>
+  <!-- 用餐愉快 -->
+  <view class='wish wish-fail'>由于{{tips||'网络原因'}}，您暂时未能成功完成支付</view>
+  <!-- 订单号 -->
+  <view class="order-num order-num-fail" wx:if="{{orderId!='null'&&orderId!='undefined'}}">订单:{{orderId||'无'}}</view>
+  <!-- 再扫一个按钮 -->
+  <button bindtap="failBtnClick" class='btn-fail'>重试一次</button>
+</view>

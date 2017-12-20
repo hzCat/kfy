@@ -1,0 +1,75 @@
+.container {
+  background: #fff;
+}
+
+.header-img {
+  height: 300rpx;
+  background: #abc;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.header-img>image {
+  height: 300rpx;
+  width: 100%;
+}
+
+.placeholder {
+  color: #bfbfbf;
+}
+
+.phone-number, .test-input {
+  padding-left: 196rpx;
+}
+
+input {
+  padding: 0 41rpx;
+  height: 88rpx;
+  font-size: 34rpx;
+  background: #f2f2f2;
+}
+
+.test-number {
+  background: #f2f2f2;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.test-number>button {
+  background: transparent;
+  border: none;
+  color: #fdaf31;
+  font-size: 30rpx;
+  width: 290rpx;
+  border-radius: 0;
+  border-left: 1px solid #dbdbdb;
+}
+
+.test-number>button.disabled {
+  background: transparent;
+}
+
+.test-number>button::after {
+  border: none;
+  border-radius: 0;
+}
+
+.test-number>button[disabled][type="default"],
+.test-number> wx-button[disabled]:not([type]) {
+  background: transparent;
+  padding: 5rpx;
+}
+
+.btn-group {
+  margin-top: 80rpx;
+}
+
+.btn-group>button {
+  margin: 0 40rpx;
+  border:1rpx solid #d6d5d6;
+}
+
+.btn-group>button:nth-child(2) {
+  background: #fcfafc;
+  color: #000;
+  margin-top: 40rpx;
+}

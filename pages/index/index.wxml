@@ -1,0 +1,24 @@
+<view class="container">
+
+  <view class="kfy-logo">
+    <view class="round round1"></view>
+    <view class="round round2"></view>
+    <view class="round round3">
+      <image class="logo" src='../../img/index/logo.png'></image>
+    </view>
+    <view class="logo-text">有工作的地方就有我们的服务</view>
+  </view>
+
+  <image class="bg-img" src='../../img/index/bg_pic_wuxing.png'></image>
+  <view class="bg-img-cover"></view>
+
+  <view class="scan-btn">
+    <image class="scan-bg" src='../../img/index/bg_scan.png'></image>
+    <view class="scan-con" bindtap="scanPayInfo" hover-class="scan-con-hover">
+      <image src='../../img/index/icon_scan.png' class="scan-icon"></image>
+      <view class="scan-text">扫描餐盘付款</view>
+    </view>
+  </view>
+</view>
+
+<view class="stop-modal" wx:if="{{modalOn}}"></view>

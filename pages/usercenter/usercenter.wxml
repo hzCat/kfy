@@ -1,0 +1,90 @@
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <image src="../../img/usercenter/user-info-bg.png" class='user-info-bg'></image>
+    <image src="{{(allInfo.avatar&&staticUrl)?'http://'+staticUrl+allInfo.avatar:userAvatarUrl}}" class='user-img' wx:if="{{allInfo.avatar||userAvatarUrl==''||userAvatarUrl!=''}}"></image>
+    <image bindtap="headerGet" src="../../icon/default-head.png" class='user-img' wx:if="{{!(allInfo.avatar||userAvatarUrl==''||userAvatarUrl!='')}}"></image>
+    <view bindtap="headerGet" class="header-tips" wx:if="{{!(allInfo.avatar||userAvatarUrl==''||userAvatarUrl!='')}}">编辑头像</view>
+    <view class="info-con">
+      <view class="user-nickname">{{allInfo.nickName||userNickName||'功夫元用户'}}</view>
+      <view class='user-id' wx:if="{{false}}">123123123</view> 
+    </view>
+  </view>
+  <!-- 付款组(需要弹出二维码) -->
+  <view class="pay-pay">
+    <view class="oneone group" data-card="group" bindtap="openQR">
+      <view>
+        <image src='../../icon/icon_duoren.png'></image>
+      </view>
+      <view class="group-text">
+        <view>团餐付款</view>
+        <view class='{{allInfo.tvipCardBalance>0?"red":"gray999"}}'>未开通</view>
+      </view>
+    </view>
+    <view class="oneone personal" data-card="personal" bindtap="openQR">
+      <view>
+        <image src='../../icon/icon_oneperson.png'></image>
+      </view>
+      <view class="personal-text">
+        <view>个人付款</view>
+        <view class='{{isVip?"orange":"gray999"}}'>{{allInfo.vipCardBalance?'余￥'+allInfo.vipCardBalance:opened}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 其他条目 -->
+  <view class="other-items">
+    <view bindtap="jump" data-page="/pages/vipBag/vipBag">
+      <view class="left">
+        <image src="../../icon/icon_huiyuan.png" mode="aspectFit" style="width: 40rpx; height: 31rpx"></image>我是会员</view>
+      <view class="right">会员卡数量：{{allInfo.vipCardList.length||'0'}}
+        <view class="arraw"></view>
+      </view>
+    </view>
+    <!-- data-page="/pages/relatePhone/relatePhone" bindtap='jump' -->
+    <view wx:if="{{!bindPhone}}">
+      <view class="left">
+        <image src="../../icon/icon_shouji.png" mode="aspectFit" style="width: 41rpx; height: 40rpx"></image>绑定手机</view>
+      <view class="right">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" disabled='{{allInfo.bindMobile}}'>{{allInfo.bindMobile?'已绑定':'未绑定'}}</button>
+        <view class="arraw"></view>
+      </view>
+    </view>
+
+    <view bindtap="jump" data-page="/pages/basicInfo/basicInfo">
+      <view class="left">
+        <image src="../../icon/icon_basicinfo.png" mode="aspectFit" style="width: 41rpx; height: 38rpx"></image>基础信息</view>
+      <view class="right">
+        <view class="arraw"></view>
+      </view>
+    </view>
+
+    <view bindtap="jump" data-page="/pages/myOrder/myOrder">
+      <view class="left">
+        <image src="../../icon/icon_order.png" mode="aspectFit" style="width: 41rpx; height: 39rpx"></image>我的订单</view>
+      <view class="right">
+        <view class="arraw"></view>
+      </view>
+    </view>
+  </view>
+ 
+  <!-- 会员支付二维码弹框 -->
+
+  <!-- 团 -->
+  <view class="group-card {{showCard=='group'&&'show'}}">
+    <view class="closeQR" bindtap="closeQR">×</view>
+    <view class='card-name'>团餐会员卡</view>
+    <image src="{{groupQR}}"></image>
+    <view class='card-id' wx:if="{{false}}">123123</view>
+    <view class='card-tips'>该电子会员卡，用于门店扫码支付 请谨慎保管，勿向他人泄露 </view>
+  </view>
+  <!-- 个人 -->
+  <view class="personal-card {{showCard=='personal'&&'show'}}">
+    <view class="closeQR" bindtap="closeQR">×</view>
+    <view class='card-name'>个人会员卡</view>
+    <image mode="scaleToFill" src="{{personalQR}}"></image>
+    <view class='card-id' wx:if="{{false}}">123123</view>
+    <view class='card-tips'>该电子会员卡，用于门店扫码支付 请谨慎保管，勿向他人泄露 </view>
+  </view>
+</view>
+
+<view class="stop-modal" wx:if="{{modalOn}}"></view>

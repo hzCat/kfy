@@ -1,0 +1,24 @@
+.consume,.charge{
+    display: flex;
+    justify-content: left;
+    font-size: 30rpx;
+    background:#fff;
+    padding:34rpx 41rpx;
+    /* border-top:1px solid #c7c7cc; */
+}
+.left{
+    color:#999;
+}
+.right{
+    margin-left:115rpx;
+    color:#333;
+}
+.charge .right{
+    margin-left:87rpx;
+}
+.left view,.right view{
+    line-height:60rpx;
+}
+.consume .right view:first-child{
+    color:#5076bd;
+}

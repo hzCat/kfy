@@ -1,0 +1,77 @@
+<view class="container">
+  <!-- 充值选项 -->
+  <view class="choose-money">
+    <!-- 50 -->
+    <button disabled='{{isVip!="true"}}' class='{{nowMoney==50?"selected":"none"}} btn-not-3' data-money="50" bindtap="chooseMoney">￥50</button>
+    <!-- 100 遍历 -->
+    <button wx:for="{{moneyArr}}" wx:key="index" class='{{nowMoney==item?"selected":"none"}} {{(index+2)%3!=0?"btn-not-3":"btn-3"}} {{index%3==0?"btn-center":"none"}}'
+      data-money="{{item}}" bindtap="chooseMoney">￥{{item}}</button>
+    <!-- 200 -->
+    <!-- <button class='{{nowMoney==200?"selected":"none"}}' data-money="200" bindtap="chooseMoney">￥200</button> -->
+    <!-- 500 -->
+    <!-- <button class='{{nowMoney==500?"selected":"none"}}' data-money="500" bindtap="chooseMoney">￥500</button> -->
+    <!-- 1000 -->
+    <!-- <button class='{{nowMoney==1000?"selected":"none"}}' data-money="1000" bindtap="chooseMoney">￥1000</button> -->
+    <!-- 2000 -->
+    <!-- <button class='{{nowMoney==2000?"selected":"none"}}' data-money="2000" bindtap="chooseMoney">￥2000</button> -->
+
+    <input placeholder='自定义金额(需是50的倍数)' type='digit' bindblur='chooseMoneyInput' value='{{isFifty}}' disabled='{{isVip!="true"}}'></input>
+    <!-- <input placeholder='自定义金额(需是50的倍数)' type='number' bindblur='chooseMoneyInput' value='{{isFifty}}'></input> -->
+  </view>
+
+  <view class='vip-info'>
+    <view class='vip-1' wx:if="{{willGetLevel||currentLevel}}">
+      <view wx:if="{{willGetLevel}}">您将获得功夫元【{{willGetLevel.levelName}}】会员</view>
+      <view wx:if="{{currentLevel}}">当前【{{currentLevel.levelName}}】会员</view>
+      <view class='vip-con flex'>
+        <image wx:if="{{willGetLevel||currentLevel}}" class='vip-img' src="../../img/chargemoney/{{willGetLevel.levelName||currentLevel.levelName}}.png"></image>
+        <!-- <image wx:if="{{currentLevel}}" class='vip-img' src="../../img/chargemoney/{{currentLevel.levelName}}.png"></image> -->
+        <view class='vip-text'>
+          <view>1.充值 {{currentLevel.rechargeGetAmt||willGetLevel.rechargeGiftAmt}} 赠送 {{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</view>
+          <view>2.消费订单结算 {{currentLevel.baseSettlementProportion||willGetLevel.baseSettlementProportion}} 折</view>
+          <view>3.积分比例 1：{{currentLevel.baseIntegralProportion||willGetLevel.baseIntegralProportion}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='vip-2' wx:if="{{nextGetLevel}}">
+      <view>再充值 ￥{{nextNeed}}，您将获得功夫元【{{nextGetLevel.levelName}}】会员</view>
+      <view class='vip-con flex'>
+        <image class='vip-img' src="../../img/chargemoney/{{nextGetLevel.levelName}}.png"></image>
+        <view class='vip-text'>
+          <view>1.充值 {{nextGetLevel.rechargeGetAmt}} 赠送 {{nextGetLevel.rechargeGiftAmt}}</view>
+          <view>2.消费订单结算 {{nextGetLevel.baseSettlementProportion}} 折</view>
+          <view>3.积分比例 1：{{nextGetLevel.baseIntegralProportion}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pay-btn-group">
+    <button class='pay-btn' bindtap='wechatPay' disabled='{{allDisable}}'>微信支付</button>
+
+  </view>
+  <view class='check-con'>
+    <checkbox-group class='checkbox' bindchange="checkbox">
+      <checkbox checked='true' value="true" />
+    </checkbox-group>
+    <text>支付即表示已阅读并同意</text>
+    <text bindtap="getDoc">《会员服务及充值服务协议》</text>
+  </view>
+</view>
+
+<!-- 遮罩 -->
+<view class="stop-modal" wx:if="{{modalOn}}"></view>
+
+<!-- 绑定手机模态框 -->
+<view class="get-phonenumber {{getNumber?'get-show':'none'}}">
+  <view class="box">
+    <view class="title">重要提示</view>
+    <view class="content">
+      <text decode="true">*&nbsp;&nbsp;&nbsp;&nbsp;开通会员卡需绑定手机号</text>
+    </view>
+    <view class="btn-group">
+      <button class="btn-cancel" hover-class="btn-hover" bindtap="closeGetNumber">取消</button>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class="btn-hover">绑定</button>
+    </view>
+  </view>
+</view>

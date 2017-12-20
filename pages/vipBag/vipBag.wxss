@@ -1,0 +1,137 @@
+.vip-card {
+  height: 460rpx;
+  padding: 0 41rpx;
+}
+
+.vip-card>view:first-child, .vip-card>view:last-child {
+  color: #888;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.vip-card .card-info {
+  /* display: flex;
+    flex-direction: column;
+    justify-content:left;
+    align-items: center; *//* position:relative; */
+  margin-left: 39rpx;
+  margin-top: 17rpx;
+}
+
+.vip-card .card-text {
+  position: relative;
+  z-index: 100;
+  color: #fff;
+  width: 590rpx;
+  height: 314rpx;
+  padding: 40rpx;
+}
+
+.vip-card .card-text>view:first-child {
+  font-size: 30rpx;
+  color: #fbecda;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.vip-card .card-text .logo {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 16rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vip-card .card-text>view:last-child {
+  font-size: 90rpx;
+  color: #fff;
+  margin-top: 48rpx;
+  margin-left: 42rpx;
+}
+
+.vip-card .card-text>view:last-child text:nth-child(2) {
+  margin-left: 218rpx;
+}
+
+.vip-card .card-text>view:last-child text:nth-child(3) {
+  font-size: 28rpx;
+}
+
+/* 下半部分 */
+
+.down .img, .vip-step .to-be .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.down .to-be .img>image {
+  width: 90rpx;
+  opacity: 0.5;
+}
+
+.down .to-be-vip>view, .vip-step .to-be {
+  padding: 0 41rpx;
+  height: 182rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.down .to-be-vip>view:not(.group1), .vip-step .to-be {
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.bg-red {
+  background: #ff6a70;
+}
+
+.bg-orange {
+  background: #fdaf31;
+}
+
+/* 下半部分 */
+
+.down {
+  height: 364rpx;
+  background: #fff;
+}
+
+.down .text {
+  margin-left: 24rpx;
+}
+
+.down .text>view:first-child {
+  font-size: 34rpx;
+  color: #141414;
+}
+
+.down .text>view:last-child {
+  font-size: 26rpx;
+  color: #a9a9a9;
+  margin-top: 15rpx;
+}
+
+/* 办理进度    包含类型和进度*/
+
+.vip-step {
+  background: #fff;
+}
+
+.vip-step .step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 41rpx;
+  height: 95rpx;
+  font-size: 30rpx;
+  color: #333;
+  border-top:1px solid #dbdbdb;
+}

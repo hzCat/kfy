@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- 图标 -->
+  <icon class='success-img' type="success" color="#fdaf31" size="100" wx:if="{{isSuccess=='true'}}"></icon>
+  <icon class='success-img' type="warn" color="#f76260" size="100" wx:if="{{isSuccess=='false'}}"></icon>
+  <!-- 标题 -->
+  <view class='title' wx:if="{{isSuccess=='true'}}">{{isBuy?'购买':'充值'}}成功</view>
+  <view class='title' wx:if="{{isSuccess=='false'}}">{{isBuy?'购买':'充值'}}失败</view>
+  <!-- 信息 -->
+  <view class='info' wx:if="{{isSuccess=='true'}}">
+    <text decode='{{true}}'>单号&nbsp;&nbsp;&nbsp;{{orderNo?'微信'+(orderNo):'无'}}</text>
+    <text decode='{{true}}'>充值&nbsp;&nbsp;&nbsp;￥{{money=='NaN'?'0.00':money}}</text>
+    <text decode='{{true}}'>获赠&nbsp;&nbsp;&nbsp;￥{{gift=='NaN'?'0.00':gift}}</text>
+    <text decode='{{true}}'>余额&nbsp;&nbsp;&nbsp;￥{{after=='NaN'?'0.00':after}}</text>
+  </view>
+  <view class='info fail-info' wx:if="{{isSuccess=='false'}}">充值过程出现异常，如充值金额未到账，请致电客服协助处理：17340178079。</view>
+  <!-- 信息2 -->
+  <view class='info-2' wx:if="{{isSuccess=='true'}}">如有疑问，请致电客服： 17340178079</view>
+  <view class='info-2 fail-info-2' wx:if="{{isSuccess=='false'}}">单号 {{orderNo||'无'}} </view>
+  <!-- 按钮 -->
+  <button wx:if="{{isSuccess=='true'}}" bindtap="jump" data-pattern="redirect" data-jump="/pages/vipCard/vipCard">返回</button>
+  <button wx:if="{{isSuccess=='false'}}" bindtap="jump" data-pattern="back" data-jump="/pages/chargeMoney/chargeMoney">返回</button>
+</view>

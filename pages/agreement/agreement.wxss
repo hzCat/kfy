@@ -1,0 +1,35 @@
+.container {
+  padding: 41rpx;
+}
+
+.h1 {
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.h2,
+.h3 {
+  font-size: 27rpx;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 24rpx;
+}
+
+.h2 {
+  margin-top: 36rpx;
+  font-size: 30rpx;
+}
+
+.p {
+  text-indent: 2em;
+  font-size: 26rpx;
+  line-height:36rpx;
+  margin-top: 18rpx;
+}
+
+.ul {
+  text-indent: 0.5em;
+  font-size: 26rpx;
+  margin-top: 18rpx;
+}

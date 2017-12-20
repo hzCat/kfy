@@ -1,0 +1,11 @@
+<view class="container">
+    <image class='img' src="../../img/hasnoorder/icon-no-order.png"></image>
+    <view class='title'>当前无可支付订单</view>
+    <view class='tips'>
+        <view>操作提示:</view>
+        <view>1.如您需要进行支付，请扫描餐盘二维码</view>
+        <view>2.如已完成支付，祝你用餐愉快</view>
+        <view>3.呼叫店小二</view>
+    </view>
+    <button bindtap='refresh'>重试一下</button>
+</view>

@@ -1,0 +1,130 @@
+<view class="container">
+  <!-- 切换栏 -->
+  <view class='header-switch'>
+    <view class="personal {{userType=='personal'&&'selected'}}" data-usertype="personal" bindtap="switchPage">个人会员</view>
+    <view class='line'></view>
+    <view class="group {{userType=='group'&&'selected'}}" data-usertype="group" bindtap="switchPage">团餐会员</view>
+    <text class="clear"></text>
+  </view>
+
+  <!-- 会员内容框 -->
+  <view class="vip-detail" bindtouchstart="tstart" bindtouchend='tend'>
+    <view class='check-con' wx:if="{{userType=='personal'}}">
+      <checkbox-group class='checkbox' bindchange="checkbox">
+        <checkbox checked='true' value="true" />
+      </checkbox-group>
+      <text>支付即表示已阅读并同意</text>
+      <text bindtap="getDoc">《会员服务及充值服务协议》</text>
+    </view>
+
+
+    <!-- 个人会员 -->
+    <view class='p-vip' wx:if="{{userType=='personal'}}">
+
+      <!-- VIP1 -->
+      <view wx:for='{{vipCardList}}' wx:key="index" class='all-vip vip vip-{{item.vipLevel}} VIP{{item.vipLevel}}'>
+
+        <view class='line-1'>
+          <view>
+            <image src="../../icon/VIP{{item.vipLevel}}.png"></image>
+          </view>
+          <view wx:if="{{item.opened}}">{{item.opened?'已开通':''}}</view>
+        </view>
+        <view class='line-2'>
+          <view>
+            <text decode='true'>充值赠送&nbsp;&nbsp;充</text>
+            <text class='strong' decode='true'>&nbsp;{{item.rechargeGetAmt}}&nbsp;</text>送
+            <text class='strong' decode='true'>&nbsp;{{item.rechargeGiftAmt}}&nbsp;</text>（仅限充值会员)</view>
+          <view>
+            <text decode='true'>结算优惠&nbsp;&nbsp;</text>
+            <text class='strong-2'>{{item.baseSettlementProportion}}折</text>
+          </view>
+          <view>
+            <text decode='true'>积分比例&nbsp;&nbsp;1 : {{item.baseIntegralProportion}}</text> </view>
+        </view>
+        <!-- 拥有后屏蔽 -->
+        <!-- <view wx:if="{{index<2&&vipCardList[index+1].opened==true?false:true}}"> -->
+        <view wx:if="{{index>=openedLevel}}">
+          <view class='btn-group' wx:if="{{item.opened}}">
+            <button hover-class="hover-vip" bindtap='jump' data-jump="/pages/chargeMoney/chargeMoney?isVip={{isVip}}&by={{item.vipScope}}&money={{item.rechargeGetAmt}}&buy=false" disabled='{{allDisable}}'>充值</button>
+            <button hover-class="hover-vip" wx:if="{{false}}">充值</button>
+          </view>
+          <!-- 两个按钮用btn-group-2 -->
+          <view class='btn-group' wx:if="{{!item.opened}}">
+            <!-- <button bindtap='jump' data-jump="/pages/chargeMoney/chargeMoney?isVip={{isVip}}&by={{item.vipScope}}&money={{item.buyGetAmt}}&level={{item.vipLevelId}}&buy=true" disabled='{{allDisable}}'>支付{{item.buyGetAmt}}开通</button> -->
+            <button wx:if="{{false}}" bindtap='buyVip' hover-class="hover-vip" data-lname="{{item.vipLevelName}}" data-level="{{item.vipLevelId}}" disabled='{{allDisable}}'>支付{{item.buyGetAmt}}开通</button>
+            <button bindtap='jump' hover-class="hover-vip" data-jump="/pages/chargeMoney/chargeMoney?isVip={{isVip}}&by={{item.vipScope}}&money={{item.rechargeGetAmt}}&buy=false" disabled='{{allDisable}}'>充值{{item.rechargeGetAmt}}开通</button>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+    <!-- 团餐会员 -->
+    <view class="group-step" wx:if="{{userType=='group'}}">
+      <view class='step-top'>
+        <view class='step-1'>
+          <view class='num step-on'>1</view>
+          <view class='line'></view>
+        </view>
+        <view class='step-2'>
+          <view class='num'>2</view>
+          <view class='line'></view>
+        </view>
+        <view class='step-3'>
+          <view class='num'>3</view>
+        </view>
+      </view>
+      <view class='step-bottom'>
+        <view class='step-1'>
+          <view class='text step-on-t'>填写资料</view>
+        </view>
+        <view class='step-2'>
+          <view class='text'>联系汇款</view>
+        </view>
+        <view class='step-3'>
+          <view class='text'>办理成功</view>
+        </view>
+      </view>
+      <button class='input-info' bindtap="jump" data-jump="/pages/groupInfo/groupInfo" disabled='{{true}}'>填写资料</button>
+      <!-- 协议 -->
+      <view class='check-con' wx:if="{{userType=='group'}}">
+        <checkbox-group class='checkbox' bindchange="checkbox">
+          <checkbox checked='true' value="true" />
+        </checkbox-group>
+        <text>支付即表示已阅读并同意</text>
+        <text bindtap="getDoc">《会员服务及充值服务协议》</text>
+      </view>
+    </view>       
+    <!-- group-step 结束 -->
+    <view class='g-vip' wx:if="{{userType=='group'}}">
+      <view class='vip-1' style='text-align:center;padding-top:200rpx;padding-bottom:200rpx;;font-size:30rpx;color:#999'>
+        暂无团餐服务
+      </view>
+      <view class='btn-group' wx:if="{{false}}">
+        <view class='orange'>充值</view>
+        <view class='orange' wx:if="{{false}}">充值</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 遮罩 -->
+<view class="stop-modal" wx:if="{{modalOn}}"></view>
+
+<!-- 绑定手机模态框 -->
+<view class="get-phonenumber {{getNumber?'get-show':'none'}}">
+  <view class="box">
+    <view class="title">重要提示</view>
+    <view class="content">
+      <text decode="true">*&nbsp;&nbsp;&nbsp;&nbsp;开通会员卡需绑定手机号</text>
+    </view>
+    <view class="btn-group">
+      <button class="btn-cancel" hover-class="btn-hover" bindtap="closeGetNumber">取消</button>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class="btn-hover">绑定</button>
+    </view>
+  </view>
+</view>
+
+
+<!-- <web-view src="http://www.alphabet-google.com/test/agreement.html?userType={{userType}}" wx:if="{{webview}}"></web-view> -->
