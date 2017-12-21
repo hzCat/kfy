@@ -1,5 +1,5 @@
-var util = require("../../utils/util.js")
-var navbar = require("../../utils/navbar.js")
+var util = require("../../utils/util.js");
+var navbar = require("../../utils/navbar.js");
 
 Page({
 
