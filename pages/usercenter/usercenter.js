@@ -180,7 +180,6 @@ Page({
           wx.hideNavigationBarLoading();
           wx.stopPullDownRefresh();
         });
-
     }, 1500);
   },
 

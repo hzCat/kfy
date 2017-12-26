@@ -17,6 +17,7 @@
 
 .bg-img-cover {
   background: #000;
+  height:1000rpx;
   opacity: 0.33;
   z-index: 100;
 }
