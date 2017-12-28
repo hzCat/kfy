@@ -97,7 +97,7 @@ Page({
             };
             http.ajax(url, method, data, header)
               .then(function (res) {
-                console.log(res.data.data)
+                console.log(res.data)
                 // 请求正常且有data值
                 if (res.data.code == 200 && res.data.data != null) {
                   that.setData({
