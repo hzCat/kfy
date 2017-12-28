@@ -56,17 +56,18 @@ Page({
           }
           // 获取优惠
           if (offmoney) {
-            var url = "/vipPayment/calcOrderOffer";
+            var url = "/vipPayment/quickPayPre";   //new
             var method = "GET";
             var header = that.data.header;
             var data = {
-              orderId: that.data.orderData.id,
+              id: that.data.orderData.id,
               payChannel: res.data.data.defaultPayChannel
             };
             http.ajax(url, method, data, header)
               .then(function (res) {
                 console.log(res.data.data)
                 that.setData({
+                  orderData:res.data.data.orderResponseList[0],
                   offMoney: res.data.data
                 })
               })
@@ -96,7 +97,7 @@ Page({
             };
             http.ajax(url, method, data, header)
               .then(function (res) {
-                console.log(res.data)
+                console.log(res.data.data)
                 // 请求正常且有data值
                 if (res.data.code == 200 && res.data.data != null) {
                   that.setData({
@@ -171,13 +172,14 @@ Page({
       modalOn: true,
     })
     // 调整优惠
-    var url = "/vipPayment/calcOrderOffer";
+    // var url = "/vipPayment/calcOrderOffer";
+    var url = "/vipPayment/quickPayPre";   //new
     var method = "GET";
     var header = this.data.header;
     // vip
     if (choose == "VIP_CARD") {
       var data = {
-        orderId: this.data.orderData.id,
+        id: this.data.orderData.id,
         payChannel: "VIP_CARD"
       };
       http.ajax(url, method, data, header)
@@ -196,7 +198,7 @@ Page({
       // tvip
     } else if (choose == "TVIP_CARD") {
       var data = {
-        orderId: this.data.orderData.id,
+        id: this.data.orderData.id,
         payChannel: "TVIP_CARD"
       };
       http.ajax(url, method, data, header)
@@ -215,7 +217,7 @@ Page({
       // 微信
     } else if (choose == "wechat") {
       var data = {
-        orderId: this.data.orderData.id,
+        id: this.data.orderData.id,
         payChannel: "WECHART"
       };
       http.ajax(url, method, data, header)
