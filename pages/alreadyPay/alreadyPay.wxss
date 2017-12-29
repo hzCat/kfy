@@ -52,6 +52,7 @@
 
 .order-one>view:nth-child(3) {
     width: 110rpx;
+    text-align: right;
 }
 
 
@@ -152,17 +153,31 @@
     margin-right: 8rpx;
 }
 
-.price .mark1 {
+.price .mark-orange {
     background: #fdaf31;
 }
-
-.price .mark2 {
-    background: #fdaf31;
-}
-
-.price .mark3 {
+.price .mark-red {
     background: #f76260;
 }
+.price .mark-purple {
+    background: #ab47bc;
+}
+.price .mark-purple-red {
+    background: #ec407a;
+}
+.price .mark-purple-blue {
+    background: #6272cc;
+}
+.price .mark-blue {
+    background: #29b6f6;
+}
+.price .mark-green {
+    background: #61c480;
+}
+.price .mark-lightgreen {
+    background: #cddc39;
+}
+
 
 .price .word {
     font-size: 32rpx;

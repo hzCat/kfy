@@ -280,13 +280,13 @@ Page({
                   // 支付结果查询,第一次查询,4s
                   setTimeout(function () {
                     // 查询支付结果
-                    pay.payback(that.data.orderData.id, that.data.header)
+                    pay.payback(json.settlementId, that.data.header)
                       .then(function (res) {
                         console.log("微信支付结果");
                         console.log(res.data);
                         let obj = res.data;
                         let money = obj.tradeResponse.payAmt;
-                        let orderNo = obj.tradeResponse.orderNo;
+                        let orderNo = obj.tradeResponse.orderList[0].orderNo;
                         // SUCCESS订单(by,isSucc,money,orderId)
                         if (obj.tradeStatus == "SUCCESS") {
                           wx.hideLoading();

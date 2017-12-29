@@ -19,43 +19,43 @@
     <view class="price-total">
         <view class="price total">
             <view>合计</view>
-            <view>￥22.00</view>
+            <view>￥{{orderDetail.orderAmt}}</view>
             <view class="circle circle1"></view>
             <view class="circle circle2"></view>
         </view>
         <view class="off-con">
-            <view class="price">
+            <view class="price" wx:for="{{offDetail}}" wx:key="index">
                 <view>
-                    <view class="mark mark1">特</view>
-                    <view class="word">特价处理</view>
+                    <view class="mark {{item.color}}">{{item.oneWord}}</view>
+                    <view class="word">{{item.name}}</view>
                 </view>
-                <view class="off-money">-￥22.22</view>
+                <view class="off-money">-￥{{item.money}}</view>
             </view>
-            <view class="price">
+            <!-- <view class="price">
                 <view>
-                    <view class="mark mark2">省</view>
+                    <view class="mark mark-orange">省</view>
                     <view class="word">抹零</view>
                 </view>
                 <view class="off-money">-￥22.22</view>
             </view>
             <view class="price">
                 <view>
-                    <view class="mark mark3">首</view>
+                    <view class="mark mark-red">首</view>
                     <view class="word">首单支付减免</view>
                 </view>
                 <view class="off-money">-￥22.22</view>
-            </view>
+            </view> -->
             <view class="circle circle1"></view>
             <view class="circle circle2"></view>
         </view>
         <view class="pay-con">
             <view class="price">
                 <view>需支付</view>
-                <view>￥22.00</view>
+                <view>￥{{orderDetail.payAmt}}</view>
             </view>
             <view class="price">
                 <view>已支付</view>
-                <view class="paid">￥22.00</view>
+                <view class="paid">￥{{orderDetail.payAmt}}</view>
             </view>
         </view>
 
@@ -64,15 +64,15 @@
     <view class="other-info">
         <view class="price">
             <view>支付时间</view>
-            <view>2017/12/28 12:12:12</view>
+            <view>{{orderDetail.payTime}}</view>
         </view>
         <view class="price">
             <view>支付方式</view>
-            <view>微信</view>
+            <view>{{orderDetail.payChannelDisplayName}}</view>
         </view>
         <view class="price">
             <view>门店</view>
-            <view>香年店</view>
+            <view>{{orderDetail.storeName}}</view>
         </view>
         </view>
     </view>
