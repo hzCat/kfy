@@ -10,7 +10,7 @@
 /* 订单详情 */
 
 .order-detail {
-  position: relative;
+    position: relative;
     background: #fafafa;
     padding-bottom: 34rpx;
 }
@@ -139,9 +139,11 @@
     justify-content: flex-start;
     align-items: center;
 }
-.price .off-money{
-  color:#fb4c41;
+
+.price .off-money {
+    color: #fb4c41;
 }
+
 .price .mark {
     width: 32rpx;
     height: 32rpx;
@@ -156,64 +158,73 @@
 .price .mark-orange {
     background: #fdaf31;
 }
+
 .price .mark-red {
     background: #f76260;
 }
+
 .price .mark-purple {
     background: #ab47bc;
 }
+
 .price .mark-purple-red {
     background: #ec407a;
 }
+
 .price .mark-purple-blue {
     background: #6272cc;
 }
+
 .price .mark-blue {
     background: #29b6f6;
 }
+
 .price .mark-green {
     background: #61c480;
 }
+
 .price .mark-lightgreen {
     background: #cddc39;
 }
-
 
 .price .word {
     font-size: 32rpx;
 }
 
-.pay-con{
-  padding:20rpx 0;
-}
-.pay-con .price{
-  line-height:72rpx;
+.pay-con {
+    padding: 20rpx 0;
 }
 
-.price .paid{
-  font-weight: bold;
-  color:#fb4c41;
+.pay-con .price {
+    line-height: 72rpx;
 }
-.price-total2{
-  margin-top:23rpx;
-  padding-top:20rpx;
-  padding-bottom:19rpx;
+
+.price .paid {
+    font-weight: bold;
+    color: #fb4c41;
 }
-.other-info{
-    line-height:72rpx; 
+
+.price-total2 {
+    margin-top: 23rpx;
+    padding-top: 20rpx;
+    padding-bottom: 19rpx;
+}
+
+.other-info {
+    line-height: 72rpx;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: -8rpx;
+    height: 88rpx;
+    width: 16rpx;
+    background: #6bcaad;
+    border-radius: 8rpx;
 }
 
 
-
-.line{
-  position: absolute;
-  top:0;
-  left:-8rpx;
-  height:88rpx;
-  width:16rpx;
-  background:#6bcaad;
-  border-radius: 8rpx;
-}
 /* 优惠提示信息 */
 
 
@@ -259,6 +270,7 @@
   padding-top: 32rpx;
   padding-bottom: 48rpx;
 } */
+
 
 /* .price>view:first-child {
     color: #333;

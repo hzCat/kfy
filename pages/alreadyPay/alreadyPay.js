@@ -1,6 +1,6 @@
 var http = require("../../utils/ajax.js");
 var navbar = require("../../utils/navbar.js");
-var offColor=require("../../utils/offColor.js");
+var offColor = require("../../utils/offColor.js");
 Page({
 
   /*** 页面的初始数据*/
@@ -9,7 +9,7 @@ Page({
     showNum: 4,
     third: "",
     header: {},
-    offDetail:[],
+    offDetail: [],
   },
 
   /*** 生命周期函数--监听页面加载*/
@@ -38,7 +38,7 @@ Page({
             let off = res.data.data.offerDetailList;
             console.log(off);
             // 优惠信息转换
-            let arr=offColor.turn(off);
+            let arr = offColor.turn(off);
             that.setData({
               orderDetail: res.data.data,
               offDetail: arr
