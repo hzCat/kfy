@@ -31,20 +31,6 @@
                 </view>
                 <view class="off-money">-￥{{item.money}}</view>
             </view>
-            <!-- <view class="price">
-                <view>
-                    <view class="mark mark-orange">省</view>
-                    <view class="word">抹零</view>
-                </view>
-                <view class="off-money">-￥22.22</view>
-            </view>
-            <view class="price">
-                <view>
-                    <view class="mark mark-red">首</view>
-                    <view class="word">首单支付减免</view>
-                </view>
-                <view class="off-money">-￥22.22</view>
-            </view> -->
             <view class="circle circle1"></view>
             <view class="circle circle2"></view>
         </view>
