@@ -30,15 +30,15 @@
   <view class='getInfo'>
     <view class='input-con'>
       <label>公司/组织名称</label>
-      <input placeholder='必填项' placeholder-style='color:#999'></input>
+      <input placeholder='必填项' placeholder-class='placeholder' bindblur="getCompanyName"></input>
     </view>
     <view class='input-con'>
       <label>联系手机</label>
-      <input type="number" placeholder='必填项' placeholder-style='color:#999'></input>
+      <input type="number" placeholder='必填项' placeholder-class='placeholder' bindblur="getPhoneNumber"></input>
     </view>
     <view class='input-con'>
       <label>联系人</label>
-      <input placeholder='必填项' placeholder-style='color:#999'></input>
+      <input placeholder='必填项' placeholder-class='placeholder' bindblur="getPeopleName"></input>
     </view>
 
   </view>
@@ -46,11 +46,11 @@
   <view class="other-info">
     <view class='input-con'>
       <label>配送地址</label>
-      <input placeholder='可选项' placeholder-style='color:#999'></input>
+      <input placeholder='可选项' placeholder-class='placeholder' bindblur="getAddress"></input>
     </view>
     <view class='input-con'>
       <label>汇款单号/流水号</label>
-      <input placeholder='可选项' placeholder-style='color:#999'></input>
+      <input placeholder='可选项' placeholder-class='placeholder' bindblur="getOrderNumber "></input>
     </view>
   </view>
   <button class='submit' disabled='{{false}}'>提交</button>

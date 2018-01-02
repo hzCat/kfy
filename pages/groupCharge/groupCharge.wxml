@@ -28,26 +28,26 @@
   <view class='money-num'>
     <view class='input-con'>
       <label>汇款单号/流水号</label>
-      <input placeholder='必填' placeholder-style='color：#999'></input>
+      <input placeholder='必填' placeholder-class='placeholder' value="{{orderNumber}}" bindblur="getOrderNumber"></input>
     </view>
     <view class='input-con'>
       <label>汇款金额</label>
-      <input placeholder='必填' placeholder-style='color：#999' value="1200.00"></input>
+      <input placeholder='必填' placeholder-class='placeholder' value="{{money}}" bindblur="getMoney"></input>
     </view>
   </view>
   <view class='other-info'>
     <view class='input-con'>
       <label>备注</label>
-      <input placeholder='选填' placeholder-style='color：#999'></input>
+      <input placeholder='选填' placeholder-class='placeholder' value="{{otherInfo}}" bindblur="getOtherInfo"></input>
     </view>
     <view class='input-con'>
       <label>联系手机</label>
-      <input placeholder='选填' placeholder-style='color：#999' value="13345678901"></input>
+      <input placeholder='选填' placeholder-class='placeholder' value="{{phoneNumber}}" bindblur="getPhoneNumber"></input>
     </view>
   </view>
   <view class='service-phonenumber'>
     <text>客服电话：</text>
-    <text>028-88888888</text>
+    <text>17340178079</text>
   </view>
-  <button class="submit">提交</button>
+  <button class="submit" bindtap="pushAllInfo">提交</button>
 </view>
