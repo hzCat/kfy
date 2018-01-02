@@ -1,9 +1,8 @@
 <view class="container">
-
+    
     <!-- 详细订单 -->
     <view class="order-detail">
         <view class="order-title bluegreen">已支付</view>
-        <view class="line"></view>
         <view class='order-one' wx:for="{{orderDetail.detailList}}" wx:key="index" wx:if="{{index<showNum}}">
             <view>{{item.disheName}}</view>
             <view>×{{item.disheQty}}</view>
@@ -17,54 +16,6 @@
     </view>
     <!-- 合计 -->
     <view class="price-total">
-        <view class="price total">
-            <view>合计</view>
-            <view>￥{{orderDetail.orderAmt}}</view>
-            <view class="circle circle1"></view>
-            <view class="circle circle2"></view>
-        </view>
-        <view class="off-con">
-            <view class="price" wx:for="{{offDetail}}" wx:key="index">
-                <view>
-                    <view class="mark {{item.color}}">{{item.oneWord}}</view>
-                    <view class="word">{{item.name}}</view>
-                </view>
-                <view class="off-money">-￥{{item.money}}</view>
-            </view>
-            <view class="circle circle1"></view>
-            <view class="circle circle2"></view>
-        </view>
-        <view class="pay-con">
-            <view class="price">
-                <view>需支付</view>
-                <view>￥{{orderDetail.payAmt}}</view>
-            </view>
-            <view class="price">
-                <view>已支付</view>
-                <view class="paid">￥{{orderDetail.payAmt}}</view>
-            </view>
-        </view>
-
-    </view>
-    <view class="price-total price-total2">
-    <view class="other-info">
-        <view class="price">
-            <view>支付时间</view>
-            <view>{{orderDetail.payTime}}</view>
-        </view>
-        <view class="price">
-            <view>支付方式</view>
-            <view>{{orderDetail.payChannelDisplayName}}</view>
-        </view>
-        <view class="price">
-            <view>门店</view>
-            <view>{{orderDetail.storeName}}</view>
-        </view>
-        </view>
-    </view>
-
-
-    <!-- <view class="price-total">
         <view class='price user'>
             <view>用户</view>
             <view>{{orderDetail.userNickName||'微信用户'}}</view>
@@ -94,6 +45,6 @@
             <view>门店</view>
             <view>{{orderDetail.storeName}}</view>
         </view>
-    </view> -->
-
+    </view>
+    
 </view>
