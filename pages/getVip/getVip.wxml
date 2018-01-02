@@ -90,7 +90,7 @@
           <view class='text'>办理成功</view>
         </view>
       </view>
-      <button class='input-info' bindtap="jump" data-jump="/pages/groupInfo/groupInfo" disabled='{{true}}'>填写资料</button>
+      <button class='input-info' bindtap="jump" data-jump="/pages/groupInfo/groupInfo" disabled='{{false}}'>填写资料</button>
       <!-- 协议 -->
       <view class='check-con' wx:if="{{userType=='group'}}">
         <checkbox-group class='checkbox' bindchange="checkbox">

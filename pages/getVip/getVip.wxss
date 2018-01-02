@@ -155,8 +155,8 @@
 
 .p-vip .vip-2 {}
 
-button {
-  border: 1rpx solid #fff;
+button:not(.input-info) {
+   border: 1rpx solid #fff; 
 }
 
 

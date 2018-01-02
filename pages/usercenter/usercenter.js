@@ -180,7 +180,6 @@ Page({
           wx.hideNavigationBarLoading();
           wx.stopPullDownRefresh();
         });
-
     }, 1500);
   },
 
@@ -274,7 +273,6 @@ Page({
           .then(function (res) {
             console.log(res);
             // 关闭遮罩,添加二维码路径
-
             that.setData({
               personalQR: 'data:image/png;base64,' + res.data.data,
               modalOn: false,
