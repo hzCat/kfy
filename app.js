@@ -14,6 +14,7 @@ App({
   onLaunch: function () {
     var that = this;
     that.globalData.canCheck = true;
+    console.log("当前版本,v1.1-group")
     // 打开调试
     wx.setEnableDebug({
       enableDebug: true
