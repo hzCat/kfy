@@ -39,7 +39,7 @@ Page({
   onShow: function () {
 
   },
-
+  // 公司名字
   getCompanyName(e) {
     console.log("company", e.detail.value)
     if (/^[\u4e00-\u9fa5_a-zA-Z0-9]{6,30}$/.test(e.detail.value)) {
@@ -52,6 +52,7 @@ Page({
       modal.modal("提示", "公司名要求6~30位中文﹐英文或者数字")
     }
   },
+  // 手机号
   getPhoneNumber(e) {
     console.log("phonenumber", e.detail.value)
     if (/^1[3456789]\d{9}$/.test(e.detail.value)) {
@@ -64,6 +65,7 @@ Page({
       modal.modal("提示", "请输入11位手机号码")
     }
   },
+  // 联系人
   getPeopleName(e) {
     console.log("peopleName", e.detail.value)
     if (/^[\u4e00-\u9fa5_a-zA-Z0-9]{1,10}$/.test(e.detail.value)) {
@@ -76,6 +78,7 @@ Page({
       modal.modal("提示", "姓名要求1~10位中文﹐英文或者数字")
     }
   },
+  // 地址
   getAddress(e) {
     console.log("address", e.detail.value)
     if (/^[\u4e00-\u9fa5_a-zA-Z0-9]{0,30}$/.test(e.detail.value)) {
@@ -86,6 +89,7 @@ Page({
       })
     }
   },
+  // 订单号
   getOrderNumber(e) {
     console.log("orderNumber", e.detail.value)
     if (/^[\u4e00-\u9fa5_a-zA-Z0-9]{0,30}$/.test(e.detail.value)) {
@@ -99,11 +103,15 @@ Page({
   pushAllInfo() {
     console.log(this.data.pushInfo)
     let data = this.data.pushInfo;
-    let url = "/tvip/apply";
-    let header = this.data.header;
-    http.ajax(url, "POST", data, header)
-      .then(function (res) {
-        console.log(res.data);
-      })
+    if (data.contactMobile && data.corpName && data.contactName) {
+      let url = "/tvip/apply";
+      let header = this.data.header;
+      http.ajax(url, "POST", data, header)
+        .then(function (res) {
+          console.log(res.data);
+        })
+    }else{
+      modal.modal("提示","需要公司名,联系人以及联系手机号")
+    }
   }
 })
