@@ -75,7 +75,7 @@ App({
         };
         http.ajax(url, method, data, header)
           .then(function (res) {
-            console.log("登录获取用户信息", res);
+            console.log("登录获取用户信息", res.data);
             if (res.data.code == "402") {
               console.log("登陆过期")
               that.login();
@@ -213,6 +213,4 @@ App({
       fail() {},
     })
   },
-
-
 })
