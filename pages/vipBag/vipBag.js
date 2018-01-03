@@ -1,4 +1,6 @@
 var navbar = require("../../utils/navbar.js");
+var storage = require("../../utils/storage.js");
+var http = require("../../utils/ajax.js");
 
 Page({
 
@@ -6,12 +8,13 @@ Page({
   data: {
     allInfo: {},
     isManage: false,
-    modalOn:false,
+    modalOn: false,
+    tvipInfo:null,
   },
 
   /*** 生命周期函数--监听页面加载*/
   onLoad: function (options) {
-    
+
   },
 
   /*** 生命周期函数--监听页面显示*/
@@ -25,16 +28,31 @@ Page({
         console.log(res)
         that.setData({
           allInfo: res.data,
-          modalOn:false,
+          modalOn: false,
         })
       },
-      fail: function (res) { },
+      fail: function (res) {},
     });
+    let url = "/tvip/getApplyOrderInfo";
+    storage.gets("3rd_session")
+      .then(function (res) {
+        let header = {
+          '_yzsaas_token': res.data,
+          "content-type": "application/x-www-form-urlencoded"
+        }
+        http.ajax(url, "GET", {}, header)
+          .then(function (res) {
+            console.log(res.data)
+            that.setData({
+              tvipInfo:res.data.data
+            })
+          })
+      })
   },
 
   jump(e) {
     this.setData({
-      modalOn:true,
+      modalOn: true,
     });
     var jump = e.currentTarget.dataset.jump;
     wx.navigateTo({

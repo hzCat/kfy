@@ -47,13 +47,13 @@
 
     </view>
     <!-- 办理进度 -->
-    <view class="vip-step" wx:if="{{isManage}}">
+    <view class="vip-step" wx:if="{{tvipInfo}}">
       <view class='step'>
         <view>
           <text class="bluegreen">办理进度 2/</text>
           <text>3</text>
         </view>
-        <navigator class="orange">编辑资料</navigator>
+        <navigator class="orange" url='/pages/groupInfo/groupInfo'>编辑资料</navigator>
       </view>
     </view>
   </view>
