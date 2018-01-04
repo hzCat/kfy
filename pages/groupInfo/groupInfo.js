@@ -1,6 +1,7 @@
 let storage = require("../../utils/storage.js");
 let http = require("../../utils/ajax.js");
 let modal = require("../../utils/modal.js")
+let util = require("../../utils/util.js")
 Page({
 
   /**
@@ -109,9 +110,14 @@ Page({
       http.ajax(url, "POST", data, header)
         .then(function (res) {
           console.log(res.data);
+          let code = res.data.code;
+          if (code == 200) {
+            // util.jump("redirect", "/pages/vipBag/vipBag")
+            util.jump("back")
+          }f
         })
-    }else{
-      modal.modal("提示","需要公司名,联系人以及联系手机号")
+    } else {
+      modal.modal("提示", "需要公司名,联系人以及联系手机号")
     }
   }
 })

@@ -47,7 +47,7 @@
 
     </view>
     <!-- 办理进度 -->
-    <view class="vip-step" wx:if="{{tvipInfo}}">
+    <view class="vip-step" wx:if="{{tvipInfo.applyStatus=='WAIT_DEAL'}}">
       <view class='step'>
         <view>
           <text class="bluegreen">办理进度 2/</text>

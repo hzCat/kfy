@@ -42,7 +42,7 @@ Page({
         }
         http.ajax(url, "GET", {}, header)
           .then(function (res) {
-            console.log(res.data)
+            console.log("tvipInfo",res.data)
             that.setData({
               tvipInfo:res.data.data
             })
