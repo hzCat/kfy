@@ -1,5 +1,5 @@
 <view class="container">
-<!-- 进度 -->
+  <!-- 进度 -->
   <view class="group-step">
     <view class='step-top'>
       <view class='step-1'>
@@ -30,15 +30,15 @@
   <view class='getInfo'>
     <view class='input-con'>
       <label>公司/组织名称</label>
-      <input placeholder='必填项' maxlength="30" placeholder-class='placeholder' bindblur="getCompanyName"></input>
+      <input placeholder='必填项' maxlength="30" data-type="corp" placeholder-class='placeholder' bindtap="clear" bindblur="getCompanyName"></input>
     </view>
     <view class='input-con'>
       <label>联系手机</label>
-      <input type="number" maxlength="11" placeholder='必填项' placeholder-class='placeholder' bindblur="getPhoneNumber"></input>
+      <input type="number" maxlength="11" data-type="phone" placeholder='必填项' placeholder-class='placeholder' bindtap="clear" bindblur="getPhoneNumber"></input>
     </view>
     <view class='input-con'>
       <label>联系人</label>
-      <input placeholder='必填项' maxlength="10" placeholder-class='placeholder' bindblur="getPeopleName"></input>
+      <input placeholder='必填项' maxlength="10" data-type="contact" placeholder-class='placeholder' bindtap="clear" bindblur="getPeopleName"></input>
     </view>
 
   </view>
@@ -46,7 +46,7 @@
   <view class="other-info">
     <view class='input-con'>
       <label>配送地址</label>
-      <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindblur="getAddress"></input>
+      <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindtap="clear" bindblur="getAddress"></input>
     </view>
     <view class='input-con'>
       <label>汇款单号/流水号</label>

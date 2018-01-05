@@ -28,21 +28,21 @@
   <view class='money-num'>
     <view class='input-con'>
       <label>汇款单号/流水号</label>
-      <input placeholder='必填' maxlength="30" placeholder-class='placeholder' value="{{orderNumber}}" bindblur="getOrderNumber"></input>
+      <input placeholder='必填' maxlength="30" data-type="order" placeholder-class='placeholder' value="{{orderNumber}}" bindtap="clear" bindblur="getOrderNumber"></input>
     </view>
     <view class='input-con'>
       <label>汇款金额</label>
-      <input placeholder='必填' type="number" placeholder-class='placeholder' value="{{money}}" bindblur="getMoney"></input>
+      <input placeholder='必填' type="digit" data-type="money" placeholder-class='placeholder' value="{{money}}" bindtap="clear" bindblur="getMoney"></input>
     </view>
   </view>
   <view class='other-info'>
     <view class='input-con'>
       <label>备注</label>
-      <input placeholder='必填' maxlength="30" placeholder-class='placeholder' value="{{otherInfo}}" bindblur="getOtherInfo"></input>
+      <input placeholder='必填' maxlength="30" data-type="note" placeholder-class='placeholder' value="{{otherInfo}}" bindtap="clear" bindblur="getOtherInfo"></input>
     </view>
     <view class='input-con'>
       <label>联系手机</label>
-      <input placeholder='必填' maxlength="11" placeholder-class='placeholder' value="{{phoneNumber}}" bindblur="getPhoneNumber"></input>
+      <input placeholder='必填' maxlength="11" data-type="phone" type="number" placeholder-class='placeholder' value="{{phoneNumber}}" bindtap="clear" bindblur="getPhoneNumber"></input>
     </view>
   </view>
   <view class='service-phonenumber'>

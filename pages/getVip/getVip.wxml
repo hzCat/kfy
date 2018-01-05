@@ -102,23 +102,23 @@
     </view>
     <!-- group-step 结束 -->
     <view class='g-vip' wx:if="{{userType=='group'}}">
-      <view class='tvip vip-1 TVIP1'>
-        <image class="level-img" src="../../icon/TVIP1.png"></image>
-        <image class="tvip-bg" src="../../img/TVIP-get/TVIP1.png"></image>
-        <view class="is-open" wx:if="{{false}}">已开通</view>
+      <view wx:for="{{tvipCardList}}" wx:key="index" class='all-vip tvip vip-{{item.vipLevel}} TVIP{{item.vipLevel}}'>
+        <image class="level-img" src="../../icon/TVIP{{item.vipLevel}}.png"></image>
+        <image class="tvip-bg" src="../../img/TVIP-get/TVIP{{item.vipLevel}}.png"></image>
+        <view class="is-open" wx:if="{{item.opened}}">已开通</view>
         <view class="tvip-con">
-          <text decode="true">充值赠送&nbsp;&nbsp;充&nbsp;<text class="strong">100</text>&nbsp;&nbsp;送&nbsp;&nbsp;<text class="strong">5</text>
+          <text decode="true">充值赠送&nbsp;&nbsp;充&nbsp;<text class="strong">{{item.rechargeGetAmt}}</text>&nbsp;&nbsp;送&nbsp;&nbsp;<text class="strong">{{item.rechargeGiftAmt}}</text>
           </text>
-          <text decode="true">结算优惠&nbsp;&nbsp;97折</text>
-          <text decode="true">积分比例&nbsp;&nbsp;1&nbsp;:&nbsp;1</text>
+          <text decode="true">结算优惠&nbsp;&nbsp;{{item.baseSettlementProportion}}折</text>
+          <text decode="true">积分比例&nbsp;&nbsp;1&nbsp;:&nbsp;{{item.baseIntegralProportion}}</text>
           <text decode="true">功夫专属配送</text>
         </view>
-        <view class="t-btn-group" wx:if="{{false}}">
-          <button>充值</button>
+        <view class="t-btn-group" wx:if="{{index==tOpenedLevel}}">
+          <button bindtap="jump" data-jump="/pages/groupCharge/groupCharge">充值</button>
         </view>
       </view>
 
-      <view class='tvip vip-2 TVIP2'>
+      <!-- <view class='tvip vip-2 TVIP2'>
         <image class="level-img" src="../../icon/TVIP2.png"></image>
         <image class="tvip-bg" src="../../img/TVIP-get/TVIP2.png"></image>
         <view class="is-open" wx:if="{{false}}">已开通</view>
@@ -153,7 +153,7 @@
           <button>充值</button>
         </view>
 
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

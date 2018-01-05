@@ -18,7 +18,7 @@
       </view>
       <view class="group-text">
         <view>团餐付款</view>
-        <view class='{{allInfo.tvipCardBalance>0?"red":"gray999"}}'>未开通</view>
+        <view class='{{isTvip?"red":"gray999"}}'>{{allInfo.tvipCardBalance?'余￥'+allInfo.tvipCardBalance:tOpened}}</view>
       </view>
     </view>
     <view class="oneone personal" data-card="personal" bindtap="openQR">
@@ -36,7 +36,7 @@
     <view bindtap="jump" data-page="/pages/vipBag/vipBag">
       <view class="left">
         <image src="../../icon/icon_huiyuan.png" mode="aspectFit" style="width: 40rpx; height: 31rpx"></image>我是会员</view>
-      <view class="right">会员卡数量：{{allInfo.vipCardList.length||'0'}}
+      <view class="right">会员卡数量：{{allInfo.vipCardCount||'0'}}
         <view class="arraw"></view>
       </view>
     </view>

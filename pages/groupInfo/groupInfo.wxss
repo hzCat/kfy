@@ -1,32 +1,35 @@
 .group-step {
-  margin-top: -1rpx;
+    margin-top: -1rpx;
 }
 
 .getInfo {
-  margin-top: 24rpx;
-  border-top: 1px solid #dbdbdb;
+    margin-top: 24rpx;
+    border-top: 1px solid #dbdbdb;
 }
+
 
 /* 其他信息 */
 
 .other-info {
-  margin-top: 24rpx;
+    margin-top: 24rpx;
 }
+
 
 /* 按钮 */
 
 .submit {
-  margin-top: 48rpx;
-  width: 670rpx;
-  height: 88rpx;
-  line-height: 88rpx;
+    margin-top: 48rpx;
+    width: 670rpx;
+    height: 88rpx;
+    line-height: 88rpx;
 }
 
 .submit::after {
-  border: 0;
+    border: 0;
 }
 
-button[disabled][type="default"], wx-button[disabled]:not([type]) {
-  background: #b3b3b3;
-  color: #e5e5e5;
+button[disabled][type="default"],
+wx-button[disabled]:not([type]) {
+    background: #b3b3b3;
+    color: #e5e5e5;
 }
