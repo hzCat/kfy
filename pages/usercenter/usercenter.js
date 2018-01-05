@@ -27,7 +27,7 @@ Page({
   },
 
   /*** 生命周期函数--监听页面加载*/
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
     that.get3rd();
     that.getUserInfo();
@@ -35,7 +35,7 @@ Page({
   },
 
   /*** 生命周期函数--监听页面显示*/
-  onShow: function () {
+  onShow: function() {
     let that = this;
     // navbar.title("个人中心");
     this.setData({
@@ -61,13 +61,13 @@ Page({
     let that = this;
     storage
       .gets("staticUrl")
-      .then(function (res) {
+      .then(function(res) {
         that.setData({
           staticUrl: res.data.url
         });
       })
       .catch(err => {
-        http.ajax("/common/staticDomain").then(function (res) {
+        http.ajax("/common/staticDomain").then(function(res) {
           console.log(res.data);
           var obj = {};
           obj.url = res.data;
@@ -80,7 +80,7 @@ Page({
   },
 
   // 后台时恢复亮度,返回,关闭操作
-  onHide: function () {
+  onHide: function() {
     let that = this;
     if (this.data.userscreenLight) {
       wx.setScreenBrightness({
@@ -92,7 +92,7 @@ Page({
   // 获取3rd_session
   get3rd() {
     let that = this;
-    storage.gets("3rd_session").then(function (res) {
+    storage.gets("3rd_session").then(function(res) {
       that.setData({
         third: res.data,
         header: {
@@ -107,11 +107,11 @@ Page({
   getAllInfo() {
     let that = this;
     // 更新allinfo
-    storage.gets("allInfo").then(function (res) {
+    storage.gets("allInfo").then(function(res) {
       console.log("获取所有用户信息成功", res.data);
       // 修改vipCardList
-      let cardList = res.data.vipCardList
-      let arr = []
+      let cardList = res.data.vipCardList;
+      let arr = [];
       // VIP下标为0,TVIP下标为1
       if (cardList.length == 0) {
         arr = [];
@@ -125,7 +125,7 @@ Page({
             arr[1] = obj;
           }
         }
-        console.log("修改后的", arr)
+        console.log("修改后的", arr);
       }
       // 重新复制allInfo中的vipCardList
       let all = res.data;
@@ -189,7 +189,7 @@ Page({
     wx.showNavigationBarLoading();
     update.updateuser();
     // that.getUserInfo();
-    setTimeout(function () {
+    setTimeout(function() {
       storage.gets("allInfo").then(res => {
         that.setData({
           allInfo: res.data,
@@ -234,7 +234,7 @@ Page({
     var method = "GET";
     var header = that.data.header;
     // 生成随机数
-    var random = function () {
+    var random = function() {
       return Math.random()
         .toString(10)
         .substr(7, 7);
@@ -255,7 +255,7 @@ Page({
         };
         http
           .ajax(url, method, data, header)
-          .then(function (res) {
+          .then(function(res) {
             // 关闭遮罩,添加二维码路径
 
             console.log(res);
@@ -292,7 +292,7 @@ Page({
         };
         http
           .ajax(url, method, data, header)
-          .then(function (res) {
+          .then(function(res) {
             console.log(res);
             // 关闭遮罩,添加二维码路径
             that.setData({
@@ -330,7 +330,7 @@ Page({
   },
 
   // 从微信获取手机号进行绑定
-  getPhoneNumber: function (e) {
+  getPhoneNumber: function(e) {
     var that = this;
     that.setData({
       modalOn: true
@@ -351,7 +351,7 @@ Page({
       var header = that.data.header;
       http
         .ajax(url, method, data, header)
-        .then(function (res) {
+        .then(function(res) {
           console.log(res.data);
           var url = "/vip/getCurrentVipUser";
           var data = {};
@@ -359,15 +359,15 @@ Page({
           var header = that.data.header;
           http
             .ajax(url, method, data, header)
-            .then(function (res) {
+            .then(function(res) {
               console.log(res);
               wx.setStorage({
                 key: "allInfo",
                 data: res.data.data,
-                success: function (res) {
+                success: function(res) {
                   // var pattern = "redirect";
                   // var jump = "/pages/usercenter/usercenter";
-                  setTimeout(function () {
+                  setTimeout(function() {
                     // util.jump(pattern, jump);
                     that.getAllInfo();
                     wx.hideLoading();
@@ -375,11 +375,11 @@ Page({
                 }
               });
             })
-            .catch(function (err) {
+            .catch(function(err) {
               console.log(err);
             });
         })
-        .catch(function (err) {
+        .catch(function(err) {
           modal.modal("提示", "手机号绑定失败,请重试");
         });
     } else {

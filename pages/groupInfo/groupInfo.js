@@ -20,9 +20,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let that = this;
-    storage.gets("3rd_session").then(function(res) {
+    storage.gets("3rd_session").then(function (res) {
       that.setData({
         header: {
           _yzsaas_token: res.data,
@@ -35,7 +35,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function () {},
 
   // 公司名字
   getCompanyName(e) {
@@ -118,6 +118,7 @@ Page({
       obj.contactMobile = null;
     }
   },
+  
   // 提交
   pushAllInfo() {
     console.log(this.data.pushInfo);
@@ -125,7 +126,7 @@ Page({
     if (data.contactMobile && data.corpName && data.contactName) {
       let url = "/tvip/apply";
       let header = this.data.header;
-      http.ajax(url, "POST", data, header).then(function(res) {
+      http.ajax(url, "POST", data, header).then(function (res) {
         console.log(res.data);
         let code = res.data.code;
         if (code == 200) {
