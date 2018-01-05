@@ -18,7 +18,7 @@
     </view>
     <!-- 容器 -->
     <view class='con'>
-      <view class="small-con {{ allInfo.vipCardList[0].vipLevelName||'VIP1'}}">
+      <view class="small-con {{allInfo.vipCardList[0].vipLevel?'VIP'+allInfo.vipCardList[0].vipLevel:'VIP1'}}">
         <view class='con-top'>
           <view class='c c-left'>
             <view>等级:</view>
@@ -73,8 +73,8 @@
     </view>
     <!-- 容器 -->
     <view class='con'>
-      <view class="small-con {{allInfo.tvipCardList[1].vipLevelName||'TVIP1'}} ">
-         <image class="logo" src="../../img/TVIP-card/{{allInfo.tvipCardList[1].vipLevelName||'TVIP1'}}.png"></image> 
+      <view class="small-con {{allInfo.tvipCardList[1].vipLevel?'TVIP'+allInfo.tvipCardList[1].vipLevel:'TVIP1'}} ">
+        <image class="logo" src="../../img/TVIP-card/{{allInfo.tvipCardList[1].vipLevelName||'TVIP1'}}.png"></image> 
         <view class='con-top'>
           <view class='c c-left'>
             <view>等级:</view>
@@ -100,7 +100,7 @@
             <text decode="true">积分比例&nbsp;&nbsp;1:{{allInfo.vipCardList[1].baseIntegralProportion||'1'}}</text>
           </view>
           <view class='c-right'>
-            <button class='btn' bindtap='jump' data-jump="/pages/chargeMoney/chargeMoney?money=100" data-pattern="nav" disabled='{{true}}'>充值</button>
+            <button class='btn' bindtap='jump' data-jump="/pages/groupCharge/groupCharge" data-pattern="nav" disabled='{{!vipCardList[1]}}'>充值</button>
           </view>
         </view>
       </view>
