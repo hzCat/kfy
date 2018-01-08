@@ -1,0 +1,70 @@
+<!--pages/QR/QR.wxml-->
+<view class="container">
+
+
+
+  <!-- 个人会员 -->
+  <view class="vip" wx:if="{{false}}">
+    <!-- 不是个人会员 -->
+    <view class="con not-vip">
+      <!-- 上 -->
+      <view class="info">
+        <image src="../../img/not-vip-bg.png"></image>
+      </view>
+      <!-- 下 -->
+      <button class="bottom">立即开通</button>
+    </view>
+
+
+
+    <!-- 是个人会员 -->
+    <view class="con is-vip">
+      <view class="title">会员付款码</view>
+      <!-- 二维码容器 -->
+      <view class="QR-con">
+        <image class="QR" src="{{QRsrc}}"></image>
+        <view class="get-QR">
+          <image src="../../icon/getQR.png"></image>
+          <view>轻点获取二维码</view>
+        </view>
+        <!-- 显示余额等信息 -->
+        <view class="vip-show">
+          <view class="info"></view>
+          <view class="money">
+            <view class="balance">余额:￥1231.00</view>
+            <view class="charge">充值</view>
+          </view>
+        </view>
+      </view>
+      <view class="tips tips1">该电子会员卡，用于门店扫码支付</view>
+      <view class="tips">请谨慎保管，勿向他人泄露</view>
+    </view>
+  </view>
+
+
+
+
+  <!-- 团餐会员 -->
+  <view class="tvip">
+
+
+
+
+    <!-- 不是团餐会员 -->
+    <view class="con not-tvip">
+      <!-- 上 -->
+      <view class="info">
+        <image src="../../img/not-tvip-bg.png"></image>
+      </view>
+      <!-- 下 -->
+      <button class="bottom bottom-t">立即开通</button>
+    </view>
+
+
+
+    
+    <!-- 是团餐会员 -->
+    <view class="con is-tvip" wx:if="{{false}}"></view>
+
+  </view>
+</view>

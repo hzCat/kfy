@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
 	"appid": "wx5c4ba7f39d94b62d",
-	"projectname": "%E5%8A%9F%E5%A4%AB%E5%85%83",
+	"projectname": "%E5%8A%9F%E5%A4%AB%E5%85%832",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -20,122 +20,17 @@
 			"current": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"game": {
 			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
 			"list": [
 				{
-					"id": 0,
-					"name": "扫描支付界面scanpay",
-					"pathName": "pages/scanpay/scanpay",
-					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "支付成功paysuccess",
-					"pathName": "pages/paysuccess/paysuccess",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "个人中心usercenter",
-					"pathName": "pages/usercenter/usercenter",
-					"query": ""
-				},
-				{
-					"id": 3,
-					"name": "基础信息basicinfo",
-					"pathName": "pages/basicInfo/basicInfo",
-					"query": ""
-				},
-				{
-					"id": 4,
-					"name": "我的订单myOrder",
-					"pathName": "pages/myOrder/myOrder",
-					"query": ""
-				},
-				{
-					"id": 5,
-					"name": "会员卡包vipBag",
-					"pathName": "pages/vipBag/vipBag",
-					"query": ""
-				},
-				{
-					"id": 6,
-					"name": "获取会员getVip",
-					"pathName": "pages/getVip/getVip",
-					"query": ""
-				},
-				{
-					"id": 7,
-					"name": "充值chargeMoney",
-					"pathName": "pages/chargeMoney/chargeMoney",
-					"query": ""
-				},
-				{
-					"id": 8,
-					"name": "会员卡列表vipCard",
-					"pathName": "pages/vipCard/vipCard",
-					"query": ""
-				},
-				{
-					"id": 9,
-					"name": "卡片明细cardInfo",
-					"pathName": "pages/cardInfo/cardInfo",
-					"query": ""
-				},
-				{
 					"id": -1,
-					"name": "绑定手机relatePhone",
-					"pathName": "pages/relatePhone/relatePhone",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "无可支付订单hasNoOrder",
-					"pathName": "pages/hasNoOrder/hasNoOrder",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "充值成功失败chargeSuccFail",
-					"pathName": "pages/chargeSuccFail/chargeSuccFail",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "消费详情consumeDetails",
-					"pathName": "pages/consumeDetails/consumeDetails",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "已经支付订单alreadyPay",
-					"pathName": "pages/alreadyPay/alreadyPay",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "团餐信息groupInfo",
-					"pathName": "pages/groupInfo/groupInfo",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "团餐充值groupCharge",
-					"pathName": "pages/groupCharge/groupCharge",
-					"query": ""
-				},
-				{
-					"id": 17,
-					"name": "会员购买成功afterBuyVip",
-					"pathName": "pages/afterBuyVip/afterBuyVip",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "agreement",
-					"pathName": "pages/agreement/agreement",
-					"query": ""
+					"name": "二维码QR",
+					"pathName": "pages/QR/QR"
 				}
 			]
 		}

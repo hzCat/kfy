@@ -1,4 +1,4 @@
-// pages/userCenter/userCenter.js
+// pages/vip/vip.js
 Page({
 
   /**

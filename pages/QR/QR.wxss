@@ -1,0 +1,90 @@
+.container .vip,
+.container .tvip {
+  width: 100%;
+  height: 100%;
+  padding-top: 104rpx;
+}
+.container .vip .con,
+.container .tvip .con {
+  width: 650rpx;
+  height: 796rpx;
+  margin-left: 50rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  position: relative;
+  overflow: hidden;
+}
+.container .vip {
+  background: #efac40;
+}
+.container .tvip {
+  background: #d6524a;
+}
+.container .not-vip .info,
+.container .not-tvip .info {
+  height: 676rpx;
+}
+.container .not-vip .info image,
+.container .not-tvip .info image {
+  width: 100%;
+  height: 100%;
+}
+.container .not-vip .bottom,
+.container .not-tvip .bottom {
+  height: 120rpx;
+  border: 0;
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  line-height: 120rpx;
+  width: 100%;
+  background: #89bf21;
+  color: #fff;
+}
+.container .not-vip .bottom::after,
+.container .not-tvip .bottom::after {
+  border: 0;
+  border-radius: 0;
+}
+.container .not-vip .bottom-t,
+.container .not-tvip .bottom-t {
+  background: #bad839;
+}
+.container .is-vip {
+  text-align: center;
+}
+.container .is-vip .title {
+  font-size: 34rpx;
+  font-weight: bold;
+  padding-top: 70rpx;
+}
+.container .is-vip .QR-con {
+  position: relative;
+  margin-top: 24rpx;
+  height: 492rpx;
+}
+.container .is-vip .QR-con .QR {
+  width: 400rpx;
+  height: 400rpx;
+}
+.container .is-vip .QR-con .get-QR {
+  position: absolute;
+  top: 104rpx;
+  left: 213rpx;
+}
+.container .is-vip .QR-con .get-QR image {
+  height: 120rpx;
+  width: 94rpx;
+}
+.container .is-vip .QR-con .get-QR view {
+  font-size: 34rpx;
+  margin-top: 42rpx;
+}
+.container .is-vip .tips {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 36rpx;
+}
+.container .is-vip .tips1 {
+  margin-top: 42rpx;
+}

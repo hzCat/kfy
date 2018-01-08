@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "二维码支付",
+  "navigationBarBackgroundColor": "#efac40",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

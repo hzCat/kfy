@@ -1,0 +1,1 @@
+<view class="full-screen" wx:if="{{modalOn}}"></view>

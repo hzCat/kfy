@@ -1,99 +1,71 @@
-.container {
+.ad-img {
+  height: 530rpx;
+  width: 100%;
+}
+.slogan {
+  margin-top: 84rpx;
+  text-align: center;
+}
+.slogan image {
+  width: 462rpx;
+  height: 29rpx;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 55rpx;
+  margin-top: 98rpx;
+}
+.btn-group .left,
+.btn-group .right,
+.btn-group .center {
+  font-size: 24rpx;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.bg-img, .bg-img-cover {
-  width: 750rpx;
-  height: 881rpx;
-  position: fixed;
-  top:0;
-  left:0;
-  z-index: 0;
-}
-
-.bg-img-cover {
-  background: #000;
-  height:1000rpx;
-  opacity: 0.33;
-  z-index: 100;
-}
-/* 扫描 */
-.scan-btn, .scan-bg {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 750rpx;
-  height: 520rpx;
-  z-index: 150;
-}
-
-.scan-con {
-  position: relative;
-  margin:0 auto;
-  margin-top:116rpx;
-  width: 300rpx;
-  height: 300rpx;
-  border-radius:50%;
-  background:-webkit-linear-gradient(top,#fdaf31,#ff7e34);
-  z-index:200;
-  box-shadow:0px 0px 30rpx 0rpx #fdaf31;
-}
-.scan-con-hover{
-  box-shadow:0px 0px 80rpx 0rpx #fdaf31;
-}
-.scan-con>.scan-bg-img{
-  position:absolute;
-  width: 300rpx;
-  height: 300rpx;
-  z-index:-300;
-}
-.scan-icon{
-  margin-top:88rpx;
-  margin-left:118rpx;
-  width:64rpx;
-  height:64rpx;
-}
-.scan-text{
-  color:#fff;
-  margin-top:29rpx;
-  text-align: center;
-  font-size:29rpx;
-}
-/* logo */
-.kfy-logo{
-  width:100%;
-  position: fixed;
-  z-index:200;
-}
-.kfy-logo .round{
-  position:absolute;
-  margin-left:375rpx;
-  margin-top:107rpx;
-  transform: translateX(-132.5rpx);
-  width:263rpx;
-  height:264rpx;
-  background:rgba(255,255,255,0.35) ;
   border-radius: 50%;
 }
-.kfy-logo .round1{
-  transform: translateX(-119.5rpx);
+.btn-group .right {
+  color: #ff5a60;
+  width: 140rpx;
+  height: 140rpx;
+  border: 1rpx solid #ff5a60;
+  background: #fff7f7;
 }
-.kfy-logo .round2{
-  transform: translateX(-145.5rpx);
+.btn-group .right image {
+  width: 54rpx;
+  height: 38rpx;
 }
-.kfy-logo .round3 .logo{
-  width:228rpx;
-  height:84rpx;
-  margin-top:90rpx;
-  margin-left:13rpx;
+.btn-group .right .name {
+  margin-top: 9rpx;
 }
-.kfy-logo .logo-text{
-  color:#fff;
-  text-align:center;
-  font-size:30rpx;
-  margin-top:394rpx;
+.btn-group .left {
+  color: #fdaf31;
+  width: 140rpx;
+  height: 140rpx;
+  border: 1rpx solid #fdaf31;
+  background: #fffbf4;
+}
+.btn-group .left image {
+  width: 39rpx;
+  height: 40rpx;
+}
+.btn-group .left .name {
+  margin-top: 9rpx;
+}
+.btn-group .center {
+  background: -webkit-linear-gradient(top, #fdaf31, #ff7e34);
+  font-size: 26rpx;
+  color: #fff;
+  width: 236rpx;
+  height: 236rpx;
+}
+.btn-group .center image {
+  width: 64rpx;
+  height: 64rpx;
+}
+.btn-group .center .name {
+  margin-top: 16rpx;
 }
