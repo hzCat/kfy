@@ -1,0 +1,13 @@
+<!--pages/websocket/websocket.wxml-->
+<view class="page">
+  <view class="page__bd" style="position:fixed;bottom:0;width:100%;">
+    <input bindblur="sendMessage" placeholder='输入内容'></input>
+    <button bindtap="connectWebsocket" type="primary">连接websocket</button>
+  </view>
+
+
+  <view class="page__hd" style="text-align:center">
+    收到的消息:
+  </view>
+  <view wx:for="{{arr}}" wx:key="index">{{item}}</view>
+</view>

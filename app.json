@@ -18,7 +18,8 @@
     "pages/scanpay/scanpay",
     "pages/groupInfo/groupInfo",
     "pages/groupCharge/groupCharge",
-    "pages/afterBuyVip/afterBuyVip"
+    "pages/afterBuyVip/afterBuyVip",
+    "pages/websocket/websocket"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -74,7 +74,7 @@ Page({
     // }
   },
   // 获取备注
-  getOtherInfo(e) {
+  getNote(e) {
     if (/^[\u4e00-\u9fa5_a-zA-Z0-9]{1,30}$/.test(e.detail.value)) {
       let obj = this.data.pushInfo;
       obj.note = e.detail.value;
@@ -102,7 +102,7 @@ Page({
     // }
   },
 
-  // 触摸清楚pushInfo中的数据
+  // 触摸清除pushInfo中的数据
   clear(e) {
     console.log("触摸的输入框", e.currentTarget.dataset.type);
     let type = e.currentTarget.dataset.type;
@@ -120,6 +120,7 @@ Page({
       pushInfo: obj
     });
   },
+  // 提交信息
   pushAllInfo() {
     let that = this;
     console.log(this.data.pushInfo);
@@ -139,7 +140,7 @@ Page({
         console.log(res.data);
       });
     } else {
-      let str = "以下信息格式有误,请检查";
+      let str = "请检查以下信息的格式";
       if (!data.transferFlowNo) {
         let thisOrder = "\r\n* 单号要求6~30位中文﹐英文或者数字";
         str += thisOrder;
@@ -153,7 +154,7 @@ Page({
         str += thisMoney;
       }
       if (!data.contact) {
-        let thisPhone = "\r\n* 11位手机号";
+        let thisPhone = "\r\n* 要求11位手机号";
         str += thisPhone;
       }
       modal.modal("提示", str);

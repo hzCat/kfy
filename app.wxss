@@ -219,7 +219,7 @@ button[disabled][type="default"], wx-button[disabled]:not([type]) {
 }
 
 .group-step .check-con {
-  margin-top: 24rpx;
+  /* margin-top: 24rpx; */
 }
 
 /* 团餐多页面input */

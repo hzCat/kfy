@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 19,
 			"list": [
 				{
 					"id": 0,
@@ -136,6 +136,11 @@
 					"name": "agreement",
 					"pathName": "pages/agreement/agreement",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "websocket",
+					"pathName": "pages/websocket/websocket"
 				}
 			]
 		}

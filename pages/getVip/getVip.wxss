@@ -6,7 +6,7 @@
   background: #fff;
 }
 
-.header-switch>view {
+.header-switch > view {
   float: left;
   line-height: 92rpx;
   text-align: center;
@@ -16,18 +16,18 @@
   transition: border 0.5s linear;
 }
 
-.header-switch>.personal {
+.header-switch > .personal {
   width: 374rpx;
 }
 
-.header-switch>.line {
+.header-switch > .line {
   width: 1rpx;
   height: 67rpx;
   background: #dbdbdb;
   margin-top: 16rpx;
 }
 
-.header-switch>.selected {
+.header-switch > .selected {
   color: #fdaf31;
   border-bottom: 4px solid #fdaf31;
 }
@@ -36,9 +36,7 @@
   clear: both;
 }
 
-
 /* vip部分 */
-
 
 /* .vip-detail .vip .card-bg{
     width:702rpx;
@@ -79,7 +77,7 @@
   font-size: 30rpx;
 }
 
-.p-vip .vip .line-1>view:last-child {
+.p-vip .vip .line-1 > view:last-child {
   margin-top: 6rpx;
 }
 
@@ -126,10 +124,9 @@
   border: 0;
 }
 
-.p-vip .vip .line-2>view {
+.p-vip .vip .line-2 > view {
   line-height: 45rpx;
 }
-
 
 /* vip-2 部分 */
 
@@ -153,25 +150,23 @@
   margin-right: -8rpx;
 }
 
-.p-vip .vip-2 {}
-
-button:not(.input-info) {
-   border: 1rpx solid #fff; 
+.p-vip .vip-2 {
 }
 
+button:not(.input-info) {
+  border: 1rpx solid #fff;
+}
 
 /* vip-3 部分*/
 
-
 /* 两个按钮时不用 */
-
 
 /* .p-vip .vip-3 .btn-group-2{
   justify-content: flex-end;
 } */
 
-.p-vip .vip-3 {}
-
+.p-vip .vip-3 {
+}
 
 /* 团餐vip */
 
@@ -179,10 +174,9 @@ button:not(.input-info) {
   transition: all 0.5s linear;
 }
 
-
 /* 按钮组 */
 
-.btn-group>view {
+.btn-group > view {
   height: 96rpx;
   line-height: 96rpx;
   width: 100%;
@@ -192,15 +186,15 @@ button:not(.input-info) {
   text-align: center;
 }
 
-.btn-group>view:nth-child(2) {
+.btn-group > view:nth-child(2) {
   border-left: 1px solid #dbdbdb;
 }
-
 
 /* 团餐 */
 
 .group-step {
   border-top: 0;
+  padding-bottom:27rpx;
 }
 
 .tvip {
@@ -210,17 +204,22 @@ button:not(.input-info) {
   color: #fff;
   position: relative;
 }
-
-.tvip>.level-img {
+.tvip:last-child{
+  margin-bottom:72rpx;
+}
+.tvip:first-child{
+  margin-top:23rpx;
+}
+.tvip > .level-img {
   width: 160rpx;
   height: 31rpx;
   margin-top: 26rpx;
   margin-left: 50rpx;
 }
 
-.tvip>.tvip-bg {
-  width:160rpx;
-  height:160rpx;
+.tvip > .tvip-bg {
+  width: 160rpx;
+  height: 160rpx;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -233,45 +232,49 @@ button:not(.input-info) {
   align-items: flex-start;
 }
 
-.tvip .tvip-con>text {
+.tvip .tvip-con > text {
   font-size: 24rpx;
   margin-left: 50rpx;
   line-height: 46rpx;
 }
 
-.tvip .tvip-con>text:first-child {
+.tvip .tvip-con > text:first-child {
   margin-top: 24rpx;
 }
 
-.tvip .tvip-con>text:last-child {
+.tvip .tvip-con > text:last-child {
   margin-bottom: 44rpx;
 }
-.tvip .tvip-con:last-child{
-  margin-bottom:72rpx;
-}
-.tvip>.t-btn-group{
+/* .tvip .tvip-con:last-child {
+  margin-bottom: 72rpx;
+} */
+.tvip > .t-btn-group {
   width: 100%;
-  padding-left:50rpx;
+  padding-left: 50rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-top:8rpx;
-  padding-bottom:34rpx;
+  padding-top: 8rpx;
+  padding-bottom: 34rpx;
 }
-.tvip>.t-btn-group button{
-  width:220rpx;
-  height:72rpx;
+.tvip > .t-btn-group button {
+  width: 220rpx;
+  height: 72rpx;
   line-height: 72rpx;
   font-size: 30rpx;
-  border:1rpx solid #fff;
+  border: 1rpx solid #fff;
   border-radius: 36rpx;
   background: transparent;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
-.tvip .is-open{
+.tvip .is-open {
   position: absolute;
   right: 50rpx;
-  top:26rpx;
+  top: 26rpx;
   font-size: 30rpx;
 }
+
+/* .g-check-con {
+  margin-top: 24rpx;
+} */

@@ -23,11 +23,12 @@ Page({
     tOpenedLevel: null,
     modalOn: false,
     getNumber: false,
-    webview: false
+    webview: false,
+    hasTvip:false
   },
 
   /*** 生命周期函数--监听页面加载*/
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
     console.log(options);
     if (options.userType) {
@@ -38,7 +39,7 @@ Page({
 
     wx.getStorage({
       key: "3rd_session",
-      success: function (res) {
+      success: function(res) {
         that.setData({
           third: res.data,
           header: {
@@ -58,7 +59,7 @@ Page({
         // 获取个卡信息
         http
           .ajax(url, method, data, header)
-          .then(function (res) {
+          .then(function(res) {
             console.log("个人会员列表信息", res.data.data);
             let list = res.data.data;
             let isVip = null;
@@ -78,7 +79,7 @@ Page({
               vipCardList: res.data.data
             });
           })
-          .catch(function (err) {
+          .catch(function(err) {
             let success = () => {
               util.jump("redirect", "/pages/vipBag/vipBag");
             };
@@ -86,7 +87,7 @@ Page({
           });
 
         // 获取团卡信息
-        http.ajax(url, method, data2, header).then(function (res) {
+        http.ajax(url, method, data2, header).then(function(res) {
           console.log("团餐会员列表信息", res.data.data);
           let list = res.data.data;
           let isTvip = null;
@@ -111,7 +112,7 @@ Page({
   },
 
   /*** 生命周期函数--监听页面显示*/
-  onShow: function () {
+  onShow: function() {
     let that = this;
     if (that.data.userType == "personal") {
       navbar.title("个人会员卡办理");
@@ -126,10 +127,21 @@ Page({
     // 获取用户信息
     wx.getStorage({
       key: "allInfo",
-      success: function (res) {
-        console.log(res.data);
+      success: function(res) {
+        console.log("用户信息", res.data);
+        console.log("用户拥有卡列表", res.data.vipCardList);
+        let list=res.data.vipCardList;
+        let length=list.length;
+        let hasTvip=false;
+        for(let i=0;i<length;i++){
+          let obj=list[i];
+          if(obj.vipScope=="TVIP"){
+            hasTvip=true;
+          }
+        }
         that.setData({
-          allInfo: res.data
+          allInfo: res.data,
+          hasTvip:hasTvip
         });
       }
     });
@@ -200,12 +212,13 @@ Page({
   //获取协议文档
   getDoc() {
     wx.downloadFile({
-      url: "http://192.168.1.146:11811/group1/M00/00/01/wKgBkloeYFyAdaptAABP-yHX5mA65_big.docx",
-      success: function (res) {
+      url:
+        "http://192.168.1.146:11811/group1/M00/00/01/wKgBkloeYFyAdaptAABP-yHX5mA65_big.docx",
+      success: function(res) {
         var filePath = res.tempFilePath;
         wx.openDocument({
           filePath: filePath,
-          success: function (res) {
+          success: function(res) {
             console.log("打开文档成功");
           }
         });
@@ -229,7 +242,7 @@ Page({
     let method = "GET";
     http
       .ajax(url, method, data, header)
-      .then(function (res) {
+      .then(function(res) {
         console.log(res);
         let orderId = null;
         if (res.data.data) {
@@ -249,7 +262,7 @@ Page({
           // 微信支付接口
           pay
             .wpay(json)
-            .then(function (res) {
+            .then(function(res) {
               console.log(res);
               // 提示
               wx.showLoading({
@@ -262,8 +275,8 @@ Page({
                 }
               });
               // 定时器,4s
-              setTimeout(function () {
-                pay.chargeback(orderId, header).then(function (res) {
+              setTimeout(function() {
+                pay.chargeback(orderId, header).then(function(res) {
                   let obj = res.data;
                   let orderNo = obj.tradeResponse.orderNo;
                   if (obj.tradeStatus == "SUCCESS") {
@@ -284,10 +297,10 @@ Page({
                     );
                   } else if (obj.tradeStatus == "UNKNOWN") {
                     // 第二次查询,3s
-                    setTimeout(function () {
+                    setTimeout(function() {
                       pay
                         .chargeback(orderId, header)
-                        .then(function (res) {
+                        .then(function(res) {
                           let obj = res.data;
                           let orderNo = obj.tradeResponse.orderNo;
                           // 成功
@@ -336,7 +349,7 @@ Page({
   },
 
   // 获取手机号（微信）
-  getPhoneNumber: function (e) {
+  getPhoneNumber: function(e) {
     var that = this;
     that.setData({
       modalOn: true
@@ -351,7 +364,7 @@ Page({
       var header = that.data.header;
       http
         .ajax(url, method, data, header)
-        .then(function (res) {
+        .then(function(res) {
           that.setData({
             modalOn: false,
             getNumber: false
@@ -363,25 +376,25 @@ Page({
           var header = that.data.header;
           http
             .ajax(url, method, data, header)
-            .then(function (res) {
+            .then(function(res) {
               console.log(res);
               wx.setStorage({
                 key: "allInfo",
                 data: res.data.data,
-                success: function (res) {
+                success: function(res) {
                   var pattern = "redirect";
                   var jump = "/pages/getVip/getVip";
-                  setTimeout(function () {
+                  setTimeout(function() {
                     util.jump(pattern, jump);
                   }, 500);
                 }
               });
             })
-            .catch(function (err) {
+            .catch(function(err) {
               console.log(err);
             });
         })
-        .catch(function (err) {
+        .catch(function(err) {
           that.setData({
             modalOn: false
           });

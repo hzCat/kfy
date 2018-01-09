@@ -65,7 +65,7 @@
 
     </view>
     <!-- 团餐会员 -->
-    <view class="group-step" wx:if="{{userType=='group'}}">
+    <view class="group-step" wx:if="{{userType=='group'}}" wx:if="{{!hasTvip}}">
       <view class='step-top'>
         <view class='step-1'>
           <view class='num step-on'>1</view>
@@ -92,7 +92,7 @@
       </view>
       <button class='input-info' bindtap="jump" data-jump="/pages/groupInfo/groupInfo" disabled='{{false}}'>填写资料</button>
       <!-- 协议 -->
-      <view class='check-con' wx:if="{{userType=='group'}}">
+      <view class='check-con g-check-con' wx:if="{{userType=='group'}}">
         <checkbox-group class='checkbox' bindchange="checkbox">
           <checkbox checked='true' value="true" />
         </checkbox-group>
@@ -100,6 +100,7 @@
         <text bindtap="getDoc">《会员服务及充值服务协议》</text>
       </view>
     </view>
+    
     <!-- group-step 结束 -->
     <view class='g-vip' wx:if="{{userType=='group'}}">
       <view wx:for="{{tvipCardList}}" wx:key="index" class='all-vip tvip vip-{{item.vipLevel}} TVIP{{item.vipLevel}}'>
@@ -114,7 +115,7 @@
           <text decode="true">功夫专属配送</text>
         </view>
         <view class="t-btn-group" wx:if="{{index==tOpenedLevel}}">
-          <button bindtap="jump" data-jump="/pages/groupCharge/groupCharge">充值</button>
+          <button bindtap="jump" data-jump="/pages/groupCharge/groupCharge" disabled='{{allDisable}}'>充值</button>
         </view>
       </view>
 

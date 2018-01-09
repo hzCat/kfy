@@ -106,7 +106,7 @@ Page({
     }
   },
 
-  // 点击时清除
+  // 点击时清除输入框数据
   clear(e) {
     let type = e.currentTarget.dataset.type;
     let obj = this.data.pushInfo;

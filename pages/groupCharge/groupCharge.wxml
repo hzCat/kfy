@@ -38,7 +38,7 @@
   <view class='other-info'>
     <view class='input-con'>
       <label>备注</label>
-      <input placeholder='必填' maxlength="30" data-type="note" placeholder-class='placeholder' value="{{otherInfo}}" bindtap="clear" bindblur="getOtherInfo"></input>
+      <input placeholder='必填' maxlength="30" data-type="note" placeholder-class='placeholder' value="{{otherInfo}}" bindtap="clear" bindblur="getNote"></input>
     </view>
     <view class='input-con'>
       <label>联系手机</label>
