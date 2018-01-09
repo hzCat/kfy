@@ -23,16 +23,16 @@
       <!-- 二维码容器 -->
       <view class="QR-con">
         <image class="QR" src="{{QRsrc}}"></image>
-        <view class="get-QR">
+        <view class="get-QR" wx:if="{{QRModal}}" bindtap="getQR">
           <image src="../../icon/getQR.png"></image>
           <view>轻点获取二维码</view>
         </view>
         <!-- 显示余额等信息 -->
         <view class="vip-show">
-          <text class="info" decode="true">2017*（）***（</text>
+          <text class="info" decode="true">{{cardList[0].vipCardNo}}</text>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
-            <text class="strong">1231.00</text>
+            <text class="strong">{{allInfo.vipCardBalance}}</text>
             <view class="charge">充值</view>
           </view>
         </view>
@@ -72,16 +72,16 @@
       <!-- 二维码容器 -->
       <view class="QR-con">
         <image class="QR" src="{{QRsrc}}"></image>
-        <view class="get-QR">
+        <view class="get-QR" wx:if="{{QRModal}}" bindtap="getQR">
           <image src="../../icon/getQR.png"></image>
           <view>轻点获取二维码</view>
         </view>
         <!-- 显示余额等信息 -->
         <view class="vip-show">
-          <view class="info">2017*（）***（</view>
+          <view class="info">{{cardList[1].vipCardNo}}</view>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
-            <text class="strong">1231.00</text>
+            <text class="strong">{{allInfo.tvipCardBalance}}</text>
             <view class="charge">充值</view>
           </view>
         </view>

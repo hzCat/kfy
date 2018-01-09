@@ -29,7 +29,7 @@
       <view class="count">x1</view>
       <view class="how-much">￥12.00</view>
     </view>
-    <view class="show-more">
+    <view class="show-more" data-type="food" bindtap="showMore">
       <image class="img-rotate" src="../../icon/show_more.png"></image>
       <text>更多菜品(5)</text>
     </view>
@@ -39,17 +39,17 @@
   <view class="discount-con">
     <view class="total one">
       <view class="left">合计</view>
-      <view class="right">-￥12.00</view>
+      <view class="right">￥24.00</view>
     </view>
-    <view class="discount one">
+    <view class="discount one" data-type="discount" bindtap="showMore">
       <view class="left">
         <text>优惠</text>
-        <image class="img-rotate" src="../../icon/show_more_discount.png"></image>
+        <image class="{{discountMore&&'img-rotate'}}" src="../../icon/show_more_discount.png"></image>
       </view>
       <view class="right price-red">-￥12.00</view>
     </view>
     <!-- 优惠详情 -->
-    <view class="discount-detail">
+    <view class="discount-detail" wx:if="{{discountMore}}">
       <view class="one">
         <view class="left">
           <view class="mark">特</view>
@@ -69,7 +69,7 @@
           <view class="mark">特</view>
           <view class="word">特价特价</view>
         </view>
-        <view class="right price-red">-￥5.00</view>
+        <view class="right price-red">-￥2.00</view>
       </view>
       <view class="circle circle1"></view>
       <view class="circle circle2"></view>
@@ -90,7 +90,7 @@
 
   <!-- 支付选项 -->
   <view class="option-con">
-    <view class="card personal">
+    <view class="card personal" data-option="VIP" bindtap="payOption">
       <view class="left">
         <view class="icon">
           <image src="../../icon/vip_option.png"></image>
@@ -98,11 +98,11 @@
         <view class="name">个人卡</view>
         <view class="detail">(余额：￥21.00) </view>
       </view>
-      <view class="right">
-        <icon type="success" size='22' color="#ff7c07"></icon>
+      <view class="right" >
+        <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='VIP'}}"></icon>
       </view>
     </view>
-    <view class="card group">
+    <view class="card group" data-option="TVIP" bindtap="payOption">
       <view class="left">
         <view class="icon">
           <image src="../../icon/tvip_option.png"></image>
@@ -111,10 +111,10 @@
         <view class="detail">(余额：￥21.00) </view>
       </view>
       <view class="right">
-        <icon type="success" size='22' color="#ff7c07"></icon>
+        <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='TVIP'}}"></icon>
       </view>
     </view>
-    <view class="card wechat">
+    <view class="card wechat" data-option="wechat" bindtap="payOption">
       <view class="left">
         <view class="icon">
           <image src="../../icon/wechat_option.png"></image>
@@ -123,7 +123,7 @@
         <view class="detail">余额余额余额余额余额 </view>
       </view>
       <view class="right">
-        <icon type="success" size='22' color="#ff7c07"></icon>
+        <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='wechat'}}"></icon>
       </view>
     </view>
   </view>

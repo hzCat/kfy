@@ -44,7 +44,7 @@ Page({
         try {
           var plateNo = res.result;
           wx.navigateTo({
-            url: "/pages/scanpay/scanpay?by=scan&plateNo=" + plateNo
+            url: "/pages/waitPay/waitPay?by=scan&plateNo=" + plateNo
           });
         } catch (e) {
           modal.modal("提示", "错误的二维码");
