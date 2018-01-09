@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    QRsrc:"../../img/default_QR.png"
+    QRsrc:"../../img/default_QR.png",
+    vipScope:'VIP',
+    isVip:false,
+    isTvip:false,
   },
 
   /**
@@ -13,10 +16,13 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
+    this.setData({
+      vipScope:options.vipScope,
+    })
     if (options.vipScope == "VIP") {
-      navbar.title("会员二维码");
+      navbar.color("#ffffff","#efac40");
     } else if (options.vipScope == "TVIP") {
-      navbar.title("团餐二维码");
+      navbar.color("#ffffff","#d6524a");
     }
   },
 

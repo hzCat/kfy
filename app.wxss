@@ -30,3 +30,36 @@ text {
   right: 0;
   z-index: 1000;
 } */
+
+/* 特价颜色列表 */
+.left .mark-orange {
+  background: #fdaf31;
+}
+
+.left .mark-red {
+  background: #f76260;
+}
+
+.left .mark-purple {
+  background: #ab47bc;
+}
+
+.left .mark-purple-red {
+  background: #ec407a;
+}
+
+.left .mark-purple-blue {
+  background: #6272cc;
+}
+
+.left .mark-blue {
+  background: #29b6f6;
+}
+
+.left .mark-green {
+  background: #61c480;
+}
+
+.left .mark-lightgreen {
+  background: #cddc39;
+}

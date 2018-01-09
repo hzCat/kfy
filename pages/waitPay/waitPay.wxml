@@ -1,0 +1,134 @@
+<view class="container">
+
+  <!-- 顶部 -->
+  <view class="header">
+    <view class="left"></view>
+    <view class="wait-pay">待支付</view>
+    <view class="order-number">XN201708220012</view>
+  </view>
+
+  <!-- 菜品明细 -->
+  <view class="detail-con">
+    <view class="detail">
+      <view class="name">土豆回锅肉</view>
+      <view class="count">x1</view>
+      <view class="how-much">￥12.00</view>
+    </view>
+    <view class="detail">
+      <view class="name">土豆回锅肉</view>
+      <view class="count">x1</view>
+      <view class="how-much">￥12.00</view>
+    </view>
+    <view class="detail">
+      <view class="name">土豆回锅肉</view>
+      <view class="count">x1</view>
+      <view class="how-much">￥12.00</view>
+    </view>
+    <view class="detail">
+      <view class="name">土豆回锅肉</view>
+      <view class="count">x1</view>
+      <view class="how-much">￥12.00</view>
+    </view>
+    <view class="show-more">
+      <image class="img-rotate" src="../../icon/show_more.png"></image>
+      <text>更多菜品(5)</text>
+    </view>
+  </view>
+
+  <!-- 优惠明细 -->
+  <view class="discount-con">
+    <view class="total one">
+      <view class="left">合计</view>
+      <view class="right">-￥12.00</view>
+    </view>
+    <view class="discount one">
+      <view class="left">
+        <text>优惠</text>
+        <image class="img-rotate" src="../../icon/show_more_discount.png"></image>
+      </view>
+      <view class="right price-red">-￥12.00</view>
+    </view>
+    <!-- 优惠详情 -->
+    <view class="discount-detail">
+      <view class="one">
+        <view class="left">
+          <view class="mark">特</view>
+          <view class="word">特价特价</view>
+        </view>
+        <view class="right price-red">-￥5.00</view>
+      </view>
+      <view class="one">
+        <view class="left">
+          <view class="mark">特</view>
+          <view class="word">特价</view>
+        </view>
+        <view class="right price-red">-￥5.00</view>
+      </view>
+      <view class="one">
+        <view class="left">
+          <view class="mark">特</view>
+          <view class="word">特价特价</view>
+        </view>
+        <view class="right price-red">-￥5.00</view>
+      </view>
+      <view class="circle circle1"></view>
+      <view class="circle circle2"></view>
+      <view class="circle circle3"></view>
+      <view class="circle circle4"></view>
+    </view>
+    <view class="wait one">
+      <view class="left">待支付</view>
+      <view class="right price-red wait-red">￥12.00</view>
+    </view>
+  </view>
+
+  <!-- 下单时间 -->
+  <view class="time">
+    <view class="order-time">下单时间</view>
+    <view class="when">2017/08/22 12:35:12</view>
+  </view>
+
+  <!-- 支付选项 -->
+  <view class="option-con">
+    <view class="card personal">
+      <view class="left">
+        <view class="icon">
+          <image src="../../icon/vip_option.png"></image>
+        </view>
+        <view class="name">个人卡</view>
+        <view class="detail">(余额：￥21.00) </view>
+      </view>
+      <view class="right">
+        <icon type="success" size='22' color="#ff7c07"></icon>
+      </view>
+    </view>
+    <view class="card group">
+      <view class="left">
+        <view class="icon">
+          <image src="../../icon/tvip_option.png"></image>
+        </view>
+        <view class="name">团餐卡</view>
+        <view class="detail">(余额：￥21.00) </view>
+      </view>
+      <view class="right">
+        <icon type="success" size='22' color="#ff7c07"></icon>
+      </view>
+    </view>
+    <view class="card wechat">
+      <view class="left">
+        <view class="icon">
+          <image src="../../icon/wechat_option.png"></image>
+        </view>
+        <view class="name">微信</view>
+        <view class="detail">余额余额余额余额余额 </view>
+      </view>
+      <view class="right">
+        <icon type="success" size='22' color="#ff7c07"></icon>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付按钮 -->
+  <button class="btn-pay">立即支付</button>
+
+</view>

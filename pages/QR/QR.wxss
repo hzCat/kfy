@@ -50,41 +50,90 @@
 .container .not-tvip .bottom-t {
   background: #bad839;
 }
-.container .is-vip {
+.container .is-vip,
+.container .is-tvip {
+  position: relative;
   text-align: center;
 }
-.container .is-vip .title {
+.container .is-vip .title,
+.container .is-tvip .title {
   font-size: 34rpx;
   font-weight: bold;
   padding-top: 70rpx;
 }
-.container .is-vip .QR-con {
+.container .is-vip .QR-con,
+.container .is-tvip .QR-con {
   position: relative;
   margin-top: 24rpx;
-  height: 492rpx;
+  height: 516rpx;
 }
-.container .is-vip .QR-con .QR {
+.container .is-vip .QR-con .QR,
+.container .is-tvip .QR-con .QR {
   width: 400rpx;
   height: 400rpx;
 }
-.container .is-vip .QR-con .get-QR {
+.container .is-vip .QR-con .get-QR,
+.container .is-tvip .QR-con .get-QR {
   position: absolute;
   top: 104rpx;
   left: 213rpx;
 }
-.container .is-vip .QR-con .get-QR image {
+.container .is-vip .QR-con .get-QR image,
+.container .is-tvip .QR-con .get-QR image {
   height: 120rpx;
   width: 94rpx;
 }
-.container .is-vip .QR-con .get-QR view {
+.container .is-vip .QR-con .get-QR view,
+.container .is-tvip .QR-con .get-QR view {
   font-size: 34rpx;
   margin-top: 42rpx;
 }
-.container .is-vip .tips {
+.container .is-vip .vip-show,
+.container .is-tvip .vip-show {
+  padding-top: 16rpx;
+}
+.container .is-vip .vip-show .info,
+.container .is-tvip .vip-show .info {
+  color: #999;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 34rpx;
+  display: block;
+}
+.container .is-vip .vip-show .money,
+.container .is-tvip .vip-show .money {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 34rpx;
+  line-height: 34rpx;
+}
+.container .is-vip .vip-show .money .balance,
+.container .is-tvip .vip-show .money .balance {
+  color: #faaf31;
+  margin-left: 142rpx;
+}
+.container .is-vip .vip-show .money .charge,
+.container .is-tvip .vip-show .money .charge {
+  padding-left: 26rpx;
+  color: #12bfff;
+}
+.container .is-vip .vip-show .money .strong,
+.container .is-tvip .vip-show .money .strong {
+  height: 34rpx;
+  color: #faaf31;
+  font-weight: bold;
+  padding-right: 33rpx;
+  border-right: 2rpx solid #ccc;
+}
+.container .is-vip .tips,
+.container .is-tvip .tips {
+  position: absolute;
+  bottom: 70rpx;
+  width: 100%;
+  text-align: center;
   font-size: 24rpx;
   color: #999;
   line-height: 36rpx;
-}
-.container .is-vip .tips1 {
-  margin-top: 42rpx;
 }

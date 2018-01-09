@@ -27,6 +27,12 @@
   align-items: center;
   border-radius: 50%;
 }
+.btn-group .left .name,
+.btn-group .right .name,
+.btn-group .center .name {
+  width: 100%;
+  text-align: center;
+}
 .btn-group .right {
   color: #ff5a60;
   width: 140rpx;

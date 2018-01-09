@@ -1,0 +1,229 @@
+.container {
+  background: #f0f0f0;
+  padding-bottom: 120rpx;
+  // 头部
+  .header {
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 88rpx;
+    .left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16rpx;
+      height: 88rpx;
+      background: #f76260;
+      transform: translateX(-8rpx);
+      border-radius: 8rpx;
+    }
+    .wait-pay {
+      margin-left: 41rpx;
+      font-size: 32rpx;
+      color: #f76260;
+    }
+    .order-number {
+      font-size: 30rpx;
+      color: #666;
+      margin-right: 40rpx;
+    }
+  }
+  // 菜品
+  .detail-con {
+    background: #fafafa;
+    padding: 19rpx 40rpx;
+    .detail {
+      font-size: 30rpx;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 70rpx;
+    }
+    .show-more {
+      height: 88rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40rpx;
+      image {
+        width: 30rpx;
+        height: 30rpx;
+        margin-right: 8rpx;
+      }
+
+      text {
+        line-height: 30rpx;
+        font-size: 30rpx;
+        color: #999;
+      }
+    }
+  }
+  // 优惠详情
+  .discount-con {
+    background: #fff;
+    padding: 0 40rpx;
+    overflow: hidden;
+    .one {
+      height: 104rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 32rpx;
+    }
+    .discount {
+      .left {
+        display: flex;
+        width: 150rpx;
+        justify-content: flex-start;
+        align-items: center;
+        image {
+          width: 24rpx;
+          height: 24rpx;
+          margin-left: 20rpx;
+        }
+      }
+    }
+    .wait {
+      border-top: 1rpx dashed #e5e5e5;
+    }
+    .discount-detail {
+      position: relative;
+      border-top: 1rpx dashed #e5e5e5;
+      .one {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 84rpx;
+        .left {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          .mark {
+            width: 32rpx;
+            height: 32rpx;
+            font-size: 26rpx;
+            text-align: center;
+            line-height: 32rpx;
+            background: orange;
+            border-radius: 8rpx;
+            margin-right: 8rpx;
+            color: #fff;
+          }
+          .word {
+            font-size: 32rpx;
+            color: #333;
+            text-align: left;
+          }
+        }
+      }
+      .circle {
+        width: 32rpx;
+        height: 32rpx;
+        background: #f0f0f0;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .circle1 {
+        top: -16rpx;
+        left: -56rpx;
+      }
+      .circle2 {
+        top: -16rpx;
+        right: -56rpx;
+      }
+      .circle3 {
+        bottom: -16rpx;
+        left: -56rpx;
+      }
+      .circle4 {
+        bottom: -16rpx;
+        right: -56rpx;
+      }
+    }
+  }
+  // 下单时间
+  .time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    margin-top: 24rpx;
+    padding: 0 40rpx;
+    font-size: 32rpx;
+    height: 104rpx;
+  }
+  // 支付选项
+  .option-con {
+    background: #fff;
+    margin-top: 24rpx;
+    padding: 0 40rpx;
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 88rpx;
+      .left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .icon {
+          width: 54rpx;
+          height: 54rpx;
+          margin-right: 16rpx;
+          image {
+            width: 54rpx;
+            height: 54rpx;
+          }
+        }
+        .name {
+          font-size: 34rpx;
+          color: #333;
+          height: 34rpx;
+          line-height: 34rpx;
+          margin-right: 16rpx;
+        }
+        .detail {
+          font-size: 26rpx;
+          color: #999;
+          height: 34rpx;
+          padding-top: 4rpx;
+        }
+      }
+      .right {
+        height: 44rpx;
+      }
+    }
+  }
+  // 支付按钮
+  .btn-pay {
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 34rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+    background: #fdaf31;
+    border: 0;
+    border-radius: 0;
+  }
+  .btn-pay::after {
+    border: 0;
+    border-radius: 0;
+  }
+}
+// 图标换向
+.img-rotate {
+  transform: rotateX(180deg);
+}
+// 红色价格
+.price-red {
+  color: #f76260;
+}
+// 红色价格加粗
+.wait-red {
+  font-weight: bold;
+}

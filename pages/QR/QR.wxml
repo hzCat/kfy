@@ -4,9 +4,9 @@
 
 
   <!-- 个人会员 -->
-  <view class="vip" wx:if="{{false}}">
+  <view class="vip" wx:if="{{vipScope=='VIP'}}">
     <!-- 不是个人会员 -->
-    <view class="con not-vip">
+    <view class="con not-vip" wx:if="{{!isVip}}">
       <!-- 上 -->
       <view class="info">
         <image src="../../img/not-vip-bg.png"></image>
@@ -18,7 +18,7 @@
 
 
     <!-- 是个人会员 -->
-    <view class="con is-vip">
+    <view class="con is-vip" wx:if="{{isVip}}">
       <view class="title">会员付款码</view>
       <!-- 二维码容器 -->
       <view class="QR-con">
@@ -29,15 +29,18 @@
         </view>
         <!-- 显示余额等信息 -->
         <view class="vip-show">
-          <view class="info"></view>
+          <text class="info" decode="true">2017*（）***（</text>
           <view class="money">
-            <view class="balance">余额:￥1231.00</view>
+            <text class="balance" decode="true">余额&nbsp;￥</text>
+            <text class="strong">1231.00</text>
             <view class="charge">充值</view>
           </view>
         </view>
       </view>
-      <view class="tips tips1">该电子会员卡，用于门店扫码支付</view>
-      <view class="tips">请谨慎保管，勿向他人泄露</view>
+      <view class="tips">
+        <view class="tips1">该电子会员卡，用于门店扫码支付</view>
+        <view class="tips1">请谨慎保管，勿向他人泄露</view>
+      </view>
     </view>
   </view>
 
@@ -45,13 +48,13 @@
 
 
   <!-- 团餐会员 -->
-  <view class="tvip">
+  <view class="tvip" wx:if="{{vipScope=='TVIP'}}">
 
 
 
 
     <!-- 不是团餐会员 -->
-    <view class="con not-tvip">
+    <view class="con not-tvip" wx:if="{{!isTvip}}">
       <!-- 上 -->
       <view class="info">
         <image src="../../img/not-tvip-bg.png"></image>
@@ -62,9 +65,32 @@
 
 
 
-    
+
     <!-- 是团餐会员 -->
-    <view class="con is-tvip" wx:if="{{false}}"></view>
+    <view class="con is-tvip" wx:if="{{isTvip}}">
+      <view class="title">会员付款码</view>
+      <!-- 二维码容器 -->
+      <view class="QR-con">
+        <image class="QR" src="{{QRsrc}}"></image>
+        <view class="get-QR">
+          <image src="../../icon/getQR.png"></image>
+          <view>轻点获取二维码</view>
+        </view>
+        <!-- 显示余额等信息 -->
+        <view class="vip-show">
+          <view class="info">2017*（）***（</view>
+          <view class="money">
+            <text class="balance" decode="true">余额&nbsp;￥</text>
+            <text class="strong">1231.00</text>
+            <view class="charge">充值</view>
+          </view>
+        </view>
+      </view>
+      <view class="tips">
+        <view class="tips1">该电子会员卡，用于门店扫码支付</view>
+        <view class="tips1">请谨慎保管，勿向他人泄露</view>
+      </view>
+    </view>
 
   </view>
 </view>

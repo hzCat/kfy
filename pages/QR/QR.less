@@ -22,7 +22,8 @@
     background: #d6524a;
   }
   // 不是会员,不是团餐会员
-  .not-vip ,.not-tvip{
+  .not-vip,
+  .not-tvip {
     .info {
       height: 676rpx;
       image {
@@ -45,12 +46,14 @@
       border: 0;
       border-radius: 0;
     }
-    .bottom-t{
+    .bottom-t {
       background: #bad839;
     }
   }
   // 是会员
-  .is-vip {
+  .is-vip,
+  .is-tvip {
+    position: relative;
     text-align: center;
     .title {
       font-size: 34rpx;
@@ -60,7 +63,7 @@
     .QR-con {
       position: relative;
       margin-top: 24rpx;
-      height:492rpx;
+      height: 516rpx;
       .QR {
         width: 400rpx;
         height: 400rpx;
@@ -79,13 +82,47 @@
         }
       }
     }
+    .vip-show {
+      padding-top:16rpx;
+      .info{
+        color:#999;
+        font-size: 30rpx;
+        text-align: center;
+        line-height: 34rpx;
+        display: block;
+      }
+      .money {
+        margin-top:16rpx;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 34rpx;
+        line-height: 34rpx;
+        .balance {
+          color: #faaf31;
+          margin-left:142rpx;
+        }
+        .charge {
+          padding-left:26rpx;
+          color: #12bfff;
+        }
+        .strong {
+          height:34rpx;
+          color: #faaf31;
+          font-weight: bold;
+          padding-right:33rpx;
+          border-right:2rpx solid #ccc;
+        }
+      }
+    }
     .tips {
+      position: absolute;
+      bottom:70rpx;
+      width:100%;
+      text-align: center;
       font-size: 24rpx;
       color: #999;
       line-height: 36rpx;
-    }
-    .tips1 {
-      margin-top: 42rpx;
     }
   }
 }

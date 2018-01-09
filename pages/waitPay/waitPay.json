@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "二维码支付",
+  "navigationBarTitleText": "功夫元",
   "usingComponents": {
     "shade": "../../components/shade/shade"
   }
