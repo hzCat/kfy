@@ -38,9 +38,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      QRModal: true,
-      QRsrc: "../../img/default_QR.png"
+    let that = this;
+    // 获取屏幕亮度
+    wx.getScreenBrightness({
+      success(res) {
+        console.log("onshow获取亮度", res.value);
+        that.setData({
+          userscreenLight: res.value,
+          QRModal: true,
+          QRsrc: "../../img/default_QR.png"
+        });
+      },
+      fail: function() {
+        that.setData({
+          QRModal: true,
+          QRsrc: "../../img/default_QR.png"
+        });
+      }
     });
   },
   // 关闭页面时,恢复亮度
@@ -56,36 +70,36 @@ Page({
       this.setData({
         allInfo: res.data
       });
-      this.isVip(res.data);
+      // this.isVip(res.data);
       console.log("进入获取到的allInfo,已经赋值data", this.data.allInfo);
     });
   },
   // 查找是否vip或者tvip
-  isVip(allInfo) {
-    let all = allInfo;
-    let cardList = all.vipCardList;
-    let length = cardList.length;
-    let arr = [];
-    let isVip = false;
-    let isTvip = false;
-    for (let i = 0; i < length; i++) {
-      let obj = cardList[i];
-      if (obj.vipScope == "VIP") {
-        arr[0] = obj;
-        isVip = true;
-      }
-      if (obj.vipScope == "TVIP") {
-        arr[1] = obj;
-        isTvip = true;
-      }
-    }
-    console.log("修改后的cardlist", arr);
-    this.setData({
-      cardList: arr,
-      isVip: isVip,
-      isTvip: isTvip
-    });
-  },
+  // isVip(allInfo) {
+  //   let all = allInfo;
+  //   let cardList = all.vipCardList;
+  //   let length = cardList.length;
+  //   let arr = [];
+  //   let isVip = false;
+  //   let isTvip = false;
+  //   for (let i = 0; i < length; i++) {
+  //     let obj = cardList[i];
+  //     if (obj.vipScope == "VIP") {
+  //       arr[0] = obj;
+  //       isVip = true;
+  //     }
+  //     if (obj.vipScope == "TVIP") {
+  //       arr[1] = obj;
+  //       isTvip = true;
+  //     }
+  //   }
+  //   console.log("修改后的cardlist", arr);
+  //   this.setData({
+  //     cardList: arr,
+  //     isVip: isVip,
+  //     isTvip: isTvip
+  //   });
+  // },
   // 获取二维码
   getQR() {
     let that = this;
@@ -120,5 +134,7 @@ Page({
         value: 1
       });
     });
-  }
+  },
+  // websocket 长连接获取支付信息
+  getPayBack() {}
 });

@@ -4,7 +4,10 @@
     "pages/vip/vip",
     "pages/userCenter/userCenter",
     "pages/QR/QR",
-    "pages/waitPay/waitPay"
+    "pages/waitPay/waitPay",
+    "pages/afterPay/afterPay",
+    "pages/hasNoOrder/hasNoOrder",
+    "pages/groupAfterPay/groupAfterPay"
   ],
   "window": {
     "backgroundTextStyle": "light",

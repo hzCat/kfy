@@ -5,20 +5,20 @@
 
   <!-- 个人会员 -->
   <view class="vip" wx:if="{{vipScope=='VIP'}}">
-    <!-- 不是个人会员 -->
+    <!-- 不是个人会员
     <view class="con not-vip" wx:if="{{!isVip}}">
-      <!-- 上 -->
+      上
       <view class="info">
         <image src="../../img/not-vip-bg.png"></image>
       </view>
-      <!-- 下 -->
+      下
       <button class="bottom">立即开通</button>
-    </view>
+    </view> -->
 
 
 
     <!-- 是个人会员 -->
-    <view class="con is-vip" wx:if="{{isVip}}">
+    <view class="con is-vip">
       <view class="title">会员付款码</view>
       <!-- 二维码容器 -->
       <view class="QR-con">
@@ -53,21 +53,21 @@
 
 
 
-    <!-- 不是团餐会员 -->
+    <!-- 不是团餐会员
     <view class="con not-tvip" wx:if="{{!isTvip}}">
-      <!-- 上 -->
+      上
       <view class="info">
         <image src="../../img/not-tvip-bg.png"></image>
       </view>
-      <!-- 下 -->
+      下
       <button class="bottom bottom-t">立即开通</button>
-    </view>
+    </view> -->
 
 
 
 
     <!-- 是团餐会员 -->
-    <view class="con is-tvip" wx:if="{{isTvip}}">
+    <view class="con is-tvip">
       <view class="title">会员付款码</view>
       <!-- 二维码容器 -->
       <view class="QR-con">

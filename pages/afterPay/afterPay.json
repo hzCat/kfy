@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "支付详情",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

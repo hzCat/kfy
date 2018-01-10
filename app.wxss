@@ -21,6 +21,14 @@ text {
   background: #fff;
   overflow: auto;
 }
+button {
+  background: #fdaf31;
+  color: #fff;
+}
+button::after {
+  border-radius: 0;
+  border: 0;
+}
 /* 屏蔽透明模态框 */
 /* .stop-modal {
   position: fixed;
