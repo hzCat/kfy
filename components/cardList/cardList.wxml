@@ -1,0 +1,23 @@
+<view class="card-component">
+  <view class="card-con" style="width:{{vipWidth}}rpx;transform:translateX({{move}}vw)" catchtouchstart="tstart" catchtouchmove="tmove"
+    catchtouchend="tend">
+    <view class="card {{index==0&&'card-selected'}} VIP{{item.vipLevel}}" wx:for="{{vipCardList}}" wx:key="index">
+      <image src="../../img/vip-background.png"></image>
+      <view class="card-detail">
+        <view class="top">
+          <view class="left">
+            <image src="../../icon/VIP{{item.vipLevel}}.png"></image>
+            <view>{{item.vipLevelName}}</view>
+          </view>
+          <view class="right" wx:if="{{item.opened}}">已开通</view>
+        </view>
+        <view class="bottom">
+          <button>充值</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="mark-con">
+    <view class="mark {{index==0&&'mark-selected'}}" wx:for="{{vipCardList}}" wx:key="index"></view>
+  </view>
+</view>

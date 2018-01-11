@@ -7,7 +7,8 @@
     "pages/waitPay/waitPay",
     "pages/afterPay/afterPay",
     "pages/hasNoOrder/hasNoOrder",
-    "pages/groupAfterPay/groupAfterPay"
+    "pages/groupAfterPay/groupAfterPay",
+    "pages/afterScanPay/afterScanPay"
   ],
   "window": {
     "backgroundTextStyle": "light",

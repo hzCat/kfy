@@ -1,0 +1,43 @@
+.success {
+  width: 100%;
+  height: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.success .icon {
+  margin-top: 101rpx;
+}
+.success .title {
+  font-size: 40rpx;
+  margin-top: 60rpx;
+  margin-bottom: 64rpx;
+}
+.success .detail-one {
+  width: 100%;
+  padding-left: 196rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 28rpx;
+  color: #999;
+}
+.success .detail-one .left {
+  line-height: 56rpx;
+  width: 124rpx;
+  text-align: left;
+}
+.success .detail-one .right {
+  line-height: 56rpx;
+}
+.success .detail-one .discount-one {
+  line-height: 56rpx;
+}
+.success button {
+  width: 360rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  margin-top: 64rpx;
+}

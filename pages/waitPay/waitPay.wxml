@@ -129,6 +129,6 @@
   </view>
 
   <!-- 支付按钮 -->
-  <button class="btn-pay">立即支付</button>
+  <button class="btn-pay" bindtap="payClick">立即支付</button>
 
 </view>

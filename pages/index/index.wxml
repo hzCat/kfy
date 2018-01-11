@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <image src="../../img/index_img1.png" class="ad-img" />
+  <image src="../../img/index_img1.png" class="ad-img"></image>
   <view class="slogan">
     <image src="../../img/slogan.png" />
   </view>

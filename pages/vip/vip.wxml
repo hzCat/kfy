@@ -1,2 +1,2 @@
 <!--pages/vip/vip.wxml-->
-<text>pages/vip/vip.wxml</text>
+<cardlist vipCardList="{{vipCardList}}" tvipCardList="{{tvipCardList}}" vipWidth="{{vipWidth}}" tvipWidth="{{tvipWidth}}"></cardlist>

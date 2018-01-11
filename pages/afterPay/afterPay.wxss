@@ -1,1 +1,70 @@
-/* pages/afterPay/afterPay.wxss */
+.success,
+.fail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.success .icon,
+.fail .icon {
+  margin-top: 101rpx;
+}
+.success .title,
+.fail .title {
+  margin-top: 60rpx;
+  font-size: 40rpx;
+}
+.success .money,
+.fail .money {
+  margin-top: 40rpx;
+  font-size: 64rpx;
+  color: #333;
+}
+.success .order-no,
+.fail .order-no {
+  margin-top: 42rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+.success .wish,
+.fail .wish {
+  margin-top: 22rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+.success button,
+.fail button {
+  width: 360rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.success .btn-again,
+.fail .btn-again {
+  margin-top: 80rpx;
+}
+.success .btn-quit,
+.fail .btn-quit {
+  margin-top: 56rpx;
+  background: #fbfafc;
+  border: 1rpx solid #eee;
+  color: #333;
+}
+.success .detail,
+.fail .detail {
+  font-size: 30rpx;
+  color: #888;
+  margin-top: 36rpx;
+  width: 417rpx;
+}
+.success .fail-order-no,
+.fail .fail-order-no {
+  margin-top: 45rpx;
+  color: #888;
+  font-size: 30rpx;
+}
+.success .fail-btn-again,
+.fail .fail-btn-again {
+  margin-top: 131rpx;
+}

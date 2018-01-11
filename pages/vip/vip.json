@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "功夫会员",
   "usingComponents": {
-    "shade": "../../components/shade/shade"
+    "shade": "../../components/shade/shade",
+    "cardlist": "../../components/cardList/cardList"
   }
 }
