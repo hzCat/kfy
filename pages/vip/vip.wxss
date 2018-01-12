@@ -1,1 +1,162 @@
-/* pages/vip/vip.wxss */
+.container {
+  background: #f0f0f0;
+}
+.container .header-switch {
+  position: relative;
+  width: 260rpx;
+  height: 50rpx;
+  border-radius: 24rpx;
+  background: #ccc;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+  margin-top: 40rpx;
+}
+.container .header-switch .left,
+.container .header-switch .right {
+  width: 50%;
+  text-align: center;
+  line-height: 50rpx;
+  position: relative;
+  z-index: 2;
+}
+.container .header-switch .move-box {
+  position: absolute;
+  left: 0;
+  border-radius: 24rpx;
+  width: 136rpx;
+  height: 50rpx;
+  background: #fdaf31;
+  z-index: 1;
+  box-shadow: 0 4rpx 12rpx #fc5f03;
+  transition: all 0.3s linear;
+}
+.container .header-switch .move-to {
+  left: 124rpx;
+}
+.container .info-con {
+  background: #fff;
+}
+.container .info-con .vip-get {
+  padding: 0 40rpx;
+}
+.container .info-con .vip-get .top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 34rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.container .info-con .vip-get .top image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 32rpx;
+}
+.container .info-con .vip-get .bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 200rpx;
+}
+.container .info-con .vip-get .bottom .left,
+.container .info-con .vip-get .bottom .right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 335rpx;
+}
+.container .info-con .vip-get .bottom .left image,
+.container .info-con .vip-get .bottom .right image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 24rpx;
+}
+.container .info-con .vip-get .bottom .left .info,
+.container .info-con .vip-get .bottom .right .info {
+  height: 200rpx;
+  padding: 60rpx 0;
+}
+.container .info-con .vip-get .bottom .left .up,
+.container .info-con .vip-get .bottom .right .up {
+  font-size: 30rpx;
+  color: #999;
+}
+.container .info-con .vip-get .bottom .left .down,
+.container .info-con .vip-get .bottom .right .down {
+  font-size: 24rpx;
+}
+.container .info-con .vip-get .bottom .left .down .strong,
+.container .info-con .vip-get .bottom .right .down .strong {
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.container .info-con .vip-get .bottom .right {
+  margin-left: 60rpx;
+}
+.container .info-con .vip-show .your {
+  padding: 0 40rpx;
+  line-height: 120rpx;
+}
+.container .info-con .vip-show .your .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 34rpx;
+}
+.container .info-con .vip-show .your .left image {
+  height: 40rpx;
+  width: 34rpx;
+  margin-right: 36rpx;
+}
+.container .info-con .vip-show .your-money {
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.container .info-con .vip-show .your-integral {
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.container .info-con .btn-group {
+  height: 214rpx;
+  width: 100%;
+  padding: 29rpx 40rpx;
+}
+.container .info-con .btn-group .btn {
+  width: 670rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  padding-left: 36rpx;
+  overflow: hidden;
+  background: -webkit-linear-gradient(left, #fdaf31, #ff7e33);
+  position: relative;
+  color: #fff;
+}
+.container .info-con .btn-group .btn text {
+  display: inline-block;
+}
+.container .info-con .btn-group .btn .money {
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-right: 50rpx;
+}
+.container .info-con .btn-group .btn .tips {
+  font-size: 26rpx;
+}
+.container .info-con .btn-group .btn .slogan {
+  width: 200rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  background: #5076bd;
+  font-size: 24rpx;
+  position: absolute;
+  top: 10rpx;
+  right: -60rpx;
+  transform: rotateZ(30deg);
+}
+.container .vip-opened-get {
+  margin-top: 24rpx;
+}

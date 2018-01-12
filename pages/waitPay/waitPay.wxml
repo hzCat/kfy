@@ -14,21 +14,7 @@
       <view class="count">×{{item.disheQty}}</view>
       <view class="how-much">￥{{item.disheSaleAmt}}</view>
     </view>
-    <!-- <view class="detail">
-      <view class="name">土豆回锅肉</view>
-      <view class="count">x1</view>
-      <view class="how-much">￥12.00</view>
-    </view>
-    <view class="detail">
-      <view class="name">土豆回锅肉</view>
-      <view class="count">x1</view>
-      <view class="how-much">￥12.00</view>
-    </view>
-    <view class="detail">
-      <view class="name">土豆回锅肉</view>
-      <view class="count">x1</view>
-      <view class="how-much">￥12.00</view>
-    </view> -->
+
     <view class="show-more" data-type="food" bindtap="showMore" wx:if="{{orderData.detailList.length>4}}">
       <image class="{{(foodMore>4)&&'img-rotate'}}" src="../../icon/show_more.png"></image>
       <text>更多菜品({{orderData.detailList.length}})</text>
@@ -46,7 +32,7 @@
         <text>优惠</text>
         <image class="{{discountMore&&'img-rotate'}}" src="../../icon/show_more_discount.png"></image>
       </view>
-      <view class="right price-red">-￥{{offMoney.totalOfferAmt}}</view>
+      <view class="right price-red">-￥{{offMoney.totalOfferAmt||offMoney.offerAmt}}</view>
     </view>
     <!-- 优惠详情 -->
     <view class="discount-detail" wx:if="{{discountMore}}">
@@ -57,20 +43,7 @@
         </view>
         <view class="right price-red">-￥{{item.money}}</view>
       </view>
-      <!-- <view class="one">
-        <view class="left">
-          <view class="mark">特</view>
-          <view class="word">特价</view>
-        </view>
-        <view class="right price-red">-￥5.00</view>
-      </view>
-      <view class="one">
-        <view class="left">
-          <view class="mark">特</view>
-          <view class="word">特价特价</view>
-        </view>
-        <view class="right price-red">-￥2.00</view>
-      </view> -->
+
       <view class="circle circle1"></view>
       <view class="circle circle2"></view>
       <view class="circle circle3"></view>
@@ -120,7 +93,7 @@
           <image src="../../icon/wechat_option.png"></image>
         </view>
         <view class="name">微信</view>
-        <view class="detail">余额余额余额余额余额 </view>
+        <view class="detail">充值将获得额外赠送,详见会员权益</view>
       </view>
       <view class="right">
         <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='WECHART'}}"></icon>

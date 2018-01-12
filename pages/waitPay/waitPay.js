@@ -3,7 +3,7 @@ let http = require("../../utils/ajax.js");
 let jump = require("../../utils/jump.js");
 let offColor = require("../../utils/offColor.js");
 let cardturn = require("../../utils/cardTurn.js");
-let payChannel = require("../../utils/pay.js");
+let pay = require("../../utils/pay.js");
 Page({
   /**
    * 页面的初始数据
@@ -51,7 +51,8 @@ Page({
           console.log("获取扫码订单数据", res.data);
           if (res.data.code == 200 && res.data.data != null) {
             that.setData({
-              orderData: res.data.data
+              orderData: res.data.data,
+              offMoney: res.data.data
             });
             // 获取可用卡
             that.getUserCard(res.data.data.storeId, true);
@@ -126,13 +127,16 @@ Page({
     };
     http.ajax(url, method, data, app.globalData.header).then(res => {
       console.log("优惠信息", res.data);
-      let offlist = res.data.data.offerList;
-      let arr = offColor.turn(offlist);
-      that.setData({
-        orderData: res.data.data.orderResponseList[0],
-        offMoney: res.data.data,
-        offDetail: arr
-      });
+      // 如果存在
+      if (res.data.data) {
+        let offlist = res.data.data.offerList;
+        let arr = offColor.turn(offlist);
+        that.setData({
+          orderData: res.data.data.orderResponseList[0],
+          offMoney: res.data.data,
+          offDetail: arr
+        });
+      }
     });
   },
   // 查不到订单
@@ -243,9 +247,9 @@ Page({
                   setTimeout(function() {
                     // 查询支付结果
                     pay
-                      .payback(json.settlementId, that.data.header)
+                      .payback(json.settlementId, app.globalData.header)
                       .then(function(res) {
-                        console.log("微信支付结果",res.data);
+                        console.log("微信支付结果", res.data);
                         let obj = res.data;
                         let money = obj.tradeResponse.payAmt;
                         let orderNo = obj.tradeResponse.orderList[0].orderNo;
@@ -272,7 +276,7 @@ Page({
                           setTimeout(function() {
                             // 查询订单支付结果
                             pay
-                              .payback(that.data.orderData.id, that.data.header)
+                              .payback(that.data.orderData.id, app.globalData.header)
                               .then(function(res) {
                                 console.log("微信支付结果");
                                 console.log(res.data);
@@ -331,9 +335,9 @@ Page({
             setTimeout(function() {
               // 查询支付结果
               pay
-                .payback(that.data.orderData.id, that.data.header)
+                .payback(that.data.orderData.id, app.globalData.header)
                 .then(function(res) {
-                  console.log("微信支付结果",res.data);
+                  console.log("微信支付结果", res.data);
                   let obj = res.data;
                   let money = obj.tradeResponse.payAmt;
                   let orderNo = obj.tradeResponse.orderNo;
@@ -360,9 +364,9 @@ Page({
                     setTimeout(function() {
                       // 查询订单支付结果
                       pay
-                        .payback(that.data.orderData.id, that.data.header)
+                        .payback(that.data.orderData.id, app.globalData.header)
                         .then(function(res) {
-                          console.log("微信支付结果",res.data);
+                          console.log("微信支付结果", res.data);
                           let obj = res.data;
                           let money = obj.tradeResponse.payAmt;
                           let orderNo = obj.tradeResponse.orderNo;
@@ -407,7 +411,7 @@ Page({
         orderId: that.data.orderData.id,
         payChannel: "VIP_CARD"
       };
-      var header = that.data.header;
+      var header = app.globalData.header;
       // 个人卡支付
       pay
         .vpay(data, header)
@@ -426,7 +430,7 @@ Page({
             money = res.data.data.payAmt;
           }
           if (result == true && code == 200 && orderNo != null) {
-            update.updateuser(that.data.header);
+            update.updateuser(app.globalData.header);
             jump.jump(
               "redirect",
               `/pages/paysuccess/paysuccess?by=card&isSucc=true&money=${money}&orderId=${orderNo}`
@@ -453,7 +457,7 @@ Page({
         orderId: that.data.orderData.id,
         payChannel: "TVIP_CARD"
       };
-      var header = that.data.header;
+      var header = app.globalData.header;
       pay
         .vpay(data, header)
         .then(function(res) {

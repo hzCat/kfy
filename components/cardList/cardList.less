@@ -1,6 +1,6 @@
 .card-component {
   padding: 45rpx 0 28rpx 0;
-  background: #ddd;
+  background: #f0f0f0;
   width: 100%;
   overflow: hidden;
   .card-con {
@@ -71,21 +71,50 @@
         }
       }
     }
-    .card-selected {
+    .card-selected-0 {
+      box-shadow: 0rpx 4rpx 24rpx rgba(161, 161, 161, 0.62);
+    }
+    .card-selected-1 {
       box-shadow: 0rpx 4rpx 24rpx rgba(252, 95, 3, 0.62);
+    }
+    .card-selected-2 {
+      box-shadow: 0rpx 4rpx 24rpx rgba(195, 121, 3, 0.62);
+    }
+    .card-selected-3 {
+      box-shadow: 0rpx 4rpx 24rpx rgba(0, 0, 0, 0.62);
     }
     .card:first-child {
       margin-left: 80rpx;
     }
-    .VIP1 {
+    .VIP0,
+    .TVIP0 {
+      background: -webkit-linear-gradient(left, #dadada, #a0a0a0);
+      color: #fff;
+    }
+    .VIP1,
+    .TVIP1 {
       background: -webkit-linear-gradient(left, #f6c068, #ee8547);
       color: #fff;
     }
-    .VIP2 {
+    .VIP2,
+    .TVIP2 {
       background: -webkit-linear-gradient(left, #edcf90, #c69f60);
+      color: #fff;
     }
-    .VIP3 {
+    .VIP3,
+    .TVIP3 {
       background: -webkit-linear-gradient(left, #55544a, #28272c);
+      color: #e4d6ac;
+      button {
+        color: #e4d6ac;
+        border: 1rpx solid rgba(228, 214, 174, 0.62) !important;
+        background: rgba(228, 214, 174, 0.4) !important;
+      }
+      button::after {
+        color: #e4d6ac;
+        border: 1rpx solid rgba(228, 214, 174, 0.62) !important;
+        background: rgba(228, 214, 174, 0.4);
+      }
     }
   }
   .mark-con {

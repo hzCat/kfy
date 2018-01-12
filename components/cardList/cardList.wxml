@@ -1,23 +1,33 @@
 <view class="card-component">
   <view class="card-con" style="width:{{vipWidth}}rpx;transform:translateX({{move}}vw)" catchtouchstart="tstart" catchtouchmove="tmove"
     catchtouchend="tend">
-    <view class="card {{index==0&&'card-selected'}} VIP{{item.vipLevel}}" wx:for="{{vipCardList}}" wx:key="index">
-      <image src="../../img/vip-background.png"></image>
+    <view class="card {{index==num&&'card-selected-'}}{{item.vipLevel}} {{option=='personal'?'VIP':'TVIP'}}{{item.vipLevel}}"
+      wx:for="{{cardList}}" wx:key="index">
+      <image src="../../img/vip-background.png" wx:if="{{option=='personal'}}"></image>
+      <image src="../../img/tvip-background.png" wx:if="{{option=='group'}}"></image>
       <view class="card-detail">
         <view class="top">
           <view class="left">
             <image src="../../icon/VIP{{item.vipLevel}}.png"></image>
             <view>{{item.vipLevelName}}</view>
           </view>
-          <view class="right" wx:if="{{item.opened}}">已开通</view>
+          <!-- 个人 标识 -->
+          <view class="right" wx:if="{{item.opened&&option=='personal'}}">已开通</view>
+          <!-- 团餐 标识 -->
+          <view class="right" wx:if="{{(item.opened&&!apply)&&option=='group'}}">已开通</view>
+          <view class="right" wx:if="{{apply&&option=='group'}}">联系汇款2/3</view>
         </view>
         <view class="bottom">
-          <button>充值</button>
+          <!-- 个人 按钮 -->
+          <button wx:if="{{index>=openIndex&&option=='personal'}}">充值</button>
+          <!-- 团餐 按钮-->
+          <button wx:if="{{(index&&index>=openIndex&&!recharge)&&option=='group'}}">充值</button>
+          <button wx:if="{{(recharge&&index>=openIndex)&&option=='group'}}">处理中</button>
         </view>
       </view>
     </view>
   </view>
   <view class="mark-con">
-    <view class="mark {{index==0&&'mark-selected'}}" wx:for="{{vipCardList}}" wx:key="index"></view>
+    <view class="mark {{index==num&&'mark-selected'}}" wx:for="{{cardList}}" wx:key="index"></view>
   </view>
 </view>

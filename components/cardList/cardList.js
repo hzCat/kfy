@@ -6,26 +6,23 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    vipCardList: {
+    cardList: {
       type: Array,
-      value: [],
-      observer() {}
-    },
-    tvipCardList: {
-      type: Array,
-      value: [],
-      observer() {}
+      value: []
     },
     vipWidth: {
       type: String,
       value: "750"
     },
-    tvipWidth: {
+    num: {
+      type: Number,
+      value: 0
+    },
+    option: {
       type: String,
-      value: "750"
+      value: ""
     }
   },
-
   /**
    * 组件的初始数据
    */
@@ -35,8 +32,10 @@ Component({
     thismove: 0,
     end: null,
     screenWidth: 375,
-    num: 0,
-    cardIndex: 0
+    cardIndex: 0,
+    openIndex: null,
+    apply: null,
+    recharge: null
   },
   attached() {
     let that = this;
@@ -48,6 +47,35 @@ Component({
         });
       }
     });
+    let index = that.getOpenIndex(that.data.cardList);
+    console.log(that.data.cardList.length, index);
+    let nowmove = -(620 / 750) * 100;
+    // 申请
+    let apply = null;
+    let recharge = null;
+    if (that.data.option == "group") {
+      apply = that.isApply(that.data.cardList);
+      recharge = that.isRecharge(that.data.cardList);
+      console.log("是否有团卡申请", apply);
+      if (apply) {
+        that.setData({
+          apply: apply
+        });
+      }
+      if (recharge) {
+        that.setData({
+          recharge: recharge
+        });
+      }
+    }
+
+    if (index) {
+      that.setData({
+        move: nowmove * index,
+        openIndex: index,
+        num: index
+      });
+    }
   },
   /**
    * 组件的方法列表
@@ -56,7 +84,6 @@ Component({
     tstart(e) {
       let start = e.changedTouches[0].clientX;
       let move = this.data.move;
-      console.log(start, move);
       this.setData({
         start: start,
         thismove: move
@@ -79,7 +106,7 @@ Component({
       let start = this.data.start;
       let end = now - start;
       let num = this.data.num;
-      let length = this.data.vipCardList.length;
+      let length = this.data.cardList.length;
       let nowmove = -(620 / 750) * 100;
       if (end <= -150 && num >= 0 && num < length - 1) {
         num++;
@@ -99,6 +126,35 @@ Component({
         });
       }
       this.triggerEvent("indexChange", { index: this.data.num });
+    },
+    // 已开通
+    getOpenIndex(arr) {
+      let length = arr.length;
+      for (let i = 0; i < length; i++) {
+        let obj = arr[i];
+        if (obj.opened == true) {
+          return i;
+        }
+      }
+    },
+    // 是否申请中
+    isApply(arr) {
+      let length = arr.length;
+      for (let i = 0; i < length; i++) {
+        let obj = arr[i];
+        if (obj.hasApplyOrder == true) {
+          return i;
+        }
+      }
+    },
+    isRecharge(arr) {
+      let length = arr.length;
+      for (let i = 0; i < length; i++) {
+        let obj = arr[i];
+        if (obj.hasRechargeOrder == true) {
+          return i;
+        }
+      }
     }
   }
 });

@@ -8,21 +8,22 @@ Page({
     vipCardList: [],
     tvipCardList: [],
     vipWidth: "750",
-    tvipWidth: "750"
+    tvipWidth: "750",
+    cardType: "personal"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    this.getVipList();
-    this.getTvipList();
-  },
-
+  onLoad: function(options) {},
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {},
+  onReady() {
+    this.getVipList();
+    this.getTvipList();
+  },
   // 获取个人列表
   getVipList() {
     let that = this;
@@ -41,7 +42,6 @@ Page({
         });
       });
   },
-
   // 获取团餐列表
   getTvipList() {
     let that = this;
@@ -59,5 +59,17 @@ Page({
           tvipWidth: w
         });
       });
+  },
+  // 传出的index变化
+  indexChange(e) {
+    console.log("传出的数据", e.detail.index);
+  },
+  boxSwitch(e) {
+    let type = e.currentTarget.dataset.type;
+    if (this.data.cardType != type) {
+      this.setData({
+        cardType: type
+      });
+    }
   }
 });
