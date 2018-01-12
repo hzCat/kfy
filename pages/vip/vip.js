@@ -9,7 +9,8 @@ Page({
     tvipCardList: [],
     vipWidth: "750",
     tvipWidth: "750",
-    cardType: "personal"
+    cardType: "personal",
+    nowCard: []
   },
 
   /**
@@ -60,10 +61,8 @@ Page({
         });
       });
   },
-  // 传出的index变化
-  indexChange(e) {
-    console.log("传出的数据", e.detail.index);
-  },
+
+  // 个卡团卡切换
   boxSwitch(e) {
     let type = e.currentTarget.dataset.type;
     if (this.data.cardType != type) {
@@ -71,5 +70,10 @@ Page({
         cardType: type
       });
     }
+  },
+  // 传出的index变化
+  indexChange(e) {
+    console.log("传出的数据", e.detail.index);
+    let cardIndex = e.detail.index;
   }
 });

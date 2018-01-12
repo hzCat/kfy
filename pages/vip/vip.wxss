@@ -79,6 +79,10 @@
 .container .info-con .vip-get .bottom .right .info {
   height: 200rpx;
   padding: 60rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .container .info-con .vip-get .bottom .left .up,
 .container .info-con .vip-get .bottom .right .up {

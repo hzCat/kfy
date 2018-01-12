@@ -48,7 +48,7 @@ Component({
       }
     });
     let index = that.getOpenIndex(that.data.cardList);
-    console.log(that.data.cardList.length, index);
+    console.log("卡片长度",that.data.cardList.length, index);
     let nowmove = -(620 / 750) * 100;
     // 申请
     let apply = null;
@@ -76,6 +76,7 @@ Component({
         num: index
       });
     }
+    this.triggerEvent("indexChange", { index: this.data.num });
   },
   /**
    * 组件的方法列表
