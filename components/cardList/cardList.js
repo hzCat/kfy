@@ -1,6 +1,7 @@
 // components/cardList/cardList.js
 let app = getApp();
 let http = require("../../utils/ajax.js");
+let jump = require("../../utils/jump.js");
 Component({
   /**
    * 组件的属性列表
@@ -8,7 +9,10 @@ Component({
   properties: {
     cardList: {
       type: Array,
-      value: []
+      value: [],
+      observer(newVal, oldVal) {
+        this.cardChange();
+      }
     },
     vipWidth: {
       type: String,
@@ -35,7 +39,8 @@ Component({
     cardIndex: 0,
     openIndex: null,
     apply: null,
-    recharge: null
+    recharge: null,
+    isVip: false
   },
   attached() {
     let that = this;
@@ -47,37 +52,45 @@ Component({
         });
       }
     });
-    let index = that.getOpenIndex(that.data.cardList);
-    console.log("卡片长度",that.data.cardList.length, index);
-    let nowmove = -(620 / 750) * 100;
-    // 申请
-    let apply = null;
-    let recharge = null;
-    if (that.data.option == "group") {
-      apply = that.isApply(that.data.cardList);
-      recharge = that.isRecharge(that.data.cardList);
-      console.log("是否有团卡申请", apply);
-      if (apply) {
-        that.setData({
-          apply: apply
-        });
-      }
-      if (recharge) {
-        that.setData({
-          recharge: recharge
-        });
-      }
-    }
+    this.triggerEvent("indexChange", {
+      index: this.data.num
+    });
+    // let index = that.getOpenIndex(that.data.cardList);
+    // console.log("卡片长度",that.data.cardList.length, index);
+    // let nowmove = -(620 / 750) * 100;
+    // // 是否有申请
+    // let apply = null;
+    // let recharge = null;
+    // if (that.data.option == "group") {
+    //   apply = that.isApply(that.data.cardList);
+    //   recharge = that.isRecharge(that.data.cardList);
+    //   console.log("是否有团卡申请", apply);
+    //   if (apply) {
+    //     that.setData({
+    //       apply: apply
+    //     });
+    //   }
+    //   if (recharge) {
+    //     that.setData({
+    //       recharge: recharge
+    //     });
+    //   }
+    // }
 
-    if (index) {
-      that.setData({
-        move: nowmove * index,
-        openIndex: index,
-        num: index
-      });
-    }
-    this.triggerEvent("indexChange", { index: this.data.num });
+    // if (index) {
+    //   that.setData({
+    //     move: nowmove * index,
+    //     openIndex: index,
+    //     num: index
+    //   });
+    // }
+    // this.triggerEvent("indexChange", { index: this.data.num });
   },
+  // ready(){
+  //   this.triggerEvent("indexChange", {
+  //     index: this.data.num,
+  //   });
+  // },
   /**
    * 组件的方法列表
    */
@@ -126,7 +139,9 @@ Component({
           move: nowmove * num
         });
       }
-      this.triggerEvent("indexChange", { index: this.data.num });
+      this.triggerEvent("indexChange", {
+        index: this.data.num
+      });
     },
     // 已开通
     getOpenIndex(arr) {
@@ -156,6 +171,50 @@ Component({
           return i;
         }
       }
+    },
+    // 换卡
+    cardChange() {
+      console.log("cardChange");
+      let that = this;
+      let index = that.getOpenIndex(that.data.cardList);
+      console.log("卡片长度", that.data.cardList.length, index);
+      let nowmove = -(620 / 750) * 100;
+      // 是否有申请
+      let apply = null;
+      let recharge = null;
+      if (that.data.option == "group") {
+        apply = that.isApply(that.data.cardList);
+        recharge = that.isRecharge(that.data.cardList);
+        console.log("是否有团卡申请", apply);
+        if (apply) {
+          that.setData({
+            apply: apply
+          });
+        }
+        if (recharge) {
+          that.setData({
+            recharge: recharge
+          });
+        }
+      }
+      if (index) {
+        that.setData({
+          move: nowmove * index,
+          openIndex: index,
+          num: index,
+          isVip: true
+        });
+      }
+      this.triggerEvent("indexChange", {
+        index: this.data.num,
+        isApply: apply,
+        isRecharge: recharge
+      });
+    },
+    // 跳转
+    jump(e) {
+      let jumpto = e.currentTarget.dataset.jump;
+      jump.jump("nav", jumpto);
     }
   }
 });

@@ -8,7 +8,10 @@
     "pages/afterPay/afterPay",
     "pages/hasNoOrder/hasNoOrder",
     "pages/groupAfterPay/groupAfterPay",
-    "pages/afterScanPay/afterScanPay"
+    "pages/afterScanPay/afterScanPay",
+    "pages/groupInfo/groupInfo",
+    "pages/groupCharge/groupCharge",
+    "pages/chargeMoney/chargeMoney"
   ],
   "window": {
     "backgroundTextStyle": "light",

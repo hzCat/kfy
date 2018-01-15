@@ -9,7 +9,8 @@ App({
     userInfo: null,
     canCheck: true,
     staticUrl: "static.kongfuy.cn",
-    header: {}
+    header: {},
+    serviceNumber: ""
   },
   // 全局加载一次
   onLaunch: function() {
@@ -27,6 +28,10 @@ App({
       } else if (res.networkType == "none") {
         modal.modal("提示", "无网络，请检查后重试");
       }
+    });
+    http.ajax("/common/getServiceContact").then(res => {
+      console.log("客服电话", res.data);
+      this.globalData.serviceNumber = res.data;
     });
   },
 

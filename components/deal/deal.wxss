@@ -1,0 +1,25 @@
+/* 协议 */
+
+.check-con {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  /* width: 100%; */
+  font-size: 24rpx;
+  margin: 0rpx 24rpx 0 24rpx;
+  box-sizing: border-box;
+  padding-left: 39rpx;
+  padding-top:35rpx;
+}
+
+.check-con text {
+  color: #888;
+}
+
+.check-con text:last-child {
+  color: #5076bd;
+}
+
+.checkbox navigator {
+  color: #5076bd;
+}

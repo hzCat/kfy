@@ -72,7 +72,7 @@
           .info {
             height: 200rpx;
             padding: 60rpx 0;
-            display:flex;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
@@ -93,11 +93,25 @@
           margin-left: 60rpx;
         }
       }
+      .open-vip-btn {
+        height: 168rpx;
+        width: 100%;
+        padding: 40rpx 0;
+        .open-vip {
+          height: 88rpx;
+          width: 670rpx;
+          line-height: 88rpx;
+        }
+      }
     }
     .vip-show {
       .your {
         padding: 0 40rpx;
         line-height: 120rpx;
+        height:120rpx;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         .left {
           display: flex;
           justify-content: flex-start;
@@ -109,16 +123,37 @@
             margin-right: 36rpx;
           }
         }
+        .right {
+          font-weight: bold;
+          font-size: 34rpx;
+        }
       }
       .your-money {
         border-top: 1rpx solid #e5e5e5;
         border-bottom: 1rpx solid #e5e5e5;
+        .right {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          .array {
+            width: 14rpx;
+            height: 14rpx;
+            border-right: 4rpx solid #999;
+            border-bottom: 4rpx solid #999;
+            transform: rotateZ(-45deg);
+            margin-left: 32rpx;
+          }
+        }
       }
       .your-integral {
         border-bottom: 1rpx solid #e5e5e5;
+        .right{
+          margin-right:48rpx;
+        }
       }
     }
-    
+
     .btn-group {
       height: 214rpx;
       width: 100%;
@@ -158,7 +193,7 @@
       }
     }
   }
-  .vip-opened-get{
-    margin-top:24rpx;
+  .vip-get-container {
+    margin-bottom: 24rpx;
   }
 }

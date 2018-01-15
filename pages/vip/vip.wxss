@@ -101,9 +101,23 @@
 .container .info-con .vip-get .bottom .right {
   margin-left: 60rpx;
 }
+.container .info-con .vip-get .open-vip-btn {
+  height: 168rpx;
+  width: 100%;
+  padding: 40rpx 0;
+}
+.container .info-con .vip-get .open-vip-btn .open-vip {
+  height: 88rpx;
+  width: 670rpx;
+  line-height: 88rpx;
+}
 .container .info-con .vip-show .your {
   padding: 0 40rpx;
   line-height: 120rpx;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .container .info-con .vip-show .your .left {
   display: flex;
@@ -116,12 +130,32 @@
   width: 34rpx;
   margin-right: 36rpx;
 }
+.container .info-con .vip-show .your .right {
+  font-weight: bold;
+  font-size: 34rpx;
+}
 .container .info-con .vip-show .your-money {
   border-top: 1rpx solid #e5e5e5;
   border-bottom: 1rpx solid #e5e5e5;
 }
+.container .info-con .vip-show .your-money .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container .info-con .vip-show .your-money .right .array {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 4rpx solid #999;
+  border-bottom: 4rpx solid #999;
+  transform: rotateZ(-45deg);
+  margin-left: 32rpx;
+}
 .container .info-con .vip-show .your-integral {
   border-bottom: 1rpx solid #e5e5e5;
+}
+.container .info-con .vip-show .your-integral .right {
+  margin-right: 48rpx;
 }
 .container .info-con .btn-group {
   height: 214rpx;
@@ -137,14 +171,16 @@
   background: -webkit-linear-gradient(left, #fdaf31, #ff7e33);
   position: relative;
   color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
 }
 .container .info-con .btn-group .btn text {
   display: inline-block;
 }
 .container .info-con .btn-group .btn .money {
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 34rpx;
-  margin-right: 50rpx;
+  /* margin-right: 50rpx; */
 }
 .container .info-con .btn-group .btn .tips {
   font-size: 26rpx;
@@ -161,6 +197,6 @@
   right: -60rpx;
   transform: rotateZ(30deg);
 }
-.container .vip-opened-get {
-  margin-top: 24rpx;
+.container .vip-get-container {
+  margin-bottom: 24rpx;
 }

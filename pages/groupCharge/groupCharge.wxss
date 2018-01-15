@@ -1,0 +1,87 @@
+.container {
+  background: #f0f0f0;
+}
+.group-step {
+  border-top: 0;
+}
+.group-step .step-top {
+  padding: 32rpx 144rpx 16rpx 144rpx;
+}
+.group-step .step-bottom {
+  border-bottom: 0;
+}
+.group-step .step-top .line {
+  width: 364rpx;
+  right: -364rpx;
+}
+.charge-account,
+.service-phonenumber {
+  color: #666;
+  /* height:96rpx; */
+  width: 100%;
+  padding: 0 40rpx;
+  /* line-height:96rpx; */
+  font-size: 32rpx;
+}
+.service-phonenumber {
+  height: 96rpx;
+  line-height: 96rpx;
+}
+.money-num > .input-con:last-child,
+.other-info > .input-con:last-child {
+  border-bottom: 0;
+}
+.other-info {
+  margin-top: 24rpx;
+}
+
+/* 按钮 */
+
+.submit {
+  margin-top: 40rpx;
+  width: 670rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.submit::after {
+  border: 0;
+}
+.user-account {
+  width: 670rpx;
+  height: 158rpx;
+  background: -webkit-linear-gradient(left, #ffb588, #fe4e4d);
+  margin-top: 24rpx;
+  border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx;
+  color: #fff;
+}
+.user-account > view:first-child {
+  font-size: 34rpx;
+  margin-left: 52rpx;
+  padding-top: 32rpx;
+}
+.user-account > view:last-child {
+  font-size: 60rpx;
+  text-align: center;
+}
+.fail-con {
+  width: 100%;
+  padding: 40rpx 50rpx 38rpx 50rpx;
+  background: #fff7f8;
+  border-top: 1rpx solid #ff5a60;
+  border-bottom: 1rpx solid #ff5a60;
+  margin-top: 24rpx;
+  color: #ff5a60;
+  font-weight: bold;
+}
+.fail-con > view:first-child {
+  font-size: 34rpx;
+  text-align: center;
+}
+.fail-con > view:last-child {
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 45rpx;
+  margin-top: 28rpx;
+}

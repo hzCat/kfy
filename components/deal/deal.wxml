@@ -1,0 +1,8 @@
+<!--components/deal/deal.wxml-->
+<view class='check-con'>
+  <checkbox-group class='checkbox' bindchange="checkbox">
+    <checkbox checked='true' value="true" />
+  </checkbox-group>
+  <text>支付即表示已阅读并同意</text>
+  <text bindtap="getDoc">《会员服务及充值服务协议》</text>
+</view>

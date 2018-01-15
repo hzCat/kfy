@@ -71,3 +71,114 @@ button::after {
 .left .mark-lightgreen {
   background: #cddc39;
 }
+
+/* 团餐步骤 */
+
+.group-step {
+  border-top: 1rpx solid #dbdbdb;
+}
+
+.group-step .step-top {
+  width: 100%;
+  padding: 32rpx 138rpx 16rpx 138rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.step-1, .step-2, .step-3 {
+  position: relative;
+}
+
+.group-step .step-top .line {
+  width: 160rpx;
+  border-top: 1px solid #dbdbdb;
+  position: absolute;
+  right: -161rpx;
+  bottom: 25rpx;
+}
+
+.group-step .step-bottom {
+  width: 100%;
+  padding: 0rpx 117rpx 24rpx 117rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color: #888;
+  background: #fff;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.group-step .num {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background: #c4c4c4;
+  color: #f2f2f2;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.group-step .step-on {
+  background: #8dce6f;
+}
+
+.group-step .step-on-t {
+  color: #8dce6f;
+}
+
+.group-step .input-info {
+  width: 670rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin-top: 48rpx;
+  color: #fff;
+}
+
+.group-step .input-info::after {
+  border: transparent;
+}
+
+.group-step .check-con {
+  /* margin-top: 24rpx; */
+}
+
+/* 团餐多页面input */
+
+.input-con {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1rpx solid #dbdbdb;
+  height: 88rpx;
+  padding: 0 40rpx;
+}
+
+.input-con label {
+  font-size: 34rpx;
+  color: #000;
+  width: 40%;
+}
+
+.input-con input {
+  padding-left: 100rpx;
+  font-size: 28rpx;
+  text-align: right;
+}
+.placeholder{
+  color:#999
+}
+/* 屏蔽透明模态框 */
+.stop-modal{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:1000;
+}
+
