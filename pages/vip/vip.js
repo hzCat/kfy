@@ -92,6 +92,7 @@ Page({
 
   // 个卡团卡切换
   boxSwitch(e) {
+    console.log(this.data.nowCard)
     let type = e.currentTarget.dataset.type;
     if (this.data.cardType != type) {
       this.setData({
@@ -114,18 +115,19 @@ Page({
     let groupCard = this.data.tvipCardList;
     let personalCard = this.data.vipCardList;
     let nowCardList = null;
-    let nowCard = [];
+    let now = [];
     if (this.data.cardType == "group") {
       nowCardList = groupCard;
     } else if (this.data.cardType == "personal") {
       nowCardList = personalCard;
     }
-    nowCard = nowCardList[index];
-    if (nowCard) {
+    now = nowCardList[index];
+    console.log("现在的卡列表1", now);
+    if (now) {
       this.setData({
-        nowCard: nowCard
+        nowCard: now
       });
-      console.log("现在的卡列表", nowCard);
+      console.log("现在的卡列表2", now);
     }
   },
   jump(e) {

@@ -53,7 +53,8 @@ Component({
       }
     });
     this.triggerEvent("indexChange", {
-      index: this.data.num
+      index: this.data.num,
+      cardType:this.data.option
     });
     // let index = that.getOpenIndex(that.data.cardList);
     // console.log("卡片长度",that.data.cardList.length, index);
@@ -140,7 +141,8 @@ Component({
         });
       }
       this.triggerEvent("indexChange", {
-        index: this.data.num
+        index: this.data.num,
+        cardType:this.data.option
       });
     },
     // 已开通
@@ -207,8 +209,7 @@ Component({
       }
       this.triggerEvent("indexChange", {
         index: this.data.num,
-        isApply: apply,
-        isRecharge: recharge
+        cardType:this.data.option
       });
     },
     // 跳转
