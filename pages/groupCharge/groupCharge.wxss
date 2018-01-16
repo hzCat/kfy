@@ -65,23 +65,4 @@
   font-size: 60rpx;
   text-align: center;
 }
-.fail-con {
-  width: 100%;
-  padding: 40rpx 50rpx 38rpx 50rpx;
-  background: #fff7f8;
-  border-top: 1rpx solid #ff5a60;
-  border-bottom: 1rpx solid #ff5a60;
-  margin-top: 24rpx;
-  color: #ff5a60;
-  font-weight: bold;
-}
-.fail-con > view:first-child {
-  font-size: 34rpx;
-  text-align: center;
-}
-.fail-con > view:last-child {
-  font-size: 30rpx;
-  text-align: center;
-  line-height: 45rpx;
-  margin-top: 28rpx;
-}
+

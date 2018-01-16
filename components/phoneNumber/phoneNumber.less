@@ -1,0 +1,102 @@
+.phoneNumber {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  .modal {
+    width: 560rpx;
+    height: 592rpx;
+    border-radius: 8rpx;
+    background: rgba(247, 247, 247, 0.98);
+    margin-top: 104rpx;
+    .title {
+      height: 100rpx;
+      width: 100%;
+      border-bottom: 1rpx solid #d2d3d5;
+      font-size: 36rpx;
+      line-height: 100rpx;
+      text-align: center;
+    }
+    .logo {
+      text-align: center;
+      padding: 40rpx 0;
+      image {
+        width: 70rpx;
+        height: 70rpx;
+        background: #bf1c2d;
+        border-radius: 50%;
+      }
+    }
+    .input {
+      border: 1rpx solid #808080;
+      width: 476rpx;
+      margin: 0 auto;
+      input {
+        height: 88rpx;
+        line-height: 88rpx;
+        font-size: 30rpx;
+        padding-left: 16rpx;
+      }
+      .placeholder {
+        color: #c7c7cc;
+      }
+      .phone {
+        border-bottom: 1rpx solid #808080;
+      }
+      .test {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          width: 100%;
+        }
+        .btn {
+          width: 100%;
+          padding-left: 24rpx;
+          color: #fdaf31;
+          font-size: 30rpx;
+        }
+        .line {
+          width: 1rpx;
+          height: 34rpx;
+          border-left: 1rpx solid #ccc;
+        }
+      }
+    }
+    .btn-group {
+      height: 100rpx;
+      border-top: 1rpx solid #d2d3d5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top:62rpx;
+      button {
+        background: transparent;
+        border-radius: 0;
+        border: 0;
+        color:#000;
+        font-size: 36rpx;
+        height: 100rpx;
+        line-height: 100rpx;
+      }
+      button::after {
+        border-radius: 0;
+        border: 0;
+      }
+      .next {
+        width: 100%;
+        border-right:1rpx solid #d2d3d5;
+      }
+      .relate {
+        color:#fdaf31;
+        width: 100%;
+      }
+    }
+  }
+}

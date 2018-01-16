@@ -28,3 +28,4 @@
 
 <!-- <view class="stop-modal" wx:if="{{modalOn}}"></view> -->
 <shade modalOn="{{modalOn}}"></shade>
+<phoneModal></phoneModal>

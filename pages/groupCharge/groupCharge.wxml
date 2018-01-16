@@ -14,10 +14,10 @@
     <view class='step-bottom'>
       <!-- 完成后加 step-on-t   -->
       <view class='step-1'>
-        <view class='text step-on-t'>填写资料</view>
+        <view class='text step-on-t'>联系汇款</view>
       </view>
       <view class='step-2'>
-        <view class='text'>联系汇款</view>
+        <view class='text'>充值成功</view>
       </view>
     </view>
   </view>

@@ -26,6 +26,11 @@
       </view>
     </view>
   </view>
+  <!-- 开通失败 -->
+  <view class="fail-con" wx:if="{{true}}">
+    <view>开通失败</view>
+    <view>充值金额399经过确认,充值金额399经过</view>
+  </view>
   <!-- 信息 -->
   <view class='getInfo'>
     <view class='input-con'>
@@ -51,6 +56,10 @@
     <view class='input-con'>
       <label>汇款单号/流水号</label>
       <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindblur="getOrderNumber"></input>
+    </view>
+    <view class='input-con'>
+      <label>汇款金额</label>
+      <input placeholder='可选项' type="digit" maxlength="30" placeholder-class='placeholder' bindblur="getMoney"></input>
     </view>
   </view>
   <button class='submit' disabled='{{false}}' bindtap="pushAllInfo">提交</button>

@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/vip/vip",
     "pages/userCenter/userCenter",
+    "pages/basicInfo/basicInfo",
     "pages/QR/QR",
     "pages/waitPay/waitPay",
     "pages/afterPay/afterPay",
@@ -11,7 +12,10 @@
     "pages/afterScanPay/afterScanPay",
     "pages/groupInfo/groupInfo",
     "pages/groupCharge/groupCharge",
-    "pages/chargeMoney/chargeMoney"
+    "pages/chargeMoney/chargeMoney",
+    "pages/alreadyPay/alreadyPay",
+    "pages/allOrder/allOrder",
+    "pages/yourMoney/yourMoney"
   ],
   "window": {
     "backgroundTextStyle": "light",

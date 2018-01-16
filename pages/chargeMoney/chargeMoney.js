@@ -15,7 +15,7 @@ Page({
     header: {},
     vipScope: "",
     chargeInfo: {},
-    vipLevelId: null,
+    // vipLevelId: null,
     allDisable: false,
     buy: false,
     modalOn: false,
@@ -34,7 +34,7 @@ Page({
       nowMoney: options.money,
       isVip: options.isVip,
       vipScope: options.by,
-      vipLevelId: options.level,
+      // vipLevelId: options.level,
       buy: options.buy
     });
     wx.getStorage({

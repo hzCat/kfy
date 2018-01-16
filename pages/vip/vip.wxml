@@ -11,8 +11,9 @@
   <cardlist cardList="{{vipCardList}}" vipWidth="{{vipWidth}}" bind:indexChange="indexChange" option="personal" wx:if="{{cardType=='personal'}}"></cardlist>
   <!-- 详细信息 -->
   <view class="info-con vip-get-container">
-    <!-- 权益 -->
-    <view class="vip-get" wx:if="{{!((cardType=='personal'&&nowIndex<=vipLevel&&isVip[0])||(cardType=='group'&&isVip[1]))}}">
+    <!-- 权益  -->
+    <!-- 个人 未开通显示或者当前卡大于开通等级时显示-->
+    <view class="vip-get personal" wx:if="{{(cardType=='personal')&&((vipLevel&&nowIndex>vipLevel)||!isVip[0])}}">
       <view class="top">
         <image src="../../icon/star.png"></image>
         <view>权益</view>
@@ -22,7 +23,7 @@
           <image src="../../icon/gift.png"></image>
           <view class="info">
             <view class="up">充值赠送</view>
-            <text class="down" decode="true">充&nbsp;<text class="strong">{{nowCard.rechargeGetAmt}}</text>&nbsp;送&nbsp;<text class="strong">{{nowCard.rechargeGiftAmt}}</text></text>
+            <text class="down" decode="true">充&nbsp;<text class="strong">{{vipCardList[nowIndex].rechargeGetAmt}}</text>&nbsp;送&nbsp;<text class="strong">{{vipCardList[nowIndex].rechargeGiftAmt}}</text></text>
           </view>
         </view>
         <view class="right">
@@ -30,7 +31,32 @@
           <view class="info">
             <view class="up">积分比例</view>
             <text class="down" decode="true">
-              <text class="strong" decode="true">1&nbsp;:&nbsp;{{nowCard.baseIntegralProportion}}</text>
+              <text class="strong" decode="true">1&nbsp;:&nbsp;{{vipCardList[nowIndex].baseIntegralProportion}}</text>
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 团餐 -->
+    <view class="vip-get group" wx:if="{{cardType=='group'&&!isVip[1]}}">
+      <view class="top">
+        <image src="../../icon/star.png"></image>
+        <view>权益</view>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <image src="../../icon/gift.png"></image>
+          <view class="info">
+            <view class="up">充值赠送</view>
+            <text class="down" decode="true">充&nbsp;<text class="strong">{{tvipCardList[nowIndex].rechargeGetAmt}}</text>&nbsp;送&nbsp;<text class="strong">{{tvipCardList[nowIndex].rechargeGiftAmt}}</text></text>
+          </view>
+        </view>
+        <view class="right">
+          <image src="../../icon/integral.png"></image>
+          <view class="info">
+            <view class="up">积分比例</view>
+            <text class="down" decode="true">
+              <text class="strong" decode="true">1&nbsp;:&nbsp;{{tvipCardList[nowIndex].baseIntegralProportion}}</text>
             </text>
           </view>
         </view>
@@ -93,7 +119,7 @@
   </view>
 
       <!-- 权益 已经开通-->
-  <view class="info-con vip-opened-get" wx:if="{{((cardType=='personal'&&isVip[0]&&(nowIndex<=vipLevel))||(cardType=='group'&&isVip[1]))}}">
+  <view class="info-con vip-opened-get personal" wx:if="{{(cardType=='personal')&&isVip[0]&&(nowIndex<=vipLevel)}}">
     <view class="vip-get">
       <view class="top">
         <image src="../../icon/star.png"></image>
@@ -104,7 +130,7 @@
           <image src="../../icon/gift.png"></image>
           <view class="info">
             <view class="up">充值赠送</view>
-            <text class="down" decode="true">充&nbsp;<text class="strong">{{nowCard.rechargeGetAmt}}</text>&nbsp;送&nbsp;<text class="strong">{{nowCard.rechargeGiftAmt}}</text></text>
+            <text class="down" decode="true">充&nbsp;<text class="strong">{{vipCardList[nowIndex].rechargeGetAmt}}</text>&nbsp;送&nbsp;<text class="strong">{{vipCardList[nowIndex].rechargeGiftAmt}}</text></text>
           </view>
         </view>
         <view class="right">
@@ -112,11 +138,38 @@
           <view class="info">
             <view class="up">积分比例</view>
             <text class="down" decode="true">
-              <text class="strong" decode="true">1&nbsp;:&nbsp;{{nowCard.baseIntegralProportion}}</text>
+              <text class="strong" decode="true">1&nbsp;:&nbsp;{{vipCardList[nowIndex].baseIntegralProportion}}</text>
             </text>
           </view>
         </view>
       </view>
     </view>
   </view>
-</view>1
+  
+  <view class="info-con vip-opened-get group" wx:if="{{(cardType=='group'&&isVip[1])}}">
+    <view class="vip-get">
+      <view class="top">
+        <image src="../../icon/star.png"></image>
+        <view>权益</view>
+      </view>
+      <view class="bottom">
+        <view class="left">
+          <image src="../../icon/gift.png"></image>
+          <view class="info">
+            <view class="up">充值赠送</view>
+            <text class="down" decode="true">充&nbsp;<text class="strong">{{tvipCardList[nowIndex].rechargeGetAmt}}</text>&nbsp;送&nbsp;<text class="strong">{{tvipCardList[nowIndex].rechargeGiftAmt}}</text></text>
+          </view>
+        </view>
+        <view class="right">
+          <image src="../../icon/integral.png"></image>
+          <view class="info">
+            <view class="up">积分比例</view>
+            <text class="down" decode="true">
+              <text class="strong" decode="true">1&nbsp;:&nbsp;{{tvipCardList[nowIndex].baseIntegralProportion}}</text>
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

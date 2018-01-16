@@ -1,0 +1,23 @@
+<view class="phoneNumber">
+  <view class="modal">
+    <!-- title -->
+    <view class="title">绑定其他手机</view>
+    <!-- logo -->
+    <view class="logo">
+      <image src="../../img/logo.png" mode="aspectFit"></image>
+    </view>
+    <!-- input -->
+    <view class="input">
+      <input class="phone" placeholder-class='placeholder' type="number" placeholder="手机号码" value="{{phoneNumber}}"></input>
+      <view class="test">
+        <input class="test" placeholder-class='placeholder' type="text" placeholder="验证码" value="{{testNumber}}"></input>
+        <view class="line"></view>
+        <view class="btn">获取验证码</view>
+      </view>
+    </view>
+    <view class="btn-group">
+      <button class="next">下次再说</button>
+      <button class="relate">绑定</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="total">
+    <view class="detail-btn">明细>></view>
+    <view class="money">{{cardList[0].cardBalance||'0.00'}}</view>
+    <view class="name">总余额(￥)</view>
+  </view>
+  <!-- <view class="total-detail">
+    <view class="left">
+      <view class="money">暂无</view>
+      <view class="name">充值余额(￥)</view>
+    </view>
+    <view class="line"></view>
+    <view class="right">
+      <view class="money">暂无</view>
+      <view class="name">获赠余额(￥)</view>
+    </view>
+  </view> -->
+  <view class="btn-group">
+    <button bindtap="jump" data-jump="/pages/chargeMoney/chargeMoney?by=VIP&buy=false&money={{cardList[0].rechargeGetAmt}}&isVip={{isVip[0]}}">充值</button>
+  </view>
+  <view class="accumulation">
+    <view class="left">
+      <image src="../../icon/total_money.png"></image>
+      <view class="money">{{cardList[0].totalRecharge||'0.00'}}</view>
+      <view class="name">累计充值(￥)</view>
+    </view>
+    <view class="right">
+      <image src="../../icon/total_gift.png"></image>
+      <view class="money">{{cardList[0].totalGift||'0.00'}}</view>
+      <view class="name">累计获赠(￥)</view>
+    </view>
+  </view>
+</view>

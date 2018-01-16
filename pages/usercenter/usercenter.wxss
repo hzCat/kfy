@@ -1,1 +1,62 @@
-/* pages/userCenter/userCenter.wxss */
+.container {
+  background: #fff;
+}
+.container .header-bg {
+  width: 100%;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.fixed .header-con {
+  width: 100%;
+  margin-top: 18rpx;
+  padding-left: 120rpx;
+}
+.fixed .header-con .header {
+  width: 192rpx;
+  height: 192rpx;
+  border: 6rpx solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 8rpx 24rpx rgba(218, 137, 44, 0.54);
+}
+.fixed .header-con .header .head {
+  width: 180rpx;
+  height: 180rpx;
+}
+.fixed .content .name {
+  margin-left: 126rpx;
+  padding-top: 42rpx;
+  padding-bottom: 40rpx;
+  font-size: 40rpx;
+}
+.fixed .content .list-one {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 96rpx;
+  font-size: 34rpx;
+  padding-left: 124rpx;
+}
+.fixed .content .list-one image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 32rpx;
+}
+.fixed .content .list-one text {
+  font-size: 28rpx;
+  color: #999;
+}
+.fixed .content .list-one .badge {
+  display: inline-block;
+  border-radius: 18rpx;
+  height: 34rpx;
+  font-size: 26rpx;
+  background: #f12c20;
+  color: #fff;
+  padding: 0 12rpx;
+  margin-left: 16rpx;
+}

@@ -1,0 +1,72 @@
+.container{
+    width:100%;
+    height:100vh;
+    background: #f0f0f0;
+}
+/* 头部 */
+.header{
+    font-size: 28rpx;
+    color:#999;
+    padding:0 41rpx;
+    padding-top:33rpx;
+}
+/* 信息栏公用 */
+.info-1,.info-2{
+    font-size: 34rpx;
+    margin-top:33rpx;
+    background:#fff;
+    border-top:1px solid #dbdbdb;
+    border-bottom:1px solid #dbdbdb;
+}
+/* 信息栏1 */
+.info-1>view{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin:0 41rpx;
+    height:89rpx;
+    border-bottom:1px solid #dbdbdb;
+}
+.info-1>view:last-child{
+    border-bottom:none;
+}
+.info-1 .infoInput{
+    margin-left:116rpx;
+    color:#666;
+}
+/* 信息栏2 */
+.info-2{
+
+}
+.info-2>view{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin:0 41rpx;
+    height:89rpx;
+    border-bottom:1px solid #dbdbdb;
+}
+.info-2 .infoInput{
+    margin-left:116rpx;
+    color:#fdaf31;
+}
+.info-2>view:last-child{
+    border-bottom:none;
+}
+/* 手机号码 */
+.phone{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin:0 41rpx;
+    height:89rpx;
+    font-size: 34rpx;
+    color:#666;
+}
+.phone>view:nth-child(2){
+    margin-left:116rpx;
+}
+.submit{
+    border:none;
+    margin:0 41rpx;
+}

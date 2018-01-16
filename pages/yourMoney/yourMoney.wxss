@@ -1,0 +1,67 @@
+.container {
+  border-top: 1rpx solid #f0f0f0;
+  background: #f0f0f0;
+}
+.container > view {
+  background: #fff;
+}
+.container .detail-btn {
+  color: #26c2fd;
+  font-size: 30rpx;
+  position: absolute;
+  top: 32rpx;
+  right: 40rpx;
+}
+.container .total {
+  position: relative;
+  height: 360rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 158rpx 40rpx 84rpx 40rpx;
+}
+.container .total .money {
+  font-size: 80rpx;
+  font-weight: bold;
+}
+.container .total .name {
+  font-size: 32rpx;
+  color: #999;
+  margin-top: 26rpx;
+}
+.container .btn-group {
+  height: 156rpx;
+  padding: 34rpx 40rpx;
+}
+.container .accumulation {
+  display: flex;
+  margin-top: 24rpx;
+  height: 290rpx;
+}
+.container .accumulation .left,
+.container .accumulation .right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .accumulation .left image,
+.container .accumulation .right image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 40rpx;
+}
+.container .accumulation .left .money,
+.container .accumulation .right .money {
+  font-size: 30rpx;
+  padding-top: 26rpx;
+}
+.container .accumulation .left .name,
+.container .accumulation .right .name {
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  color: #999;
+}

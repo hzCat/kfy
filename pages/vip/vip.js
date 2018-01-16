@@ -104,11 +104,13 @@ Page({
   indexChange(e) {
     console.log("传出的数据", e.detail);
     let cardIndex = e.detail.index;
+    let type=e.detail.cardType;
     console.log("nowIndex", cardIndex);
+    console.log("cardType", type);
     this.setData({
       nowIndex: cardIndex
     });
-    this.nowShowCard(cardIndex);
+    // this.nowShowCard(cardIndex);
   },
   // 现在显示的卡
   nowShowCard(index) {
@@ -122,12 +124,12 @@ Page({
       nowCardList = personalCard;
     }
     now = nowCardList[index];
-    console.log("现在的卡列表1", now);
+    console.log("现在的卡列表1", this.data.nowCard);
     if (now) {
       this.setData({
         nowCard: now
       });
-      console.log("现在的卡列表2", now);
+      console.log("现在的卡列表2", this.data.nowCard);
     }
   },
   jump(e) {

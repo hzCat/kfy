@@ -1,18 +1,18 @@
 <view class="container">
-  <view class="success" wx:if="{{false}}">
+  <view class="success" wx:if="{{isSucc=='true'}}">
     <icon class="icon" type="success" color="#fdaf31" size="100"></icon>
     <view class="title">支付成功</view>
-    <view class="money">￥100.00</view>
-    <view class="order-no">订单:12345123451234512345</view>
+    <view class="money">￥{{orderPrice}}</view>
+    <view class="order-no">订单:{{orderId}}</view>
     <view class="wish">祝您用餐愉快</view>
-    <button class="btn-again">再扫一个</button>
-    <button class="btn-quit">完成退出</button>
+    <button class="btn-again" bindtap="again">再扫一个</button>
+    <button class="btn-quit" data-jump="/pages/index/index" bindtap="quit">完成退出</button>
   </view>
-  <view class="fail">
+  <view class="fail" wx:if="{{isSucc=='false'}}">
     <icon class="icon" type="warn" color="#f76160" size="100"></icon>
     <view class="title">支付失败</view>
-    <view class="detail">由于网络原因,您暂时未能成功完成支付</view>
-    <view class="fail-order-no">订单:12345123451234512345</view>
-    <button class="fail-btn-again">重试一次</button>
+    <view class="detail">由于{{tips||'网络原因'}},您暂时未能成功完成支付</view>
+    <view class="fail-order-no" wx:if="{{orderId!='null'&&orderId!='undefined'}}">订单:{{orderId||'无'}}</view>
+    <button class="fail-btn-again" bindtap="again">重试一次</button>
   </view>
 </view>

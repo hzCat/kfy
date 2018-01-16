@@ -106,6 +106,17 @@ Page({
     }
   },
 
+  // 汇款金额
+  getMoney(e){
+    console.log("Money", e.detail.value);
+    if (/^\d{1,6}(\.\d{2})+$/.test(e.detail.value)) {
+      let obj = this.data.pushInfo;
+      obj.transferAmt = e.detail.value;
+      this.setData({
+        pushInfo: obj
+      });
+    }
+  },
   // 点击时清除输入框数据
   clear(e) {
     let type = e.currentTarget.dataset.type;

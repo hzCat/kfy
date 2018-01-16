@@ -1,0 +1,75 @@
+.container2 {
+  background: #fff;
+}
+.container2 .order-one {
+  height: 120rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx 0 42rpx;
+}
+.container2 .order-one .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container2 .order-one .left .mark {
+  height: 42rpx;
+  width: 42rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 42rpx;
+  opacity: 0;
+  font-size: 26rpx;
+}
+.container2 .order-one .left .mark-g {
+  background: #61c480;
+  opacity: 1;
+}
+.container2 .order-one .left .money {
+  font-size: 42rpx;
+  color: #333;
+  margin-left: 22rpx;
+}
+.container2 .order-one .right {
+  position: relative;
+  padding-right: 46rpx;
+  text-align: right;
+}
+.container2 .order-one .right .status {
+  color: #333;
+  font-size: 26rpx;
+}
+.container2 .order-one .right .time {
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 12rpx;
+}
+.container2 .order-one .right .array {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 4rpx solid #999;
+  border-bottom: 4rpx solid #999;
+  transform: rotateZ(-45deg);
+  position: absolute;
+  right: 0;
+  top: 36rpx;
+}
+.container2 .order-one .right .status-blue {
+  color: #3acad3;
+}
+.container2 .order-one .right .status-red {
+  color: #f76160;
+}
+.container2 .getMore {
+  height: 87rpx;
+  text-align: center;
+  line-height: 87rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+page {
+  background: #fff;
+}

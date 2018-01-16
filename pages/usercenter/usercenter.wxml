@@ -1,2 +1,37 @@
 <!--pages/userCenter/userCenter.wxml-->
-<text>pages/userCenter/userCenter.wxml</text>
+<view class="container">
+  <image class="header-bg" src="../../img/header-bg.png" mode="widthFix"></image>
+</view>
+<!-- 放上层 -->
+<view class="fixed">
+  <view class="header-con">
+    <view class="header" bindtap="jump" data-jump="/pages/basicInfo/basicInfo">
+      <image class="head" src="../../icon/default_head.png"></image>
+    </view>
+  </view>
+  <view class="content">
+    <view class="name">你的名字abcd</view>
+    <view class="vip list-one">
+      <image src="../../icon/icon_member.png"></image>
+      <view>功夫会员</view>
+    </view>
+    <view class="order list-one" bindtap="jump" data-jump="/pages/allOrder/allOrder">
+      <image src="../../icon/icon_order.png"></image>
+      <view>全部订单
+        <text class="badge">99</text>
+      </view>
+    </view>
+    <view class="events list-one">
+      <image src="../../icon/icon_promotion.png"></image>
+      <view>近期活动
+        <text>(敬请期待...)</text>
+      </view>
+    </view>
+    <view class="special list-one">
+      <image src="../../icon/icon_native.png"></image>
+      <view>功夫特产
+        <text>(敬请期待...)</text>
+      </view>
+    </view>
+  </view>
+</view>

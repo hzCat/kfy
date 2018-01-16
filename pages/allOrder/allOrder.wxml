@@ -1,0 +1,41 @@
+<view class="container2">
+  <!-- 一项 -->
+  <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="/pages/alreadyPay/alreadyPay?id={{item.orderId}}" bindtap="jump">
+    <view class="left">
+      <view class="mark {{item.orderSource=='TEAM_ORDER'&&'mark-g'}}">团</view>
+      <view class="money">￥{{item.payAmt}}</view>
+    </view>
+    <view class="right">
+      <view class="status {{item.orderStatus==('NOT_PAY'||'FLOW')&&'status-red'}} {{item.orderStatus=='FLOW'&&'status-blue'}}">{{item.orderStatus=='NOT_PAY'?'待支付':item.orderStatus=='FLOW'?'逃单':'已支付'}}</view>
+      <view class="time">{{item.createTime}}</view>
+      <view class="array"></view>
+    </view>
+  </view>
+
+  <view class='getMore'>{{isMore?'更多订单':'无更多数据'}}</view>
+  <!-- 一项 -->
+  <!-- <view class="order-one">
+    <view class="left">
+      <view class="mark">团</view>
+      <view class="money">￥20000.04</view>
+    </view>
+    <view class="right">
+      <view class="status status-red">待支付</view>
+      <view class="time">2018-01-01 12:12</view>
+      <view class="array"></view>
+    </view>
+  </view> -->
+  <!-- 一项 -->
+  <!-- <view class="order-one">
+    <view class="left">
+      <view class="mark mark-g">团</view>
+      <view class="money">￥20000.04</view>
+    </view>
+    <view class="right">
+      <view class="status status-blue">逃单</view>
+      <view class="time">2018-01-01 12:12</view>
+      <view class="array"></view>
+    </view>
+  </view> -->
+
+</view>

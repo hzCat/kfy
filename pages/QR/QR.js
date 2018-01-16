@@ -63,6 +63,7 @@ Page({
     wx.setScreenBrightness({
       value: that.data.userscreenLight
     });
+    wx.closeSocket();
   },
   // 获取所有信息
   getAllInfo() {
@@ -103,6 +104,12 @@ Page({
   // 获取二维码
   getQR() {
     let that = this;
+    wx.connectSocket({
+      url: "ws://192.168.1.146/websocket/tradePushServer",
+      data: {},
+      header: app.globalData.header,
+      method: "GET"
+    });
     // 获取屏幕亮度
     wx.getScreenBrightness({
       success(res) {
@@ -132,6 +139,19 @@ Page({
       // 最高亮度
       wx.setScreenBrightness({
         value: 1
+      });
+      // 连接成功
+      wx.onSocketOpen(function(res) {
+        console.log("WebSocket连接已打开！");
+      });
+      wx.onSocketError(function(err) {
+        console.log("WebSocket连接打开失败，请检查！");
+      });
+      wx.onSocketClose(function(res) {
+        console.log("WebSocket 已关闭！");
+      });
+      wx.onSocketMessage(function(res) {
+        console.log("收到服务器内容：" + res.data);
       });
     });
   },

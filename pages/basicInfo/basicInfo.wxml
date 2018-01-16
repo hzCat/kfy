@@ -1,0 +1,70 @@
+<view class="container">
+    <!-- 头部文字 -->
+    <view class="header">
+        <view>基础信息</view>
+        <view class="user-id" wx:if="{{false}}">ID:123012047012</view>
+    </view>
+    <!-- 信息1 -->
+    <view class="info-1">
+        <view>
+            <text>昵称</text>
+            <!-- 昵称   未完成修改事件 -->
+            <input maxlength="16" value="{{allInfo.nickName||userInfo.nickName}}" placeholder='可修改' class='infoInput' bindchange="nickNameChange" disabled='{{!modify.nickname}}'></input>
+        </view>
+        <view>
+            <text>姓名</text>
+            <input maxlength="16" placeholder="输入您的真实姓名" value="{{allInfo.realName||''}}" class='infoInput' bindchange="realNameChange" disabled='{{!modify.realname}}'></input>
+        </view>
+        <view>
+            <text>性别</text>
+            <!-- 性别传值为 0,1    分别为  女,男 -->
+            <view class='infoInput'>
+                <picker bindchange="bindSexChange" value="{{index}}" range="{{userSex}}" disabled="{{!modify.gender}}" >
+                    <view class="picker">
+                        {{userSex[sIndex||uSexIdx||userInfo.gender||0]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <!-- 信息2 -->
+    <view class="info-2">
+        <view>
+            <text>生日</text>
+            <view class='infoInput'>
+                <picker bindchange="bindBirthChange" mode="date" value="{{date}}" start="1900-01-01" end="{{nowdays||'2030-11-11'}}" disabled='{{!modify.birth}}'>
+                    <view class="picker">
+                        {{bir||birth||'请选择日期'}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view>
+            <text>身高</text>
+            <view class='infoInput'>
+                <picker bindchange="bindHeightChange" value="{{index}}" range="{{userHeight}}" disabled='{{!modify.height}}'>
+                    <view class="picker">
+                        {{userHeight[hIndex]||(height&&height+"cm")||'请选择身高'}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view>
+            <text>体重</text>
+            <view class='infoInput'>
+                <picker bindchange="bindWeightChange" value="{{index}}" range="{{userWeight}}" disabled='{{!modify.weight}}'>
+                    <view class="picker">
+                        {{userWeight[kgIndex]||(weight&&weight+"kg")||'请选择体重'}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <!-- 电话号码   -->
+    <view class="phone">
+        <view>手机</view>
+        <view>{{allInfo.mobile||'未绑定'}}</view>
+    </view>
+    <!-- 保存按钮 -->
+    <button class="submit" bindtap="submitClick">保存</button>
+</view>
