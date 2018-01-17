@@ -75,3 +75,8 @@
 .btn-group .center .name {
   margin-top: 16rpx;
 }
+.btn-group .not-vip {
+  color: #666;
+  border: 1rpx solid #666;
+  background: #fff;
+}

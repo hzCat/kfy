@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="switch">
+    <view class="left" data-type="out" bindtap="switchTab">消费明细</view>
+    <view class="right" data-type="in" bindtap="switchTab">充值明细</view>
+    <view class="switch-line {{tab=='in'&&'switch-right'}}"></view>
+  </view>
+  <view class="detail-con">
+    <view class="one use" wx:for="{{detailList}}" wx:key="index">
+      <view class="left">
+        -￥{{item.amount}}
+      </view>
+      <view class="right">
+        <view class="time">{{item.createTime}}</view>
+        <view class="array"></view>
+      </view>
+    </view>
+    
+  </view>
+</view>

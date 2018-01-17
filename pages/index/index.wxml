@@ -5,8 +5,8 @@
     <image src="../../img/slogan.png" />
   </view>
   <view class="btn-group">
-    <view class="left" data-scope="VIP" bindtap="toQR">
-      <image src="../../icon/icon_oneperson.png"></image>
+    <view class="left {{isVip[0]?none:'not-vip'}}" data-scope="VIP" bindtap="toQR">
+      <image src="{{isVip[0]?'../../icon/isVip.png':'../../icon/notVip.png'}}"></image>
       <view class="name">
         会员付款
       </view>
@@ -17,8 +17,8 @@
         扫一扫
       </view>
     </view>
-    <view class="right" data-scope="TVIP" bindtap="toQR">
-      <image src="../../icon/icon_duoren.png"></image>
+    <view class="right {{isVip[1]?none:'not-vip'}}" data-scope="TVIP" bindtap="toQR">
+      <image src="{{isVip[1]?'../../icon/isTvip.png':'../../icon/notTvip.png'}}"></image>
       <view class="name">
         团餐付款
       </view>

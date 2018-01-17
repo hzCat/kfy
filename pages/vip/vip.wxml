@@ -69,7 +69,7 @@
     <!-- 已经是会员,显示积分和余额 -->
     <!-- 个人 -->
     <view class="vip-show" wx:if="{{cardType=='personal'&&(nowIndex==vipLevel)}}">
-      <view class="your-money your">
+      <view class="your-money your" bindtap="jump" data-jump="/pages/yourMoney/yourMoney?by=personal">
         <view class="left">
           <image src="../../icon/money.png"></image>
           <view>余额</view>
@@ -89,7 +89,7 @@
     </view>
     <!-- 团餐 -->
     <view class="vip-show" wx:if="{{(cardType=='group')&&(nowIndex==tvipLevel)}}">
-      <view class="your-money your">
+      <view class="your-money your"  bindtap="jump" data-jump="/pages/yourMoney/yourMoney?by=group">
         <view class="left">
           <image src="../../icon/money.png"></image>
           <view>余额</view>

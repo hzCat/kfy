@@ -1,11 +1,12 @@
 .container {
   background: #fff;
+  position: relative;
 }
 .container .header-bg {
   width: 100%;
 }
 .fixed {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -26,6 +27,7 @@
 .fixed .header-con .header .head {
   width: 180rpx;
   height: 180rpx;
+  border-radius: 50%;
 }
 .fixed .content .name {
   margin-left: 126rpx;
@@ -39,6 +41,8 @@
   align-items: center;
   height: 96rpx;
   font-size: 34rpx;
+  padding: 28rpx 0;
+  line-height: 40rpx;
   padding-left: 124rpx;
 }
 .fixed .content .list-one image {
@@ -46,14 +50,29 @@
   height: 40rpx;
   margin-right: 32rpx;
 }
+.fixed .content .list-one > view {
+  height: 40rpx;
+  line-height: 40rpx;
+}
 .fixed .content .list-one text {
   font-size: 28rpx;
   color: #999;
 }
+.fixed .content .list-one .order-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.fixed .content .list-one .order-name text:first-child {
+  font-size: 34rpx;
+  color: #000;
+}
 .fixed .content .list-one .badge {
   display: inline-block;
   border-radius: 18rpx;
-  height: 34rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin: 3rpx 0;
   font-size: 26rpx;
   background: #f12c20;
   color: #fff;

@@ -26,6 +26,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (options.type) {
+      let type = options.type;
+      this.setData({
+        cardType: type
+      });
+    }
     storage.gets("allInfo").then(res => {
       console.log("vip加载allInfo", res.data);
       let arr = card.turn(res.data.vipCardList);
@@ -92,9 +98,19 @@ Page({
 
   // 个卡团卡切换
   boxSwitch(e) {
-    console.log(this.data.nowCard)
+    console.log(this.data.nowCard);
     let type = e.currentTarget.dataset.type;
     if (this.data.cardType != type) {
+      console.log(this.data.nowIndex);
+      if (type == "personal") {
+        this.setData({
+          nowIndex: (this.data.vipLevel||0)
+        });
+      } else if (type == "group") {
+        this.setData({
+          nowIndex: (this.data.tvipLevel||0)
+        });
+      }
       this.setData({
         cardType: type
       });
@@ -104,7 +120,7 @@ Page({
   indexChange(e) {
     console.log("传出的数据", e.detail);
     let cardIndex = e.detail.index;
-    let type=e.detail.cardType;
+    let type = e.detail.cardType;
     console.log("nowIndex", cardIndex);
     console.log("cardType", type);
     this.setData({
@@ -113,25 +129,25 @@ Page({
     // this.nowShowCard(cardIndex);
   },
   // 现在显示的卡
-  nowShowCard(index) {
-    let groupCard = this.data.tvipCardList;
-    let personalCard = this.data.vipCardList;
-    let nowCardList = null;
-    let now = [];
-    if (this.data.cardType == "group") {
-      nowCardList = groupCard;
-    } else if (this.data.cardType == "personal") {
-      nowCardList = personalCard;
-    }
-    now = nowCardList[index];
-    console.log("现在的卡列表1", this.data.nowCard);
-    if (now) {
-      this.setData({
-        nowCard: now
-      });
-      console.log("现在的卡列表2", this.data.nowCard);
-    }
-  },
+  // nowShowCard(index) {
+  //   let groupCard = this.data.tvipCardList;
+  //   let personalCard = this.data.vipCardList;
+  //   let nowCardList = null;
+  //   let now = [];
+  //   if (this.data.cardType == "group") {
+  //     nowCardList = groupCard;
+  //   } else if (this.data.cardType == "personal") {
+  //     nowCardList = personalCard;
+  //   }
+  //   now = nowCardList[index];
+  //   console.log("现在的卡列表1", this.data.nowCard);
+  //   if (now) {
+  //     this.setData({
+  //       nowCard: now
+  //     });
+  //     console.log("现在的卡列表2", this.data.nowCard);
+  //   }
+  // },
   jump(e) {
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("nav", jumpto);

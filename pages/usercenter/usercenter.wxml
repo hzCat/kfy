@@ -6,29 +6,38 @@
 <view class="fixed">
   <view class="header-con">
     <view class="header" bindtap="jump" data-jump="/pages/basicInfo/basicInfo">
-      <image class="head" src="../../icon/default_head.png"></image>
+      <image class="head" src="{{userInfo.avatarUrl||headDefault}}"></image>
     </view>
   </view>
   <view class="content">
-    <view class="name">你的名字abcd</view>
-    <view class="vip list-one">
-      <image src="../../icon/icon_member.png"></image>
+    <view class="name">{{allInfo.nickName}}</view>
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/vip/vip">
+      <view>
+        <image src="../../icon/icon_member.png"></image>
+      </view>
       <view>功夫会员</view>
     </view>
     <view class="order list-one" bindtap="jump" data-jump="/pages/allOrder/allOrder">
-      <image src="../../icon/icon_order.png"></image>
-      <view>全部订单
-        <text class="badge">99</text>
+      <view>
+        <image src="../../icon/icon_order.png"></image>
+      </view>
+      <view class="order-name">
+        <text>全部订单</text>
+        <text class="badge" wx:if="{{allInfo.waitPayOrderCount}}">{{allInfo.waitPayOrderCount||'0'}}</text>
       </view>
     </view>
     <view class="events list-one">
-      <image src="../../icon/icon_promotion.png"></image>
+      <view>
+        <image src="../../icon/icon_promotion.png"></image>
+      </view>
       <view>近期活动
         <text>(敬请期待...)</text>
       </view>
     </view>
     <view class="special list-one">
-      <image src="../../icon/icon_native.png"></image>
+      <view>
+        <image src="../../icon/icon_native.png"></image>
+      </view>
       <view>功夫特产
         <text>(敬请期待...)</text>
       </view>

@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "向功夫元付款",
+    "navigationBarTitleText": "付款",
     "usingComponents": {
       "shade": "../../components/shade/shade",
       "phoneModal":"../../components/phoneNumber/phoneNumber"

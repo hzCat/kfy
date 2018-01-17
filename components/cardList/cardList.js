@@ -170,7 +170,7 @@ Component({
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
         if (obj.hasRechargeOrder == true) {
-          return i;
+          return true;
         }
       }
     },
@@ -188,6 +188,7 @@ Component({
         apply = that.isApply(that.data.cardList);
         recharge = that.isRecharge(that.data.cardList);
         console.log("是否有团卡申请", apply);
+        console.log("是否有团卡充值申请", recharge);
         if (apply) {
           that.setData({
             apply: apply

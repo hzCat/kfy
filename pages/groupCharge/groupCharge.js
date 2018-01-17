@@ -2,21 +2,23 @@ let modal = require("../../utils/modal.js");
 let http = require("../../utils/ajax.js");
 let storage = require("../../utils/storage.js");
 let pay = require("../../utils/pay.js");
-let util = require("../../utils/util.js");
-let app=getApp();
+let jump = require("../../utils/jump.js");
+let update = require("../../utils/update.js");
+let app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     step: 0,
-    orderNumber: "",
-    money: "",
-    otherInfo: "",
-    phoneNumber: "",
+    orderNumber: null,
+    money: null,
+    otherInfo: null,
+    phoneNumber: null,
     pushInfo: {},
     header: {},
-    serviceNumber:""
+    serviceNumber: "",
+    chargeInfo:{}
   },
 
   /**
@@ -30,7 +32,7 @@ Page({
       this.setData({
         phoneNumber: res.data.mobile,
         pushInfo: obj,
-        serviceNumber:app.globalData.serviceNumber
+        serviceNumber: app.globalData.serviceNumber
       });
     });
     storage.gets("3rd_session").then(res => {
@@ -47,7 +49,20 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+    this.chargeInfo()
+  },
+
+  // 获取充值信息
+  chargeInfo() {
+    let url = "/recharge/getApplyOrder";
+    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      console.log(res.data);
+      this.setData({
+        chargeInfo:res.data.data
+      })
+    });
+  },
   // 获取汇款单号
   getOrderNumber(e) {
     console.log("汇款单号", e.detail.value);
@@ -134,7 +149,8 @@ Page({
         let code = res.data.code;
         if (code == 200) {
           // util.jump("redirect", "/pages/vipBag/vipBag")
-          util.jump("back");
+          update.updateuser(app.globalData.header);
+          jump.jump("back");
         } else if (code == 7003) {
           modal.modal("提示", "团餐会员卡未开通");
         } else if (code == 612) {

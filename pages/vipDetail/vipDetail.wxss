@@ -1,0 +1,69 @@
+.container {
+  background: #f0f0f0;
+  border-top: 1rpx solid #e5e5e5;
+}
+.container .switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  position: relative;
+}
+.container .switch .left,
+.container .switch .right {
+  width: 375rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  margin-top: 18rpx;
+  margin-bottom: 18rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+}
+.container .switch .left {
+  border-right: 1rpx solid #e5e5e5;
+}
+.container .switch .switch-line {
+  height: 4rpx;
+  width: 375rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fdaf31;
+}
+.container .switch .switch-right {
+  left: 375rpx;
+}
+.container .detail-con {
+  margin-top: 24rpx;
+  border-top: 1rpx solid #e5e5e5;
+}
+.container .detail-con .one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  height: 88rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.container .detail-con .one .left {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.container .detail-con .one .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+.container .detail-con .one .right .array {
+  width: 14rpx;
+  height: 14rpx;
+  transform: rotateZ(-45deg);
+  border-bottom: 4rpx solid #666;
+  border-right: 4rpx solid #666;
+  margin-top: 5rpx;
+  margin-left: 36rpx;
+}
