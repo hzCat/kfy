@@ -9,6 +9,9 @@
   justify-content: flex-start;
   align-items: center;
   background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s linear;
+  z-index: -1000;
 }
 .phoneNumber .modal {
   width: 560rpx;
@@ -16,6 +19,7 @@
   border-radius: 8rpx;
   background: rgba(247, 247, 247, 0.98);
   margin-top: 104rpx;
+  position: relative;
 }
 .phoneNumber .modal .title {
   height: 100rpx;
@@ -28,6 +32,7 @@
 .phoneNumber .modal .logo {
   text-align: center;
   padding: 40rpx 0;
+  height: 150rpx;
 }
 .phoneNumber .modal .logo image {
   width: 70rpx;
@@ -62,22 +67,35 @@
 }
 .phoneNumber .modal .input .test .btn {
   width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
   padding-left: 24rpx;
   color: #fdaf31;
   font-size: 30rpx;
+}
+.phoneNumber .modal .input .test .btn-wait {
+  color: #999;
 }
 .phoneNumber .modal .input .test .line {
   width: 1rpx;
   height: 34rpx;
   border-left: 1rpx solid #ccc;
 }
+.phoneNumber .modal .warn {
+  font-size: 26rpx;
+  margin-top: 16rpx;
+  color: #ff5a60;
+  padding-left: 40rpx;
+}
 .phoneNumber .modal .btn-group {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height: 100rpx;
   border-top: 1rpx solid #d2d3d5;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 62rpx;
 }
 .phoneNumber .modal .btn-group button {
   background: transparent;
@@ -85,8 +103,8 @@
   border: 0;
   color: #000;
   font-size: 36rpx;
-  height: 100rpx;
-  line-height: 100rpx;
+  height: 98rpx;
+  line-height: 98rpx;
 }
 .phoneNumber .modal .btn-group button::after {
   border-radius: 0;
@@ -99,4 +117,8 @@
 .phoneNumber .modal .btn-group .relate {
   color: #fdaf31;
   width: 100%;
+}
+.open {
+  opacity: 1;
+  z-index: 1000;
 }

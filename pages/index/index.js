@@ -8,7 +8,7 @@ Page({
   data: {
     modalOn: false,
     isVip: false,
-    isTvip: false
+    isTvip: false,
   },
 
   /**
@@ -112,4 +112,5 @@ Page({
     //   }
     // });
   },
+ 
 });

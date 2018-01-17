@@ -1,4 +1,4 @@
-<view class="phoneNumber">
+<view class="phoneNumber {{open&&'open'}}">
   <view class="modal">
     <!-- title -->
     <view class="title">绑定其他手机</view>
@@ -8,16 +8,21 @@
     </view>
     <!-- input -->
     <view class="input">
-      <input class="phone" placeholder-class='placeholder' type="number" placeholder="手机号码" value="{{phoneNumber}}"></input>
+      <input class="phone" placeholder-class='placeholder' type="number" placeholder="手机号码" maxlength="11" bindblur="phoneNumber"></input>
       <view class="test">
-        <input class="test" placeholder-class='placeholder' type="text" placeholder="验证码" value="{{testNumber}}"></input>
+        <input class="test" placeholder-class='placeholder' type="text" placeholder="验证码" bindblur="testNumber"></input>
         <view class="line"></view>
-        <view class="btn">获取验证码</view>
+        <view class="btn {{time&&'btn-wait'}}" bindtap="getTest">{{tips}}{{time?time:""}}</view>
       </view>
     </view>
+    <!-- warn -->
+    <view class="warn" wx:if="{{numberError}}">
+      {{errorTips}}
+    </view>
+    <!-- btn -->
     <view class="btn-group">
-      <button class="next">下次再说</button>
-      <button class="relate">绑定</button>
+      <button class="next" bindtap="close">下次再说</button>
+      <button class="relate" bindtap="relate">绑定</button>
     </view>
   </view>
 </view>
