@@ -19,7 +19,7 @@
         </view>
         <view class="bottom">
           <!-- 个人 按钮 -->
-          <button data-jump="/pages/chargeMoney/chargeMoney?by={{item.vipScope}}&money={{item.rechargeGetAmt}}&isVip={{isVip}}&level={{item.vipLevelId}}&buy=false" catchtap="jump"  wx:if="{{index>=openIndex&&option=='personal'}}">充值</button>
+          <button data-jump="/pages/chargeMoney/chargeMoney?by={{item.vipScope}}&money={{item.rechargeGetAmt}}&isVip={{isVip}}&level={{item.vipLevelId}}&buy=false" catchtap="jump"  wx:if="{{index==openIndex&&option=='personal'}}">充值</button>
           <!-- 团餐 按钮-->
           <button data-jump="/pages/groupCharge/groupCharge" catchtap="jump" wx:if="{{(index&&index>=openIndex&&!recharge)&&option=='group'}}">充值</button>
           <button data-jump="/pages/groupCharge/groupCharge" catchtap="jump" wx:if="{{(recharge&&index>=openIndex)&&option=='group'}}">处理中</button>
