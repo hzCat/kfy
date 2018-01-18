@@ -7,7 +7,7 @@
   <!-- 消费 -->
   <view class="detail-con" wx:if="{{tab=='out'}}">
 
-    <view class="one use" wx:for="{{detailList}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}" bindtap="jump">
+    <view class="one use" wx:for="{{detailList}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}&cardType={{type}}" bindtap="jump">
       <view class="left">
         -￥{{item.amount}}
       </view>
@@ -21,7 +21,7 @@
   <!-- 充值 -->
   <view class="detail-con" wx:if="{{tab=='in'}}">
 
-    <view class="one use" wx:for="{{detailListTwo}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}" bindtap="jump">
+    <view class="one use" wx:for="{{detailListTwo}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}&cardType={{type}}" bindtap="jump">
       <view class="left">
         +￥{{item.amount}}
       </view>
