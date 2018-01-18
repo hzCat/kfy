@@ -1,16 +1,16 @@
-.container {
+.container2 {
   background: #f0f0f0;
   border-top: 1rpx solid #e5e5e5;
 }
-.container .switch {
+.container2 .switch {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #fff;
   position: relative;
 }
-.container .switch .left,
-.container .switch .right {
+.container2 .switch .left,
+.container2 .switch .right {
   width: 375rpx;
   height: 52rpx;
   line-height: 52rpx;
@@ -20,10 +20,10 @@
   font-size: 30rpx;
   color: #666;
 }
-.container .switch .left {
+.container2 .switch .left {
   border-right: 1rpx solid #e5e5e5;
 }
-.container .switch .switch-line {
+.container2 .switch .switch-line {
   height: 4rpx;
   width: 375rpx;
   position: absolute;
@@ -31,14 +31,14 @@
   left: 0;
   background: #fdaf31;
 }
-.container .switch .switch-right {
+.container2 .switch .switch-right {
   left: 375rpx;
 }
-.container .detail-con {
+.container2 .detail-con {
   margin-top: 24rpx;
   border-top: 1rpx solid #e5e5e5;
 }
-.container .detail-con .one {
+.container2 .detail-con .one {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,18 +47,18 @@
   background: #fff;
   border-bottom: 1rpx solid #e5e5e5;
 }
-.container .detail-con .one .left {
+.container2 .detail-con .one .left {
   font-size: 34rpx;
   font-weight: bold;
 }
-.container .detail-con .one .right {
+.container2 .detail-con .one .right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   font-size: 30rpx;
   color: #333;
 }
-.container .detail-con .one .right .array {
+.container2 .detail-con .one .right .array {
   width: 14rpx;
   height: 14rpx;
   transform: rotateZ(-45deg);
@@ -66,4 +66,10 @@
   border-right: 4rpx solid #666;
   margin-top: 5rpx;
   margin-left: 36rpx;
+}
+.container2 .detail-con .has-more {
+  line-height: 88rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #999;
 }

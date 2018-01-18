@@ -5,30 +5,28 @@
     <view class="title">支付成功</view>
     <view class="detail-one">
       <view class="left">订单</view>
-      <view class="right">11111111</view>
+      <view class="right">{{detail.tradeResponse.orderList[0].orderNo||'无'}}</view>
     </view>
     <view class="detail-one">
       <view class="left">合计</view>
-      <view class="right">11111111111</view>
+      <view class="right">￥{{detail.tradeResponse.orderAmt||'0.00'}}</view>
     </view>
     <view class="detail-one">
       <view class="left discount">优惠</view>
       <view class="right">
-        <view class="discount-one">1111</view>
-        <view class="discount-one">2222</view>
-        <view class="discount-one">3333</view>
+        <view class="discount-one" wx:for="{{detail.tradeResponse.settlementOfferDetailList}}" wx:key="index">-￥{{item.offerAmt||'0.00'}}({{item.offerTypeDisplayName}})</view>
       </view>
     </view>
     <view class="detail-one">
       <view class="left">需支付</view>
-      <view class="right">11111111111</view>
+      <view class="right">￥{{detail.tradeResponse.payAmt||'0.00'}}</view>
     </view>
     <view class="detail-one">
       <view class="left">已支付</view>
-      <view class="right">1111111111111</view>
+      <view class="right">￥{{detail.tradeResponse.payAmt||'0.00'}}</view>
     </view>
-    
-    <button>查看订单</button>
+    <button class="back" data-jump="back" bindtap="jump">返回</button>
+    <button class="show-order" data-jump="/pages/alreadyPay/alreadyPay?id={{detail.tradeResponse.orderList[0].id}}" bindtap="jump">查看订单</button>
   </view>
   <!-- 支付失败 -->
   <view class="fail"></view>

@@ -28,7 +28,7 @@
           <view>轻点获取二维码</view>
         </view>
         <!-- 显示余额等信息 -->
-        <view class="vip-show">
+        <view class="vip-show"hidden="{{!showMoney}}">
           <text class="info" decode="true">{{cardList[0].vipCardNo}}</text>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
@@ -77,7 +77,7 @@
           <view>轻点获取二维码</view>
         </view>
         <!-- 显示余额等信息 -->
-        <view class="vip-show">
+        <view class="vip-show" hidden="{{!showMoney}}">
           <view class="info">{{cardList[1].vipCardNo}}</view>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
@@ -94,3 +94,5 @@
 
   </view>
 </view>
+
+<qrmodal open="{{openModal}}" isSucc="{{paySucc}}"></qrmodal>

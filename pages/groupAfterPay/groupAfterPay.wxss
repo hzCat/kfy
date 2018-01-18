@@ -72,6 +72,10 @@
 .success .detail-one .discount {
   line-height: 56rpx;
 }
+.success .detail-one .discount text {
+  display: inline-block;
+  width: 110rpx;
+}
 .success .btn-group {
   display: flex;
   justify-content: space-between;

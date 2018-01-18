@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "二维码支付",
   "usingComponents": {
-    "shade": "../../components/shade/shade"
+    "shade": "../../components/shade/shade",
+    "qrmodal": "../../components/QRmodal/QRmodal"
   }
 }

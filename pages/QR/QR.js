@@ -2,6 +2,8 @@ let app = getApp();
 let http = require("../../utils/ajax.js");
 let navbar = require("../../utils/navbar.js");
 let storage = require("../../utils/storage.js");
+let jump = require("../../utils/jump.js");
+let card = require("../../utils/cardTurn.js");
 Page({
   /**
    * 页面的初始数据
@@ -14,7 +16,10 @@ Page({
     allInfo: {},
     cardList: [],
     QRModal: true,
-    userscreenLight: null
+    userscreenLight: null,
+    paySucc: false,
+    openModal: false,
+    showMoney: false
   },
 
   /**
@@ -46,7 +51,8 @@ Page({
         that.setData({
           userscreenLight: res.value,
           QRModal: true,
-          QRsrc: "../../img/default_QR.png"
+          QRsrc: "../../img/default_QR.png",
+          showMoney: false
         });
       },
       fail: function() {
@@ -68,8 +74,11 @@ Page({
   // 获取所有信息
   getAllInfo() {
     storage.gets("allInfo").then(res => {
+      let list = res.data.vipCardList;
+      let arr = card.turn(list);
       this.setData({
-        allInfo: res.data
+        allInfo: res.data,
+        cardList: arr
       });
       // this.isVip(res.data);
       console.log("进入获取到的allInfo,已经赋值data", this.data.allInfo);
@@ -115,7 +124,8 @@ Page({
       success(res) {
         console.log("亮度", res.value);
         that.setData({
-          userscreenLight: res.value
+          userscreenLight: res.value,
+          showMoney: true
         });
       }
     });
@@ -151,10 +161,92 @@ Page({
         console.log("WebSocket 已关闭！");
       });
       wx.onSocketMessage(function(res) {
-        console.log("收到服务器内容：" + res.data);
+        let json = JSON.parse(res.data);
+        console.log("扫码支付", json);
+        let status = json.tradeResult.tradeStatus;
+        let id = json.arg1;
+        that.getPayBack(status, id);
       });
     });
   },
+  openQRmodal() {
+    let that = this;
+    setTimeout(() => {
+      this.setData({
+        QRModal: true
+      });
+      wx.setScreenBrightness({
+        value: that.data.userscreenLight
+      });
+    }, 59000);
+  },
   // websocket 长连接获取支付信息
-  getPayBack() {}
+  getPayBack(status, id) {
+    let that = this;
+    if (this.data.vipScope == "VIP") {
+      if (status == "SUCCESS") {
+        this.setData({
+          paySucc: true,
+          openModal: true
+        });
+        setTimeout(() => {
+          this.setData({
+            paySucc: false,
+            openModal: false
+          });
+          wx.setScreenBrightness({
+            value: that.data.userscreenLight
+          });
+          jump.jump("nav", `/pages/afterScanPay/afterScanPay?id=${id}`);
+        }, 1500);
+      } else {
+        this.setData({
+          paySucc: false,
+          openModal: true
+        });
+        setTimeout(() => {
+          this.setData({
+            paySucc: false,
+            openModal: false,
+            QRModal: true
+          });
+          wx.setScreenBrightness({
+            value: that.data.userscreenLight
+          });
+        }, 2000);
+      }
+    } else if (this.data.vipScope == "TVIP") {
+      if (status == "SUCCESS") {
+        this.setData({
+          paySucc: true,
+          openModal: true
+        });
+        setTimeout(() => {
+          this.setData({
+            paySucc: false,
+            openModal: false
+          });
+          wx.setScreenBrightness({
+            value: that.data.userscreenLight
+          });
+          jump.jump("nav", `/pages/groupAfterPay/groupAfterPay?id=${id}`);
+        }, 1500);
+      } else {
+        this.setData({
+          paySucc: false,
+          openModal: true
+        });
+        setTimeout(() => {
+          this.setData({
+            paySucc: false,
+            openModal: false,
+            QRModal: true
+          });
+          wx.setScreenBrightness({
+            value: that.data.userscreenLight
+          });
+        }, 2000);
+      }
+    }
+  }
 });

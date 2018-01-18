@@ -1,1 +1,7 @@
-{}
+{
+  "navigationBarTitleText": "消费明细",
+  "onReachBottomDistance":0,
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

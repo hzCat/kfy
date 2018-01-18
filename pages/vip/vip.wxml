@@ -109,7 +109,7 @@
     </view>
 
     <!-- 按钮 -->
-    <view class="btn-group" data-jump="/pages/chargeMoney/chargeMoney?by={{nowCard.vipScope}}&money={{nowCard.rechargeGetAmt}}&isVip={{isVip[0]}}&level={{nowCard.vipLevelId}}&buy=false" catchtap="jump" wx:if="{{(nowIndex>vipLevel||!isVip[0])&&cardType=='personal'}}">
+    <view class="btn-group" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isVip[0]}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" catchtap="jump" wx:if="{{(nowIndex>vipLevel||!isVip[0])&&cardType=='personal'}}">
       <view class="btn">
         <text class="money">充值￥{{vipCardList[nowIndex].rechargeGetAmt}}</text>
         <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->

@@ -4,40 +4,40 @@
     <view class="title">支付成功</view>
     <view class="order-no-title">订单编号</view>
     <view class="order-no-con">
-      <view class="order-no-one">12345123451234512345</view>
-      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one" wx:for="{{detail.orderList}}" wx:key="index">{{item.orderNo}}</view>
+      <!-- <view class="order-no-one">12345123451234512345</view> -->
 
     </view>
-    <view class="more">
+    <view class="more" wx:if="{{detail.orderList.length>2}}">
       <view class="array rotate"></view>
-      <view class="num">更多订单(40)</view>
+      <view class="num">更多订单({{detail.orderList.length}})</view>
     </view>
     <view class="detail-one">
       <view class="left">合计</view>
-      <view class="right">12345</view>
+      <view class="right">￥{{detail.orderAmt}}</view>
     </view>
     <view class="detail-one">
       <view class="left">优惠</view>
       <view class="right">
-        <view class="discount-one">111111111</view>
-        <view class="discount-one">2222222</view>
+        <view class="discount" wx:for="{{detail.settlementOfferDetailList}}" wx:key="index"><text>-￥{{item.offerAmt}}</text>({{item.offerTypeDisplayName}})</view>
+        <!-- <view class="discount-one">2222222</view> -->
       </view>
     </view>
     <view class="detail-one">
       <view class="left">需支付</view>
-      <view class="right">12345</view>
+      <view class="right">￥{{detail.payAmt}}</view>
     </view>
     <view class="detail-one">
       <view class="left">现金收款</view>
-      <view class="right">13245</view>
+      <view class="right">￥{{detail.cashAmt}}</view>
     </view>
     <view class="detail-one">
       <view class="left">找零</view>
-      <view class="right">13245</view>
+      <view class="right">￥{{detail.changeAmt}}</view>
     </view>
     <view class="btn-group">
-      <button class="btn-order-detail">查看订单</button>
-      <button class="btn-back">返回</button>
+      <button class="btn-order-detail" data-jump="/pages/allOrder/allOrder" bindtap="jump">查看订单</button>
+      <button class="btn-back" data-jump="back" bindtap="jump">返回</button>
     </view>
   </view>
 </view>

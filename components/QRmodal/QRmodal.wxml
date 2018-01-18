@@ -1,0 +1,10 @@
+<view class="modal" wx:if="{{open}}">
+  <view class="info-con" wx:if="{{isSucc}}">
+    <icon size="36" type="success" color="#faaf31"></icon>
+    <view class="tips">付款成功</view>
+  </view>
+  <view class="info-con" wx:if="{{!isSucc}}">
+    <icon size="36" type="warn" color="#ff5a60"></icon>
+    <view class="tips">付款失败</view>
+  </view>
+</view>

@@ -16,7 +16,8 @@
     "pages/alreadyPay/alreadyPay",
     "pages/allOrder/allOrder",
     "pages/yourMoney/yourMoney",
-    "pages/vipDetail/vipDetail"
+    "pages/vipDetail/vipDetail",
+    "pages/consumeDetails/consumeDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

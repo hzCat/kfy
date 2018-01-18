@@ -12,7 +12,7 @@
         </view>
         <!-- 更多按钮 -->
         <view class="show-more" wx:if="{{orderDetail.detailList.length>4}}" bindtap="showMore">
-            <image class="show-more-icon {{showNum>4?'icon-rotate':'aaaaaaa'}}" src="../../icon/icon24_24.png"></image>
+            <image class="show-more-icon {{showNum>4?'icon-rotate':'aaaaaaa'}}" src="../../icon/show_more.png"></image>
             <view class="show-more-text">更多菜品({{orderDetail.detailList.length}})</view>
         </view>
     </view>

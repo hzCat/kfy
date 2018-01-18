@@ -1,5 +1,6 @@
 .container {
   background: #f0f0f0;
+  position: fixed;
 }
 .container .header-switch {
   position: relative;
@@ -171,16 +172,14 @@
   background: -webkit-linear-gradient(left, #fdaf31, #ff7e33);
   position: relative;
   color: #fff;
-  text-align: center;
-  border-radius: 10rpx;
 }
 .container .info-con .btn-group .btn text {
   display: inline-block;
 }
 .container .info-con .btn-group .btn .money {
-  /* font-weight: bold; */
+  font-weight: bold;
   font-size: 34rpx;
-  /* margin-right: 50rpx; */
+  margin-right: 50rpx;
 }
 .container .info-con .btn-group .btn .tips {
   font-size: 26rpx;

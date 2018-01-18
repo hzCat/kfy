@@ -1,6 +1,6 @@
 var navbar = require("../../utils/navbar.js");
 var http = require("../../utils/ajax.js");
-var util = require("../../utils/util.js");
+var jump = require("../../utils/jump.js");
 var modal = require("../../utils/modal.js");
 Page({
 
@@ -370,14 +370,14 @@ Page({
                   data: res.data.data,
                   success: function () {
                     // 返回个人中心
-                    util.jump("rel", "/pages/usercenter/usercenter")
+                    jump.jump("rel", "/pages/userCenter/userCenter")
                   }
                 })
               })
           })
       } else {
         // 没有更新操作
-        util.jump("rel", "/pages/usercenter/usercenter")
+        jump.jump("rel", "/pages/userCenter/userCenter")
       }
       // 如果信息有残缺
     } else {

@@ -110,7 +110,7 @@ Component({
       let now = e.changedTouches[0].clientX;
       let nowmove = now - start;
       let move = parseInt(nowmove / this.data.screenWidth * 100);
-      if (move % 5 == 0) {
+      if (move % 2 == 0) {
         this.setData({
           move: move + thismove
         });
@@ -123,13 +123,13 @@ Component({
       let num = this.data.num;
       let length = this.data.cardList.length;
       let nowmove = -(620 / 750) * 100;
-      if (end <= -150 && num >= 0 && num < length - 1) {
+      if (end <= -125 && num >= 0 && num < length - 1) {
         num++;
         this.setData({
           move: nowmove * num,
           num: num
         });
-      } else if (end >= 150 && num > 0) {
+      } else if (end >= 125 && num > 0) {
         num--;
         this.setData({
           move: nowmove * num,

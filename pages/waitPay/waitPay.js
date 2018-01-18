@@ -4,6 +4,8 @@ let jump = require("../../utils/jump.js");
 let offColor = require("../../utils/offColor.js");
 let cardturn = require("../../utils/cardTurn.js");
 let pay = require("../../utils/pay.js");
+let modal = require("../../utils/modal");
+let update = require("../../utils/update");
 Page({
   /**
    * 页面的初始数据
@@ -258,7 +260,7 @@ Page({
                           wx.hideLoading();
                           jump.jump(
                             "redirect",
-                            `/pages/paysuccess/paysuccess?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}`
+                            `/pages/afterPay/afterPay?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}`
                           );
                           // FAIL ERROR订单(by,isSucc,orderId)
                         } else if (
@@ -268,7 +270,7 @@ Page({
                           wx.hideLoading();
                           jump.jump(
                             "nav",
-                            `/pages/paysuccess/paysuccess?by=wechat&isSucc=false&orderId=${orderNo}`
+                            `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}`
                           );
                           //UNKNOWN状态订单
                         } else if (obj.tradeStatus == "UNKNOWN") {
@@ -276,7 +278,10 @@ Page({
                           setTimeout(function() {
                             // 查询订单支付结果
                             pay
-                              .payback(that.data.orderData.id, app.globalData.header)
+                              .payback(
+                                that.data.orderData.id,
+                                app.globalData.header
+                              )
                               .then(function(res) {
                                 console.log("微信支付结果");
                                 console.log(res.data);
@@ -288,14 +293,14 @@ Page({
                                   wx.hideLoading();
                                   jump.jump(
                                     "redirect",
-                                    `/pages/paysuccess/paysuccess?by=wechat&money=${money}&orderId=${orderNo}`
+                                    `/pages/afterPay/afterPay?by=wechat&money=${money}&orderId=${orderNo}`
                                   );
                                   // FAIL ERROR订单(by,isSucc,orderId)
                                 } else {
                                   wx.hideLoading();
                                   jump.jump(
                                     "nav",
-                                    `/pages/paysuccess/paysuccess?by=wechat&isSucc=false&orderId=${orderNo}`
+                                    `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}`
                                   );
                                 }
                               })
@@ -346,7 +351,7 @@ Page({
                     wx.hideLoading();
                     jump.jump(
                       "redirect",
-                      `/pages/paysuccess/paysuccess?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}`
+                      `/pages/afterPay/afterPay?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}`
                     );
                     // FAIL ERROR订单(by,isSucc,orderId)
                   } else if (
@@ -356,7 +361,7 @@ Page({
                     wx.hideLoading();
                     jump.jump(
                       "nav",
-                      `/pages/paysuccess/paysuccess?by=wechat&isSucc=false&orderId=${orderNo}`
+                      `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}`
                     );
                     //UNKNOWN状态订单
                   } else if (obj.tradeStatus == "UNKNOWN") {
@@ -375,14 +380,14 @@ Page({
                             wx.hideLoading();
                             jump.jump(
                               "redirect",
-                              `/pages/paysuccess/paysuccess?by=wechat&money=${money}&orderId=${orderNo}`
+                              `/pages/afterPay/afterPay?by=wechat&money=${money}&orderId=${orderNo}`
                             );
                             // FAIL ERROR订单(by,isSucc,orderId)
                           } else {
                             wx.hideLoading();
                             jump.jump(
                               "nav",
-                              `/pages/paysuccess/paysuccess?by=wechat&isSucc=false&orderId=${orderNo}`
+                              `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}`
                             );
                           }
                         })
@@ -426,19 +431,19 @@ Page({
           let orderNo = null;
           let money = null;
           if (res.data.data) {
-            orderNo = res.data.data.orderNo;
+            orderNo = res.data.data.orderList[0].orderNo;
             money = res.data.data.payAmt;
           }
           if (result == true && code == 200 && orderNo != null) {
             update.updateuser(app.globalData.header);
             jump.jump(
               "redirect",
-              `/pages/paysuccess/paysuccess?by=card&isSucc=true&money=${money}&orderId=${orderNo}`
+              `/pages/afterPay/afterPay?by=card&isSucc=true&money=${money}&orderId=${orderNo}`
             );
           } else {
             jump.jump(
               "nav",
-              `/pages/paysuccess/paysuccess?by=card&isSucc=false&code=${code}&orderId=${orderNo}`
+              `/pages/afterPay/afterPay?by=card&isSucc=false&code=${code}&orderId=${orderNo}`
             );
           }
         })
@@ -468,16 +473,21 @@ Page({
           });
           let result = res.data.result;
           let code = res.data.code;
-          let orderNo = res.data.data;
+          let money = null;
+          let orderNo = null;
+          if (res.data.data) {
+            money = res.data.data.payAmt;
+            orderNo = res.data.data.orderList[0].orderNo;
+          }
           if (result == true && code == 200 && orderNo != null) {
             jump.jump(
               "redirect",
-              `/pages/paysuccess/paysuccess?by=card&isSucc=true&money=${money}&orderId=${orderNo}`
+              `/pages/afterPay/afterPay?by=card&isSucc=true&money=${money}&orderId=${orderNo}`
             );
           } else {
             jump.jump(
               "nav",
-              `/pages/paysuccess/paysuccess?by=card&isSucc=false&code=${code}`
+              `/pages/afterPay/afterPay?by=card&isSucc=false&code=${code}`
             );
           }
         })

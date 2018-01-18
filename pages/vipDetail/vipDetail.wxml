@@ -1,11 +1,13 @@
-<view class="container">
+<view class="container2">
   <view class="switch">
     <view class="left" data-type="out" bindtap="switchTab">消费明细</view>
     <view class="right" data-type="in" bindtap="switchTab">充值明细</view>
     <view class="switch-line {{tab=='in'&&'switch-right'}}"></view>
   </view>
-  <view class="detail-con">
-    <view class="one use" wx:for="{{detailList}}" wx:key="index">
+  <!-- 消费 -->
+  <view class="detail-con" wx:if="{{tab=='out'}}">
+
+    <view class="one use" wx:for="{{detailList}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}" bindtap="jump">
       <view class="left">
         -￥{{item.amount}}
       </view>
@@ -14,6 +16,21 @@
         <view class="array"></view>
       </view>
     </view>
-    
+    <view class="has-more" wx:if="{{!moreOne}}">没有更多数据...</view>
+  </view>
+  <!-- 充值 -->
+  <view class="detail-con" wx:if="{{tab=='in'}}">
+
+    <view class="one use" wx:for="{{detailListTwo}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}" bindtap="jump">
+      <view class="left">
+        +￥{{item.amount}}
+      </view>
+      <view class="right">
+        <view class="time">{{item.createTime}}</view>
+        <view class="array"></view>
+      </view>
+    </view>
+    <view class="has-more" wx:if="{{!moreTwo}}">没有更多数据...</view>
+
   </view>
 </view>

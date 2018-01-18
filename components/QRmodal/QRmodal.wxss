@@ -1,0 +1,24 @@
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 300rpx;
+  z-index: 500;
+}
+.modal .info-con {
+  width: 244rpx;
+  height: 244rpx;
+  margin-left: 253rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.modal .info-con icon {
+  margin-top: 60rpx;
+}
+.modal .info-con .tips {
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}

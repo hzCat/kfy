@@ -48,11 +48,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
-  onReady() {
+  onShow: function() {
     this.getVipList();
     this.getTvipList();
   },
+  onReady() {},
   // 获取个人列表
   getVipList() {
     let that = this;
@@ -104,11 +104,11 @@ Page({
       console.log(this.data.nowIndex);
       if (type == "personal") {
         this.setData({
-          nowIndex: (this.data.vipLevel||0)
+          nowIndex: this.data.vipLevel || 0
         });
       } else if (type == "group") {
         this.setData({
-          nowIndex: (this.data.tvipLevel||0)
+          nowIndex: this.data.tvipLevel || 0
         });
       }
       this.setData({
