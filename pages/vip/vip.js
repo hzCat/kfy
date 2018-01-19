@@ -19,7 +19,9 @@ Page({
     isVip: [],
     vipLevel: null,
     tvipLevel: null,
-    nowIndex: null
+    nowIndex: null,
+    applyFail: false,
+    bindMobile: false
   },
 
   /**
@@ -36,12 +38,14 @@ Page({
       console.log("vip加载allInfo", res.data);
       let arr = card.turn(res.data.vipCardList);
       let vipArr = card.getvip(res.data.vipCardList);
+      let bindPhone = res.data.bindMobile;
       console.log(arr);
       console.log(vipArr);
       this.setData({
         allInfo: res.data,
         list: arr,
-        isVip: vipArr
+        isVip: vipArr,
+        bindMobile: bindPhone
       });
     });
   },
@@ -84,6 +88,7 @@ Page({
       .ajax("/vip/getVipLevelList", "GET", data, app.globalData.header)
       .then(res => {
         console.log("团卡列表", res.data.data);
+        that.isApply(res.data.data);
         let level = card.level(res.data.data);
         console.log("团餐开通等级", level);
         let l = res.data.data.length;
@@ -95,7 +100,39 @@ Page({
         });
       });
   },
-
+  // 是否失败中
+  isApply(arr) {
+    let length = arr.length;
+    for (let i = 0; i < length; i++) {
+      let obj = arr[i];
+      if (obj.applyStatus == "FAIL") {
+        console.log("true");
+        this.setData({
+          applyFail: true
+        });
+      } else {
+        this.setData({
+          applyFail: false
+        });
+      }
+    }
+    // let url = "/tvip/getApplyOrderInfo";
+    // http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+    //   console.log(res.data);
+    //   if (res.data.data) {
+    //     if (res.data.data.applyStatus == "FAIL") {
+    //       console.log("true");
+    //       this.setData({
+    //         applyFail: true
+    //       });
+    //     }else{
+    //       this.setData({
+    //         applyFail: false
+    //       });
+    //     }
+    //   }
+    // });
+  },
   // 个卡团卡切换
   boxSwitch(e) {
     console.log(this.data.nowCard);
@@ -151,5 +188,10 @@ Page({
   jump(e) {
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("nav", jumpto);
+  },
+  closeFail() {
+    this.setData({
+      applyFail: false
+    });
   }
 });

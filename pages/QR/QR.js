@@ -124,8 +124,7 @@ Page({
       success(res) {
         console.log("亮度", res.value);
         that.setData({
-          userscreenLight: res.value,
-          showMoney: true
+          userscreenLight: res.value
         });
       }
     });
@@ -144,12 +143,14 @@ Page({
     http.ajax(url, "GET", data, app.globalData.header).then(res => {
       this.setData({
         QRModal: false,
-        QRsrc: "data:image/png;base64," + res.data.data
+        QRsrc: "data:image/png;base64," + res.data.data,
+        showMoney: true
       });
       // 最高亮度
       wx.setScreenBrightness({
         value: 1
       });
+      that.openQRmodal();
       // 连接成功
       wx.onSocketOpen(function(res) {
         console.log("WebSocket连接已打开！");
@@ -173,12 +174,13 @@ Page({
     let that = this;
     setTimeout(() => {
       this.setData({
-        QRModal: true
+        QRModal: true,
+        QRsrc: "../../img/default_QR.png"
       });
       wx.setScreenBrightness({
         value: that.data.userscreenLight
       });
-    }, 59000);
+    }, 50000);
   },
   // websocket 长连接获取支付信息
   getPayBack(status, id) {
@@ -247,6 +249,14 @@ Page({
           });
         }, 2000);
       }
+    }
+  },
+  jump(e) {
+    let type = e.currentTarget.dataset.type;
+    if (type == "personal") {
+      jump.jump("nav", "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50");
+    } else if (type == "group") {
+      jump.jump("nav","/pages/groupCharge/groupCharge");
     }
   }
 });

@@ -45,7 +45,7 @@ Page({
         console.log("index未获取到allInfo", err);
         if (!that.data.showLoad) {
           wx.showLoading({
-            title: "加载中",
+            title: "登录中",
             mask: true,
             success() {
               that.setData({

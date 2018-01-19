@@ -18,7 +18,7 @@ Page({
     pushInfo: {},
     header: {},
     serviceNumber: "",
-    chargeInfo:{}
+    chargeInfo: {}
   },
 
   /**
@@ -50,7 +50,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.chargeInfo()
+    this.chargeInfo();
   },
 
   // 获取充值信息
@@ -58,9 +58,18 @@ Page({
     let url = "/recharge/getApplyOrder";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
       console.log(res.data);
-      this.setData({
-        chargeInfo:res.data.data
-      })
+      if (res.data.data) {
+        let getInfo = res.data.data;
+        let obj = this.data.pushInfo;
+        obj.transferFlowNo = getInfo.transferFlowNo;
+        obj.rechargeAmt = getInfo.rechargeAmt;
+        obj.note = getInfo.note;
+        obj.contact = getInfo.contact;
+        this.setData({
+          chargeInfo: getInfo,
+          pushInfo: obj
+        });
+      }
     });
   },
   // 获取汇款单号
@@ -178,5 +187,23 @@ Page({
       }
       modal.modal("提示", str);
     }
+  },
+  cancelFail() {
+    let url = "/recharge/userCancelApply";
+    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      if (res.data.code == 200 && res.data.result == true) {
+        update.updateuser(app.globalData.header);
+        wx.showToast({
+          title: "取消成功",
+          icon: "success",
+          duration: 2000,
+          success() {
+            setTimeout(() => {
+              jump.jump("rel", "/pages/vip/vip");
+            }, 2000);
+          }
+        });
+      }
+    });
   }
 });

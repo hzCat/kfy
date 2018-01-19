@@ -31,9 +31,9 @@ Page({
     let plateNo = options.plateNo;
     let id = options.id;
     if (by == "scan") {
-      this.getOrder(by, plateNo);
+      this.getOrder(by, plateNo, id);
     } else if (by == "orderlist") {
-      this.getOrder(by, id);
+      this.getOrder(by, id, id);
     }
   },
   /**
@@ -41,7 +41,7 @@ Page({
    */
   onShow: function() {},
   // 拉取订单数据
-  getOrder(by, myData) {
+  getOrder(by, myData, orderId) {
     let that = this;
     let header = app.globalData.header;
     let scanUrl = "/vipOrder/findOrder";
@@ -52,12 +52,13 @@ Page({
         http.ajax(scanUrl, "GET", data, header).then(res => {
           console.log("获取扫码订单数据", res.data);
           if (res.data.code == 200 && res.data.data != null) {
+            let orderId = res.data.data.id;
             that.setData({
               orderData: res.data.data,
               offMoney: res.data.data
             });
             // 获取可用卡
-            that.getUserCard(res.data.data.storeId, true);
+            that.getUserCard(orderId, true);
           } else {
             that.noOrder(by);
           }
@@ -76,7 +77,7 @@ Page({
             orderData: res.data.data,
             offMoney: res.data.data
           });
-          that.getUserCard(res.data.data.storeId, false);
+          that.getUserCard(orderId, false);
         } else {
           that.noOrder(by);
         }
@@ -86,12 +87,12 @@ Page({
     }
   },
   // 获取可用卡
-  getUserCard(storeId, offmoney) {
+  getUserCard(orderId, offmoney) {
     let that = this;
     let url = "/vipPayment/getCardInfoList";
     let method = "GET";
     let data = {
-      storeId: storeId
+      orderId: orderId
     };
     http.ajax(url, method, data, app.globalData.header).then(res => {
       console.log("可用卡", res.data);

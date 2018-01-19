@@ -33,7 +33,7 @@
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
             <text class="strong">{{allInfo.vipCardBalance}}</text>
-            <view class="charge">充值</view>
+            <view class="charge" bindtap="jump" data-type="personal">充值</view>
           </view>
         </view>
       </view>
@@ -82,7 +82,7 @@
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
             <text class="strong">{{allInfo.tvipCardBalance}}</text>
-            <view class="charge">充值</view>
+            <view class="charge" bindtap="jump" data-type="group">充值</view>
           </view>
         </view>
       </view>

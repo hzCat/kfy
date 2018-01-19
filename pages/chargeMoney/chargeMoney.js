@@ -1,7 +1,7 @@
 var navbar = require("../../utils/navbar.js");
 var http = require("../../utils/ajax.js");
 var modal = require("../../utils/modal.js");
-var util = require("../../utils/util.js");
+var jump = require("../../utils/jump.js");
 var pay = require("../../utils/pay.js");
 var update = require("../../utils/update.js");
 Page({
@@ -135,26 +135,26 @@ Page({
     var money = e.detail.value;
 
     // 50的倍数
-    if (money % 50 == 0) {
+    // if (money % 50 == 0) {
       this.setData({
         nowMoney: money
       });
       that.getVipInfo(that.data.vipScope, e.detail.value, that.data.header);
-    } else {
-      wx.showModal({
-        title: "提示",
-        content: "请输入50的倍数",
-        showCancel: false,
-        success: function(res) {
-          if (res.confirm) {
-            console.log("用户点击确定");
-            that.setData({
-              isFifty: null
-            });
-          }
-        }
-      });
-    }
+    // } else {
+    //   wx.showModal({
+    //     title: "提示",
+    //     content: "请输入50的倍数",
+    //     showCancel: false,
+    //     success: function(res) {
+    //       if (res.confirm) {
+    //         console.log("用户点击确定");
+    //         that.setData({
+    //           isFifty: null
+    //         });
+    //       }
+    //     }
+    //   });
+    // }
   },
 
   // 同意协议按钮
@@ -226,7 +226,7 @@ Page({
                         update.updateuser(header);
                         // 关闭提示框
                         wx.hideLoading();
-                        util.jump(
+                        jump.jump(
                           "redirect",
                           `/pages/chargeSuccFail/chargeSuccFail?isBuy=false&isSucc=true&money=${money}&orderNo=${orderNo}&gift=${gift}&after=${after}`
                         );
@@ -236,7 +236,7 @@ Page({
                         obj.data.TradeStatus == "ERROR"
                       ) {
                         wx.hideLoading();
-                        util.jump(
+                        jump.jump(
                           "nav",
                           `/pages/chargeSuccFail/chargeSuccFail?isBuy=false&isSucc=false&orderNo=${orderNo}`
                         );
@@ -256,14 +256,14 @@ Page({
                               if (obj.tradeStatus == "SUCCESS") {
                                 update.updateuser(header);
                                 wx.hideLoading();
-                                util.jump(
+                                jump.jump(
                                   "redirect",
                                   `/pages/chargeSuccFail/chargeSuccFail?isBuy=false&isSucc=true&money=${money}&orderNo=${orderNo}&gift=${gift}&after=${after}`
                                 );
                                 // FAIL ERROR订单(isSucc,orderId)
                               } else {
                                 wx.hideLoading();
-                                util.jump(
+                                jump.jump(
                                   "nav",
                                   `/pages/chargeSuccFail/chargeSuccFail?isBuy=false&isSucc=false&orderNo=${orderNo}`
                                 );
@@ -341,11 +341,11 @@ Page({
     //                   if (obj.tradeStatus == "SUCCESS") {
     //                     update.updateuser(header);
     //                     wx.hideLoading();
-    //                     util.jump("redirect", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=true&money=${money}&orderNo=${orderNo}&gift=${gift}&after=${after}`)
+    //                     jump.jump("redirect", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=true&money=${money}&orderNo=${orderNo}&gift=${gift}&after=${after}`)
     //                     // FAIL ERROR订单(isSucc,orderId)
     //                   } else if (obj.tradeStatus == "FAILED" || obj.tradeStatus == "ERROR") {
     //                     wx.hideLoading();
-    //                     util.jump("nav", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=false&orderNo=${orderNo}`);
+    //                     jump.jump("nav", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=false&orderNo=${orderNo}`);
     //                     //UNKNOWN状态订单
     //                   } else if (obj.tradeStatus == "UNKNOWN") {
     //                     // 第二次查询,3s
@@ -361,11 +361,11 @@ Page({
     //                           if (obj.tradeStatus == "SUCCESS") {
     //                             update.updateuser(header);
     //                             wx.hideLoading();
-    //                             util.jump("redirect", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=true&money=${money}&orderNo=${orderNo}&gift=${gift}&after=${after}`)
+    //                             jump.jump("redirect", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=true&money=${money}&orderNo=${orderNo}&gift=${gift}&after=${after}`)
     //                             // FAIL ERROR订单(isSucc,orderId)
     //                           } else {
     //                             wx.hideLoading();
-    //                             util.jump("nav", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=false&orderNo=${orderNo}`);
+    //                             jump.jump("nav", `/pages/chargeSuccFail/chargeSuccFail?isBuy=true&isSucc=false&orderNo=${orderNo}`);
     //                           }
     //                         })
     //                         .catch(err => { // 第二次查询err
@@ -432,7 +432,7 @@ Page({
                   var pattern = "redirect";
                   var jump = "/pages/chargeMoney/chargeMoney";
                   setTimeout(function() {
-                    util.jump(pattern, jump);
+                    jump.jump(pattern, jump);
                   }, 500);
                 }
               });

@@ -1,6 +1,7 @@
 // components/phoneNumber/phoneNumber.js
 let http = require("../../utils/ajax.js");
 let app = getApp();
+let update = require("../../utils/update");
 Component({
   /**
    * 组件的属性列表
@@ -125,6 +126,7 @@ Component({
               errorTips: "验证码错误"
             });
           } else if (res.data.code == 200) {
+            update.updateuser(app.globalData.header);
             wx.showToast({
               title: "成功",
               icon: "success",

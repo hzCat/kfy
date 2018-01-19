@@ -27,23 +27,26 @@
     </view>
   </view>
   <!-- 开通失败 -->
-  <view class="fail-con" wx:if="{{true}}">
+  <view class="fail-con" wx:if="{{applyInfo.applyStatus=='FAIL'}}">
     <view>开通失败</view>
-    <view>充值金额399经过确认,充值金额399经过</view>
+    <view>{{applyInfo.dealNote}}</view>
   </view>
   <!-- 信息 -->
   <view class='getInfo'>
     <view class='input-con'>
       <label>公司/组织名称</label>
-      <input placeholder='必填项' maxlength="30" data-type="corp" placeholder-class='placeholder' bindtap="clear" bindblur="getCompanyName"></input>
+      <input placeholder='必填项' maxlength="30" data-type="corp" placeholder-class='placeholder' bindtap="clear" bindblur="getCompanyName"
+        value="{{compantName||applyInfo.corpName}}"></input>
     </view>
     <view class='input-con'>
       <label>联系手机</label>
-      <input type="number" maxlength="11" data-type="phone" placeholder='必填项' placeholder-class='placeholder' bindtap="clear" bindblur="getPhoneNumber"></input>
+      <input type="number" maxlength="11" data-type="phone" placeholder='必填项' placeholder-class='placeholder' bindtap="clear" bindblur="getPhoneNumber"
+        value="{{phoneNumber}}"></input>
     </view>
     <view class='input-con'>
       <label>联系人</label>
-      <input placeholder='必填项' maxlength="10" data-type="contact" placeholder-class='placeholder' bindtap="clear" bindblur="getPeopleName"></input>
+      <input placeholder='必填项' maxlength="10" data-type="contact" placeholder-class='placeholder' bindtap="clear" bindblur="getPeopleName"
+        value="{{peopleName||applyInfo.contactName}}"></input>
     </view>
 
   </view>
@@ -51,16 +54,19 @@
   <view class="other-info">
     <view class='input-con'>
       <label>配送地址</label>
-      <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindtap="clear" bindblur="getAddress"></input>
+      <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindtap="clear" bindblur="getAddress" value="{{address||applyInfo.addrDetail}}"></input>
     </view>
     <view class='input-con'>
       <label>汇款单号/流水号</label>
-      <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindblur="getOrderNumber"></input>
+      <input placeholder='可选项' maxlength="30" placeholder-class='placeholder' bindblur="getOrderNumber" value="{{orderNumber||applyInfo.transferFlowNo}}"></input>
     </view>
     <view class='input-con'>
       <label>汇款金额</label>
-      <input placeholder='可选项' type="digit" maxlength="30" placeholder-class='placeholder' bindblur="getMoney"></input>
+      <input placeholder='可选项' type="digit" maxlength="30" placeholder-class='placeholder' bindblur="getMoney" value="{{money||applyInfo.transferAmt}}"></input>
     </view>
   </view>
-  <button class='submit' disabled='{{false}}' bindtap="pushAllInfo">提交</button>
+  <view class="btn-group">
+    <button class="cancel" wx:if="{{applyInfo.applyStatus=='FAIL'}}" bindtap="cancelApply">取消返回</button>
+    <button class='submit' disabled='{{false}}' bindtap="pushAllInfo">提交</button>
+  </view>
 </view>

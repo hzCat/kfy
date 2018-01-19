@@ -1,6 +1,6 @@
 <view class="container2">
   <!-- 一项 -->
-  <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="/pages/alreadyPay/alreadyPay?id={{item.orderId}}" bindtap="jump">
+  <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="{{item.orderStatus=='PAID'?'/pages/alreadyPay/alreadyPay?id='+item.orderId:'/pages/waitPay/waitPay?by=orderlist&id='+item.orderId}}" bindtap="jump">
     <view class="left">
       <view class="mark {{item.orderSource=='TEAM_ORDER'&&'mark-g'}}">团</view>
       <view class="money">￥{{item.payAmt}}</view>

@@ -1,28 +1,32 @@
 let storage = require("../../utils/storage.js");
 let http = require("../../utils/ajax.js");
 let modal = require("../../utils/modal.js");
-let util = require("../../utils/util.js");
+let jump = require("../../utils/jump.js");
+let update = require("../../utils/update");
+let app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     step: 0,
-    companyName: "",
-    phoneNumber: "",
-    peopleName: "",
-    address: "",
-    orderNumber: "",
+    companyName: null,
+    phoneNumber: null,
+    peopleName: null,
+    address: null,
+    orderNumber: null,
+    money: null,
     pushInfo: {},
-    header: {}
+    header: {},
+    applyInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this;
-    storage.gets("3rd_session").then(function (res) {
+    storage.gets("3rd_session").then(function(res) {
       that.setData({
         header: {
           _yzsaas_token: res.data,
@@ -30,13 +34,51 @@ Page({
         }
       });
     });
+    this.applyInfo();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
-
+  onShow: function() {
+    storage.gets("allInfo").then(res => {
+      console.log(res.data);
+      let obj = this.data.pushInfo;
+      obj.contactMobile = res.data.mobile;
+      this.setData({
+        pushInfo: obj,
+        phoneNumber: res.data.mobile
+      });
+    });
+  },
+  // 获取申请信息
+  applyInfo() {
+    let that = this;
+    let url = "/tvip/getApplyOrderInfo";
+    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      if (res.data.data) {
+        console.log("获取申请信息", res.data);
+        let obj = that.data.pushInfo;
+        let getInfo = res.data.data;
+        obj.corpName = res.data.data.corpName;
+        obj.contactMobile = res.data.data.contactMobile;
+        obj.contactName = res.data.data.contactName;
+        if (getInfo.addrDetail) {
+          obj.addrDetail = res.data.data.addrDetail;
+        }
+        if (getInfo.transferFlowNo) {
+          obj.transferFlowNo = res.data.data.transferFlowNo;
+        }
+        if (getInfo.transferAmt) {
+          obj.transferAmt = res.data.data.transferAmt;
+        }
+        this.setData({
+          pushInfo: obj,
+          applyInfo: res.data.data
+        });
+      }
+    });
+  },
   // 公司名字
   getCompanyName(e) {
     console.log("company", e.detail.value);
@@ -107,9 +149,9 @@ Page({
   },
 
   // 汇款金额
-  getMoney(e){
+  getMoney(e) {
     console.log("Money", e.detail.value);
-    if (/^\d{1,6}(\.\d{2})+$/.test(e.detail.value)) {
+    if (/^\d{6}(\.\d{2})+$/.test(e.detail.value)) {
       let obj = this.data.pushInfo;
       obj.transferAmt = e.detail.value;
       this.setData({
@@ -129,7 +171,24 @@ Page({
       obj.contactMobile = null;
     }
   },
-  
+  cancelApply() {
+    let url = "/tvip/userCancelApply";
+    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      if (res.data.code == 200 && res.data.result == true) {
+        update.updateuser(app.globalData.header);
+        wx.showToast({
+          title: "取消成功",
+          icon: "success",
+          duration: 2000,
+          success() {
+            setTimeout(() => {
+              jump.jump("rel", "/pages/vip/vip");
+            }, 2000);
+          }
+        });
+      }
+    });
+  },
   // 提交
   pushAllInfo() {
     console.log(this.data.pushInfo);
@@ -137,12 +196,13 @@ Page({
     if (data.contactMobile && data.corpName && data.contactName) {
       let url = "/tvip/apply";
       let header = this.data.header;
-      http.ajax(url, "POST", data, header).then(function (res) {
+      http.ajax(url, "POST", data, header).then(function(res) {
         console.log(res.data);
         let code = res.data.code;
         if (code == 200) {
+          update.updateuser(app.globalData.header);
           // util.jump("redirect", "/pages/vipBag/vipBag")
-          util.jump("back");
+          jump.jump("back");
         }
       });
     } else {

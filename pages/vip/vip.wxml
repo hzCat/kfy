@@ -1,5 +1,11 @@
 <!--pages/vip/vip.wxml-->
 <view class="container">
+    <view class="fail-tips" wx:if="{{applyFail}}">
+      <image src="../../icon/fail_tips.png"></image>
+      <text decode="true" bindtap="jump" data-jump="/pages/groupInfo/groupInfo">申请失败, 查看详情>></text>
+      <image src="../../icon/xxx.png" catchtap="closeFail"></image>
+    </view>
+      
   <!-- 切换 -->
   <view class="header-switch">
     <view class="left" data-type="personal" bindtap="boxSwitch">会员卡</view>
@@ -63,7 +69,7 @@
       </view>
       <!-- 立即开通 TVIP -->
       <view class="open-vip-btn" wx:if="{{!isVip[1]&&(cardType=='group')}}">
-        <button class="open-vip">立即开通</button>
+        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" bindtap="jump">立即开通</button>
       </view>
     </view>
     <!-- 已经是会员,显示积分和余额 -->
@@ -173,3 +179,4 @@
     </view>
   </view>
 </view>
+

@@ -11,6 +11,9 @@ Component({
       type: Array,
       value: [],
       observer(newVal, oldVal) {
+        this.isApply(newVal);
+        this.isRecharge(newVal);
+        this.getOpenIndex(newVal);
         this.cardChange();
       }
     },
@@ -54,7 +57,7 @@ Component({
     });
     this.triggerEvent("indexChange", {
       index: this.data.num,
-      cardType:this.data.option
+      cardType: this.data.option
     });
     // let index = that.getOpenIndex(that.data.cardList);
     // console.log("卡片长度",that.data.cardList.length, index);
@@ -142,7 +145,7 @@ Component({
       }
       this.triggerEvent("indexChange", {
         index: this.data.num,
-        cardType:this.data.option
+        cardType: this.data.option
       });
     },
     // 已开通
@@ -151,7 +154,11 @@ Component({
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
         if (obj.opened == true) {
-          return i;
+          this.setData({
+            openIndex: i,
+            isVip: true
+          });
+          return i
         }
       }
     },
@@ -160,17 +167,34 @@ Component({
       let length = arr.length;
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
-        if (obj.hasApplyOrder == true) {
-          return i;
+        if (obj.applyStatus == "WAIT_DEAL") {
+          this.setData({
+            apply: true
+          });
         }
       }
+      // let url = "/tvip/getApplyOrderInfo";
+      // http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      //   console.log(res.data);
+      //   if (res.data.data) {
+      //     if (res.data.data.applyStatus == "WAIT_DEAL") {
+      //       console.log("true");
+      //       this.setData({
+      //         apply:true
+      //       })
+      //     }
+      //   }
+      // });
     },
     isRecharge(arr) {
+      let that = this;
       let length = arr.length;
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
         if (obj.hasRechargeOrder == true) {
-          return true;
+          that.setData({
+            recharge: true
+          });
         }
       }
     },
@@ -185,20 +209,20 @@ Component({
       let apply = null;
       let recharge = null;
       if (that.data.option == "group") {
-        apply = that.isApply(that.data.cardList);
-        recharge = that.isRecharge(that.data.cardList);
-        console.log("是否有团卡申请", apply);
-        console.log("是否有团卡充值申请", recharge);
-        if (apply) {
-          that.setData({
-            apply: apply
-          });
-        }
-        if (recharge) {
-          that.setData({
-            recharge: recharge
-          });
-        }
+        that.isApply(that.data.cardList);
+        that.isRecharge(that.data.cardList);
+        console.log("是否有团卡申请", that.data.apply);
+        console.log("是否有团卡充值申请", that.data.recharge);
+        // if (apply) {
+        //   that.setData({
+        //     apply: apply
+        //   });
+        // }
+        // if (recharge) {
+        //   that.setData({
+        //     recharge: recharge
+        //   });
+        // }
       }
       if (index) {
         that.setData({
@@ -210,7 +234,7 @@ Component({
       }
       this.triggerEvent("indexChange", {
         index: this.data.num,
-        cardType:this.data.option
+        cardType: this.data.option
       });
     },
     // 跳转

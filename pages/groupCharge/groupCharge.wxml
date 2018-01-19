@@ -22,9 +22,9 @@
     </view>
   </view>
   <!-- 充值失败 -->
-  <view class="fail-con" wx:if="{{false}}">
+  <view class="fail-con" wx:if="{{chargeInfo.orderStatus=='FAIL'}}">
     <view>充值失败</view>
-    <view>充值金额399经过确认,充值金额399经过确认,充值金额399经过,</view>
+    <view>{{chargeInfo.dealNote}}</view>
   </view>
 
   <!-- 账户 -->
@@ -61,5 +61,8 @@
     <text>客服电话：</text>
     <text>{{serviceNumber}}</text>
   </view>
-  <button class="submit" bindtap="pushAllInfo">提交</button>
+  <view class="btn-group">
+    <button class="cancel" bindtap="cancelFail" wx:if="{{chargeInfo.orderStatus=='FAIL'}}">取消返回</button>
+    <button class="submit" bindtap="pushAllInfo">提交</button>
+  </view>
 </view>

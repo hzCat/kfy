@@ -15,13 +15,13 @@
           <view class="right" wx:if="{{item.opened&&option=='personal'}}">已开通</view>
           <!-- 团餐 标识 -->
           <view class="right" wx:if="{{(item.opened&&!apply)&&option=='group'}}">已开通</view>
-          <view class="right" wx:if="{{apply&&option=='group'}}">联系汇款2/3</view>
+          <view class="right" wx:if="{{apply&&option=='group'}}" data-jump="/pages/groupInfo/groupInfo" bindtap="jump">联系汇款2/3</view>
         </view>
         <view class="bottom">
           <!-- 个人 按钮 -->
           <button data-jump="/pages/chargeMoney/chargeMoney?by={{item.vipScope}}&money={{item.rechargeGetAmt}}&isVip={{isVip}}&level={{item.vipLevelId}}&buy=false" catchtap="jump"  wx:if="{{index==openIndex&&option=='personal'}}">充值</button>
           <!-- 团餐 按钮-->
-          <button data-jump="/pages/groupCharge/groupCharge" catchtap="jump" wx:if="{{(index&&index>=openIndex&&!recharge)&&option=='group'}}">充值</button>
+          <button data-jump="/pages/groupCharge/groupCharge" catchtap="jump" wx:if="{{(isVip&&index>=openIndex&&!recharge)&&option=='group'}}">充值</button>
           <button data-jump="/pages/groupCharge/groupCharge" catchtap="jump" wx:if="{{(recharge&&index>=openIndex)&&option=='group'}}">处理中</button>
         </view>
       </view>

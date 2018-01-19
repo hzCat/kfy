@@ -199,3 +199,24 @@
 .container .vip-get-container {
   margin-bottom: 24rpx;
 }
+.fail-tips {
+  width: 100%;
+  height: 88rpx;
+  background: rgba(233, 79, 79, 0.91);
+  color: #fff;
+  padding: 0rpx 40rpx 0rpx 80rpx;
+  display: flex;
+  align-items: center;
+}
+.fail-tips image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.fail-tips text {
+  font-size: 34rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 550rpx;
+  display: inline-block;
+  padding-left: 24rpx;
+}

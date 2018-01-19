@@ -122,6 +122,12 @@
 					"name": "vipDetail明细",
 					"pathName": "pages/vipDetail/vipDetail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "充值成功",
+					"pathName": "pages/chargeSuccFail/chargeSuccFail",
+					"query": ""
 				}
 			]
 		}

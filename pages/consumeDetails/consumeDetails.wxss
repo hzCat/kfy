@@ -14,7 +14,7 @@
   color: #999;
 }
 .consume1 .first > view:last-child {
-  color: #5076bd;
+  color: #26c2fd;
   margin-left: 115rpx;
 }
 .consume,
