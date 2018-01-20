@@ -11,7 +11,8 @@ Page({
   data: {
     allInfo: {},
     userInfo: {},
-    headDefault: "../../icon/default_head.png"
+    headDefault: "../../icon/default_head.png",
+    getUserInfoCount: 0
   },
 
   /**
@@ -25,21 +26,40 @@ Page({
   onShow: function() {
     storage.gets("allInfo").then(res => {
       this.setData({
-        allInfo: res.data
+        allInfo: res.data,
+        getUserInfoCount: 0
       });
     });
-    storage.gets("userInfo").then(res => {
-      console.log("userInfo", res.data);
-      this.setData({
-        userInfo: res.data
-      });
-    });
+    this.getUserInfo();
   },
   // 下拉刷新用户信息
   onPullDownRefresh() {
     this.refreshUserInfo();
   },
-
+  getUserInfo() {
+    let that = this;
+    setTimeout(() => {
+      storage
+        .gets("userInfo")
+        .then(res => {
+          console.log("userInfo", res.data);
+          this.setData({
+            userInfo: res.data
+          });
+        })
+        .catch(err => {
+          if (this.data.getUserInfoCount < 5) {
+            setTimeout(() => {
+              that.getUserInfo();
+              let now = this.data.getUserInfoCount + 1;
+              this.setData({
+                getUserInfoCount: now
+              });
+            }, 500);
+          }
+        });
+    }, 700);
+  },
   // 刷新
   refreshUserInfo() {
     let that = this;
@@ -47,9 +67,10 @@ Page({
     update.updateuser(app.globalData.header);
     // that.getUserInfo();
     setTimeout(function() {
+      that.getUserInfo();
       storage.gets("allInfo").then(res => {
         that.setData({
-          allInfo: res.data,
+          allInfo: res.data
         });
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();

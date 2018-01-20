@@ -153,13 +153,13 @@ Page({
       that.openQRmodal();
       // 连接成功
       wx.onSocketOpen(function(res) {
-        console.log("WebSocket连接已打开！");
+        console.log("WebSocket连接已打开！", res);
       });
       wx.onSocketError(function(err) {
-        console.log("WebSocket连接打开失败，请检查！");
+        console.log("WebSocket连接打开失败，请检查！", err);
       });
       wx.onSocketClose(function(res) {
-        console.log("WebSocket 已关闭！");
+        console.log("WebSocket 已关闭！", res);
       });
       wx.onSocketMessage(function(res) {
         let json = JSON.parse(res.data);
@@ -254,9 +254,12 @@ Page({
   jump(e) {
     let type = e.currentTarget.dataset.type;
     if (type == "personal") {
-      jump.jump("nav", "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50");
+      jump.jump(
+        "nav",
+        "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50"
+      );
     } else if (type == "group") {
-      jump.jump("nav","/pages/groupCharge/groupCharge");
+      jump.jump("nav", "/pages/groupCharge/groupCharge");
     }
   }
 });

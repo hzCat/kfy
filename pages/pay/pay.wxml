@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="total-con">
+    <view class="icon">
+      <image src="../../img/logo.png"></image>
+    </view>
+    <view class="money">{{offMoney.payAmt}}</view>
+    <view class="name">需支付(￥)</view>
+  </view>
+  <view class="option-con">
+    <view class="card personal" data-option="VIP_CARD" bindtap="payOption" wx:if="{{cardList[0].vipScope=='VIP'}}">
+      <view class="left">
+        <view class="icon">
+          <image src="../../icon/vip_option.png"></image>
+        </view>
+        <view class="name">个人卡</view>
+        <view class="detail">(余额：￥{{cardList[0].cardBalance?cardList[0].cardBalance:'0.00'}}) </view>
+      </view>
+      <view class="right">
+        <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='VIP_CARD'}}"></icon>
+      </view>
+    </view>
+    <view class="card group" data-option="TVIP_CARD" bindtap="payOption" wx:if="{{cardList[1].vipScope=='TVIP'}}">
+      <view class="left">
+        <view class="icon">
+          <image src="../../icon/tvip_option.png"></image>
+        </view>
+        <view class="name">团餐卡</view>
+        <view class="detail">(余额：￥{{cardList[1].cardBalance?cardList[1].cardBalance:'0.00'}}) </view>
+      </view>
+      <view class="right">
+        <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='TVIP_CARD'}}"></icon>
+      </view>
+    </view>
+    <view class="card wechat" data-option="WECHART" bindtap="payOption">
+      <view class="left">
+        <view class="icon">
+          <image src="../../icon/wechat_option.png"></image>
+        </view>
+        <view class="name">微信</view>
+        <view class="detail">充值将获得额外赠送,详见会员权益</view>
+      </view>
+      <view class="right">
+        <icon type="success" size='22' color="#ff7c07" wx:if="{{payOption=='WECHART'}}"></icon>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付按钮 -->
+  <button class="btn-pay" bindtap="payClick">立即支付</button>
+</view>

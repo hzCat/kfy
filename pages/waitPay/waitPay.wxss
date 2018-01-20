@@ -157,46 +157,14 @@
   font-size: 32rpx;
   height: 104rpx;
 }
-.container .option-con {
-  background: #fff;
-  margin-top: 24rpx;
-  padding: 0 40rpx;
-}
-.container .option-con .card {
+.container .where {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 88rpx;
-}
-.container .option-con .card .left {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.container .option-con .card .left .icon {
-  width: 54rpx;
-  height: 54rpx;
-  margin-right: 16rpx;
-}
-.container .option-con .card .left .icon image {
-  width: 54rpx;
-  height: 54rpx;
-}
-.container .option-con .card .left .name {
-  font-size: 34rpx;
-  color: #333;
-  height: 34rpx;
-  line-height: 34rpx;
-  margin-right: 16rpx;
-}
-.container .option-con .card .left .detail {
-  font-size: 26rpx;
-  color: #999;
-  height: 34rpx;
-  padding-top: 4rpx;
-}
-.container .option-con .card .right {
-  height: 44rpx;
+  align-items: flex-start;
+  background: #fff;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  height: 70rpx;
 }
 .container .btn-pay {
   height: 96rpx;

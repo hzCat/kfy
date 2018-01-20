@@ -2,6 +2,7 @@
 let http = require("../../utils/ajax.js");
 let app = getApp();
 let update = require("../../utils/update");
+let jump = require("../../utils/jump");
 Component({
   /**
    * 组件的属性列表
@@ -10,6 +11,10 @@ Component({
     open: {
       type: Boolean,
       value: false
+    },
+    page: {
+      type: String,
+      value: ""
     }
   },
 
@@ -132,6 +137,7 @@ Component({
               icon: "success",
               duration: 2000,
               success() {
+                jump.jump("nav", that.data.page);
                 that.setData({
                   open: false
                 });

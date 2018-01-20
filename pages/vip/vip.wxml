@@ -69,7 +69,8 @@
       </view>
       <!-- 立即开通 TVIP -->
       <view class="open-vip-btn" wx:if="{{!isVip[1]&&(cardType=='group')}}">
-        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" bindtap="jump">立即开通</button>
+        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" bindtap="jump" wx:if="{{bindMobile}}">立即开通</button>
+        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">立即开通</button>
       </view>
     </view>
     <!-- 已经是会员,显示积分和余额 -->
@@ -115,12 +116,20 @@
     </view>
 
     <!-- 按钮 -->
-    <view class="btn-group" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isVip[0]}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" catchtap="jump" wx:if="{{(nowIndex>vipLevel||!isVip[0])&&cardType=='personal'}}">
-      <view class="btn">
-        <text class="money">充值￥{{vipCardList[nowIndex].rechargeGetAmt}}</text>
+    <view class="btn-group"wx:if="{{(nowIndex>vipLevel||!isVip[0])&&cardType=='personal'}}">
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isVip[0]}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" catchtap="jump" wx:if="{{bindMobile}}">
+        <!-- <text class="money"> -->
+          充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
+        <!-- </text> -->
         <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->
-        <view class="slogan">推荐</view>
-      </view>
+      </button>
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isVip[0]}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">
+        <!-- <text class="money"> -->
+          充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
+        <!-- </text> -->
+        <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->
+      </button>
+      <view class="slogan">推荐</view>
     </view>
   </view>
 
@@ -179,4 +188,4 @@
     </view>
   </view>
 </view>
-
+<phoneModal open="{{getPhoneNumber}}" page="{{bindTo}}"></phoneModal>

@@ -1,0 +1,86 @@
+.container {
+  background: #f0f0f0;
+}
+.container .total-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  border-top: 1rpx solid #dbdbdb;
+  padding-bottom: 54rpx;
+}
+.container .total-con .icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 54rpx;
+}
+.container .total-con .icon image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.container .total-con .money {
+  margin-top: 24rpx;
+  font-size: 80rpx;
+}
+.container .total-con .name {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.container .option-con {
+  background: #fff;
+  margin-top: 24rpx;
+  padding: 0 40rpx;
+}
+.container .option-con .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88rpx;
+}
+.container .option-con .card .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .option-con .card .left .icon {
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 16rpx;
+}
+.container .option-con .card .left .icon image {
+  width: 54rpx;
+  height: 54rpx;
+}
+.container .option-con .card .left .name {
+  font-size: 34rpx;
+  color: #333;
+  height: 34rpx;
+  line-height: 34rpx;
+  margin-right: 16rpx;
+}
+.container .option-con .card .left .detail {
+  font-size: 26rpx;
+  color: #999;
+  height: 34rpx;
+  padding-top: 4rpx;
+}
+.container .option-con .card .right {
+  height: 44rpx;
+}
+.container .btn-pay {
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 34rpx;
+  width: 670rpx;
+  color: #fff;
+  background: #fdaf31;
+  border: 0;
+  border-radius: 10rpx;
+  margin-top: 48rpx;
+}
+.container .btn-pay::after {
+  border: 0;
+  border-radius: 0;
+}

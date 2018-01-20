@@ -151,7 +151,7 @@ Page({
   // 汇款金额
   getMoney(e) {
     console.log("Money", e.detail.value);
-    if (/^\d{6}(\.\d{2})+$/.test(e.detail.value)) {
+    if (/^([0-9]{0,6})(.[0-9]{2})?$/.test(e.detail.value)) {
       let obj = this.data.pushInfo;
       obj.transferAmt = e.detail.value;
       this.setData({

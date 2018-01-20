@@ -128,6 +128,12 @@
 					"name": "充值成功",
 					"pathName": "pages/chargeSuccFail/chargeSuccFail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pay确认支付",
+					"pathName": "pages/pay/pay",
+					"query": ""
 				}
 			]
 		}

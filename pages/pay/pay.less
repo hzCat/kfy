@@ -1,0 +1,90 @@
+.container {
+  background: #f0f0f0;
+  // 顶部
+  .total-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // height: 380rpx;
+    background: #fff;
+    border-top: 1rpx solid #dbdbdb;
+    padding-bottom:54rpx;
+    .icon {
+      width: 120rpx;
+      height: 120rpx;
+      margin-top: 54rpx;
+      image {
+        width: 120rpx;
+        height: 120rpx;
+      }
+    }
+    .money {
+      margin-top: 24rpx;
+      font-size: 80rpx;
+    }
+    .name {
+      margin-top: 40rpx;
+      font-size: 28rpx;
+      color: #999;
+    }
+  }
+  // 支付选项
+  .option-con {
+    background: #fff;
+    margin-top: 24rpx;
+    padding: 0 40rpx;
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 88rpx;
+      .left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .icon {
+          width: 54rpx;
+          height: 54rpx;
+          margin-right: 16rpx;
+          image {
+            width: 54rpx;
+            height: 54rpx;
+          }
+        }
+        .name {
+          font-size: 34rpx;
+          color: #333;
+          height: 34rpx;
+          line-height: 34rpx;
+          margin-right: 16rpx;
+        }
+        .detail {
+          font-size: 26rpx;
+          color: #999;
+          height: 34rpx;
+          padding-top: 4rpx;
+        }
+      }
+      .right {
+        height: 44rpx;
+      }
+    }
+  }
+  // 支付按钮
+  .btn-pay {
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 34rpx;
+    width: 670rpx;
+    color: #fff;
+    background: #fdaf31;
+    border: 0;
+    border-radius: 10rpx;
+    margin-top: 48rpx;
+  }
+  .btn-pay::after {
+    border: 0;
+    border-radius: 0;
+  }
+}

@@ -157,17 +157,19 @@
 
     .btn-group {
       height: 214rpx;
-      width: 100%;
-      padding: 29rpx 40rpx;
+      // width: 100%;
+      margin: 29rpx 40rpx;
+      position: relative;
+      color: #fff;
+      overflow: hidden;
       .btn {
-        width: 670rpx;
+        width: 100%;
         height: 112rpx;
         line-height: 112rpx;
         padding-left: 36rpx;
         overflow: hidden;
         background: -webkit-linear-gradient(left, #fdaf31, #ff7e33);
-        position: relative;
-        color: #fff;
+        border-radius: 10rpx;
         text {
           display: inline-block;
         }
@@ -179,18 +181,18 @@
         .tips {
           font-size: 26rpx;
         }
-        .slogan {
-          width: 200rpx;
-          height: 36rpx;
-          line-height: 36rpx;
-          text-align: center;
-          background: #5076bd;
-          font-size: 24rpx;
-          position: absolute;
-          top: 10rpx;
-          right: -60rpx;
-          transform: rotateZ(30deg);
-        }
+      }
+      .slogan {
+        width: 200rpx;
+        height: 36rpx;
+        line-height: 36rpx;
+        text-align: center;
+        background: #5076bd;
+        font-size: 24rpx;
+        position: absolute;
+        top: 10rpx;
+        right: -60rpx;
+        transform: rotateZ(30deg);
       }
     }
   }
@@ -215,10 +217,10 @@
   }
   text {
     font-size: 34rpx;
-    height:40rpx;
+    height: 40rpx;
     line-height: 40rpx;
     width: 550rpx;
     display: inline-block;
-    padding-left:24rpx;
+    padding-left: 24rpx;
   }
 }

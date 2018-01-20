@@ -18,7 +18,8 @@
     "pages/yourMoney/yourMoney",
     "pages/vipDetail/vipDetail",
     "pages/consumeDetails/consumeDetails",
-    "pages/chargeSuccFail/chargeSuccFail"
+    "pages/chargeSuccFail/chargeSuccFail",
+    "pages/pay/pay"
   ],
   "window": {
     "backgroundTextStyle": "light",

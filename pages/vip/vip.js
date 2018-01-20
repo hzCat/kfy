@@ -3,6 +3,7 @@ let http = require("../../utils/ajax.js");
 let storage = require("../../utils/storage.js");
 let card = require("../../utils/cardTurn.js");
 let jump = require("../../utils/jump.js");
+let modal = require("../../utils/modal");
 Page({
   /**
    * 页面的初始数据
@@ -21,7 +22,9 @@ Page({
     tvipLevel: null,
     nowIndex: null,
     applyFail: false,
-    bindMobile: false
+    bindMobile: false,
+    getPhoneNumber: false,
+    bindTo: ""
   },
 
   /**
@@ -34,6 +37,11 @@ Page({
         cardType: type
       });
     }
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     storage.gets("allInfo").then(res => {
       console.log("vip加载allInfo", res.data);
       let arr = card.turn(res.data.vipCardList);
@@ -48,13 +56,11 @@ Page({
         bindMobile: bindPhone
       });
     });
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
     this.getVipList();
     this.getTvipList();
+    this.setData({
+      getPhoneNumber: false
+    });
   },
   onReady() {},
   // 获取个人列表
@@ -193,5 +199,64 @@ Page({
     this.setData({
       applyFail: false
     });
+  },
+  // 从微信获取手机号进行绑定
+  getPhoneNumber: function(e) {
+    var that = this;
+    let jumpto = e.currentTarget.dataset.jump;
+    // that.setData({
+    //   modalOn: true
+    // });
+    if (e.detail.errMsg == "getPhoneNumber:ok") {
+      wx.showLoading({
+        title: "绑定中"
+      });
+      var url = "/vipCenter/bindMobileWithWX";
+      var method = "POST";
+      var data = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv
+      };
+      http
+        .ajax(url, method, data, app.globalData.header)
+        .then(function(res) {
+          console.log(res.data);
+          var url = "/vip/getCurrentVipUser";
+          var data = {};
+          var method = "GET";
+          // var header = that.data.header;
+          http
+            .ajax(url, method, data, app.globalData.header)
+            .then(function(res) {
+              console.log(res);
+              wx.setStorage({
+                key: "allInfo",
+                data: res.data.data,
+                success: function(res) {
+                  // var pattern = "redirect";
+                  // var jump = "/pages/usercenter/usercenter";
+                  setTimeout(function() {
+                    // util.jump(pattern, jump);
+                    // that.getAllInfo();
+                    jump.jump("nav", jumpto);
+                    wx.hideLoading();
+                  }, 1500);
+                }
+              });
+            })
+            .catch(function(err) {
+              console.log(err);
+            });
+        })
+        .catch(function(err) {
+          modal.modal("提示", "手机号绑定失败,请重试");
+        });
+    } else {
+      // ju.jump("nav", "/pages/relatePhone/relatePhone");
+      this.setData({
+        getPhoneNumber: true,
+        bindTo: jumpto
+      });
+    }
   }
 });
