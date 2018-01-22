@@ -40,30 +40,30 @@ Page({
   },
   getUserInfo() {
     let that = this;
-    setTimeout(() => {
-      storage
-        .gets("userInfo")
-        .then(res => {
-          console.log("userInfo", res.data);
-          this.setData({
-            userInfo: res.data,
-            hasUserInfo: true
-          });
-        })
-        .catch(err => {
-          if (this.data.getUserInfoCount < 5) {
-            console.log(`获取${this.data.getUserInfoCount + 1}次`);
-            setTimeout(() => {
-              that.getUserInfo();
-              let now = this.data.getUserInfoCount + 1;
-              this.setData({
-                getUserInfoCount: now,
-                hasUserInfo: false
-              });
-            }, 500);
-          }
+    // setTimeout(() => {
+    storage
+      .gets("userInfo")
+      .then(res => {
+        console.log("userInfo", res.data);
+        this.setData({
+          userInfo: res.data,
+          hasUserInfo: true
         });
-    }, 700);
+      })
+      .catch(err => {
+        if (this.data.getUserInfoCount < 5) {
+          console.log(`获取${this.data.getUserInfoCount + 1}次`);
+          setTimeout(() => {
+            that.getUserInfo();
+            let now = this.data.getUserInfoCount + 1;
+            this.setData({
+              getUserInfoCount: now,
+              hasUserInfo: false
+            });
+          }, 500);
+        }
+      });
+    // }, 700);
   },
   // 刷新
   refreshUserInfo() {
@@ -85,23 +85,34 @@ Page({
   getHead(e) {
     let jumpto = e.currentTarget.dataset.jump;
     if (this.data.hasUserInfo) {
+      console.log("有userInfo");
       jump.jump("nav", jumpto);
     } else {
-      this.setData({
-        modalOn: true
-      });
-      app.again();
+      console.log("无userInfo");
+      this.setData(
+        {
+          modalOn: true
+        },
+        () => {
+          app.again();
+        }
+      );
     }
   },
   jump(e) {
-    this.setData({
-      modalOn: true
-    });
     let jumpto = e.currentTarget.dataset.jump;
-    if (jumpto == "/pages/vip/vip") {
-      jump.jump("switch", jumpto);
-    } else {
-      jump.jump("nav", jumpto);
-    }
+
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        if (jumpto == "/pages/vip/vip") {
+          jump.jump("switch", jumpto);
+        } else {
+          jump.jump("nav", jumpto);
+        }
+      }
+    );
   }
 });

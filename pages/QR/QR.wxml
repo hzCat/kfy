@@ -82,7 +82,8 @@
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
             <text class="strong">{{allInfo.tvipCardBalance}}</text>
-            <view class="charge" bindtap="jump" data-type="group">充值</view>
+            <view class="charge" bindtap="jump" data-type="group" wx:if="{{cardList[1].rechargeOrderStatus!='DEALING'}}">充值</view>
+            <view class="charge" bindtap="jump" data-type="group" wx:if="{{cardList[1].rechargeOrderStatus=='DEALING'}}">处理中</view>
           </view>
         </view>
       </view>
@@ -94,5 +95,5 @@
 
   </view>
 </view>
-
+<shade modalOn="{{modalOn}}"></shade>
 <qrmodal open="{{openModal}}" isSucc="{{paySucc}}"></qrmodal>

@@ -9,7 +9,8 @@ Page({
   data: {
     by: "personal",
     cardList: [],
-    isVip: []
+    isVip: [],
+    modalOn: false
   },
 
   /**
@@ -42,6 +43,9 @@ Page({
     });
   },
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("nav", jumpto);
   }

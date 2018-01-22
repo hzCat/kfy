@@ -20,17 +20,17 @@
     <view class="price-total">
         <view class="price total">
             <view>合计</view>
-            <view>￥{{orderDetail.orderAmt}}</view>
+            <view>￥{{orderDetail.orderAmt||'0.00'}}</view>
             <view class="circle circle1"></view>
             <view class="circle circle2"></view>
         </view>
         <view class="off-con">
             <view class="price" wx:for="{{offDetail}}" wx:key="index">
                 <view>
-                    <view class="mark {{item.color}}">{{item.oneWord}}</view>
-                    <view class="word">{{item.name}}</view>
+                    <view class="mark {{item.color}}">{{item.oneWord||'无'}}</view>
+                    <view class="word">{{item.name||'无'}}</view>
                 </view>
-                <view class="off-money">-￥{{item.money}}</view>
+                <view class="off-money">-￥{{item.money||'0.00'}}</view>
             </view>
             <view class="circle circle1"></view>
             <view class="circle circle2"></view>
@@ -38,11 +38,11 @@
         <view class="pay-con">
             <view class="price">
                 <view>需支付</view>
-                <view>￥{{orderDetail.payAmt}}</view>
+                <view>￥{{orderDetail.payAmt||'0.00'}}</view>
             </view>
             <view class="price">
                 <view>已支付</view>
-                <view class="paid">￥{{orderDetail.payAmt}}</view>
+                <view class="paid">￥{{orderDetail.payAmt||'0.00'}}</view>
             </view>
         </view>
 
@@ -51,19 +51,19 @@
     <view class="other-info">
         <view class="price">
             <view>结算编号</view>
-            <view>{{orderDetail.settlementNo}}</view>
+            <view>{{orderDetail.settlementNo||'暂无'}}</view>
         </view>
         <view class="price">
             <view>支付时间</view>
-            <view>{{orderDetail.payTime}}</view>
+            <view>{{orderDetail.payTime||'暂无'}}</view>
         </view>
         <view class="price">
             <view>支付方式</view>
-            <view>{{orderDetail.payChannelDisplayName}}</view>
+            <view>{{orderDetail.payChannelDisplayName||'暂无'}}</view>
         </view>
         <view class="price">
             <view>门店</view>
-            <view>{{orderDetail.storeName}}</view>
+            <view>{{orderDetail.storeName||'暂无'}}</view>
         </view>
         </view>
     </view>

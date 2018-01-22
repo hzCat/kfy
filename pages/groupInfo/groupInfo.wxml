@@ -70,3 +70,5 @@
     <button class='submit' disabled='{{false}}' bindtap="pushAllInfo">提交</button>
   </view>
 </view>
+
+<shade modalOn="{{modalOn}}"></shade>

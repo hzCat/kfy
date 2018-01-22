@@ -13,7 +13,8 @@ Page({
     third: "",
     header: {},
     pattern: "",
-    cardType: "VIP"
+    cardType: "VIP",
+    modalOn: false
   },
 
   /**
@@ -25,7 +26,7 @@ Page({
     // storage.gets("3rd_session").then(function(res) {
     that.setData({
       pattern: options.type,
-      cardType:options.cardType
+      cardType: options.cardType
       // third: res.data,
       // header: {
       //   _yzsaas_token: res.data,
@@ -57,9 +58,9 @@ Page({
         if (res.data.data) {
           let obj = res.data.data;
           that.setData({
-            detail: obj,
+            detail: obj
           });
-        } 
+        }
         // else if (res.data.data.rechargeRecordDetail) {
         //   let obj = res.data.data.rechargeRecordDetail;
         //   that.setData({
@@ -82,6 +83,9 @@ Page({
   },
 
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     console.log(e);
     var pattern = e.currentTarget.dataset.pattern;
     var jumpto = e.currentTarget.dataset.jump;

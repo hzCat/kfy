@@ -31,7 +31,7 @@
   <view class='charge-account'>
     <view class="user-account">
       <view>充值账户：</view>
-      <view>{{phoneNumber}}</view>
+      <view>{{phoneNumber||'暂无'}}</view>
     </view>
 
     <!-- <text>充值账户：</text>
@@ -59,10 +59,11 @@
   </view>
   <view class='service-phonenumber'>
     <text>客服电话：</text>
-    <text>{{serviceNumber}}</text>
+    <text>{{serviceNumber||'获取失败'}}</text>
   </view>
   <view class="btn-group">
     <button class="cancel" bindtap="cancelFail" wx:if="{{chargeInfo.orderStatus=='FAIL'}}">取消返回</button>
     <button class="submit" bindtap="pushAllInfo">提交</button>
   </view>
 </view>
+<shade modalOn="{{modalOn}}"></shade>

@@ -18,7 +18,8 @@ Page({
     money: null,
     pushInfo: {},
     header: {},
-    applyInfo: {}
+    applyInfo: {},
+    modalOn: false
   },
 
   /**
@@ -172,6 +173,9 @@ Page({
     }
   },
   cancelApply() {
+    this.setData({
+      modalOn: true
+    });
     let url = "/tvip/userCancelApply";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
       if (res.data.code == 200 && res.data.result == true) {
@@ -191,6 +195,9 @@ Page({
   },
   // 提交
   pushAllInfo() {
+    this.setData({
+      modalOn: true
+    });
     console.log(this.data.pushInfo);
     let data = this.data.pushInfo;
     if (data.contactMobile && data.corpName && data.contactName) {

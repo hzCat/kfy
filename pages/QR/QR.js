@@ -19,7 +19,8 @@ Page({
     userscreenLight: null,
     paySucc: false,
     openModal: false,
-    showMoney: false
+    showMoney: false,
+    modalOn: false
   },
 
   /**
@@ -76,6 +77,7 @@ Page({
     storage.gets("allInfo").then(res => {
       let list = res.data.vipCardList;
       let arr = card.turn(list);
+      console.log("新卡片列表",arr)
       this.setData({
         allInfo: res.data,
         cardList: arr
@@ -124,6 +126,7 @@ Page({
       success(res) {
         console.log("亮度", res.value);
         that.setData({
+          modalOn: true,
           userscreenLight: res.value
         });
       }
@@ -253,13 +256,21 @@ Page({
   },
   jump(e) {
     let type = e.currentTarget.dataset.type;
-    if (type == "personal") {
-      jump.jump(
-        "nav",
-        "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50"
-      );
-    } else if (type == "group") {
-      jump.jump("nav", "/pages/groupCharge/groupCharge");
-    }
+
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        if (type == "personal") {
+          jump.jump(
+            "nav",
+            "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50"
+          );
+        } else if (type == "group") {
+          jump.jump("nav", "/pages/groupCharge/groupCharge");
+        }
+      }
+    );
   }
 });

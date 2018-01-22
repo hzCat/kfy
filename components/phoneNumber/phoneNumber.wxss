@@ -41,7 +41,7 @@
   border-radius: 50%;
 }
 .phoneNumber .modal .input {
-  border: 1rpx solid #808080;
+  border: 1rpx solid #d2d3d5;
   width: 476rpx;
   margin: 0 auto;
 }
@@ -55,7 +55,7 @@
   color: #c7c7cc;
 }
 .phoneNumber .modal .input .phone {
-  border-bottom: 1rpx solid #808080;
+  border-bottom: 1rpx solid #d2d3d5;
 }
 .phoneNumber .modal .input .test {
   display: flex;

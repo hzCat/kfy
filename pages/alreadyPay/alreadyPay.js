@@ -32,7 +32,7 @@ Page({
         };
         var header = that.data.header;
         http.ajax(url, method, data, header).then(function(res) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           if (res.data.data.offerDetailList) {
             let off = res.data.data.offerDetailList;
             console.log(res.data.data);

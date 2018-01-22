@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "个人余额",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

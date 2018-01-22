@@ -7,7 +7,7 @@ Page({
    */
   data: {
     detail: {},
-    modalOn:false
+    modalOn: false
   },
 
   /**
@@ -36,14 +36,19 @@ Page({
    */
   onShow: function() {},
   jump(e) {
-    this.setData({
-      modalOn:true
-    })
     let jumpto = e.currentTarget.dataset.jump;
-    if (jumpto == "back") {
-      jump.jump("back");
-    } else {
-      jump.jump("redirect", jumpto);
-    }
+
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        if (jumpto == "back") {
+          jump.jump("back");
+        } else {
+          jump.jump("redirect", jumpto);
+        }
+      }
+    );
   }
 });

@@ -63,10 +63,10 @@
 </view>
 
 <!-- 遮罩 -->
-<view class="stop-modal" wx:if="{{modalOn}}"></view>
+<!-- <view class="stop-modal" wx:if="{{modalOn}}"></view> -->
 
 <!-- 绑定手机模态框 -->
-<view class="get-phonenumber {{getNumber?'get-show':'none'}}">
+<!-- <view class="get-phonenumber {{getNumber?'get-show':'none'}}">
   <view class="box">
     <view class="title">重要提示</view>
     <view class="content">
@@ -77,4 +77,6 @@
       <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class="btn-hover">绑定</button>
     </view>
   </view>
-</view>
+</view> -->
+
+<shade modalOn="{{modalOn}}"></shade>

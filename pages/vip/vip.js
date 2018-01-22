@@ -24,7 +24,8 @@ Page({
     applyFail: false,
     bindMobile: false,
     getPhoneNumber: false,
-    bindTo: ""
+    bindTo: "",
+    modalOn: false
   },
 
   /**
@@ -192,6 +193,9 @@ Page({
   //   }
   // },
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("nav", jumpto);
   },
@@ -204,9 +208,9 @@ Page({
   getPhoneNumber: function(e) {
     var that = this;
     let jumpto = e.currentTarget.dataset.jump;
-    // that.setData({
-    //   modalOn: true
-    // });
+    that.setData({
+      modalOn: true
+    });
     if (e.detail.errMsg == "getPhoneNumber:ok") {
       wx.showLoading({
         title: "绑定中"

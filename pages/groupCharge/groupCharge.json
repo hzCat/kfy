@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "团餐充值"
+  "navigationBarTitleText": "团餐充值",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
 }

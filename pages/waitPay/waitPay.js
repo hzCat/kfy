@@ -19,7 +19,8 @@ Page({
     offMoney: {},
     offDetail: [],
     cardList: null,
-    orderId: null
+    orderId: null,
+    modalOn: false
   },
 
   /**
@@ -210,8 +211,10 @@ Page({
     }
   },
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("nav", jumpto);
-  },
-  
+  }
 });

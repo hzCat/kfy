@@ -188,4 +188,5 @@
     </view>
   </view>
 </view>
+<shade modalOn="{{modalOn}}"></shade>
 <phoneModal open="{{getPhoneNumber}}" page="{{bindTo}}"></phoneModal>

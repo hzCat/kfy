@@ -18,7 +18,8 @@ Page({
     pushInfo: {},
     header: {},
     serviceNumber: "",
-    chargeInfo: {}
+    chargeInfo: {},
+    modalOn: false
   },
 
   /**
@@ -152,6 +153,9 @@ Page({
     let that = this;
     console.log(this.data.pushInfo);
     let data = this.data.pushInfo;
+    this.setData({
+      modalOn: true
+    });
     if (data.transferFlowNo && data.note && data.rechargeAmt && data.contact) {
       let header = this.data.header;
       pay.tvipcharge(data, header).then(function(res) {
@@ -189,6 +193,9 @@ Page({
     }
   },
   cancelFail() {
+    this.setData({
+      modalOn: true
+    });
     let url = "/recharge/userCancelApply";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
       if (res.data.code == 200 && res.data.result == true) {

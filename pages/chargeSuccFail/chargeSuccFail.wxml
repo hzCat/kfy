@@ -20,3 +20,4 @@
   <button wx:if="{{isSuccess=='true'}}" bindtap="jump" data-pattern="redirect" data-jump="/pages/vip/vip">返回</button>
   <button wx:if="{{isSuccess=='false'}}" bindtap="jump" data-pattern="back" data-jump="/pages/chargeMoney/chargeMoney">返回</button>
 </view>
+<shade modalOn="{{modalOn}}"></shade>

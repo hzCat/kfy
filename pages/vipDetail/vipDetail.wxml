@@ -34,3 +34,5 @@
 
   </view>
 </view>
+
+<shade modalOn="{{modalOn}}"></shade>

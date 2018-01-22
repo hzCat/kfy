@@ -13,7 +13,8 @@ Page({
     money: null,
     gift: null,
     after: null,
-    serviceNumber:"请咨询店小二"
+    serviceNumber: "请咨询店小二",
+    modalOn: false
   },
 
   /**
@@ -31,7 +32,7 @@ Page({
       money: mon,
       gift: gif,
       after: aft,
-      serviceNumber:app.globalData.serviceNumber,
+      serviceNumber: app.globalData.serviceNumber
     });
   },
 
@@ -43,6 +44,9 @@ Page({
   },
 
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     var jump = e.currentTarget.dataset.jump;
     var pattern = e.currentTarget.dataset.pattern;
     if (pattern == "back") {

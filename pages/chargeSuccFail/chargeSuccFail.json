@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "充值详情"
+  "navigationBarTitleText": "充值详情",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
 }

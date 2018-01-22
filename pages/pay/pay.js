@@ -14,7 +14,8 @@ Page({
     payOption: "WECHART",
     offMoney: {},
     cardList: null,
-    orderId: null
+    orderId: null,
+    modalOn: false
   },
 
   /**
@@ -29,7 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getUserCard(this.data.orderId,true)
+    this.getUserCard(this.data.orderId, true);
   },
 
   // 获取可用卡
@@ -58,10 +59,7 @@ Page({
       // }
       //是否获取优惠
       if (offmoney) {
-        that.getDiscount(
-          that.data.orderId,
-          res.data.data.defaultPayChannel
-        );
+        that.getDiscount(that.data.orderId, res.data.data.defaultPayChannel);
       }
     });
   },
@@ -113,9 +111,9 @@ Page({
   payClick() {
     let that = this;
     // 遮罩
-    // that.setData({
-    //   modalOn: true,
-    // });
+    that.setData({
+      modalOn: true,
+    });
 
     // 微信
     if (this.data.payOption == "WECHART") {

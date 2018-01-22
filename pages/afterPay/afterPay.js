@@ -75,11 +75,16 @@ Page({
     }
   },
   quit(e) {
-    this.setData({
-      modalOn: true
-    });
     let jumpto = e.currentTarget.dataset.jump;
-    jump.jump("rel", jumpto);
+
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        jump.jump("rel", jumpto);
+      }
+    );
   },
   again() {
     this.setData({

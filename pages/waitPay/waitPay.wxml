@@ -3,8 +3,8 @@
   <!-- 顶部 -->
   <view class="header">
     <view class="left"></view>
-    <view class="wait-pay">{{orderData.orderStatusDisplayName}}</view>
-    <view class="order-number">{{orderData.orderNo}}</view>
+    <view class="wait-pay">{{orderData.orderStatusDisplayName||'待支付'}}</view>
+    <view class="order-number">{{orderData.orderNo||'无'}}</view>
   </view>
 
   <!-- 菜品明细 -->
@@ -12,7 +12,7 @@
     <view class="detail" wx:for="{{orderData.detailList}}" wx:key="index" wx:if="{{index<foodMore}}">
       <view class="name">{{item.disheName}}</view>
       <view class="count">×{{item.disheQty}}</view>
-      <view class="how-much">￥{{item.disheSaleAmt}}</view>
+      <view class="how-much">￥{{item.disheSaleAmt||'0.00'}}</view>
     </view>
 
     <view class="show-more" data-type="food" bindtap="showMore" wx:if="{{orderData.detailList.length>4}}">
@@ -32,16 +32,16 @@
         <text>优惠</text>
         <image class="{{discountMore&&'img-rotate'}}" src="../../icon/show_more_discount.png"></image>
       </view>
-      <view class="right price-red">-￥{{offMoney.totalOfferAmt||offMoney.offerAmt}}</view>
+      <view class="right price-red">-￥{{offMoney.totalOfferAmt||offMoney.offerAmt||'0.00'}}</view>
     </view>
     <!-- 优惠详情 -->
     <view class="discount-detail" wx:if="{{discountMore}}">
       <view class="one" wx:for="{{offDetail}}" wx:key="index">
         <view class="left">
-          <view class="mark {{item.color}}">{{item.oneWord}}</view>
-          <view class="word">{{item.name}}</view>
+          <view class="mark {{item.color}}">{{item.oneWord||'无'}}</view>
+          <view class="word">{{item.name||'无'}}</view>
         </view>
-        <view class="right price-red">-￥{{item.money}}</view>
+        <view class="right price-red">-￥{{item.money||'0.00'}}</view>
       </view>
 
       <view class="circle circle1"></view>
@@ -58,11 +58,11 @@
   <!-- 下单时间 -->
   <view class="time">
     <view class="order-time">下单时间</view>
-    <view class="when">{{orderData.createTime}}</view>
+    <view class="when">{{orderData.createTime||'暂无'}}</view>
   </view>
   <view class="where">
     <view class="order-where">门店</view>
-    <view class="when">{{orderData.storeName}}</view>
+    <view class="when">{{orderData.storeName||'暂无'}}</view>
   </view>
 
   <!-- 支付选项 -->
@@ -110,3 +110,5 @@
   <button class="btn-pay" bindtap="jump" data-jump="/pages/pay/pay?orderId={{orderId}}">立即支付</button>
 
 </view>
+
+<shade modalOn="{{modalOn}}"></shade>

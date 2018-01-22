@@ -88,7 +88,7 @@ Page({
         success: function() {
           http.ajax(url, method, data, header).then(function(res) {
             var arr = res.data.data.rows;
-            console.log(arr)
+            console.log(arr);
             if (arr) {
               for (var i = 0; i < arr.length; i++) {
                 var obj = arr[i];
@@ -130,10 +130,15 @@ Page({
     }
   },
   jump(e) {
-    this.setData({
-      modalOn:true
-    })
     let jumpto = e.currentTarget.dataset.jump;
-    jump.jump("nav", jumpto);
+
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        jump.jump("nav", jumpto);
+      }
+    );
   }
 });

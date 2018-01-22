@@ -44,7 +44,7 @@ Component({
     apply: null,
     recharge: null,
     isVip: false,
-    modalOn:false
+    modalOn: false
   },
   attached() {
     let that = this;
@@ -159,7 +159,7 @@ Component({
             openIndex: i,
             isVip: true
           });
-          return i
+          return i;
         }
       }
     },
@@ -240,11 +240,16 @@ Component({
     },
     // 跳转
     jump(e) {
-      this.setData({
-        modalOn:true
-      })
       let jumpto = e.currentTarget.dataset.jump;
-      jump.jump("nav", jumpto);
+
+      this.setData(
+        {
+          modalOn: true
+        },
+        () => {
+          jump.jump("nav", jumpto);
+        }
+      );
     }
   }
 });

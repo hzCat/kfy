@@ -86,36 +86,45 @@ Page({
   toQR(e) {
     console.log("点击的类型", e.currentTarget.dataset.scope);
     let vipScope = e.currentTarget.dataset.scope;
-    this.setData({
-      modalOn: true
-    });
-    if (vipScope == "VIP") {
-      if (this.data.isVip[0]) {
-        jump.jump("nav", `/pages/QR/QR?vipScope=${vipScope}`);
-      } else {
-        jump.jump("rel", "/pages/vip/vip?type=personal");
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        if (vipScope == "VIP") {
+          if (this.data.isVip[0]) {
+            jump.jump("nav", `/pages/QR/QR?vipScope=${vipScope}`);
+          } else {
+            jump.jump("rel", "/pages/vip/vip?type=personal");
+          }
+        } else if (vipScope == "TVIP") {
+          if (this.data.isVip[1]) {
+            jump.jump("nav", `/pages/QR/QR?vipScope=${vipScope}`);
+          } else {
+            jump.jump("rel", "/pages/vip/vip?type=group");
+          }
+        }
       }
-    }else if(vipScope == "TVIP"){
-      if (this.data.isVip[1]) {
-        jump.jump("nav", `/pages/QR/QR?vipScope=${vipScope}`);
-      } else {
-        jump.jump("rel", "/pages/vip/vip?type=group");
-      }
-    }
+    );
   },
   // 打开二维码扫描
   openScan() {
     let that = this;
-    that.setData({
-      modalOn: true
-    });
     let close = function() {
       console.log("shade关闭");
       that.setData({
         modalOn: false
       });
     };
-    scan.default(close, close);
+    that.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        scan.default(close, close);
+      }
+    );
+
     // wx.scanCode({
     //   onlyFromCamera: true,
     //   success: res => {

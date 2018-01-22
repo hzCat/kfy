@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "团餐资料"
+  "navigationBarTitleText": "团餐资料",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
 }

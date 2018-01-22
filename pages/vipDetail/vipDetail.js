@@ -16,7 +16,8 @@ Page({
     tab: "out",
     moreOne: true,
     moreTwo: true,
-    type: null
+    type: null,
+    modalOn: false
   },
 
   /**
@@ -138,6 +139,9 @@ Page({
     this.getList();
   },
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("nav", jumpto);
   }

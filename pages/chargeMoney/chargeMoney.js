@@ -23,7 +23,8 @@ Page({
     currentLevel: null,
     nextGetLevel: null,
     nextNeed: null,
-    willGetLevel: null
+    willGetLevel: null,
+    modalOn: false
   },
 
   /*** 生命周期函数--监听页面加载*/
@@ -136,10 +137,10 @@ Page({
 
     // 50的倍数
     // if (money % 50 == 0) {
-      this.setData({
-        nowMoney: money
-      });
-      that.getVipInfo(that.data.vipScope, e.detail.value, that.data.header);
+    this.setData({
+      nowMoney: money
+    });
+    that.getVipInfo(that.data.vipScope, e.detail.value, that.data.header);
     // } else {
     //   wx.showModal({
     //     title: "提示",
@@ -393,73 +394,71 @@ Page({
     // }
   },
 
-
-
   // 获取手机号码（微信）
-  getPhoneNumber: function(e) {
-    var that = this;
-    that.setData({
-      modalOn: true
-    });
-    if (e.detail.errMsg == "getPhoneNumber:ok") {
-      var url = "/vipCenter/bindMobileWithWX";
-      var method = "POST";
-      var data = {
-        encryptedData: e.detail.encryptedData,
-        iv: e.detail.iv
-      };
-      var header = that.data.header;
-      http
-        .ajax(url, method, data, header)
-        .then(function(res) {
-          that.setData({
-            modalOn: false,
-            getNumber: false
-          });
-          console.log(res.data);
-          var url = "/vip/getCurrentVipUser";
-          var data = {};
-          var method = "GET";
-          var header = that.data.header;
-          http
-            .ajax(url, method, data, header)
-            .then(function(res) {
-              console.log(res);
-              wx.setStorage({
-                key: "allInfo",
-                data: res.data.data,
-                success: function(res) {
-                  var pattern = "redirect";
-                  var jump = "/pages/chargeMoney/chargeMoney";
-                  setTimeout(function() {
-                    jump.jump(pattern, jump);
-                  }, 500);
-                }
-              });
-            })
-            .catch(function(err) {
-              console.log(err);
-            });
-        })
-        .catch(function(err) {
-          that.setData({
-            modalOn: false
-          });
-          modal.modal("提示", "手机号绑定失败,请重试");
-        });
-    } else {
-      that.setData({
-        modalOn: false,
-        getNumber: false
-      });
-    }
-  },
+  // getPhoneNumber: function(e) {
+  //   var that = this;
+  //   that.setData({
+  //     modalOn: true
+  //   });
+  //   if (e.detail.errMsg == "getPhoneNumber:ok") {
+  //     var url = "/vipCenter/bindMobileWithWX";
+  //     var method = "POST";
+  //     var data = {
+  //       encryptedData: e.detail.encryptedData,
+  //       iv: e.detail.iv
+  //     };
+  //     var header = that.data.header;
+  //     http
+  //       .ajax(url, method, data, header)
+  //       .then(function(res) {
+  //         that.setData({
+  //           modalOn: false,
+  //           getNumber: false
+  //         });
+  //         console.log(res.data);
+  //         var url = "/vip/getCurrentVipUser";
+  //         var data = {};
+  //         var method = "GET";
+  //         var header = that.data.header;
+  //         http
+  //           .ajax(url, method, data, header)
+  //           .then(function(res) {
+  //             console.log(res);
+  //             wx.setStorage({
+  //               key: "allInfo",
+  //               data: res.data.data,
+  //               success: function(res) {
+  //                 var pattern = "redirect";
+  //                 var jump = "/pages/chargeMoney/chargeMoney";
+  //                 setTimeout(function() {
+  //                   jump.jump(pattern, jump);
+  //                 }, 500);
+  //               }
+  //             });
+  //           })
+  //           .catch(function(err) {
+  //             console.log(err);
+  //           });
+  //       })
+  //       .catch(function(err) {
+  //         that.setData({
+  //           modalOn: false
+  //         });
+  //         modal.modal("提示", "手机号绑定失败,请重试");
+  //       });
+  //   } else {
+  //     that.setData({
+  //       modalOn: false,
+  //       getNumber: false
+  //     });
+  //   }
+  // },
 
   // 关闭手机号模态框
-  closeGetNumber() {
-    this.setData({
-      modalOn: false,
-      getNumber: false
-    });
-  }
+  // closeGetNumber() {
+  //   this.setData({
+  //     modalOn: false,
+  //     getNumber: false
+  //   });
+  // }
 });
