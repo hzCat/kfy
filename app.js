@@ -8,7 +8,7 @@ App({
   globalData: {
     userInfo: null,
     canCheck: true,
-    staticUrl: "static.kongfuy.cn",
+    staticUrl: null,
     header: {},
     serviceNumber: ""
   },
@@ -33,6 +33,7 @@ App({
       console.log("客服电话", res.data);
       this.globalData.serviceNumber = res.data;
     });
+    this.getStaticUrl();
   },
 
   // 打开小程序就执行
@@ -228,5 +229,23 @@ App({
       },
       fail() {}
     });
+  },
+  // 获取静态地址(正式版更换为static.kongfuy.cn)
+  getStaticUrl() {
+    let that = this;
+    storage
+      .gets("staticUrl")
+      .then(function(res) {
+        that.globalData.staticUrl = res.data.url;
+      })
+      .catch(err => {
+        http.ajax("/common/staticDomain").then(function(res) {
+          console.log(res.data);
+          var obj = {};
+          obj.url = res.data;
+          that.globalData.staticUrl = res.data;
+          storage.sets("staticUrl", obj);
+        });
+      });
   }
 });

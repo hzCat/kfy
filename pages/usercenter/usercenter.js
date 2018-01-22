@@ -14,14 +14,29 @@ Page({
     headDefault: "../../icon/default_head.png",
     getUserInfoCount: 0,
     hasUserInfo: false,
-    modalOn: false
+    modalOn: false,
+    staticUrl: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
-
+  onLoad: function(options) {
+    this.getStatic();
+  },
+  getStatic() {
+    if (app.globalData.staticUrl) {
+      this.setData({
+        staticUrl: app.globalData.staticUrl
+      });
+      console.log(this.data.staticUrl);
+    } else {
+      console.log("没找到static");
+      setTimeout(() => {
+        this.getStatic();
+      }, 500);
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */

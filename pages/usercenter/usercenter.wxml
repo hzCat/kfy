@@ -6,7 +6,7 @@
 <view class="fixed">
   <view class="header-con">
     <view class="header" bindtap="getHead" data-jump="/pages/basicInfo/basicInfo">
-      <image class="head" src="{{userInfo.avatarUrl||headDefault}}"></image>
+      <image class="head" src="{{((staticUrl&&allInfo.avatar)&&'http://'+staticUrl+allInfo.avatar)||userInfo.avatarUrl||headDefault}}"></image>
     </view>
   </view>
   <view class="content">
