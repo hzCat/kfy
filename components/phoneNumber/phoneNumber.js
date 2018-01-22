@@ -27,7 +27,8 @@ Component({
     numberError: false,
     tips: "获取验证码",
     errorTips: "请输入有效手机号码",
-    time: null
+    time: null,
+    modalOn:false
   },
 
   /**
@@ -123,6 +124,9 @@ Component({
           mobile: this.data.phoneNumber,
           code: this.data.testNumber
         };
+        that.setData({
+          modalOn:true
+        })
         http.ajax(url, "POST", data, app.globalData.header).then(res => {
           console.log(res);
           if (res.data.code == 413) {

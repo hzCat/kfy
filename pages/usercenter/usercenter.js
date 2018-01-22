@@ -12,7 +12,9 @@ Page({
     allInfo: {},
     userInfo: {},
     headDefault: "../../icon/default_head.png",
-    getUserInfoCount: 0
+    getUserInfoCount: 0,
+    hasUserInfo: false,
+    modalOn: false
   },
 
   /**
@@ -44,16 +46,19 @@ Page({
         .then(res => {
           console.log("userInfo", res.data);
           this.setData({
-            userInfo: res.data
+            userInfo: res.data,
+            hasUserInfo: true
           });
         })
         .catch(err => {
           if (this.data.getUserInfoCount < 5) {
+            console.log(`获取${this.data.getUserInfoCount + 1}次`);
             setTimeout(() => {
               that.getUserInfo();
               let now = this.data.getUserInfoCount + 1;
               this.setData({
-                getUserInfoCount: now
+                getUserInfoCount: now,
+                hasUserInfo: false
               });
             }, 500);
           }
@@ -77,8 +82,21 @@ Page({
       });
     }, 1500);
   },
-
+  getHead(e) {
+    let jumpto = e.currentTarget.dataset.jump;
+    if (this.data.hasUserInfo) {
+      jump.jump("nav", jumpto);
+    } else {
+      this.setData({
+        modalOn: true
+      });
+      app.again();
+    }
+  },
   jump(e) {
+    this.setData({
+      modalOn: true
+    });
     let jumpto = e.currentTarget.dataset.jump;
     if (jumpto == "/pages/vip/vip") {
       jump.jump("switch", jumpto);

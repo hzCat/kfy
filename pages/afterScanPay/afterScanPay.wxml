@@ -31,3 +31,4 @@
   <!-- 支付失败 -->
   <view class="fail"></view>
 </view>
+<shade modalOn="{{modalOn}}"></shade>

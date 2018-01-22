@@ -35,7 +35,7 @@ Page({
           console.log(res.data.data);
           if (res.data.data.offerDetailList) {
             let off = res.data.data.offerDetailList;
-            console.log(off);
+            console.log(res.data.data);
             // 优惠信息转换
             let arr = offColor.turn(off);
             that.setData({

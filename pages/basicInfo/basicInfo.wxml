@@ -68,3 +68,4 @@
     <!-- 保存按钮 -->
     <button class="submit" bindtap="submitClick">保存</button>
 </view>
+<shade modalOn="{{modalOn}}"></shade>

@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    detail: {},
+    modalOn:false
   },
 
   /**
@@ -35,6 +36,9 @@ Page({
    */
   onShow: function() {},
   jump(e) {
+    this.setData({
+      modalOn:true
+    })
     let jumpto = e.currentTarget.dataset.jump;
     if (jumpto == "back") {
       jump.jump("back");

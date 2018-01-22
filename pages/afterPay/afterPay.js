@@ -11,7 +11,8 @@ Page({
     isSucc: "false",
     by: null,
     code: null,
-    tips: null
+    tips: null,
+    modalOn: false
   },
 
   /**
@@ -74,10 +75,16 @@ Page({
     }
   },
   quit(e) {
+    this.setData({
+      modalOn: true
+    });
     let jumpto = e.currentTarget.dataset.jump;
     jump.jump("rel", jumpto);
   },
   again() {
+    this.setData({
+      modalOn: true
+    });
     let by = this.data.by;
     scan.refresh(by);
   }

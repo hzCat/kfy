@@ -5,7 +5,7 @@
 <!-- 放上层 -->
 <view class="fixed">
   <view class="header-con">
-    <view class="header" bindtap="jump" data-jump="/pages/basicInfo/basicInfo">
+    <view class="header" bindtap="getHead" data-jump="/pages/basicInfo/basicInfo">
       <image class="head" src="{{userInfo.avatarUrl||headDefault}}"></image>
     </view>
   </view>
@@ -44,3 +44,4 @@
     </view>
   </view>
 </view>
+<shade modalOn="{{modalOn}}"></shade>

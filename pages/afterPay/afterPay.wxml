@@ -16,3 +16,4 @@
     <button class="fail-btn-again" bindtap="again">重试一次</button>
   </view>
 </view>
+<shade modalOn="{{modalOn}}"></shade>

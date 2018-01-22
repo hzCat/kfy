@@ -3,7 +3,7 @@
   <!-- 顶部 -->
   <view class="header">
     <view class="left"></view>
-    <view class="wait-pay">待支付</view>
+    <view class="wait-pay">{{orderData.orderStatusDisplayName}}</view>
     <view class="order-number">{{orderData.orderNo}}</view>
   </view>
 

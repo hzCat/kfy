@@ -43,7 +43,8 @@ Component({
     openIndex: null,
     apply: null,
     recharge: null,
-    isVip: false
+    isVip: false,
+    modalOn:false
   },
   attached() {
     let that = this;
@@ -239,6 +240,9 @@ Component({
     },
     // 跳转
     jump(e) {
+      this.setData({
+        modalOn:true
+      })
       let jumpto = e.currentTarget.dataset.jump;
       jump.jump("nav", jumpto);
     }

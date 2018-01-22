@@ -2,7 +2,7 @@
 
     <!-- 详细订单 -->
     <view class="order-detail">
-        <view class="order-title bluegreen">已支付</view>
+        <view class="order-title bluegreen">{{orderDetail.orderStatusDisplayName}}</view>
         <view class="line"></view>
         <view class="order-no">{{orderDetail.orderNo}}</view>
         <view class='order-one' wx:for="{{orderDetail.detailList}}" wx:key="index" wx:if="{{index<showNum}}">
