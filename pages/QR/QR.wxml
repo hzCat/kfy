@@ -29,7 +29,7 @@
         </view>
         <!-- 显示余额等信息 -->
         <view class="vip-show"hidden="{{!showMoney}}">
-          <text class="info" decode="true">{{cardList[0].vipCardNo}}</text>
+          <text class="info" decode="true">{{VIPNo}}</text>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
             <text class="strong">{{allInfo.vipCardBalance}}</text>
@@ -78,7 +78,7 @@
         </view>
         <!-- 显示余额等信息 -->
         <view class="vip-show" hidden="{{!showMoney}}">
-          <view class="info">{{cardList[1].vipCardNo}}</view>
+          <view class="info">{{TVIPNo}}</view>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
             <text class="strong">{{allInfo.tvipCardBalance}}</text>

@@ -11,10 +11,11 @@ Component({
       type: Array,
       value: [],
       observer(newVal, oldVal) {
+        console.log("有变化值", this.data.option, newVal);
         this.isApply(newVal);
         this.isRecharge(newVal);
-        this.getOpenIndex(newVal);
-        this.cardChange();
+        // this.getOpenIndex(newVal);
+        this.cardChange(newVal);
       }
     },
     vipWidth: {
@@ -127,13 +128,13 @@ Component({
       let num = this.data.num;
       let length = this.data.cardList.length;
       let nowmove = -(620 / 750) * 100;
-      if (end <= -125 && num >= 0 && num < length - 1) {
+      if (end <= -100 && num >= 0 && num < length - 1) {
         num++;
         this.setData({
           move: nowmove * num,
           num: num
         });
-      } else if (end >= 125 && num > 0) {
+      } else if (end >= 100 && num > 0) {
         num--;
         this.setData({
           move: nowmove * num,
@@ -155,22 +156,32 @@ Component({
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
         if (obj.opened == true) {
-          this.setData({
-            openIndex: i,
-            isVip: true
-          });
+          this.setData(
+            {
+              openIndex: i,
+              isVip: true
+            },
+            () => {
+              console.log("是否已开通", this.data.openIndex);
+            }
+          );
           return i;
         }
       }
     },
     // 是否申请中
     isApply(arr) {
+      console.log("是否申请中");
       let length = arr.length;
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
         if (obj.applyStatus == "WAIT_DEAL") {
           this.setData({
             apply: true
+          });
+        } else {
+          this.setData({
+            apply: false
           });
         }
       }
@@ -196,22 +207,27 @@ Component({
           that.setData({
             recharge: true
           });
+        } else {
+          that.setData({
+            recharge: false
+          });
         }
       }
+      console.log("是否充值中");
     },
     // 换卡
-    cardChange() {
+    cardChange(arr) {
       console.log("cardChange");
       let that = this;
-      let index = that.getOpenIndex(that.data.cardList);
-      console.log("卡片长度", that.data.cardList.length, index);
+      let index = that.getOpenIndex(arr);
+      console.log("卡片长度", arr.length, index);
       let nowmove = -(620 / 750) * 100;
       // 是否有申请
       let apply = null;
       let recharge = null;
       if (that.data.option == "group") {
-        that.isApply(that.data.cardList);
-        that.isRecharge(that.data.cardList);
+        that.isApply(arr);
+        that.isRecharge(arr);
         console.log("是否有团卡申请", that.data.apply);
         console.log("是否有团卡充值申请", that.data.recharge);
         // if (apply) {

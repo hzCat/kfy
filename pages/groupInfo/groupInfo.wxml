@@ -29,7 +29,7 @@
   <!-- 开通失败 -->
   <view class="fail-con" wx:if="{{applyInfo.applyStatus=='FAIL'}}">
     <view>开通失败</view>
-    <view>{{applyInfo.dealNote}}</view>
+    <view>{{applyInfo.dealNote||'请咨询功夫元 '+(serviceNumber||'')}}</view>
   </view>
   <!-- 信息 -->
   <view class='getInfo'>

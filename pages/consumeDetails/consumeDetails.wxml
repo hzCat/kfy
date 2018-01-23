@@ -21,11 +21,11 @@
             <view class='right'>
                 <!-- <view bindtap="jump" data-pattern="redirect" data-jump="/pages/alreadyPay/alreadyPay?id={{item.id}}" wx:for="{{detail.orderList}}"
                     wx:key="index">{{item.orderNo}}>></view> -->
-                <view>￥{{detail.amount}}</view>
-                <view>+{{detail.integral}}</view>
-                <view>￥{{detail.currentBalance}}</view>
-                <view>{{detail.storeName}}</view>
-                <view>{{detail.createTime}}</view>
+                <view>￥{{detail.amount||'0.00'}}</view>
+                <view>+{{detail.integral||'0'}}</view>
+                <view>￥{{detail.currentBalance||'0.00'}}</view>
+                <view>{{detail.storeName||'无'}}</view>
+                <view>{{detail.createTime||'无'}}</view>
             </view>
         </view>
     </view>
@@ -52,21 +52,22 @@
         </view>
         <!-- 右边-2 充值-->
         <view class='right right-charge'>
-            <view>{{detail.payChannelDisplayName}}</view>
-            <view>￥{{detail.oldBalance}}</view>
-            <view>￥{{detail.rechargeAmt}}</view>
-            <view>￥{{detail.rechargeGiftAmt}}</view>
-            <view>￥{{detail.currentBalance}}</view>
+            <view wx:if="{{cardType=='VIP'}}">{{'在线自助'||'无'}}</view>
+            <view wx:if="{{cardType=='TVIP'}}">{{'平台充值'||'无'}}</view>
+            <view>￥{{detail.oldBalance||'0.00'}}</view>
+            <view>￥{{detail.rechargeAmt||'0.00'}}</view>
+            <view>￥{{detail.rechargeGiftAmt||'0.00'}}</view>
+            <view>￥{{detail.currentBalance||'0.00'}}</view>
 
-            <view wx:if="{{cardType=='VIP'}}">{{detail.orderNo}}</view>
+            <view wx:if="{{cardType=='VIP'}}">{{detail.orderNo||'无'}}</view>
             <view wx:if="{{cardType=='VIP'}}">{{detail.cashierUserName||'功夫元'}}</view>
-            <view wx:if="{{cardType=='VIP'}}">{{detail.createTime}}</view>
+            <view wx:if="{{cardType=='VIP'}}">{{detail.createTime||'无'}}</view>
 
-            <view class="trans" wx:if="{{cardType=='TVIP'}}">{{detail.transferFlowNo}}</view>
-            <view wx:if="{{cardType=='TVIP'}}">{{detail.note}}</view>
-            <view wx:if="{{cardType=='TVIP'}}">{{detail.contact}}</view>
-            <view wx:if="{{cardType=='TVIP'}}">{{detail.createTime}}</view>
-            <view wx:if="{{cardType=='TVIP'}}">{{detail.notifyTime}}</view>
+            <view class="trans" wx:if="{{cardType=='TVIP'}}">{{detail.transferFlowNo||'无'}}</view>
+            <view wx:if="{{cardType=='TVIP'}}">{{detail.note||'无'}}</view>
+            <view wx:if="{{cardType=='TVIP'}}">{{detail.contact||'无'}}</view>
+            <view wx:if="{{cardType=='TVIP'}}">{{detail.createTime||'无'}}</view>
+            <view wx:if="{{cardType=='TVIP'}}">{{detail.notifyTime||'无'}}</view>
         </view>
     </view>
 </view>

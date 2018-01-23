@@ -4,6 +4,7 @@ let storage = require("../../utils/storage.js");
 let card = require("../../utils/cardTurn.js");
 let jump = require("../../utils/jump.js");
 let modal = require("../../utils/modal");
+let update = require("../../utils/update");
 Page({
   /**
    * 页面的初始数据
@@ -25,7 +26,10 @@ Page({
     bindMobile: false,
     getPhoneNumber: false,
     bindTo: "",
-    modalOn: false
+    modalOn: false,
+    waitDeal: false,
+    isvip: null,
+    istvip: null
   },
 
   /**
@@ -74,6 +78,10 @@ Page({
       .ajax("/vip/getVipLevelList", "GET", data, app.globalData.header)
       .then(res => {
         console.log("个人卡列表", res.data.data);
+        let isvip = card.getvip2(res.data.data);
+        console.log("个人是不是会员", isvip);
+        let isVip = that.data.isVip;
+        isVip[0] = isvip;
         let level = card.level(res.data.data);
         console.log("个卡开通等级", level);
         let l = res.data.data.length;
@@ -81,7 +89,8 @@ Page({
         that.setData({
           vipCardList: res.data.data,
           vipWidth: w,
-          vipLevel: level
+          vipLevel: level,
+          isvip: isvip
         });
       });
   },
@@ -95,7 +104,10 @@ Page({
       .ajax("/vip/getVipLevelList", "GET", data, app.globalData.header)
       .then(res => {
         console.log("团卡列表", res.data.data);
+        let istvip = card.getvip2(res.data.data);
+        console.log("团餐是不是会员", istvip);
         that.isApply(res.data.data);
+        that.isWait(res.data.data);
         let level = card.level(res.data.data);
         console.log("团餐开通等级", level);
         let l = res.data.data.length;
@@ -103,7 +115,8 @@ Page({
         that.setData({
           tvipCardList: res.data.data,
           tvipWidth: w,
-          tvipLevel: level
+          tvipLevel: level,
+          istvip: istvip
         });
       });
   },
@@ -140,6 +153,22 @@ Page({
     //   }
     // });
   },
+  isWait(arr) {
+    let length = arr.length;
+    for (let i = 0; i < length; i++) {
+      let obj = arr[i];
+      if (obj.applyStatus == "WAIT_DEAL") {
+        console.log("true");
+        this.setData({
+          waitDeal: true
+        });
+      } else {
+        this.setData({
+          waitDeal: false
+        });
+      }
+    }
+  },
   // 个卡团卡切换
   boxSwitch(e) {
     console.log(this.data.nowCard);
@@ -165,13 +194,27 @@ Page({
     console.log("传出的数据", e.detail);
     let cardIndex = e.detail.index;
     let type = e.detail.cardType;
-    console.log("nowIndex", cardIndex);
-    console.log("cardType", type);
+    // console.log("nowIndex", cardIndex);
+    // console.log("cardType", type);
     this.setData({
       nowIndex: cardIndex
     });
     // this.nowShowCard(cardIndex);
   },
+
+  // 关闭页面时,恢复亮度
+  // onHide: function() {
+  //   let that = this;
+  //   // let isVipArr = this.data.isVip;
+  //   // let l = isVipArr.length;
+  //   // for (let i = 0; i < l; i++) {
+  //   //   let bool = isVipArr[i];
+  //   if (this.data.waitDeal == true) {
+  //     update.updateuser(app.globalData.header);
+  //   }
+  //   // }
+  // },
+  
   // 现在显示的卡
   // nowShowCard(index) {
   //   let groupCard = this.data.tvipCardList;

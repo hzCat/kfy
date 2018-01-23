@@ -29,7 +29,7 @@ Page({
       this.setData({
         staticUrl: app.globalData.staticUrl
       });
-      console.log(this.data.staticUrl);
+      console.log("userCenter拿到静态地址", this.data.staticUrl);
     } else {
       console.log("没找到static");
       setTimeout(() => {
@@ -37,11 +37,13 @@ Page({
       }, 500);
     }
   },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
     storage.gets("allInfo").then(res => {
+      console.log("userCenter获取allInfo", res.data);
       this.setData({
         allInfo: res.data,
         getUserInfoCount: 0
@@ -123,7 +125,7 @@ Page({
       },
       () => {
         if (jumpto == "/pages/vip/vip") {
-          jump.jump("switch", jumpto);
+          jump.jump("rel", jumpto);
         } else {
           jump.jump("nav", jumpto);
         }

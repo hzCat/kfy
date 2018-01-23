@@ -51,7 +51,7 @@ Page({
     var pattern = e.currentTarget.dataset.pattern;
     if (pattern == "back") {
       jump.jump(pattern);
-    } else if (pattern == "redirect") {
+    } else if (pattern == "switch") {
       jump.jump(pattern, jump);
     }
   }

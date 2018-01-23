@@ -20,7 +20,9 @@ Page({
     paySucc: false,
     openModal: false,
     showMoney: false,
-    modalOn: false
+    modalOn: false,
+    VIPNo: null,
+    TVIPNo: null
   },
 
   /**
@@ -77,11 +79,25 @@ Page({
     storage.gets("allInfo").then(res => {
       let list = res.data.vipCardList;
       let arr = card.turn(list);
-      console.log("新卡片列表",arr)
+      console.log("新卡片列表", arr);
       this.setData({
         allInfo: res.data,
         cardList: arr
       });
+      if (arr[0]) {
+        let cardNo1 = arr[0].vipCardNo;
+        let newNo = this.replaceCardNo(cardNo1);
+        this.setData({
+          VIPNo: newNo
+        });
+      }
+      if (arr[1]) {
+        let cardNo2 = arr[1].vipCardNo;
+        let newNo = this.replaceCardNo(cardNo2);
+        this.setData({
+          TVIPNo: newNo
+        });
+      }
       // this.isVip(res.data);
       console.log("进入获取到的allInfo,已经赋值data", this.data.allInfo);
     });
@@ -113,6 +129,22 @@ Page({
   //   });
   // },
   // 获取二维码
+
+  replaceCardNo(No) {
+    let str = "" + No;
+    let length = str.length;
+    let end = length - 4;
+    let xxx = length - 8;
+    let xxxx = "";
+    for (let i = 0; i < xxx; i++) {
+      xxxx += "*";
+    }
+    let last = str.substring(end);
+    let first = str.substring(0, 4);
+    let newNo = first + xxxx + last;
+    console.log("1", first, "2", last, "new", newNo);
+    return newNo;
+  },
   getQR() {
     let that = this;
     wx.connectSocket({

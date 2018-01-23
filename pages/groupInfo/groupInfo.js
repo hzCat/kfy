@@ -19,7 +19,8 @@ Page({
     pushInfo: {},
     header: {},
     applyInfo: {},
-    modalOn: false
+    modalOn: false,
+    serviceNumber: null
   },
 
   /**
@@ -32,7 +33,8 @@ Page({
         header: {
           _yzsaas_token: res.data,
           "content-type": "application/x-www-form-urlencoded"
-        }
+        },
+        serviceNumber: app.globalData.serviceNumber
       });
     });
     this.applyInfo();

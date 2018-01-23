@@ -122,11 +122,14 @@ Page({
     let type = e.currentTarget.dataset.type;
     if (type != this.data.tab) {
       if (type == "in") {
+        navbar.title("充值明细")
         this.setData({
           tab: type,
           inOut: "RECHARGE_RECORD"
         });
       } else {
+        navbar.title("消费明细")
+        
         this.setData({
           tab: type,
           inOut: "CONSUME_RECORD"

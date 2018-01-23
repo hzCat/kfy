@@ -43,14 +43,22 @@ Page({
     };
     http.ajax(url, method, data, app.globalData.header).then(res => {
       console.log("可用卡", res.data);
+      if (res.data.code != 200) {
+        let succ = () => {
+          jump.jump("back");
+        };
+        modal.modal("提示", "网络错误", false, succ);
+      } else {
+        let arr = cardturn.turn(res.data.data.settlementInfoList);
+        console.log("转换之后的可用卡", arr);
+        that.setData({
+          cardList: arr,
+          payOption: res.data.data.defaultPayChannel
+        });
+      }
       // 命名不同,判断一下
       // if (res.data.data.defaultPayChannel != "WECHART") {
-      let arr = cardturn.turn(res.data.data.settlementInfoList);
-      console.log("转换之后的可用卡", arr);
-      that.setData({
-        cardList: arr,
-        payOption: res.data.data.defaultPayChannel
-      });
+
       // } else if (res.data.data.defaultPayChannel == "WECHART") {
       //   that.setData({
       //     cardList: res.data.data,
@@ -74,8 +82,13 @@ Page({
     };
     http.ajax(url, method, data, app.globalData.header).then(res => {
       console.log("优惠信息", res.data);
-      // 如果存在
-      if (res.data.data) {
+      if (res.data.code != 200) {
+        let succ = () => {
+          jump.jump("back");
+        };
+        modal.modal("提示", "网络错误", false, succ);
+      } else if (res.data.data) {
+        // 如果存在
         let offlist = res.data.data.offerList;
         let arr = offColor.turn(offlist);
         that.setData({
@@ -112,7 +125,7 @@ Page({
     let that = this;
     // 遮罩
     that.setData({
-      modalOn: true,
+      modalOn: true
     });
 
     // 微信

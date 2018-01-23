@@ -19,7 +19,7 @@
   <view class="info-con vip-get-container">
     <!-- 权益  -->
     <!-- 个人 未开通显示或者当前卡大于开通等级时显示-->
-    <view class="vip-get personal" wx:if="{{(cardType=='personal')&&((vipLevel&&nowIndex>vipLevel)||!isVip[0])}}">
+    <view class="vip-get personal" wx:if="{{(cardType=='personal')&&((vipLevel&&nowIndex>vipLevel)||!isvip)}}">
       <view class="top">
         <image src="../../icon/star.png"></image>
         <view>权益</view>
@@ -44,7 +44,7 @@
       </view>
     </view>
     <!-- 团餐 -->
-    <view class="vip-get group" wx:if="{{cardType=='group'&&!isVip[1]}}">
+    <view class="vip-get group" wx:if="{{cardType=='group'&&!istvip}}">
       <view class="top">
         <image src="../../icon/star.png"></image>
         <view>权益</view>
@@ -68,8 +68,8 @@
         </view>
       </view>
       <!-- 立即开通 TVIP -->
-      <view class="open-vip-btn" wx:if="{{!isVip[1]&&(cardType=='group')}}">
-        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" bindtap="jump" wx:if="{{bindMobile}}">立即开通</button>
+      <view class="open-vip-btn" wx:if="{{!istvip&&(cardType=='group')}}">
+        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" bindtap="jump" wx:if="{{bindMobile}}">{{waitDeal?'查看详情':'立即开通'}}</button>
         <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">立即开通</button>
       </view>
     </view>
@@ -116,14 +116,14 @@
     </view>
 
     <!-- 按钮 -->
-    <view class="btn-group"wx:if="{{(nowIndex>vipLevel||!isVip[0])&&cardType=='personal'}}">
-      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isVip[0]}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" catchtap="jump" wx:if="{{bindMobile}}">
+    <view class="btn-group"wx:if="{{(nowIndex>vipLevel||!isvip)&&cardType=='personal'}}">
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" catchtap="jump" wx:if="{{bindMobile}}">
         <!-- <text class="money"> -->
           充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
         <!-- </text> -->
         <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->
       </button>
-      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isVip[0]}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">
         <!-- <text class="money"> -->
           充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
         <!-- </text> -->
@@ -134,7 +134,7 @@
   </view>
 
       <!-- 权益 已经开通-->
-  <view class="info-con vip-opened-get personal" wx:if="{{(cardType=='personal')&&isVip[0]&&(nowIndex<=vipLevel)}}">
+  <view class="info-con vip-opened-get personal" wx:if="{{(cardType=='personal')&&isvip&&(nowIndex<=vipLevel)}}">
     <view class="vip-get">
       <view class="top">
         <image src="../../icon/star.png"></image>
@@ -161,7 +161,7 @@
     </view>
   </view>
   
-  <view class="info-con vip-opened-get group" wx:if="{{(cardType=='group'&&isVip[1])}}">
+  <view class="info-con vip-opened-get group" wx:if="{{(cardType=='group'&&istvip)}}">
     <view class="vip-get">
       <view class="top">
         <image src="../../icon/star.png"></image>

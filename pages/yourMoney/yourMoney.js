@@ -2,6 +2,7 @@
 let storage = require("../../utils/storage.js");
 let card = require("../../utils/cardTurn.js");
 let jump = require("../../utils/jump.js");
+let navbar = require("../../utils/navbar");
 Page({
   /**
    * 页面的初始数据
@@ -18,6 +19,11 @@ Page({
    */
   onLoad: function(options) {
     let type = options.by;
+    if (type == "group") {
+      navbar.title("团卡余额");
+    } else if (type == "personal") {
+      navbar.title("个人余额");
+    }
     this.setData({
       by: type
     });

@@ -17,7 +17,7 @@
   <view class='info-2' wx:if="{{isSuccess=='true'}}">如有疑问，请致电客服： {{serviceNumber}}</view>
   <view class='info-2 fail-info-2' wx:if="{{isSuccess=='false'}}">单号 {{orderNo||'无'}} </view>
   <!-- 按钮 -->
-  <button wx:if="{{isSuccess=='true'}}" bindtap="jump" data-pattern="redirect" data-jump="/pages/vip/vip">返回</button>
+  <button wx:if="{{isSuccess=='true'}}" bindtap="jump" data-pattern="switch" data-jump="/pages/vip/vip">返回</button>
   <button wx:if="{{isSuccess=='false'}}" bindtap="jump" data-pattern="back" data-jump="/pages/chargeMoney/chargeMoney">返回</button>
 </view>
 <shade modalOn="{{modalOn}}"></shade>

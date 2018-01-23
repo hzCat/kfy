@@ -14,7 +14,7 @@
           <!-- 个人 标识 -->
           <view class="right" wx:if="{{item.opened&&option=='personal'}}">已开通</view>
           <!-- 团餐 标识 -->
-          <view class="right" wx:if="{{(item.opened&&!apply)&&option=='group'}}">已开通</view>
+          <view class="right" wx:if="{{(index==openIndex&&!apply)&&option=='group'}}">已开通</view>
           <view class="right" wx:if="{{apply&&option=='group'}}" data-jump="/pages/groupInfo/groupInfo" bindtap="jump">联系汇款2/3</view>
         </view>
         <view class="bottom">
