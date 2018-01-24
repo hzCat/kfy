@@ -61,7 +61,8 @@ Page({
       fail: function() {
         that.setData({
           QRModal: true,
-          QRsrc: "../../img/default_QR.png"
+          QRsrc: "../../img/default_QR.png",
+          showMoney: false
         });
       }
     });
@@ -130,6 +131,7 @@ Page({
   // },
   // 获取二维码
 
+  // 转换卡号
   replaceCardNo(No) {
     let str = "" + No;
     let length = str.length;
@@ -205,13 +207,19 @@ Page({
       });
     });
   },
+  // 定时50s关闭
   openQRmodal() {
     let that = this;
     setTimeout(() => {
+      // 重新获取,刷新二维码,金额隐藏
       this.setData({
         QRModal: true,
-        QRsrc: "../../img/default_QR.png"
+        QRsrc: "../../img/default_QR.png",
+        showMoney: false
       });
+      // 关闭socket
+      wx.closeSocket();
+      // 恢复亮度
       wx.setScreenBrightness({
         value: that.data.userscreenLight
       });

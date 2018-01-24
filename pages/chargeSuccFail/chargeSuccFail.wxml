@@ -14,7 +14,7 @@
   </view>
   <view class='info fail-info' wx:if="{{isSuccess=='false'}}">充值过程出现异常，如充值金额未到账，请致电客服协助处理：{{serviceNumber}}。</view>
   <!-- 信息2 -->
-  <view class='info-2' wx:if="{{isSuccess=='true'}}">如有疑问，请致电客服： {{serviceNumber}}</view>
+  <view class='info-2' wx:if="{{isSuccess=='true'}}" bindtap="call">如有疑问，请致电客服： {{serviceNumber||'号码错误'}}</view>
   <view class='info-2 fail-info-2' wx:if="{{isSuccess=='false'}}">单号 {{orderNo||'无'}} </view>
   <!-- 按钮 -->
   <button wx:if="{{isSuccess=='true'}}" bindtap="jump" data-pattern="switch" data-jump="/pages/vip/vip">返回</button>

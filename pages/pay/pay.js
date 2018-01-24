@@ -41,35 +41,43 @@ Page({
     let data = {
       orderId: orderId
     };
-    http.ajax(url, method, data, app.globalData.header).then(res => {
-      console.log("可用卡", res.data);
-      if (res.data.code != 200) {
+    http
+      .ajax(url, method, data, app.globalData.header)
+      .then(res => {
+        console.log("可用卡", res.data);
+        if (res.data.code != 200) {
+          let succ = () => {
+            jump.jump("back");
+          };
+          modal.modal("提示", "网络错误", false, succ);
+        } else {
+          let arr = cardturn.turn(res.data.data.settlementInfoList);
+          console.log("转换之后的可用卡", arr);
+          that.setData({
+            cardList: arr,
+            payOption: res.data.data.defaultPayChannel
+          });
+        }
+        // 命名不同,判断一下
+        // if (res.data.data.defaultPayChannel != "WECHART") {
+
+        // } else if (res.data.data.defaultPayChannel == "WECHART") {
+        //   that.setData({
+        //     cardList: res.data.data,
+        //     payOption: "wechat"
+        //   });
+        // }
+        //是否获取优惠
+        if (offmoney) {
+          that.getDiscount(that.data.orderId, res.data.data.defaultPayChannel);
+        }
+      })
+      .catch(err => {
         let succ = () => {
           jump.jump("back");
         };
         modal.modal("提示", "网络错误", false, succ);
-      } else {
-        let arr = cardturn.turn(res.data.data.settlementInfoList);
-        console.log("转换之后的可用卡", arr);
-        that.setData({
-          cardList: arr,
-          payOption: res.data.data.defaultPayChannel
-        });
-      }
-      // 命名不同,判断一下
-      // if (res.data.data.defaultPayChannel != "WECHART") {
-
-      // } else if (res.data.data.defaultPayChannel == "WECHART") {
-      //   that.setData({
-      //     cardList: res.data.data,
-      //     payOption: "wechat"
-      //   });
-      // }
-      //是否获取优惠
-      if (offmoney) {
-        that.getDiscount(that.data.orderId, res.data.data.defaultPayChannel);
-      }
-    });
+      });
   },
   // 获取优惠
   getDiscount(id, payChannel) {
@@ -80,24 +88,32 @@ Page({
       id: id,
       payChannel: payChannel
     };
-    http.ajax(url, method, data, app.globalData.header).then(res => {
-      console.log("优惠信息", res.data);
-      if (res.data.code != 200) {
+    http
+      .ajax(url, method, data, app.globalData.header)
+      .then(res => {
+        console.log("优惠信息", res.data);
+        if (res.data.code != 200) {
+          let succ = () => {
+            jump.jump("back");
+          };
+          modal.modal("提示", "网络错误", false, succ);
+        } else if (res.data.data) {
+          // 如果存在
+          let offlist = res.data.data.offerList;
+          let arr = offColor.turn(offlist);
+          that.setData({
+            orderData: res.data.data.orderResponseList[0],
+            offMoney: res.data.data,
+            offDetail: arr
+          });
+        }
+      })
+      .catch(err => {
         let succ = () => {
           jump.jump("back");
         };
         modal.modal("提示", "网络错误", false, succ);
-      } else if (res.data.data) {
-        // 如果存在
-        let offlist = res.data.data.offerList;
-        let arr = offColor.turn(offlist);
-        that.setData({
-          orderData: res.data.data.orderResponseList[0],
-          offMoney: res.data.data,
-          offDetail: arr
-        });
-      }
-    });
+      });
   },
   // 切换支付频道
   payOption(e) {
@@ -113,12 +129,20 @@ Page({
       id: id,
       payChannel: option
     };
-    http.ajax(url, "GET", data, app.globalData.header).then(res => {
-      console.log(`${option}下的优惠信息`, res.data);
-      that.setData({
-        offMoney: res.data.data
+    http
+      .ajax(url, "GET", data, app.globalData.header)
+      .then(res => {
+        console.log(`${option}下的优惠信息`, res.data);
+        that.setData({
+          offMoney: res.data.data
+        });
+      })
+      .catch(err => {
+        let succ = () => {
+          jump.jump("back");
+        };
+        modal.modal("提示", "网络错误", false, succ);
       });
-    });
   },
   // 支付按钮
   payClick() {
@@ -194,7 +218,7 @@ Page({
                             // 查询订单支付结果
                             pay
                               .payback(
-                                that.data.orderData.id,
+                                json.settlementId,
                                 app.globalData.header
                               )
                               .then(function(res) {
@@ -202,7 +226,7 @@ Page({
                                 console.log(res.data);
                                 let obj = res.data;
                                 let money = obj.tradeResponse.payAmt;
-                                let orderNo = obj.tradeResponse.orderNo;
+                                let orderNo = obj.tradeResponse.orderList[0].orderNo;
                                 // SUCCESS订单(by,isSucc,money,orderId)
                                 if (obj.tradeStatus == "SUCCESS") {
                                   wx.hideLoading();
@@ -255,12 +279,16 @@ Page({
             setTimeout(function() {
               // 查询支付结果
               pay
-                .payback(that.data.orderData.id, app.globalData.header)
+                .payback(json.settlementId, app.globalData.header)
                 .then(function(res) {
                   console.log("微信支付结果", res.data);
                   let obj = res.data;
-                  let money = obj.tradeResponse.payAmt;
-                  let orderNo = obj.tradeResponse.orderNo;
+                  let money = null;
+                  let orderNo = null;
+                  if (obj.tradeResponse) {
+                    money = obj.tradeResponse.payAmt;
+                    orderNo = obj.tradeResponse.orderList[0].orderNo;
+                  }
                   // SUCCESS订单(by,isSucc,money,orderId)
                   if (obj.tradeStatus == "SUCCESS") {
                     wx.hideLoading();
@@ -284,12 +312,12 @@ Page({
                     setTimeout(function() {
                       // 查询订单支付结果
                       pay
-                        .payback(that.data.orderData.id, app.globalData.header)
+                        .payback(json.settlementId, app.globalData.header)
                         .then(function(res) {
                           console.log("微信支付结果", res.data);
                           let obj = res.data;
                           let money = obj.tradeResponse.payAmt;
-                          let orderNo = obj.tradeResponse.orderNo;
+                          let orderNo = obj.tradeResponse.orderList[0].orderNo;
                           // SUCCESS订单(by,isSucc,money,orderId)
                           if (obj.tradeStatus == "SUCCESS") {
                             wx.hideLoading();
@@ -395,6 +423,7 @@ Page({
             orderNo = res.data.data.orderList[0].orderNo;
           }
           if (result == true && code == 200 && orderNo != null) {
+            update.updateuser(app.globalData.header);
             jump.jump(
               "redirect",
               `/pages/afterPay/afterPay?by=card&isSucc=true&money=${money}&orderId=${orderNo}`

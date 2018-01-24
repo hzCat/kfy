@@ -17,7 +17,7 @@ Page({
     phoneNumber: null,
     pushInfo: {},
     header: {},
-    serviceNumber: "",
+    serviceNumber: null,
     chargeInfo: {},
     modalOn: false
   },
@@ -168,6 +168,8 @@ Page({
           modal.modal("提示", "团餐会员卡未开通");
         } else if (code == 612) {
           modal.modal("提示", "未绑定手机");
+        } else if (code == 7008) {
+          modal.modal("提示", "充值申请正在处理中，不能再次提交申请");
         }
         console.log(res.data);
       });
@@ -212,5 +214,13 @@ Page({
         });
       }
     });
+  },
+  call() {
+    let that = this;
+    if (this.data.serviceNumber) {
+      wx.makePhoneCall({
+        phoneNumber: that.data.serviceNumber
+      });
+    }
   }
 });

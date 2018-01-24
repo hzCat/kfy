@@ -1,6 +1,7 @@
 var http = require("../../utils/ajax.js");
 var navbar = require("../../utils/navbar.js");
 var offColor = require("../../utils/offColor.js");
+let app = getApp();
 Page({
   /*** 页面的初始数据*/
   data: {
@@ -15,40 +16,35 @@ Page({
   onLoad: function(options) {
     var that = this;
     console.log(options);
-    wx.getStorage({
-      key: "3rd_session",
-      success: function(res) {
+    wx.showLoading({
+      title: "加载中",
+      mask: true
+    });
+
+    var url = "/vipOrder/getOrderDetail";
+    var method = "GET";
+    var data = {
+      orderId: options.id
+    };
+    var header = app.globalData.header;
+    http.ajax(url, method, data, header).then(function(res) {
+      // console.log(res.data.data);
+      if (res.data.data.offerDetailList) {
+        let off = res.data.data.offerDetailList;
+        console.log(res.data.data);
+        // 优惠信息转换
+        let arr = offColor.turn(off);
         that.setData({
-          third: res.data,
-          header: {
-            _yzsaas_token: res.data,
-            "content-type": "application/x-www-form-urlencoded"
-          }
+          orderDetail: res.data.data,
+          offDetail: arr
         });
-        var url = "/vipOrder/getOrderDetail";
-        var method = "GET";
-        var data = {
-          orderId: options.id
-        };
-        var header = that.data.header;
-        http.ajax(url, method, data, header).then(function(res) {
-          // console.log(res.data.data);
-          if (res.data.data.offerDetailList) {
-            let off = res.data.data.offerDetailList;
-            console.log(res.data.data);
-            // 优惠信息转换
-            let arr = offColor.turn(off);
-            that.setData({
-              orderDetail: res.data.data,
-              offDetail: arr
-            });
-          } else {
-            that.setData({
-              orderDetail: res.data.data
-            });
-          }
+      } else {
+        that.setData({
+          orderDetail: res.data.data
         });
       }
+      // 关闭加载中
+      wx.hideLoading();
     });
   },
 

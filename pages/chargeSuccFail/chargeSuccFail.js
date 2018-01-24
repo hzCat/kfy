@@ -54,5 +54,13 @@ Page({
     } else if (pattern == "switch") {
       jump.jump(pattern, jump);
     }
+  },
+  call() {
+    let that = this;
+    if (this.data.serviceNumber) {
+      wx.makePhoneCall({
+        phoneNumber: that.data.serviceNumber
+      });
+    }
   }
 });

@@ -384,14 +384,14 @@ Page({
               data: res.data.data,
               success: function() {
                 // 返回个人中心
-                jump.jump("rel", "/pages/userCenter/userCenter");
+                jump.jump("switch", "/pages/userCenter/userCenter");
               }
             });
           });
         });
       } else {
         // 没有更新操作
-        jump.jump("rel", "/pages/userCenter/userCenter");
+        jump.jump("switch", "/pages/userCenter/userCenter");
       }
       // 如果信息有残缺
     } else {

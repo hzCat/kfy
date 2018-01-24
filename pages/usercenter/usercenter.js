@@ -125,7 +125,7 @@ Page({
       },
       () => {
         if (jumpto == "/pages/vip/vip") {
-          jump.jump("rel", jumpto);
+          jump.jump("switch", jumpto);
         } else {
           jump.jump("nav", jumpto);
         }

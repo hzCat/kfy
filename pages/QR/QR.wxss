@@ -99,6 +99,7 @@
   text-align: center;
   line-height: 34rpx;
   display: block;
+  letter-spacing: 0.4em;
 }
 .container .is-vip .vip-show .money,
 .container .is-tvip .vip-show .money {

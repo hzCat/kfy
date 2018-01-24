@@ -28,7 +28,7 @@
           <view>轻点获取二维码</view>
         </view>
         <!-- 显示余额等信息 -->
-        <view class="vip-show"hidden="{{!showMoney}}">
+        <view class="vip-show" hidden="{{!showMoney}}">
           <text class="info" decode="true">{{VIPNo}}</text>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>

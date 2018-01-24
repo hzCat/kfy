@@ -32,6 +32,10 @@ Page({
     let by = options.by;
     let plateNo = options.plateNo;
     let id = options.id;
+    // 加载等待
+    wx.showLoading({
+      title: "加载中"
+    });
     if (by == "scan") {
       this.getOrder(by, plateNo, id);
     } else if (by == "orderlist") {
@@ -81,7 +85,7 @@ Page({
             offMoney: res.data.data,
             orderId: orderId
           });
-          that.getUserCard(orderId, false);
+          that.getUserCard(orderId, true);
         } else {
           that.noOrder(by);
         }
@@ -114,6 +118,7 @@ Page({
       //     payOption: "wechat"
       //   });
       // }
+
       //是否获取优惠
       if (offmoney) {
         that.getDiscount(
@@ -144,6 +149,8 @@ Page({
           offDetail: arr
         });
       }
+      // 关闭加载等待框
+      wx.hideLoading();
     });
   },
   // 查不到订单

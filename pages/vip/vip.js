@@ -28,8 +28,9 @@ Page({
     bindTo: "",
     modalOn: false,
     waitDeal: false,
-    isvip: null,
-    istvip: null
+    rechargeDeal: false,
+    isvip: false,
+    istvip: false
   },
 
   /**
@@ -49,18 +50,19 @@ Page({
   onShow: function() {
     storage.gets("allInfo").then(res => {
       console.log("vip加载allInfo", res.data);
-      let arr = card.turn(res.data.vipCardList);
-      let vipArr = card.getvip(res.data.vipCardList);
+      // let arr = card.turn(res.data.vipCardList);
+      // let vipArr = card.getvip(res.data.vipCardList);
       let bindPhone = res.data.bindMobile;
-      console.log(arr);
-      console.log(vipArr);
+      // console.log(arr);
+      // console.log(vipArr);
       this.setData({
         allInfo: res.data,
-        list: arr,
-        isVip: vipArr,
+        // list: arr,
+        // isVip: vipArr,
         bindMobile: bindPhone
       });
     });
+    this.refreshCard();
     this.getVipList();
     this.getTvipList();
     this.setData({
@@ -108,6 +110,7 @@ Page({
         console.log("团餐是不是会员", istvip);
         that.isApply(res.data.data);
         that.isWait(res.data.data);
+        that.isChar(res.data.data);
         let level = card.level(res.data.data);
         console.log("团餐开通等级", level);
         let l = res.data.data.length;
@@ -120,6 +123,18 @@ Page({
         });
       });
   },
+  // 更新余额
+  refreshCard() {
+    let url = "/vip/getVipCardList";
+    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      console.log("刷新卡片信息", res.data.data);
+      let cardList = res.data.data;
+      let arr = card.turn(cardList);
+      this.setData({
+        list: arr
+      });
+    });
+  },
   // 是否失败中
   isApply(arr) {
     let length = arr.length;
@@ -130,6 +145,7 @@ Page({
         this.setData({
           applyFail: true
         });
+        break;
       } else {
         this.setData({
           applyFail: false
@@ -162,9 +178,26 @@ Page({
         this.setData({
           waitDeal: true
         });
+        break;
       } else {
         this.setData({
           waitDeal: false
+        });
+      }
+    }
+  },
+  isChar(arr) {
+    let length = arr.length;
+    for (let i = 0; i < length; i++) {
+      let obj = arr[i];
+      if (obj.hasRechargeOrder) {
+        this.setData({
+          rechargeDeal: true
+        });
+        break;
+      } else {
+        this.setData({
+          rechargeDeal: false
         });
       }
     }
@@ -202,19 +235,21 @@ Page({
     // this.nowShowCard(cardIndex);
   },
 
-  // 关闭页面时,恢复亮度
+  // 关闭页面时,更新用户信息
   // onHide: function() {
+  //   console.log("onHide onHide onHide onHide");
   //   let that = this;
   //   // let isVipArr = this.data.isVip;
   //   // let l = isVipArr.length;
   //   // for (let i = 0; i < l; i++) {
   //   //   let bool = isVipArr[i];
-  //   if (this.data.waitDeal == true) {
+  //   if (this.data.waitDeal || this.data.rechargeDeal) {
+  //     console.log("onHide更新allInfo");
   //     update.updateuser(app.globalData.header);
   //   }
   //   // }
   // },
-  
+
   // 现在显示的卡
   // nowShowCard(index) {
   //   let groupCard = this.data.tvipCardList;

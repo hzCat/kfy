@@ -12,8 +12,8 @@ Component({
       value: [],
       observer(newVal, oldVal) {
         console.log("有变化值", this.data.option, newVal);
-        this.isApply(newVal);
-        this.isRecharge(newVal);
+        // this.isApply(newVal);
+        // this.isRecharge(newVal);
         // this.getOpenIndex(newVal);
         this.cardChange(newVal);
       }
@@ -162,7 +162,7 @@ Component({
               isVip: true
             },
             () => {
-              console.log("是否已开通", this.data.openIndex);
+              console.log("是否已开通", this.data.openIndex, this.data.isVip);
             }
           );
           return i;
@@ -179,6 +179,7 @@ Component({
           this.setData({
             apply: true
           });
+          break;
         } else {
           this.setData({
             apply: false
@@ -203,10 +204,12 @@ Component({
       let length = arr.length;
       for (let i = 0; i < length; i++) {
         let obj = arr[i];
-        if (obj.hasRechargeOrder == true) {
+        // console.log(obj.hasRechargeOrder);
+        if (obj.hasRechargeOrder) {
           that.setData({
             recharge: true
           });
+          break;
         } else {
           that.setData({
             recharge: false
