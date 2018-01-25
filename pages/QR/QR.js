@@ -4,6 +4,7 @@ let navbar = require("../../utils/navbar.js");
 let storage = require("../../utils/storage.js");
 let jump = require("../../utils/jump.js");
 let card = require("../../utils/cardTurn.js");
+let update = require("../../utils/update");
 Page({
   /**
    * 页面的初始数据
@@ -34,7 +35,6 @@ Page({
       vipScope: options.vipScope
     });
     // 获取所有信息
-    this.getAllInfo();
     if (options.vipScope == "VIP") {
       navbar.color("#ffffff", "#efac40");
     } else if (options.vipScope == "TVIP") {
@@ -47,6 +47,7 @@ Page({
    */
   onShow: function() {
     let that = this;
+    this.getAllInfo();
     // 获取屏幕亮度
     wx.getScreenBrightness({
       success(res) {
@@ -228,8 +229,11 @@ Page({
   // websocket 长连接获取支付信息
   getPayBack(status, id) {
     let that = this;
+
     if (this.data.vipScope == "VIP") {
       if (status == "SUCCESS") {
+        wx.vibrateLong();
+        update.updateuser(app.globalData.header);
         this.setData({
           paySucc: true,
           openModal: true
@@ -245,6 +249,7 @@ Page({
           jump.jump("nav", `/pages/afterScanPay/afterScanPay?id=${id}`);
         }, 1500);
       } else {
+        wx.vibrateLong();
         this.setData({
           paySucc: false,
           openModal: true
@@ -253,7 +258,8 @@ Page({
           this.setData({
             paySucc: false,
             openModal: false,
-            QRModal: true
+            QRModal: true,
+            QRsrc: "../../img/default_QR.png"
           });
           wx.setScreenBrightness({
             value: that.data.userscreenLight
@@ -262,6 +268,8 @@ Page({
       }
     } else if (this.data.vipScope == "TVIP") {
       if (status == "SUCCESS") {
+        wx.vibrateLong();
+        update.updateuser(app.globalData.header);
         this.setData({
           paySucc: true,
           openModal: true
@@ -277,6 +285,7 @@ Page({
           jump.jump("nav", `/pages/groupAfterPay/groupAfterPay?id=${id}`);
         }, 1500);
       } else {
+        wx.vibrateLong();
         this.setData({
           paySucc: false,
           openModal: true
@@ -285,7 +294,8 @@ Page({
           this.setData({
             paySucc: false,
             openModal: false,
-            QRModal: true
+            QRModal: true,
+            QRsrc: "../../img/default_QR.png"
           });
           wx.setScreenBrightness({
             value: that.data.userscreenLight
@@ -296,12 +306,15 @@ Page({
   },
   jump(e) {
     let type = e.currentTarget.dataset.type;
-
+    let that = this;
     this.setData(
       {
         modalOn: true
       },
       () => {
+        wx.setScreenBrightness({
+          value: that.data.userscreenLight
+        });
         if (type == "personal") {
           jump.jump(
             "nav",

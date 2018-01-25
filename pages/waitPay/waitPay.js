@@ -20,7 +20,9 @@ Page({
     offDetail: [],
     cardList: null,
     orderId: null,
-    modalOn: false
+    modalOn: false,
+    type: "personal",
+    groupDetail: null
   },
 
   /**
@@ -32,10 +34,17 @@ Page({
     let by = options.by;
     let plateNo = options.plateNo;
     let id = options.id;
+    let type = options.type;
     // 加载等待
     wx.showLoading({
       title: "加载中"
     });
+    // 设置进入类型
+    if (type == "group") {
+      this.setData({
+        type: type
+      });
+    }
     if (by == "scan") {
       this.getOrder(by, plateNo, id);
     } else if (by == "orderlist") {
@@ -52,11 +61,12 @@ Page({
     let header = app.globalData.header;
     let scanUrl = "/vipOrder/findOrder";
     let listUrl = "/vipOrder/getOrderDetail";
+    // 扫码进入
     if (by == "scan") {
       if (myData != "undefined") {
         let data = { plateNo: myData };
         http.ajax(scanUrl, "GET", data, header).then(res => {
-          console.log("获取扫码订单数据", res.data);
+          console.log("获取扫码订单数据", res.data.data);
           if (res.data.code == 200 && res.data.data != null) {
             let orderId = res.data.data.id;
             that.setData({
@@ -64,6 +74,7 @@ Page({
               offMoney: res.data.data,
               orderId: res.data.data.id
             });
+
             // 获取可用卡
             that.getUserCard(orderId, true);
           } else {
@@ -73,18 +84,28 @@ Page({
       } else {
         this.noOrder(by);
       }
+      // 订单进入
     } else if (by == "orderlist") {
       let data = {
         orderId: myData
       };
       http.ajax(listUrl, "GET", data, header).then(res => {
-        console.log("订单进入拉取数据", res.data);
+        console.log("订单进入拉取数据", res.data.data);
         if (res.data.code == 200 && res.data.data != null) {
-          that.setData({
-            orderData: res.data.data,
-            offMoney: res.data.data,
-            orderId: orderId
-          });
+          if (res.data.data.deliveryInfoResponse) {
+            that.setData({
+              orderData: res.data.data,
+              offMoney: res.data.data,
+              orderId: orderId,
+              groupDetail: res.data.data.deliveryInfoResponse
+            });
+          } else {
+            that.setData({
+              orderData: res.data.data,
+              offMoney: res.data.data,
+              orderId: orderId
+            });
+          }
           that.getUserCard(orderId, true);
         } else {
           that.noOrder(by);

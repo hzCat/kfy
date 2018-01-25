@@ -120,6 +120,10 @@
   padding-left: 26rpx;
   color: #12bfff;
 }
+.container .is-vip .vip-show .money .dealing,
+.container .is-tvip .vip-show .money .dealing {
+  color: #87d463;
+}
 .container .is-vip .vip-show .money .strong,
 .container .is-tvip .vip-show .money .strong {
   height: 34rpx;

@@ -87,7 +87,9 @@ button::after {
   background: #fff;
 }
 
-.step-1, .step-2, .step-3 {
+.step-1,
+.step-2,
+.step-3 {
   position: relative;
 }
 
@@ -169,17 +171,17 @@ button::after {
   font-size: 28rpx;
   text-align: right;
 }
-.placeholder{
-  color:#999
+.placeholder {
+  color: #999;
 }
 /* 屏蔽透明模态框 */
-.stop-modal{
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:1000;
+.stop-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 /* 失败警告框 */
 .fail-con {
@@ -202,3 +204,37 @@ button::after {
   line-height: 45rpx;
   margin-top: 28rpx;
 }
+
+/* 状态颜色 */
+.status-green {
+  color: #6CC9AE;
+}
+.status-blue {
+  color: #3acad3;
+}
+.status-red {
+  color: #f76160;
+}
+.status-gray {
+  color: #999;
+}
+.status-orange {
+  color: #fb8c00;
+}
+
+.status-bg-green {
+  background: #6CC9AE;
+}
+.status-bg-blue {
+  background: #3acad3;
+}
+.status-bg-red {
+  background: #f76160;
+}
+.status-bg-gray {
+  background: #999;
+}
+.status-bg-orange {
+  background: #fb8c00;
+}
+

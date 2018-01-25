@@ -1,12 +1,18 @@
 <view class="container2">
   <!-- 一项 -->
-  <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="{{item.orderStatus=='NOT_PAY'?'/pages/waitPay/waitPay?by=orderlist&id='+item.orderId:'/pages/alreadyPay/alreadyPay?id='+item.orderId}}" bindtap="jump">
+  <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="{{item.orderStatus=='NOT_PAY'?'/pages/waitPay/waitPay?by=orderlist&id='+item.orderId+'&type='+(item.orderSource=='TEAM_ORDER'?'group':'personal'):'/pages/alreadyPay/alreadyPay?id='+item.orderId+'&type='+(item.orderSource=='TEAM_ORDER'?'group':'personal')}}"
+    bindtap="jump">
     <view class="left">
       <view class="mark {{item.orderSource=='TEAM_ORDER'&&'mark-g'}}">团</view>
       <view class="money">￥{{item.payAmt}}</view>
     </view>
     <view class="right">
-      <view class="status {{item.orderStatus=='NOT_PAY'&&'status-red'}} {{item.orderStatus!=('PAID'||'NOT_PAY')&&'status-blue'}}">{{item.orderStatusDisplayName}}</view>
+      <view class="status" wx:if="{{item.orderStatus=='PAID'||item.orderStatus=='CONFIRM_PAY'||item.orderStatus=='NOT_ORDER'}}">{{item.orderStatusDisplayName}}</view>
+      <view class="status status-red" wx:elif="{{item.orderStatus=='NOT_PAY'}}">{{item.orderStatusDisplayName}}</view>
+      <view class="status status-blue" wx:elif="{{item.orderStatus=='FLOW'}}">{{item.orderStatusDisplayName}}</view>
+      <view class="status status-orange" wx:elif="{{item.orderStatus=='DELIVERY'}}">{{item.orderStatusDisplayName}}</view>
+      <view class="status status-gray" wx:elif="{{item.orderStatus=='CANCELED'||item.orderStatus=='STORE_CANCELED'}}">{{item.orderStatusDisplayName}}</view>
+
       <view class="time">{{item.createTime}}</view>
       <view class="array"></view>
     </view>

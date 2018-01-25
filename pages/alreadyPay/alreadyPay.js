@@ -9,7 +9,10 @@ Page({
     showNum: 4,
     third: "",
     header: {},
-    offDetail: []
+    offDetail: [],
+    type: "personal",
+    groupDetail: null,
+    status: null
   },
 
   /*** 生命周期函数--监听页面加载*/
@@ -20,7 +23,11 @@ Page({
       title: "加载中",
       mask: true
     });
-
+    if (options.type == "group") {
+      this.setData({
+        type: options.type
+      });
+    }
     var url = "/vipOrder/getOrderDetail";
     var method = "GET";
     var data = {
@@ -34,14 +41,35 @@ Page({
         console.log(res.data.data);
         // 优惠信息转换
         let arr = offColor.turn(off);
-        that.setData({
-          orderDetail: res.data.data,
-          offDetail: arr
-        });
+
+        if (res.data.data.deliveryInfoResponse) {
+          that.setData({
+            orderDetail: res.data.data,
+            offDetail: arr,
+            groupDetail: res.data.data.deliveryInfoResponse,
+            status: res.data.data.orderStatus
+          });
+        } else {
+          that.setData({
+            orderDetail: res.data.data,
+            offDetail: arr,
+            status: res.data.data.orderStatus
+          });
+        }
       } else {
-        that.setData({
-          orderDetail: res.data.data
-        });
+        console.log(res.data.data);
+        if (res.data.data.deliveryInfoResponse) {
+          that.setData({
+            orderDetail: res.data.data,
+            groupDetail: res.data.data.deliveryInfoResponse,
+            status: res.data.data.orderStatus
+          });
+        } else {
+          that.setData({
+            orderDetail: res.data.data,
+            status: res.data.data.orderStatus
+          });
+        }
       }
       // 关闭加载中
       wx.hideLoading();

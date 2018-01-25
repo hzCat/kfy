@@ -147,6 +147,32 @@
   bottom: -16rpx;
   right: -56rpx;
 }
+.container .group-detail {
+  padding: 19rpx 41rpx 18rpx 41rpx;
+  margin-top: 24rpx;
+  background: #fff;
+  font-size: 32rpx;
+}
+.container .group-detail .eat-time,
+.container .group-detail .people-num,
+.container .group-detail .address {
+  line-height: 72rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.container .group-detail .eat-time .left,
+.container .group-detail .people-num .left,
+.container .group-detail .address .left {
+  text-align: left;
+}
+.container .group-detail .eat-time .right,
+.container .group-detail .people-num .right,
+.container .group-detail .address .right {
+  text-align: right;
+  width: 498rpx;
+  word-wrap: break-word;
+}
 .container .time {
   display: flex;
   justify-content: space-between;

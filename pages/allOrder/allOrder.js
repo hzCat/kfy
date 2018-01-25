@@ -102,7 +102,7 @@ Page({
               }
               var arr2 = that.data.orderList;
               var arr3 = arr2.concat(arr);
-              setTimeout(function() {
+              // setTimeout(function() {
                 that.setData({
                   orderList: arr3
                 });
@@ -118,7 +118,7 @@ Page({
                   });
                 }
                 wx.hideLoading();
-              }, 2000);
+              // }, 2000);
             }
           });
           // 关闭加载框

@@ -18,7 +18,7 @@ Page({
     pushInfo: {},
     header: {},
     serviceNumber: null,
-    chargeInfo: {},
+    chargeInfo: null,
     modalOn: false
   },
 
@@ -58,7 +58,7 @@ Page({
   chargeInfo() {
     let url = "/recharge/getApplyOrder";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
-      console.log(res.data);
+      console.log("充值信息",res.data);
       if (res.data.data) {
         let getInfo = res.data.data;
         let obj = this.data.pushInfo;

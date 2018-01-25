@@ -50,8 +50,23 @@
       <view class="circle circle4"></view>
     </view>
     <view class="wait one">
-      <view class="left">待支付</view>
+      <view class="left">需支付</view>
       <view class="right price-red wait-red">￥{{offMoney.payAmt||'0.00'}}</view>
+    </view>
+  </view>
+
+  <view class="group-detail" wx:if="{{type=='group'}}">
+    <view class="eat-time">
+      <view class="left">就餐时间</view>
+      <view class="right">{{groupDetail.supplyTime||'暂无'}}</view>
+    </view>
+    <view class="people-num">
+      <view class="left">用餐人数</view>
+      <view class="right">{{groupDetail.personNum||'1'}}人</view>
+    </view>
+    <view class="address">
+      <view class="left">配送地址</view>
+      <view class="right">{{groupDetail.deliveryAddr||'暂无'}}</view>
     </view>
   </view>
 

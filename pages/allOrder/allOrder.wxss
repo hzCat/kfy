@@ -63,6 +63,12 @@
 .container2 .order-one .right .status-red {
   color: #f76160;
 }
+.container2 .order-one .right .status-gray {
+  color: #999;
+}
+.container2 .order-one .right .status-orange {
+  color: #fb8c00;
+}
 .container2 .getMore {
   height: 87rpx;
   text-align: center;

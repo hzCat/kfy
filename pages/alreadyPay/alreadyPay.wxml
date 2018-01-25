@@ -2,8 +2,16 @@
 
     <!-- 详细订单 -->
     <view class="order-detail">
-        <view class="order-title bluegreen">{{orderDetail.orderStatusDisplayName}}</view>
-        <view class="line"></view>
+        <view class="order-title status-orange" wx:if="{{status=='DELIVERY'}}">{{orderDetail.orderStatusDisplayName}}</view>
+        <view class="order-title status-blue" wx:elif="{{status=='FLOW'}}">{{orderDetail.orderStatusDisplayName}}</view>
+        <view class="order-title status-gray" wx:elif="{{status=='CANCELED'||status=='STORE_CANCELED'}}">{{orderDetail.orderStatusDisplayName}}</view>
+        <view class="order-title status-green" wx:elif="{{status=='PAID'||status=='CONFIRM_PAY'}}">{{orderDetail.orderStatusDisplayName}}</view>
+
+        <view class="line status-bg-orange" wx:if="{{status=='DELIVERY'}}"></view>
+        <view class="line status-bg-blue" wx:elif="{{status=='FLOW'}}"></view>
+        <view class="line status-bg-gray" wx:elif="{{status=='CANCELED'||status=='STORE_CANCELED'}}"></view>
+        <view class="line status-bg-green" wx:elif="{{status=='PAID'||status=='CONFIRM_PAY'}}"></view>
+
         <view class="order-no">{{orderDetail.orderNo}}</view>
         <view class='order-one' wx:for="{{orderDetail.detailList}}" wx:key="index" wx:if="{{index<showNum}}">
             <view>{{item.disheName}}</view>
@@ -40,31 +48,53 @@
                 <view>需支付</view>
                 <view>￥{{orderDetail.payAmt||'0.00'}}</view>
             </view>
-            <view class="price">
+            <view class="price" wx:if="{{status=='PAID'}}">
                 <view>已支付</view>
                 <view class="paid">￥{{orderDetail.payAmt||'0.00'}}</view>
             </view>
         </view>
+    </view>
 
+    <view class="group-detail" wx:if="{{type=='group'}}">
+        <view class="eat-time">
+            <view class="left">就餐时间</view>
+            <view class="right">{{groupDetail.supplyTime||'暂无'}}</view>
+        </view>
+        <view class="people-num">
+            <view class="left">用餐人数</view>
+            <view class="right">{{groupDetail.personNum||'1'}}人</view>
+        </view>
+        <view class="address">
+            <view class="left">配送地址</view>
+            <view class="right">{{groupDetail.deliveryAddr||'暂无'}}</view>
+        </view>
     </view>
     <view class="price-total price-total2">
-    <view class="other-info">
-        <view class="price">
-            <view>结算编号</view>
-            <view>{{orderDetail.settlementNo||'暂无'}}</view>
-        </view>
-        <view class="price">
-            <view>支付时间</view>
-            <view>{{orderDetail.payTime||'暂无'}}</view>
-        </view>
-        <view class="price">
-            <view>支付方式</view>
-            <view>{{orderDetail.payChannelDisplayName||'暂无'}}</view>
-        </view>
-        <view class="price">
-            <view>门店</view>
-            <view>{{orderDetail.storeName||'暂无'}}</view>
-        </view>
+        <view class="other-info">
+            <view class="price" wx:if="{{status!='PAID'&&status!='CONFIRM_PAY'}}">
+                <view>下单时间</view>
+                <view>{{orderDetail.createTime||'暂无'}}</view>
+            </view>
+            <view class="price" wx:if="{{status=='STORE_CANCELED'}}">
+                <view>取消时间</view>
+                <view>{{orderDetail.updateTime||'暂无'}}</view>
+            </view>
+            <view class="price" wx:if="{{status=='PAID'||status=='CONFIRM_PAY'}}">
+                <view>结算编号</view>
+                <view>{{orderDetail.settlementNo||'暂无'}}</view>
+            </view>
+            <view class="price" wx:if="{{status=='PAID'||status=='CONFIRM_PAY'}}">
+                <view>支付时间</view>
+                <view>{{orderDetail.payTime||'暂无'}}</view>
+            </view>
+            <view class="price" wx:if="{{status=='PAID'||status=='CONFIRM_PAY'}}">
+                <view>支付方式</view>
+                <view>{{orderDetail.payChannelDisplayName||'暂无'}}</view>
+            </view>
+            <view class="price">
+                <view>门店</view>
+                <view>{{orderDetail.storeName||'暂无'}}</view>
+            </view>
         </view>
     </view>
 
