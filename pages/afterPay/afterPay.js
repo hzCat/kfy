@@ -27,6 +27,7 @@ Page({
       by: options.by,
       code: options.code
     });
+    console.log(this.data.orderId);
   },
 
   /**

@@ -4,10 +4,11 @@
     <view class="right" data-type="in" bindtap="switchTab">充值明细</view>
     <view class="switch-line {{tab=='in'&&'switch-right'}}"></view>
   </view>
-  <!-- 消费 -->
-  <view class="detail-con" wx:if="{{tab=='out'}}">
 
-    <view class="one use" wx:for="{{detailList}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}&cardType={{type}}" bindtap="jump">
+  <!-- 消费 -->
+  <view class="detail-con" wx:if="{{tab=='out'&&!noOrder}}">
+    <view class="one use" wx:for="{{detailList}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}&cardType={{type}}"
+      bindtap="jump">
       <view class="left">
         -￥{{item.amount}}
       </view>
@@ -18,10 +19,11 @@
     </view>
     <view class="has-more" wx:if="{{!moreOne}}">没有更多数据...</view>
   </view>
-  <!-- 充值 -->
-  <view class="detail-con" wx:if="{{tab=='in'}}">
 
-    <view class="one use" wx:for="{{detailListTwo}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}&cardType={{type}}" bindtap="jump">
+  <!-- 充值 -->
+  <view class="detail-con" wx:if="{{tab=='in'&&!noOrder}}">
+    <view class="one use" wx:for="{{detailListTwo}}" wx:key="index" data-jump="/pages/consumeDetails/consumeDetails?type={{item.recordType}}&id={{item.recordId}}&cardType={{type}}"
+      bindtap="jump">
       <view class="left">
         +￥{{item.amount}}
       </view>
@@ -31,8 +33,12 @@
       </view>
     </view>
     <view class="has-more" wx:if="{{!moreTwo}}">没有更多数据...</view>
-
   </view>
+</view>
+<!-- 无订单 -->
+<view class='noOrder' wx:if='{{noOrder}}'>
+  <image src='../../icon/nothing.png'></image>
+  <view>暂无订单哦</view>
 </view>
 
 <shade modalOn="{{modalOn}}"></shade>

@@ -12,7 +12,7 @@
     <icon class="icon" type="warn" color="#f76160" size="100"></icon>
     <view class="title">支付失败</view>
     <view class="detail">由于{{tips||'网络原因'}},您暂时未能成功完成支付</view>
-    <view class="fail-order-no" wx:if="{{orderId!='null'&&orderId!='undefined'}}">订单:{{orderId||'无'}}</view>
+    <view class="fail-order-no" wx:if="{{orderId}}">订单:{{orderId||'暂无'}}</view>
     <button class="fail-btn-again" bindtap="again">重试一次</button>
   </view>
 </view>

@@ -1,7 +1,7 @@
 <view class="container2">
   <!-- 一项 -->
   <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="{{item.orderStatus=='NOT_PAY'?'/pages/waitPay/waitPay?by=orderlist&id='+item.orderId+'&type='+(item.orderSource=='TEAM_ORDER'?'group':'personal'):'/pages/alreadyPay/alreadyPay?id='+item.orderId+'&type='+(item.orderSource=='TEAM_ORDER'?'group':'personal')}}"
-    bindtap="jump">
+    bindtap="jump" wx:if="{{!noOrder}}">
     <view class="left">
       <view class="mark {{item.orderSource=='TEAM_ORDER'&&'mark-g'}}">团</view>
       <view class="money">￥{{item.payAmt}}</view>
@@ -18,31 +18,11 @@
     </view>
   </view>
 
-  <view class='getMore'>{{isMore?'更多订单':'无更多数据'}}</view>
-  <!-- 一项 -->
-  <!-- <view class="order-one">
-    <view class="left">
-      <view class="mark">团</view>
-      <view class="money">￥20000.04</view>
-    </view>
-    <view class="right">
-      <view class="status status-red">待支付</view>
-      <view class="time">2018-01-01 12:12</view>
-      <view class="array"></view>
-    </view>
-  </view> -->
-  <!-- 一项 -->
-  <!-- <view class="order-one">
-    <view class="left">
-      <view class="mark mark-g">团</view>
-      <view class="money">￥20000.04</view>
-    </view>
-    <view class="right">
-      <view class="status status-blue">逃单</view>
-      <view class="time">2018-01-01 12:12</view>
-      <view class="array"></view>
-    </view>
-  </view> -->
-
+  <view class='getMore' wx:if="{{!noOrder}}">{{isMore?'更多订单':'无更多数据'}}</view>
+</view>
+<!-- 无订单 -->
+<view class='noOrder' wx:if='{{noOrder}}'>
+  <image src='../../icon/nothing.png'></image>
+  <view>暂无订单哦</view>
 </view>
 <shade modalOn="{{modalOn}}"></shade>

@@ -39,7 +39,6 @@
   text-align: right;
 }
 .container2 .order-one .right .status {
-  color: #333;
   font-size: 26rpx;
 }
 .container2 .order-one .right .time {
@@ -57,23 +56,27 @@
   right: 0;
   top: 36rpx;
 }
-.container2 .order-one .right .status-blue {
-  color: #3acad3;
-}
-.container2 .order-one .right .status-red {
-  color: #f76160;
-}
-.container2 .order-one .right .status-gray {
-  color: #999;
-}
-.container2 .order-one .right .status-orange {
-  color: #fb8c00;
-}
 .container2 .getMore {
   height: 87rpx;
   text-align: center;
   line-height: 87rpx;
   font-size: 24rpx;
+  color: #999;
+}
+.noOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+.noOrder image {
+  margin-top: 100rpx;
+  width: 320rpx;
+  height: 320rpx;
+}
+.noOrder view {
+  margin-top: 36rpx;
+  font-size: 34rpx;
   color: #999;
 }
 page {

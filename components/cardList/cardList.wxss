@@ -19,6 +19,7 @@
   border-radius: 16rpx;
   position: relative;
   overflow: hidden;
+  color: #fff;
 }
 .card-component .card-con .card > image {
   width: 590rpx;

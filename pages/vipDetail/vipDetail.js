@@ -17,7 +17,8 @@ Page({
     moreOne: true,
     moreTwo: true,
     type: null,
-    modalOn: false
+    modalOn: false,
+    noOrder: true
   },
 
   /**
@@ -57,6 +58,24 @@ Page({
       page: page,
       rows: this.data.rows
     };
+    // 现在的卡片列表,判断有无数据
+    let hasList = [];
+    if (this.data.inOut == "CONSUME_RECORD") {
+      hasList = this.data.detailList;
+    } else if (this.data.inOut == "RECHARGE_RECORD") {
+      hasList = this.data.detailListTwo;
+    }
+    // 有数据更新视图为数据,无数据更新为缺省
+    if (hasList.length == 0) {
+      this.setData({
+        noOrder: true
+      });
+    } else {
+      this.setData({
+        noOrder: false
+      });
+    }
+    // 判断是否更新数据
     if (
       (this.data.moreOne == true && this.data.tab == "out") ||
       (this.data.moreTwo == true && this.data.tab == "in")
@@ -73,13 +92,17 @@ Page({
           if (res.data.data) {
             let list = res.data.data.rows;
             let newLength = list.length;
-            let hasList = [];
-            if (this.data.inOut == "CONSUME_RECORD") {
-              hasList = this.data.detailList;
-            } else if (this.data.inOut == "RECHARGE_RECORD") {
-              hasList = this.data.detailListTwo;
-            }
+
             let nowList = hasList.concat(list);
+            if (nowList.length == 0) {
+              this.setData({
+                noOrder: true
+              });
+            } else {
+              this.setData({
+                noOrder: false
+              });
+            }
             // let nowPage = this.data.page;
             if (newLength < 14) {
               if (this.data.inOut == "CONSUME_RECORD") {
@@ -122,20 +145,28 @@ Page({
     let type = e.currentTarget.dataset.type;
     if (type != this.data.tab) {
       if (type == "in") {
-        navbar.title("充值明细")
-        this.setData({
-          tab: type,
-          inOut: "RECHARGE_RECORD"
-        });
+        navbar.title("充值明细");
+        this.setData(
+          {
+            tab: type,
+            inOut: "RECHARGE_RECORD"
+          },
+          () => {
+            this.getList();
+          }
+        );
       } else {
-        navbar.title("消费明细")
-        
-        this.setData({
-          tab: type,
-          inOut: "CONSUME_RECORD"
-        });
+        navbar.title("消费明细");
+        this.setData(
+          {
+            tab: type,
+            inOut: "CONSUME_RECORD"
+          },
+          () => {
+            this.getList();
+          }
+        );
       }
-      this.getList();
     }
   },
   onReachBottom() {

@@ -22,7 +22,7 @@
     <view class="vip-get personal" wx:if="{{(cardType=='personal')&&((vipLevel!=null&&nowIndex>vipLevel)||vipLevel==null)}}">
       <view class="top">
         <image src="../../icon/star.png"></image>
-        <view>权益1</view>
+        <view>权益</view>
       </view>
       <view class="bottom">
         <view class="left">
@@ -138,7 +138,7 @@
     <view class="vip-get">
       <view class="top">
         <image src="../../icon/star.png"></image>
-        <view>权益2</view>
+        <view>权益</view>
       </view>
       <view class="bottom">
         <view class="left">
