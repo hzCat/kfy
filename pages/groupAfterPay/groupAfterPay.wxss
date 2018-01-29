@@ -22,12 +22,12 @@
   margin-top: 28rpx;
   font-size: 26rpx;
   color: #999;
+  margin-bottom: 28rpx;
 }
 .success .order-no-con .onder-no-one {
   line-height: 36 rpx;
 }
 .success .more {
-  margin-top: 28rpx;
   height: 52rpx;
   line-height: 52rpx;
   border-radius: 10rpx;
@@ -74,7 +74,7 @@
 }
 .success .detail-one .discount text {
   display: inline-block;
-  width: 110rpx;
+  width: 140rpx;
 }
 .success .btn-group {
   display: flex;

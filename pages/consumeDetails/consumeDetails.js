@@ -23,6 +23,10 @@ Page({
   onLoad: function(options) {
     var that = this;
     console.log(options);
+    wx.showLoading({
+      title: "查询中",
+      mask: true
+    });
     // storage.gets("3rd_session").then(function(res) {
     that.setData({
       pattern: options.type,
@@ -55,12 +59,14 @@ Page({
       .ajax(url, method, data, header)
       .then(function(res) {
         console.log(res.data.data);
+
         if (res.data.data) {
           let obj = res.data.data;
           that.setData({
             detail: obj
           });
         }
+        wx.hideLoading();
         // else if (res.data.data.rechargeRecordDetail) {
         //   let obj = res.data.data.rechargeRecordDetail;
         //   that.setData({
@@ -70,6 +76,7 @@ Page({
         // }
       })
       .catch(err => {
+        wx.hideLoading();
         modal.modal("提示", "未能获取详情,请返回重试");
       });
     // });

@@ -34,6 +34,7 @@ Page({
       orderId: options.id
     };
     var header = app.globalData.header;
+    // 获取详情
     http.ajax(url, method, data, header).then(function(res) {
       // console.log(res.data.data);
       if (res.data.data.offerDetailList) {
@@ -56,6 +57,8 @@ Page({
             status: res.data.data.orderStatus
           });
         }
+        // 设置顶部title
+        navbar.title(res.data.data.orderStatusDisplayName);
       } else {
         console.log(res.data.data);
         if (res.data.data.deliveryInfoResponse) {
@@ -70,6 +73,8 @@ Page({
             status: res.data.data.orderStatus
           });
         }
+        // 设置顶部title
+        navbar.title(res.data.data.orderStatusDisplayName);
       }
       // 关闭加载中
       wx.hideLoading();

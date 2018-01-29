@@ -3,7 +3,7 @@
   <!-- 顶部 -->
   <view class="header">
     <view class="left"></view>
-    <view class="wait-pay">{{orderData.orderStatusDisplayName||'待支付'}}</view>
+    <view class="wait-pay">{{orderData.orderStatusDisplayName||'单号'}}</view>
     <view class="order-number">{{orderData.orderNo||'无'}}</view>
   </view>
 
@@ -122,7 +122,7 @@
 
   <!-- 支付按钮 -->
   <!-- <button class="btn-pay" bindtap="payClick">立即支付</button> -->
-  <button class="btn-pay" bindtap="jump" data-jump="/pages/pay/pay?orderId={{orderId}}">立即支付</button>
+  <button class="btn-pay" bindtap="jump" data-jump="/pages/pay/pay?orderId={{orderId}}&type={{type}}&enter={{enter}}">立即支付</button>
 
 </view>
 

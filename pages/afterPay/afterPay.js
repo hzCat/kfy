@@ -12,7 +12,9 @@ Page({
     by: null,
     code: null,
     tips: null,
-    modalOn: false
+    modalOn: false,
+    type: "personal",
+    enter: null
   },
 
   /**
@@ -25,7 +27,9 @@ Page({
       orderPrice: options.money,
       isSucc: options.isSucc,
       by: options.by,
-      code: options.code
+      code: options.code,
+      type: options.type,
+      enter: options.enter
     });
     console.log(this.data.orderId);
   },
@@ -75,6 +79,7 @@ Page({
       }
     }
   },
+  // 完全退出
   quit(e) {
     let jumpto = e.currentTarget.dataset.jump;
 
@@ -87,11 +92,12 @@ Page({
       }
     );
   },
+  // 再扫一个
   again() {
     this.setData({
       modalOn: true
     });
-    let by = this.data.by;
+    let by = this.data.enter;
     scan.refresh(by);
   }
 });

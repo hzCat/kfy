@@ -7,7 +7,8 @@ Page({
    */
   data: {
     detail: {},
-    modalOn: false
+    modalOn: false,
+    showNum: 2
   },
 
   /**
@@ -22,6 +23,19 @@ Page({
         detail: res.data.tradeResponse
       });
     });
+  },
+  // 显示更多
+  showMore() {
+    let length = this.data.detail.orderList.length;
+    if (this.data.showNum == 2) {
+      this.setData({
+        showNum: length
+      });
+    } else {
+      this.setData({
+        showNum: 2
+      });
+    }
   },
   jump(e) {
     this.setData({

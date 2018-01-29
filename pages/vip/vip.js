@@ -94,6 +94,14 @@ Page({
           vipLevel: level,
           isvip: isvip
         });
+      })
+      .catch(err => {
+        let succ = res => {
+          if (res.confirm) {
+            jump.jump("switch", "/pages/index/index");
+          }
+        };
+        modal.modal("提示", "网络差,请检查", false, succ);
       });
   },
   // 获取团餐列表
@@ -121,19 +129,32 @@ Page({
           tvipLevel: level,
           istvip: istvip
         });
+      })
+      .catch(err => {
+        let succ = res => {
+          if (res.confirm) {
+            jump.jump("switch", "/pages/index/index");
+          }
+        };
+        modal.modal("提示", "网络差,请检查", false, succ);
       });
   },
   // 更新余额
   refreshCard() {
     let url = "/vip/getVipCardList";
-    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
-      console.log("刷新卡片信息", res.data.data);
-      let cardList = res.data.data;
-      let arr = card.turn(cardList);
-      this.setData({
-        list: arr
+    http
+      .ajax(url, "GET", {}, app.globalData.header)
+      .then(res => {
+        console.log("刷新卡片信息", res.data.data);
+        let cardList = res.data.data;
+        let arr = card.turn(cardList);
+        this.setData({
+          list: arr
+        });
+      })
+      .catch(err => {
+        modal.modal("提示", "会员信息更新失败,请重试");
       });
-    });
   },
   // 是否失败中
   isApply(arr) {

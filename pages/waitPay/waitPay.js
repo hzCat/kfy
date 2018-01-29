@@ -22,7 +22,8 @@ Page({
     orderId: null,
     modalOn: false,
     type: "personal",
-    groupDetail: null
+    groupDetail: null,
+    enter: null
   },
 
   /**
@@ -37,9 +38,13 @@ Page({
     let type = options.type;
     // 加载等待
     wx.showLoading({
-      title: "加载中"
+      title: "加载中",
+      mask: true
     });
     // 设置进入类型
+    this.setData({
+      enter: options.by
+    });
     if (type == "group") {
       this.setData({
         type: type
@@ -55,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {},
-  // 拉取订单数据
+  // 拉取订单数据(来源 ; 数据:可以是餐盘号,也可以是id ; 订单id)
   getOrder(by, myData, orderId) {
     let that = this;
     let header = app.globalData.header;
@@ -196,26 +201,26 @@ Page({
   // },
 
   // 切换支付频道
-  payOption(e) {
-    let that = this;
-    let option = e.currentTarget.dataset.option;
-    let id = this.data.orderData.id;
-    this.setData({
-      payOption: option
-    });
-    console.log("当前支付频道", this.data.payOption);
-    let url = "/vipPayment/quickPayPre";
-    let data = {
-      id: id,
-      payChannel: option
-    };
-    http.ajax(url, "GET", data, app.globalData.header).then(res => {
-      console.log(`${option}下的优惠信息`, res.data);
-      that.setData({
-        offMoney: res.data.data
-      });
-    });
-  },
+  // payOption(e) {
+  //   let that = this;
+  //   let option = e.currentTarget.dataset.option;
+  //   let id = this.data.orderData.id;
+  //   this.setData({
+  //     payOption: option
+  //   });
+  //   console.log("当前支付频道", this.data.payOption);
+  //   let url = "/vipPayment/quickPayPre";
+  //   let data = {
+  //     id: id,
+  //     payChannel: option
+  //   };
+  //   http.ajax(url, "GET", data, app.globalData.header).then(res => {
+  //     console.log(`${option}下的优惠信息`, res.data);
+  //     that.setData({
+  //       offMoney: res.data.data
+  //     });
+  //   });
+  // },
   // 显示更多
   showMore(e) {
     let type = e.currentTarget.dataset.type;
