@@ -1,5 +1,6 @@
 <view class="container2" wx:if="{{!noOrder}}">
-    <view class='order-one' wx:for="{{orderList}}" wx:key="index" data-pattern="nav" data-jump="{{(item.orderStatus=='PAID'||item.orderStatus=='CONFIRM_PAY')?'/pages/alreadyPay/alreadyPay?id='+item.orderId:'/pages/scanpay/scanpay?by=orderlist&id='+item.orderId}}" bindtap='jump'>
+    <view class='order-one' wx:for="{{orderList}}" wx:key="index" data-pattern="nav" data-jump="{{(item.orderStatus=='PAID'||item.orderStatus=='CONFIRM_PAY')?'/pages/alreadyPay/alreadyPay?id='+item.orderId:'/pages/scanpay/scanpay?by=orderlist&id='+item.orderId}}"
+        bindtap='jump'>
         <view class="{{(item.orderStatus=='PAID'||item.orderStatus=='CONFIRM_PAY')?'green':'red'}}">{{item.orderStatusDisplayName}}</view>
         <view class="{{(item.orderStatus=='PAID'||item.orderStatus=='CONFIRM_PAY')?'green':'red'}}">￥{{item.payAmt}}</view>
         <view>{{item.createTime}}
@@ -10,8 +11,8 @@
     <view class='getMore'>{{isMore?'更多订单':'无更多数据'}}</view>
 </view>
 <view class='noOrder' wx:if='{{noOrder}}'>
-  <image src='../../icon/noOrder.png'></image>
-  <view>暂无订单哦</view>
+    <image src='../../icon/noOrder.png'></image>
+    <view>暂无订单哦</view>
 </view>
 
 
