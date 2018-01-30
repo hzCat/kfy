@@ -4,6 +4,7 @@ let storage = require("../../utils/storage.js");
 let pay = require("../../utils/pay.js");
 let jump = require("../../utils/jump.js");
 let update = require("../../utils/update.js");
+let turn = require("../../utils/turnto");
 let app = getApp();
 Page({
   /**
@@ -89,11 +90,15 @@ Page({
   },
   // 获取金额
   getMoney(e) {
-    if (/^1\d*(\.\d{2}){1}$/.test(e.detail.value)) {
+    let num = e.detail.value;
+    let turnNum = turn.tostr(num);
+    console.log(turnNum);
+    if (/^1\d*(\.\d{2}){1}$/.test(turnNum)) {
       console.log("金额", e.detail.value);
       let obj = this.data.pushInfo;
       obj.rechargeAmt = e.detail.value;
       this.setData({
+        money: turnNum,
         pushInfo: obj
       });
     }

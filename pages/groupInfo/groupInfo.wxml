@@ -62,7 +62,7 @@
     </view>
     <view class='input-con'>
       <label>汇款金额</label>
-      <input placeholder='可选项(保留两位小数)' type="digit" maxlength="30" placeholder-class='placeholder' bindblur="getMoney" value="{{money||applyInfo.transferAmt}}"></input>
+      <input placeholder='可选项' type="digit" maxlength="30" placeholder-class='placeholder' bindblur="getMoney" value="{{money||applyInfo.transferAmt}}"></input>
     </view>
   </view>
   <view class="btn-group">

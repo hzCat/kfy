@@ -3,6 +3,7 @@ let http = require("../../utils/ajax.js");
 let modal = require("../../utils/modal.js");
 let jump = require("../../utils/jump.js");
 let update = require("../../utils/update");
+let turn = require("../../utils/turnto");
 let app = getApp();
 Page({
   /**
@@ -153,15 +154,21 @@ Page({
 
   // 汇款金额
   getMoney(e) {
-    if (/^[123456789]\d{0,4}(\.\d{2}){1}$/.test(e.detail.value)) {
+    let num = e.detail.value;
+    let turnNum = turn.tostr(num);
+    if (/^[123456789]\d{0,4}(\.\d{2}){1}$/.test(turnNum)) {
       console.log("Money", e.detail.value);
       let obj = this.data.pushInfo;
       obj.transferAmt = e.detail.value;
       this.setData({
-        pushInfo: obj
+        pushInfo: obj,
+        money: turnNum
       });
-    } else if (/^[123456789]\d{5,}(\.\d{2}){1}$/.test(e.detail.value)) {
+    } else if (/^[123456789]\d{5,}(\.\d{2}){1}$/.test(turnNum)) {
       modal.modal("提示", "请输入10万元以内汇款金额");
+      this.setData({
+        money: null
+      });
     }
   },
   // 点击时清除输入框数据
