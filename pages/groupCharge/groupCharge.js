@@ -58,7 +58,7 @@ Page({
   chargeInfo() {
     let url = "/recharge/getApplyOrder";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
-      console.log("充值信息",res.data);
+      console.log("充值信息", res.data);
       if (res.data.data) {
         let getInfo = res.data.data;
         let obj = this.data.pushInfo;
@@ -89,8 +89,8 @@ Page({
   },
   // 获取金额
   getMoney(e) {
-    console.log("金额", e.detail.value);
-    if (/^\d+(\.\d{2})+$/.test(e.detail.value)) {
+    if (/^1\d*(\.\d{2}){1}$/.test(e.detail.value)) {
+      console.log("金额", e.detail.value);
       let obj = this.data.pushInfo;
       obj.rechargeAmt = e.detail.value;
       this.setData({
@@ -208,7 +208,8 @@ Page({
           duration: 2000,
           success() {
             setTimeout(() => {
-              jump.jump("rel", "/pages/vip/vip");
+              // jump.jump("rel", "/pages/vip/vip?type=group");
+              jump.jump("back");
             }, 2000);
           }
         });

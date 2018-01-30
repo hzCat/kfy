@@ -47,12 +47,12 @@ Page({
     this.setData({
       modalOn: true
     });
-    var jump = e.currentTarget.dataset.jump;
+    var jumpto = e.currentTarget.dataset.jump;
     var pattern = e.currentTarget.dataset.pattern;
     if (pattern == "back") {
       jump.jump(pattern);
     } else if (pattern == "switch") {
-      jump.jump(pattern, jump);
+      jump.jump(pattern, jumpto);
     }
   },
   call() {

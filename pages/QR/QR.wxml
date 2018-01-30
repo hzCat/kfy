@@ -32,7 +32,7 @@
           <text class="info" decode="true">{{VIPNo}}</text>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
-            <text class="strong">{{allInfo.vipCardBalance}}</text>
+            <text class="strong">{{cardList[0].cardBalance}}</text>
             <view class="charge" bindtap="jump" data-type="personal">充值</view>
           </view>
         </view>
@@ -68,7 +68,7 @@
 
     <!-- 是团餐会员 -->
     <view class="con is-tvip">
-      <view class="title">会员付款码</view>
+      <view class="title">团餐付款码</view>
       <!-- 二维码容器 -->
       <view class="QR-con">
         <image class="QR" src="{{QRsrc}}"></image>
@@ -81,7 +81,7 @@
           <view class="info">{{TVIPNo}}</view>
           <view class="money">
             <text class="balance" decode="true">余额&nbsp;￥</text>
-            <text class="strong">{{allInfo.tvipCardBalance}}</text>
+            <text class="strong">{{cardList[1].cardBalance}}</text>
             <view class="charge" bindtap="jump" data-type="group" wx:if="{{cardList[1].rechargeOrderStatus!='DEALING'}}">充值</view>
             <view class="charge dealing" bindtap="jump" data-type="group" wx:if="{{cardList[1].rechargeOrderStatus=='DEALING'}}">处理中</view>
           </view>

@@ -153,13 +153,15 @@ Page({
 
   // 汇款金额
   getMoney(e) {
-    console.log("Money", e.detail.value);
-    if (/^([0-9]{0,6})(.[0-9]{2})?$/.test(e.detail.value)) {
+    if (/^[123456789]\d{0,4}(\.\d{2}){1}$/.test(e.detail.value)) {
+      console.log("Money", e.detail.value);
       let obj = this.data.pushInfo;
       obj.transferAmt = e.detail.value;
       this.setData({
         pushInfo: obj
       });
+    } else if (/^[123456789]\d{5,}(\.\d{2}){1}$/.test(e.detail.value)) {
+      modal.modal("提示", "请输入10万元以内汇款金额");
     }
   },
   // 点击时清除输入框数据

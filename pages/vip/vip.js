@@ -5,6 +5,7 @@ let card = require("../../utils/cardTurn.js");
 let jump = require("../../utils/jump.js");
 let modal = require("../../utils/modal");
 let update = require("../../utils/update");
+let turn = require("../../utils/turnto");
 Page({
   /**
    * 页面的初始数据
@@ -29,8 +30,11 @@ Page({
     modalOn: false,
     waitDeal: false,
     rechargeDeal: false,
+    rechargeFail: false,
     isvip: false,
-    istvip: false
+    istvip: false,
+    p_total: null,
+    t_total: null
   },
 
   /**
@@ -148,8 +152,12 @@ Page({
         console.log("刷新卡片信息", res.data.data);
         let cardList = res.data.data;
         let arr = card.turn(cardList);
+        let p_total = turn.tostr(arr[0].cardBalance);
+        let t_total = turn.tostr(arr[1].cardBalance);
         this.setData({
-          list: arr
+          list: arr,
+          p_total: p_total,
+          t_total: t_total
         });
       })
       .catch(err => {
@@ -190,6 +198,7 @@ Page({
     //   }
     // });
   },
+  // 是否等待处理
   isWait(arr) {
     let length = arr.length;
     for (let i = 0; i < length; i++) {
@@ -207,14 +216,22 @@ Page({
       }
     }
   },
+  // 是否充值
   isChar(arr) {
     let length = arr.length;
     for (let i = 0; i < length; i++) {
       let obj = arr[i];
       if (obj.hasRechargeOrder) {
-        this.setData({
-          rechargeDeal: true
-        });
+        if (obj.rechargeOrderStatus == "FAIL") {
+          this.setData({
+            rechargeDeal: true,
+            rechargeFail: true
+          });
+        } else {
+          this.setData({
+            rechargeDeal: true
+          });
+        }
         break;
       } else {
         this.setData({
@@ -299,9 +316,15 @@ Page({
     jump.jump("nav", jumpto);
   },
   closeFail() {
-    this.setData({
-      applyFail: false
-    });
+    if (this.data.rechargeFail) {
+      this.setData({
+        rechargeFail: false
+      });
+    } else if (this.data.applyFail) {
+      this.setData({
+        applyFail: false
+      });
+    }
   },
   // 从微信获取手机号进行绑定
   getPhoneNumber: function(e) {

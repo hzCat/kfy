@@ -9,7 +9,7 @@
   margin: 0rpx 24rpx 0 24rpx;
   box-sizing: border-box;
   padding-left: 39rpx;
-  padding-top:35rpx;
+  padding-top: 35rpx;
 }
 
 .check-con text {
@@ -19,7 +19,11 @@
 .check-con text:last-child {
   color: #5076bd;
 }
-
+/* .checkbox {
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+} */
 .checkbox navigator {
   color: #5076bd;
 }

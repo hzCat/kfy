@@ -105,7 +105,7 @@
 .container .is-tvip .vip-show .money {
   margin-top: 16rpx;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   font-size: 34rpx;
   line-height: 34rpx;
@@ -113,7 +113,6 @@
 .container .is-vip .vip-show .money .balance,
 .container .is-tvip .vip-show .money .balance {
   color: #faaf31;
-  margin-left: 142rpx;
 }
 .container .is-vip .vip-show .money .charge,
 .container .is-tvip .vip-show .money .charge {

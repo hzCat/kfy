@@ -24,7 +24,7 @@
       <view wx:if="{{willGetLevel}}">您将获得功夫元【{{willGetLevel.levelName}}】会员</view>
       <view wx:if="{{currentLevel}}">当前【{{currentLevel.levelName}}】会员</view>
       <view class='vip-con flex'>
-        <image wx:if="{{willGetLevel||currentLevel}}" class='vip-img' src="../../img/chargemoney/{{willGetLevel.levelName||currentLevel.levelName}}.png"></image>
+        <image wx:if="{{willGetLevel||currentLevel}}" class='vip-img' src="../../img/chargemoney/VIP{{willGetLevel.level||currentLevel.level}}.png"></image>
         <!-- <image wx:if="{{currentLevel}}" class='vip-img' src="../../img/chargemoney/{{currentLevel.levelName}}.png"></image> -->
         <view class='vip-text'>
           <view>1.充值 {{currentLevel.rechargeGetAmt||willGetLevel.rechargeGiftAmt}} 赠送 {{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</view>
@@ -36,7 +36,7 @@
     <view class='vip-2' wx:if="{{nextGetLevel}}">
       <view>再充值 ￥{{nextNeed}}，您将获得功夫元【{{nextGetLevel.levelName}}】会员</view>
       <view class='vip-con flex'>
-        <image class='vip-img' src="../../img/chargemoney/{{nextGetLevel.levelName}}.png"></image>
+        <image class='vip-img' src="../../img/chargemoney/VIP{{nextGetLevel.level}}.png"></image>
         <view class='vip-text'>
           <view>1.充值 {{nextGetLevel.rechargeGetAmt}} 赠送 {{nextGetLevel.rechargeGiftAmt}}</view>
           <view>2.消费订单结算 {{nextGetLevel.baseSettlementProportion}} 折</view>

@@ -1,11 +1,18 @@
 <!--pages/vip/vip.wxml-->
 <view class="container">
-    <view class="fail-tips" wx:if="{{applyFail}}">
-      <image src="../../icon/fail_tips.png"></image>
-      <text decode="true" bindtap="jump" data-jump="/pages/groupInfo/groupInfo">申请失败, 查看详情>></text>
-      <image src="../../icon/xxx.png" catchtap="closeFail"></image>
-    </view>
-      
+  <!-- 申请失败 -->
+  <view class="fail-tips" wx:if="{{applyFail}}">
+    <image src="../../icon/fail_tips.png"></image>
+    <text decode="true" bindtap="jump" data-jump="/pages/groupInfo/groupInfo">申请失败, 查看详情>></text>
+    <image src="../../icon/xxx.png" catchtap="closeFail"></image>
+  </view>
+  <!-- 充值失败 -->
+  <view class="fail-tips" wx:if="{{rechargeFail}}">
+    <image src="../../icon/fail_tips.png"></image>
+    <text decode="true" bindtap="jump" data-jump="/pages/groupCharge/groupCharge">申请失败, 查看详情>></text>
+    <image src="../../icon/xxx.png" catchtap="closeFail"></image>
+  </view>
+
   <!-- 切换 -->
   <view class="header-switch">
     <view class="left" data-type="personal" bindtap="boxSwitch">会员卡</view>
@@ -70,7 +77,8 @@
       <!-- 立即开通 TVIP -->
       <view class="open-vip-btn" wx:if="{{!istvip&&(cardType=='group')}}">
         <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" bindtap="jump" wx:if="{{bindMobile}}">{{waitDeal?'查看详情':'立即开通'}}</button>
-        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">立即开通</button>
+        <button class="open-vip" data-jump="/pages/groupInfo/groupInfo" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"
+          wx:if="{{!bindMobile}}">立即开通</button>
       </view>
     </view>
     <!-- 已经是会员,显示积分和余额 -->
@@ -82,7 +90,7 @@
           <view>余额</view>
         </view>
         <view class="right">
-          <text>￥{{list[0].cardBalance||'0.00'}}</text>
+          <text>￥{{p_total||'0.00'}}</text>
           <text class="array"></text>
         </view>
       </view>
@@ -96,13 +104,13 @@
     </view>
     <!-- 团餐 -->
     <view class="vip-show" wx:if="{{(cardType=='group')&&(nowIndex==tvipLevel)}}">
-      <view class="your-money your"  bindtap="jump" data-jump="/pages/yourMoney/yourMoney?by=group">
+      <view class="your-money your" bindtap="jump" data-jump="/pages/yourMoney/yourMoney?by=group">
         <view class="left">
           <image src="../../icon/money.png"></image>
           <view>余额</view>
         </view>
         <view class="right">
-          <text>￥{{list[1].cardBalance||'0.00'}}</text>
+          <text>￥{{t_total||'0.00'}}</text>
           <text class="array"></text>
         </view>
       </view>
@@ -117,15 +125,17 @@
 
     <!-- 按钮 -->
     <view class="btn-group" wx:if="{{(nowIndex>vipLevel||!isvip)&&cardType=='personal'}}">
-      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" catchtap="jump" wx:if="{{bindMobile}}">
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false"
+        catchtap="jump" wx:if="{{bindMobile}}">
         <!-- <text class="money"> -->
-          充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
+        充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
         <!-- </text> -->
         <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->
       </button>
-      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  wx:if="{{!bindMobile}}">
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false"
+        open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!bindMobile}}">
         <!-- <text class="money"> -->
-          充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
+        充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
         <!-- </text> -->
         <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->
       </button>
@@ -133,7 +143,7 @@
     </view>
   </view>
 
-      <!-- 权益 已经开通-->
+  <!-- 权益 已经开通-->
   <view class="info-con vip-opened-get personal" wx:if="{{(cardType=='personal')&&isvip&&(nowIndex<=vipLevel)}}">
     <view class="vip-get">
       <view class="top">
@@ -160,7 +170,7 @@
       </view>
     </view>
   </view>
-  
+
   <view class="info-con vip-opened-get group" wx:if="{{(cardType=='group'&&istvip)}}">
     <view class="vip-get">
       <view class="top">

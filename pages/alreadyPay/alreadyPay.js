@@ -9,7 +9,7 @@ Page({
     showNum: 4,
     third: "",
     header: {},
-    offDetail: [],
+    offDetail: null,
     type: "personal",
     groupDetail: null,
     status: null

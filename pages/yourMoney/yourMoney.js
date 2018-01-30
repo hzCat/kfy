@@ -1,4 +1,5 @@
 // pages/yourMoney/yourMoney.js
+let turn = require("../../utils/turnto");
 let storage = require("../../utils/storage.js");
 let card = require("../../utils/cardTurn.js");
 let jump = require("../../utils/jump.js");
@@ -14,7 +15,13 @@ Page({
     by: "personal",
     cardList: [],
     isVip: [],
-    modalOn: false
+    modalOn: false,
+    p_total: null,
+    t_total: null,
+    p_charge: null,
+    t_charge: null,
+    p_gift: null,
+    t_gift: null
   },
 
   /**
@@ -54,14 +61,34 @@ Page({
         let list = res.data.data;
         let arr = card.turn(list);
         let arr2 = card.getvip(list);
+        console.log(111);
+        let p_total = turn.tostr(arr[0].cardBalance);
+        let t_total = turn.tostr(arr[1].cardBalance);
+        console.log(p_total, t_total);
+
+        let p_charge = turn.tostr(arr[0].totalRecharge);
+        let t_charge = turn.tostr(arr[1].totalRecharge);
+        console.log(p_charge, t_charge);
+
+        let p_gift = turn.tostr(arr[0].totalGift);
+        let t_gift = turn.tostr(arr[1].totalGift);
+        console.log(p_gift, t_gift);
+
         // console.log(arr2);
         this.setData({
           cardList: arr,
-          isVip: arr2
+          isVip: arr2,
+          p_total: p_total,
+          t_total: t_total,
+          p_charge: p_charge,
+          t_charge: t_charge,
+          p_gift: p_gift,
+          t_gift: t_gift
         });
         wx.hideLoading();
       })
       .catch(err => {
+        console.log(err);
         wx.hideLoading();
         modal.modal("提示", "网络差,请稍后再试");
       });

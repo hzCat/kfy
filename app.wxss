@@ -24,10 +24,15 @@ text {
 button {
   background: #fdaf31;
   color: #fff;
+  border: 1rpx solid transparent;
 }
 button::after {
   border-radius: 0;
-  border: 0;
+  border: 1rpx solid transparent;
+}
+button[disabled][type="default"],
+wx-button[disabled]:not([type]) {
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
 }
 /* 屏蔽透明模态框 */
 /* .stop-modal {
@@ -207,7 +212,7 @@ button::after {
 
 /* 状态颜色 */
 .status-green {
-  color: #6CC9AE;
+  color: #6cc9ae;
 }
 .status-blue {
   color: #3acad3;
@@ -223,7 +228,7 @@ button::after {
 }
 
 .status-bg-green {
-  background: #6CC9AE;
+  background: #6cc9ae;
 }
 .status-bg-blue {
   background: #3acad3;
@@ -237,4 +242,3 @@ button::after {
 .status-bg-orange {
   background: #fb8c00;
 }
-

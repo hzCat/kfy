@@ -1,13 +1,14 @@
 .container2 {
-  background: #fff;
+  background: #f0f0f0;
 }
 .container2 .order-one {
   height: 120rpx;
-  border-bottom: 1rpx solid #f0f0f0;
+  border-bottom: 1rpx solid #e5e5e5;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40rpx 0 42rpx;
+  background: #fff;
 }
 .container2 .order-one .left {
   display: flex;

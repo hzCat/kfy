@@ -15,7 +15,7 @@
       <view class="left">合计</view>
       <view class="right">￥{{detail.orderAmt||'0.00'}}</view>
     </view>
-    <view class="detail-one">
+    <view class="detail-one" wx:if="{{detail.settlementOfferDetailList}}">
       <view class="left">优惠</view>
       <view class="right">
         <view class="discount" wx:for="{{detail.settlementOfferDetailList}}" wx:key="index"><text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view>

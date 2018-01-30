@@ -47,7 +47,7 @@ Page({
    */
   onShow: function() {
     let that = this;
-    this.getAllInfo();
+    // this.getAllInfo();
     // 获取屏幕亮度
     wx.getScreenBrightness({
       success(res) {
@@ -76,14 +76,25 @@ Page({
     });
     wx.closeSocket();
   },
+  onHide() {
+    let that = this;
+    wx.setScreenBrightness({
+      value: that.data.userscreenLight
+    });
+    wx.closeSocket();
+  },
   // 获取所有信息
   getAllInfo() {
-    storage.gets("allInfo").then(res => {
-      let list = res.data.vipCardList;
+    wx.showLoading({
+      title: "获取中"
+    });
+    // 接口获取
+    let url = "/vip/getVipCardList";
+    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      console.log("QR获取卡详情", res.data.data);
+      let list = res.data.data;
       let arr = card.turn(list);
-      console.log("新卡片列表", arr);
       this.setData({
-        allInfo: res.data,
         cardList: arr
       });
       if (arr[0]) {
@@ -100,9 +111,35 @@ Page({
           TVIPNo: newNo
         });
       }
-      // this.isVip(res.data);
-      console.log("进入获取到的allInfo,已经赋值data", this.data.allInfo);
+      wx.hideLoading();
     });
+
+    // 缓存获取
+    // storage.gets("allInfo").then(res => {
+    //   let list = res.data.vipCardList;
+    //   let arr = card.turn(list);
+    //   console.log("新卡片列表", arr);
+    //   this.setData({
+    //     allInfo: res.data,
+    //     cardList: arr
+    //   });
+    //   if (arr[0]) {
+    //     let cardNo1 = arr[0].vipCardNo;
+    //     let newNo = this.replaceCardNo(cardNo1);
+    //     this.setData({
+    //       VIPNo: newNo
+    //     });
+    //   }
+    //   if (arr[1]) {
+    //     let cardNo2 = arr[1].vipCardNo;
+    //     let newNo = this.replaceCardNo(cardNo2);
+    //     this.setData({
+    //       TVIPNo: newNo
+    //     });
+    //   }
+    //   // this.isVip(res.data);
+    //   console.log("进入获取到的allInfo,已经赋值data", this.data.allInfo);
+    // });
   },
   // 查找是否vip或者tvip
   // isVip(allInfo) {
@@ -150,6 +187,7 @@ Page({
   },
   getQR() {
     let that = this;
+    this.getAllInfo();
     wx.connectSocket({
       url: "ws://192.168.1.146/websocket/tradePushServer",
       data: {},
@@ -318,7 +356,7 @@ Page({
         if (type == "personal") {
           jump.jump(
             "nav",
-            "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50"
+            "/pages/chargeMoney/chargeMoney?by=VIP&isVip=true&money=50&buy=false"
           );
         } else if (type == "group") {
           jump.jump("nav", "/pages/groupCharge/groupCharge");

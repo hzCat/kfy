@@ -32,7 +32,7 @@
             <view class="circle circle1"></view>
             <view class="circle circle2"></view>
         </view>
-        <view class="off-con">
+        <view class="off-con" wx:if="{{offDetail}}">
             <view class="price" wx:for="{{offDetail}}" wx:key="index">
                 <view>
                     <view class="mark {{item.color}}">{{item.oneWord||'无'}}</view>

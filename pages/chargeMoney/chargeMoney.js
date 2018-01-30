@@ -17,7 +17,7 @@ Page({
     chargeInfo: {},
     // vipLevelId: null,
     allDisable: false,
-    buy: false,
+    buy: "false",
     modalOn: false,
     getNumber: false,
     currentLevel: null,
@@ -36,7 +36,7 @@ Page({
       isVip: options.isVip,
       vipScope: options.by,
       // vipLevelId: options.level,
-      buy: options.buy
+      // buy: options.buy
     });
     wx.getStorage({
       key: "3rd_session",
@@ -136,26 +136,27 @@ Page({
     var money = e.detail.value;
 
     // 50的倍数
-    // if (money % 50 == 0) {
-    this.setData({
-      nowMoney: money
-    });
-    that.getVipInfo(that.data.vipScope, e.detail.value, that.data.header);
-    // } else {
-    //   wx.showModal({
-    //     title: "提示",
-    //     content: "请输入50的倍数",
-    //     showCancel: false,
-    //     success: function(res) {
-    //       if (res.confirm) {
-    //         console.log("用户点击确定");
-    //         that.setData({
-    //           isFifty: null
-    //         });
-    //       }
-    //     }
-    //   });
-    // }
+    if (money % 50 == 0) {
+      this.setData({
+        nowMoney: money
+      });
+      that.getVipInfo(that.data.vipScope, e.detail.value, that.data.header);
+    } else {
+      // wx.showModal({
+      //   title: "提示",
+      //   content: "请输入50的倍数",
+      //   showCancel: false,
+      let succ = res => {
+        if (res.confirm) {
+          console.log("用户点击确定");
+          that.setData({
+            isFifty: null
+          });
+        }
+      };
+      modal.modal("提示", "请输入50的倍数", false, succ);
+      //   });
+    }
   },
 
   // 同意协议按钮
@@ -392,7 +393,7 @@ Page({
     //       console.log(err)
     //     })
     // }
-  },
+  }
 
   // 获取手机号码（微信）
   // getPhoneNumber: function(e) {

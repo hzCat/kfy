@@ -23,13 +23,14 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f9f9f9",
     "navigationBarTitleText": "功夫元",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#fdaf31",
+    "backgroundColor": "#f9f9f9",
     "borderStyle": "white",
     "list": [
       {

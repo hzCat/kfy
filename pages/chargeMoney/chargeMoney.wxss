@@ -15,7 +15,7 @@
   background: #fff;
 }
 
-.choose-money>button {
+.choose-money > button {
   width: 186rpx;
   border-radius: 0rpx;
   margin: 0 0rpx 0 8rpx;
@@ -23,25 +23,26 @@
   color: #333;
   margin-top: 24rpx;
   font-size: 32rpx;
-}
-
-.choose-money>.btn-not-3 {
-  margin-right: 48rpx;
-}
-.choose-money>.btn-3 {
-  margin:0;
-  margin-top:24rpx;
-}
-.choose-money>.btn-center{
-  margin-left:0;
-}
-
-.choose-money>button::after {
-  border-radius: 0rpx;
   border: 1rpx solid #999;
 }
 
-.choose-money>input {
+.choose-money > .btn-not-3 {
+  margin-right: 48rpx;
+}
+.choose-money > .btn-3 {
+  margin: 0;
+  margin-top: 24rpx;
+}
+.choose-money > .btn-center {
+  margin-left: 0;
+}
+
+.choose-money > button::after {
+  border-radius: 0rpx;
+  border: 0;
+}
+
+.choose-money > input {
   background: #f2f2f2;
   width: 100%;
   height: 88rpx;
@@ -53,6 +54,7 @@
 .choose-money .selected {
   background: #fdaf31;
   color: #fff;
+  border: 1rpx solid #fdaf31;
 }
 
 /* 会员信息 */
@@ -77,7 +79,8 @@
   margin-right: 39rpx;
 }
 
-.vip-1>view:first-child, .vip-2>view:first-child {
+.vip-1 > view:first-child,
+.vip-2 > view:first-child {
   font-size: 30rpx;
   color: #333;
 }
@@ -86,7 +89,7 @@
   font-size: 30rpx;
   color: #999;
 }
-.vip-info .vip-text>view{
+.vip-info .vip-text > view {
   line-height: 46rpx;
 }
 .vip-info .vip-2 {
