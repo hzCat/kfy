@@ -103,21 +103,21 @@ Page({
               var arr2 = that.data.orderList;
               var arr3 = arr2.concat(arr);
               // setTimeout(function() {
+              that.setData({
+                orderList: arr3
+              });
+              if (arr.length == 14) {
+                var p = that.data.page + 1;
                 that.setData({
-                  orderList: arr3
+                  page: p,
+                  isMore: true
                 });
-                if (arr.length == 14) {
-                  var p = that.data.page + 1;
-                  that.setData({
-                    page: p,
-                    isMore: true
-                  });
-                } else if (arr.length != 14) {
-                  that.setData({
-                    isMore: false
-                  });
-                }
-                wx.hideLoading();
+              } else if (arr.length != 14) {
+                that.setData({
+                  isMore: false
+                });
+              }
+              wx.hideLoading();
               // }, 2000);
             }
           });

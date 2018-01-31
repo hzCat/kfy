@@ -3,6 +3,7 @@ let app = getApp();
 let jump = require("../../utils/jump.js");
 let http = require("../../utils/ajax.js");
 let storage = require("../../utils/storage.js");
+let modal = require("../../utils/modal");
 let update = require("../../utils/update.js");
 Page({
   /**
@@ -15,7 +16,8 @@ Page({
     getUserInfoCount: 0,
     hasUserInfo: false,
     modalOn: false,
-    staticUrl: null
+    staticUrl: null,
+    isPullDown: false
   },
 
   /**
@@ -42,19 +44,65 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    storage.gets("allInfo").then(res => {
-      console.log("userCenter获取allInfo", res.data);
-      this.setData({
-        allInfo: res.data,
-        getUserInfoCount: 0
-      });
-    });
+    // storage.gets("allInfo").then(res => {
+    //   console.log("userCenter获取allInfo", res.data);
+    //   this.setData({
+    //     allInfo: res.data,
+    //     getUserInfoCount: 0
+    //   });
+    // });
+    this.getAllInfo();
     this.getUserInfo();
   },
   // 下拉刷新用户信息
   onPullDownRefresh() {
-    this.refreshUserInfo();
+    this.setData(
+      {
+        isPullDown: true
+      },
+      () => {
+        this.refreshUserInfo();
+      }
+    );
   },
+  // 接口更新用户信息
+  getAllInfo() {
+    console.log("个人中心刷新用户all信息");
+    wx.showNavigationBarLoading();
+    let that = this;
+    let url = "/vip/getCurrentVipUser";
+    http
+      .ajax(url, "GET", {}, app.globalData.header)
+      .then(function(res) {
+        console.log("获取所有用户信息", res);
+        that.setData({
+          allInfo: res.data.data
+        });
+        storage.sets("allInfo", res.data.data);
+        setTimeout(() => {
+          wx.hideNavigationBarLoading();
+          if (that.data.isPullDown) {
+            wx.stopPullDownRefresh();
+            that.setData({
+              isPullDown: false
+            });
+          }
+        }, 1500);
+      })
+      .catch(err => {
+        setTimeout(() => {
+          wx.hideNavigationBarLoading();
+          if (that.data.isPullDown) {
+            wx.stopPullDownRefresh();
+            that.setData({
+              isPullDown: false
+            });
+          }
+        }, 1500);
+        modal.modal("提示", "网络差");
+      });
+  },
+  // 缓存获取微信用户信息
   getUserInfo() {
     let that = this;
     // setTimeout(() => {
@@ -85,19 +133,8 @@ Page({
   // 刷新
   refreshUserInfo() {
     let that = this;
-    wx.showNavigationBarLoading();
-    update.updateuser(app.globalData.header);
-    // that.getUserInfo();
-    setTimeout(function() {
-      that.getUserInfo();
-      storage.gets("allInfo").then(res => {
-        that.setData({
-          allInfo: res.data
-        });
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
-      });
-    }, 1500);
+    that.getUserInfo();
+    that.getAllInfo();
   },
   getHead(e) {
     let jumpto = e.currentTarget.dataset.jump;

@@ -1,3 +1,6 @@
+.container {
+  background: #f0f0f0;
+}
 .success,
 .fail {
   width: 100%;
@@ -48,8 +51,14 @@
 .fail .btn-quit {
   margin-top: 56rpx;
   background: #fbfafc;
-  border: 1rpx solid #eee;
+  border: 1rpx solid #d5d6d5;
   color: #333;
+}
+.success .quit-group,
+.fail .quit-group {
+  background: #fdaf31;
+  color: #fff;
+  border: 1rpx solid #fdaf31;
 }
 .success .detail,
 .fail .detail {

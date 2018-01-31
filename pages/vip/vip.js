@@ -152,15 +152,26 @@ Page({
         console.log("刷新卡片信息", res.data.data);
         let cardList = res.data.data;
         let arr = card.turn(cardList);
-        let p_total = turn.tostr(arr[0].cardBalance);
-        let t_total = turn.tostr(arr[1].cardBalance);
+        console.log("更新后的卡片",arr);
+        let p_total = null;
+        let t_total = null;
+        if (arr[0]&&arr[0].cardBalance) {
+          p_total = turn.tostr(arr[0].cardBalance);
+        }
+        console.log(2);
+        if (arr[1]&&arr[1].cardBalance) {
+          t_total = turn.tostr(arr[1].cardBalance);
+        }
+        console.log(3);
         this.setData({
           list: arr,
           p_total: p_total,
           t_total: t_total
         });
+        console.log(4);
       })
       .catch(err => {
+        console.log("刷新卡错误", err);
         modal.modal("提示", "会员信息更新失败,请重试");
       });
   },

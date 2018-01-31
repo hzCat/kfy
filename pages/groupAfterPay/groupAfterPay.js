@@ -1,6 +1,7 @@
 let http = require("../../utils/ajax.js");
 let app = getApp();
 let jump = require("../../utils/jump.js");
+let turn = require("../../utils/turnto");
 Page({
   /**
    * 页面的初始数据
@@ -8,7 +9,10 @@ Page({
   data: {
     detail: {},
     modalOn: false,
-    showNum: 2
+    showNum: 2,
+    total: null,
+    pay: null,
+    offList: null
   },
 
   /**
@@ -19,9 +23,31 @@ Page({
     let data = { settlementId: options.id };
     http.ajax(url, "GET", data, app.globalData.header).then(res => {
       console.log(res.data);
-      this.setData({
-        detail: res.data.tradeResponse
-      });
+      let all = res.data.tradeResponse;
+      let total = turn.tostr(all.orderAmt);
+      let pay = turn.tostr(all.payAmt);
+      if (all.settlementOfferDetailList) {
+        let offList = all.settlementOfferDetailList;
+        let offLength = offList.length;
+        for (let i = 0; i < offLength; i++) {
+          let obj = offList[i];
+          let offmoney = turn.tostr(obj.offerAmt);
+          obj.offerAmt = offmoney;
+          offList[i] = obj;
+        }
+        this.setData({
+          detail: all,
+          total: total,
+          pay: pay,
+          offList: offList
+        });
+      } else {
+        this.setData({
+          detail: all,
+          total: total,
+          pay: pay,
+        });
+      }
     });
   },
   // 显示更多

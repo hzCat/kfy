@@ -1,5 +1,6 @@
 .container2 {
   background: #f0f0f0;
+  min-height: 100vh;
 }
 .container2 .order-one {
   height: 120rpx;

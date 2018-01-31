@@ -1,6 +1,7 @@
 let jump = require("../../utils/jump.js");
 let http = require("../../utils/ajax.js");
 let scan = require("../../utils/scanQR.js");
+let turn = require("../../utils/turnto.js");
 Page({
   /**
    * 页面的初始数据
@@ -22,9 +23,10 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
+    let price = turn.tostr(options.money);
     this.setData({
       orderId: options.orderId,
-      orderPrice: options.money,
+      orderPrice: price,
       isSucc: options.isSucc,
       by: options.by,
       code: options.code,
@@ -88,7 +90,7 @@ Page({
         modalOn: true
       },
       () => {
-        jump.jump("rel", jumpto);
+        jump.jump("switch", jumpto);
       }
     );
   },

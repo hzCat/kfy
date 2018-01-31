@@ -28,8 +28,8 @@
         <!-- <image wx:if="{{currentLevel}}" class='vip-img' src="../../img/chargemoney/{{currentLevel.levelName}}.png"></image> -->
         <view class='vip-text'>
           <view>1.充值 {{currentLevel.rechargeGetAmt||willGetLevel.rechargeGiftAmt}} 赠送 {{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</view>
-          <view>2.消费订单结算 {{currentLevel.baseSettlementProportion||willGetLevel.baseSettlementProportion}} 折</view>
-          <view>3.积分比例 1：{{currentLevel.baseIntegralProportion||willGetLevel.baseIntegralProportion}}</view>
+          <!-- <view>2.消费订单结算 {{currentLevel.baseSettlementProportion||willGetLevel.baseSettlementProportion}} 折</view> -->
+          <view>2.积分比例 1：{{currentLevel.baseIntegralProportion||willGetLevel.baseIntegralProportion}}</view>
         </view>
       </view>
     </view>
@@ -39,8 +39,8 @@
         <image class='vip-img' src="../../img/chargemoney/VIP{{nextGetLevel.level}}.png"></image>
         <view class='vip-text'>
           <view>1.充值 {{nextGetLevel.rechargeGetAmt}} 赠送 {{nextGetLevel.rechargeGiftAmt}}</view>
-          <view>2.消费订单结算 {{nextGetLevel.baseSettlementProportion}} 折</view>
-          <view>3.积分比例 1：{{nextGetLevel.baseIntegralProportion}}</view>
+          <!-- <view>2.消费订单结算 {{nextGetLevel.baseSettlementProportion}} 折</view> -->
+          <view>2.积分比例 1：{{nextGetLevel.baseIntegralProportion}}</view>
         </view>
       </view>
     </view>

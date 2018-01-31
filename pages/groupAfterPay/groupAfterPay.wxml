@@ -13,22 +13,23 @@
     </view>
     <view class="detail-one">
       <view class="left">合计</view>
-      <view class="right">￥{{detail.orderAmt||'0.00'}}</view>
+      <view class="right">￥{{total||'0.00'}}</view>
     </view>
-    <view class="detail-one" wx:if="{{detail.settlementOfferDetailList}}">
+    <view class="detail-one" wx:if="{{offList}}">
       <view class="left">优惠</view>
       <view class="right">
-        <view class="discount" wx:for="{{detail.settlementOfferDetailList}}" wx:key="index"><text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view>
+        <view class="discount" wx:for="{{offList}}" wx:key="index">
+          <text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view>
         <!-- <view class="discount-one">2222222</view> -->
       </view>
     </view>
     <view class="detail-one">
       <view class="left">需支付</view>
-      <view class="right">￥{{detail.payAmt||'0.00'}}</view>
+      <view class="right">￥{{pay||'0.00'}}</view>
     </view>
     <view class="detail-one">
       <view class="left">已支付</view>
-      <view class="right">￥{{detail.payAmt||'0.00'}}</view>
+      <view class="right">￥{{pay||'0.00'}}</view>
     </view>
     <!-- <view class="detail-one">
       <view class="left">现金收款</view>
