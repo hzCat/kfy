@@ -279,7 +279,8 @@ Page({
         setTimeout(() => {
           this.setData({
             paySucc: false,
-            openModal: false
+            openModal: false,
+            showMoney: false
           });
           wx.setScreenBrightness({
             value: that.data.userscreenLight
@@ -297,7 +298,8 @@ Page({
             paySucc: false,
             openModal: false,
             QRModal: true,
-            QRsrc: "../../img/default_QR.png"
+            QRsrc: "../../img/default_QR.png",
+            showMoney: false
           });
           wx.setScreenBrightness({
             value: that.data.userscreenLight

@@ -10,7 +10,8 @@ App({
     canCheck: true,
     staticUrl: null,
     header: {},
-    serviceNumber: ""
+    serviceNumber: "",
+    timer: 0
   },
   // 全局加载一次
   onLaunch: function() {
@@ -67,53 +68,61 @@ App({
   // 检查更新
   check() {
     var that = this;
-    // 获取第三方token
-    storage
-      .gets("3rd_session")
-      .then(function(res) {
-        console.log("3rd_session获取成功");
-        // 更新数据,如果登陆过期code402,则重新登陆
-        var url = "/vip/getCurrentVipUser";
-        var data = {};
-        var method = "GET";
-        var header = {
-          _yzsaas_token: res.data,
-          "content-type": "application/x-www-form-urlencoded"
-        };
-        // 设置全局header
-        that.globalData.header = {
-          _yzsaas_token: res.data,
-          "content-type": "application/x-www-form-urlencoded"
-        };
-        console.log(that.globalData.header);
-        http
-          .ajax(url, method, data, header)
+    // 检查登陆状态
+    wx.checkSession({
+      success: function() {
+        console.log("checksession_success");
+        // 获取第三方token
+        storage
+          .gets("3rd_session")
           .then(function(res) {
-            console.log("登录获取用户信息", res.data);
-            if (res.data.code == "402") {
-              console.log("登陆过期");
-              that.login();
-            } else {
-              wx.setStorage({
-                key: "allInfo",
-                data: res.data.data
+            console.log("3rd_session获取成功");
+            // 更新数据,如果登陆过期code402,则重新登陆
+            var url = "/vip/getCurrentVipUser";
+            console.log(res.data);
+            var header = {
+              _yzsaas_token: res.data,
+              "content-type": "application/x-www-form-urlencoded",
+              "X-Requested-With": "XMLHttpRequest"
+            };
+            // 设置全局header
+            that.globalData.header = header;
+            console.log(that.globalData.header);
+            http
+              .ajax(url, "GET", {}, header)
+              .then(function(res) {
+                console.log("登录获取用户信息", res.data);
+                if (res.data.code == 402) {
+                  console.log("登陆过期");
+                  that.login();
+                } else if (res.data.code == 200) {
+                  console.log("成功获取allInfo");
+                  storage.sets("allInfo", res.data.data);
+                }
+              })
+              .catch(function(err) {
+                console.log(err.errMsg);
+                modal.modal("提示", "有点小问题，请重启小程序");
               });
-            }
           })
           .catch(function(err) {
-            console.log(err.errMsg);
-            modal.modal("提示", "有点小问题，请重启小程序");
+            let timer = that.data.timer;
+            if (timer < 5) {
+              setTimeout(() => {
+                that.login();
+                that.globalData.timer = timer + 1;
+              }, 500);
+            } else {
+              modal.modal("提示", "网络差");
+            }
           });
-      })
-      .catch(function(err) {
-        that.login();
-      });
-    // 获取用户信息
-    // storage.gets("userInfo")
-    //   .then(function (res) {})
-    //   .catch(function () {
-    //     that.getInfo();
-    //   })
+      },
+      fail: function() {
+        console.log("checksession_fail");
+        //登录态过期
+        that.login(); //重新登录
+      }
+    });
   },
 
   // 登录
@@ -142,14 +151,16 @@ App({
                 // 设置全局header
                 that.globalData.header = {
                   _yzsaas_token: res.data.data.token,
-                  "content-type": "application/x-www-form-urlencoded"
+                  "content-type": "application/x-www-form-urlencoded",
+                  "X-Requested-With": "XMLHttpRequest"
                 };
               }
             });
             // 在这儿更新会员信息,更新缓存,allInfo
             var header = {
               _yzsaas_token: res.data.data.token,
-              "content-type": "application/x-www-form-urlencoded"
+              "content-type": "application/x-www-form-urlencoded",
+              "X-Requested-With": "XMLHttpRequest"
             };
             update.updateuser(header);
           })
@@ -160,6 +171,7 @@ App({
       },
       fail(err) {
         console.log(err);
+        modal.modal("提示", "网络差");
       }
     });
   },
@@ -170,8 +182,8 @@ App({
     wx.getUserInfo({
       success: function(res) {
         var nick = res.userInfo.nickName;
-        var avatar = String(res.userInfo.avatarUrl);
-        var gender = String(res.userInfo.gender);
+        var avatar = "" + res.userInfo.avatarUrl;
+        var gender = "" + res.userInfo.gender;
         wx.setStorage({
           key: "userInfo",
           data: res.userInfo

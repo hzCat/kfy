@@ -22,6 +22,10 @@ Page({
    */
   onLoad: function(options) {
     let that = this;
+    wx.showLoading({
+      title: "查询中",
+      mask: true
+    });
     // 获取订单列表
     var url = "/vipOrder/findOrderPaging";
     var method = "GET";
@@ -44,9 +48,14 @@ Page({
         arr[i] = obj;
       }
       console.log(arr);
-      that.setData({
-        orderList: arr
-      });
+      that.setData(
+        {
+          orderList: arr
+        },
+        () => {
+          wx.hideLoading();
+        }
+      );
       if (arr.length == 14) {
         var p = that.data.page + 1;
         that.setData({
@@ -74,6 +83,7 @@ Page({
   // 上拉刷新
   onReachBottom() {
     var that = this;
+
     var url = "/vipOrder/findOrderPaging";
     var method = "GET";
     var data = {
@@ -103,9 +113,14 @@ Page({
               var arr2 = that.data.orderList;
               var arr3 = arr2.concat(arr);
               // setTimeout(function() {
-              that.setData({
-                orderList: arr3
-              });
+              that.setData(
+                {
+                  orderList: arr3
+                },
+                () => {
+                  wx.hideLoading();
+                }
+              );
               if (arr.length == 14) {
                 var p = that.data.page + 1;
                 that.setData({
@@ -117,7 +132,6 @@ Page({
                   isMore: false
                 });
               }
-              wx.hideLoading();
               // }, 2000);
             }
           });

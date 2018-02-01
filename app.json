@@ -25,7 +25,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f9f9f9",
     "navigationBarTitleText": "功夫元",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default"
   },
   "tabBar": {
     "color": "#999999",

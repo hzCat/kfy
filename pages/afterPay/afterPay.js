@@ -99,7 +99,8 @@ Page({
     this.setData({
       modalOn: true
     });
-    let by = this.data.enter;
-    scan.refresh(by);
+    jump.jump("rel", "/pages/index/index?scanAgain=true");
+    // let by = this.data.enter;
+    // scan.refresh(by);
   }
 });

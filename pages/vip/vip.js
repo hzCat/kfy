@@ -84,7 +84,7 @@ Page({
       .ajax("/vip/getVipLevelList", "GET", data, app.globalData.header)
       .then(res => {
         console.log("个人卡列表", res.data.data);
-        let isvip = card.getvip2(res.data.data);
+        let isvip = card.getvip2(res.data.data) || false;
         console.log("个人是不是会员", isvip);
         let isVip = that.data.isVip;
         isVip[0] = isvip;
@@ -118,7 +118,7 @@ Page({
       .ajax("/vip/getVipLevelList", "GET", data, app.globalData.header)
       .then(res => {
         console.log("团卡列表", res.data.data);
-        let istvip = card.getvip2(res.data.data);
+        let istvip = card.getvip2(res.data.data) || false;
         console.log("团餐是不是会员", istvip);
         that.isApply(res.data.data);
         that.isWait(res.data.data);
@@ -152,14 +152,14 @@ Page({
         console.log("刷新卡片信息", res.data.data);
         let cardList = res.data.data;
         let arr = card.turn(cardList);
-        console.log("更新后的卡片",arr);
+        console.log("更新后的卡片", arr);
         let p_total = null;
         let t_total = null;
-        if (arr[0]&&arr[0].cardBalance) {
+        if (arr[0] && arr[0].cardBalance) {
           p_total = turn.tostr(arr[0].cardBalance);
         }
         console.log(2);
-        if (arr[1]&&arr[1].cardBalance) {
+        if (arr[1] && arr[1].cardBalance) {
           t_total = turn.tostr(arr[1].cardBalance);
         }
         console.log(3);

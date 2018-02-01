@@ -106,38 +106,53 @@ Page({
             // let nowPage = this.data.page;
             if (newLength < 14) {
               if (this.data.inOut == "CONSUME_RECORD") {
-                this.setData({
-                  detailList: nowList,
-                  moreOne: false
-                });
+                this.setData(
+                  {
+                    detailList: nowList,
+                    moreOne: false
+                  },
+                  () => {
+                    wx.hideLoading();
+                  }
+                );
               } else if (this.data.inOut == "RECHARGE_RECORD") {
-                this.setData({
-                  detailListTwo: nowList,
-                  moreTwo: false
-                });
+                this.setData(
+                  {
+                    detailListTwo: nowList,
+                    moreTwo: false
+                  },
+                  () => {
+                    wx.hideLoading();
+                  }
+                );
               }
             } else {
               if (this.data.inOut == "CONSUME_RECORD") {
-                this.setData({
-                  detailList: nowList,
-                  pageOne: page + 1
-                });
+                this.setData(
+                  {
+                    detailList: nowList,
+                    pageOne: page + 1
+                  },
+                  () => {
+                    wx.hideLoading();
+                  }
+                );
               } else if (this.data.inOut == "RECHARGE_RECORD") {
-                this.setData({
-                  detailListTwo: nowList,
-                  pageTwo: page + 1
-                });
+                this.setData(
+                  {
+                    detailListTwo: nowList,
+                    pageTwo: page + 1
+                  },
+                  () => {
+                    wx.hideLoading();
+                  }
+                );
               }
             }
-            setTimeout(function() {
-              wx.hideLoading();
-            }, 1000);
           }
         })
         .catch(err => {
-          setTimeout(function() {
-            wx.hideLoading();
-          }, 1000);
+          wx.hideLoading();
         });
     }
   },
