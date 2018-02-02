@@ -46,6 +46,10 @@ Page({
 
   // 获取可用卡
   getUserCard(orderId, offmoney) {
+    wx.showLoading({
+      title: "加载中",
+      mask: true
+    });
     let that = this;
     let url = "/vipPayment/getCardInfoList";
     let method = "GET";
@@ -84,6 +88,7 @@ Page({
         }
       })
       .catch(err => {
+        wx.hideLoading();
         let succ = () => {
           jump.jump("back");
         };
@@ -118,8 +123,10 @@ Page({
             offDetail: arr
           });
         }
+        wx.hideLoading();
       })
       .catch(err => {
+        wx.hideLoading();
         let succ = () => {
           jump.jump("back");
         };
