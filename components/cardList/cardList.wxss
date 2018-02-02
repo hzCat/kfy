@@ -9,7 +9,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  transition: transform 0.15s linear;
+  transition: transform 0.2s linear;
 }
 .card-component .card-con .card {
   width: 590rpx;

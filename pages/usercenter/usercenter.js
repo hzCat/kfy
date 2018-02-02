@@ -138,7 +138,7 @@ Page({
   },
   getHead(e) {
     let jumpto = e.currentTarget.dataset.jump;
-    if (this.data.hasUserInfo) {
+    if (this.data.hasUserInfo || this.data.allInfo.avatar) {
       console.log("有userInfo");
       jump.jump("nav", jumpto);
     } else {

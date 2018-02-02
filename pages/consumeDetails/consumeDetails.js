@@ -49,14 +49,13 @@ Page({
     }
 
     // var url = "/vip/getVipCardRecordDetail";
-    var method = "GET";
     var data = {
       // recordType: options.type,
       recordId: options.id
     };
     var header = app.globalData.header;
     http
-      .ajax(url, method, data, header)
+      .ajax(url, "GET", data, header)
       .then(function(res) {
         console.log(res.data.data);
 
@@ -90,12 +89,16 @@ Page({
   },
 
   jump(e) {
-    this.setData({
-      modalOn: true
-    });
     console.log(e);
     var pattern = e.currentTarget.dataset.pattern;
     var jumpto = e.currentTarget.dataset.jump;
-    jump.jump(pattern, jumpto);
+    this.setData(
+      {
+        modalOn: true
+      },
+      () => {
+        jump.jump(pattern, jumpto);
+      }
+    );
   }
 });

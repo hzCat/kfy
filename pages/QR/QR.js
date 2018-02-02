@@ -224,7 +224,7 @@ Page({
       });
       // 最高亮度
       wx.setScreenBrightness({
-        value: 1
+        value: 0.7
       });
       that.openQRmodal();
       // 连接成功
