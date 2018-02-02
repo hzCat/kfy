@@ -159,7 +159,7 @@ Page({
     if (/^[123456789]\d{0,4}(\.\d{2}){1}$/.test(turnNum)) {
       console.log("Money", e.detail.value);
       let obj = this.data.pushInfo;
-      obj.transferAmt = e.detail.value;
+      obj.transferAmt = turnNum;
       this.setData({
         pushInfo: obj,
         money: turnNum

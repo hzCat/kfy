@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "团餐资料",
+  "disableScroll":true,
   "usingComponents": {
     "shade": "../../components/shade/shade"
   }

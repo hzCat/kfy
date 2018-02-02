@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "充值",
+  "disableScroll":true,
   "usingComponents": {
     "deal": "../../components/deal/deal",
     "shade": "../../components/shade/shade"

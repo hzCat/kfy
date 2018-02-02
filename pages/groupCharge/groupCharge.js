@@ -96,7 +96,7 @@ Page({
     if (/^1\d*(\.\d{2}){1}$/.test(turnNum)) {
       console.log("金额", e.detail.value);
       let obj = this.data.pushInfo;
-      obj.rechargeAmt = e.detail.value;
+      obj.rechargeAmt = turnNum;
       this.setData({
         money: turnNum,
         pushInfo: obj

@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "团餐充值",
+  "disableScroll":true,
   "usingComponents": {
     "shade": "../../components/shade/shade"
   }

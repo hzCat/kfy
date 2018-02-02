@@ -19,6 +19,7 @@ Page({
     if (options.scanAgain == "true") {
       this.openScan();
     }
+    
   },
 
   /**

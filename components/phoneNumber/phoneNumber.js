@@ -28,7 +28,7 @@ Component({
     tips: "获取验证码",
     errorTips: "请输入有效手机号码",
     time: null,
-    modalOn:false
+    modalOn: false
   },
 
   /**
@@ -59,40 +59,47 @@ Component({
       });
     },
     getTest() {
-      if (this.data.phoneNumber && this.data.tips == "获取验证码") {
-        // 请求验证码
-        let url = "/vipCenter/getBindCode";
-        let data = {
-          mobile: this.data.phoneNumber
-        };
-        http.ajax(url, "GET", data, app.globalData.header).then(res => {
-          let content = "";
-          if (res.data.code == 200) {
-            content = "短信已发送,请注意接收";
-          } else if (res.data.code == 650 || res.data.code == 414) {
-            content = "不支持的手机号";
-          } else if (res.data.code == 610) {
-            content = "手机号已绑定";
+      this.setData(
+        {
+          modalOn: true
+        },
+        () => {
+          if (this.data.phoneNumber && this.data.tips == "获取验证码") {
+            // 请求验证码
+            let url = "/vipCenter/getBindCode";
+            let data = {
+              mobile: this.data.phoneNumber
+            };
+            http.ajax(url, "GET", data, app.globalData.header).then(res => {
+              let content = "";
+              if (res.data.code == 200) {
+                content = "短信已发送,请注意接收";
+              } else if (res.data.code == 650 || res.data.code == 414) {
+                content = "不支持的手机号";
+              } else if (res.data.code == 610) {
+                content = "手机号已绑定";
+              } else {
+                content = "暂时无法绑定,请稍后再试";
+              }
+              this.oneMinute();
+              this.setData({
+                numberError: true,
+                errorTips: content
+              });
+            });
+          } else if (this.data.phoneNumber && this.data.tips == "重新发送") {
+            this.setData({
+              numberError: true,
+              errorTips: "请勿频繁获取验证码"
+            });
           } else {
-            content = "暂时无法绑定,请稍后再试";
+            this.setData({
+              numberError: true,
+              errorTips: "请输入有效手机号码"
+            });
           }
-          this.oneMinute();
-          this.setData({
-            numberError: true,
-            errorTips: content
-          });
-        });
-      } else if (this.data.phoneNumber && this.data.tips == "重新发送") {
-        this.setData({
-          numberError: true,
-          errorTips: "请勿频繁获取验证码"
-        });
-      } else {
-        this.setData({
-          numberError: true,
-          errorTips: "请输入有效手机号码"
-        });
-      }
+        }
+      );
     },
     oneMinute() {
       let now = 60;
@@ -125,8 +132,8 @@ Component({
           code: this.data.testNumber
         };
         that.setData({
-          modalOn:true
-        })
+          modalOn: true
+        });
         http.ajax(url, "POST", data, app.globalData.header).then(res => {
           console.log(res);
           if (res.data.code == 413) {

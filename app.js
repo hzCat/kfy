@@ -11,7 +11,8 @@ App({
     staticUrl: null,
     header: {},
     serviceNumber: "",
-    timer: 0
+    timer: 0,
+    test: 1
   },
   // 全局加载一次
   onLaunch: function() {
@@ -34,7 +35,6 @@ App({
       console.log("客服电话", res.data);
       this.globalData.serviceNumber = res.data;
     });
-    this.getStaticUrl();
   },
 
   // 打开小程序就执行
@@ -46,6 +46,7 @@ App({
         if (res.networkType != "2g" && res.networkType != "none") {
           // 网络正常再登陆
           if (that.globalData.canCheck) {
+            that.getStaticUrl();
             that.check();
             that.globalData.canCheck = false;
             // 30s内onshow不会再次请求,离开界面再进入就会触发onShow,扫码,确认微信用户信息等
@@ -81,6 +82,7 @@ App({
             var url = "/vip/getCurrentVipUser";
             console.log(res.data);
             var header = {
+              // _yzsaas_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIzIiwiZXhwaXJlVGltZSI6MTUxODE1Njc2MjEwMiwic2Vzc2lvbktleSI6IkprYVhna0xYVXVGWU5KbElqUjhPQVE9PSIsInN1YlBsYXRmb3JtIjoiV0VDSEFSVCIsImNyZWF0ZVRpbWUiOjE1MTc1NTE5NjIxMDIsInRoaXJkSWQiOiJvSl8ySDBZUlRLeEcyU2k2YjlFODY3ZDRtQ1BBIiwib3BlbklkIjoib1ZjMFIwUmgtLVlvSE1FMzN1bXctZVJVSFVtUSIsIm1vYmlsZSI6bnVsbCwibG9naW5TY29wZSI6IlZJUCJ9.lQz1veJ_X3URsBwp30w0z6ebB2LvT0UYWRBxkBrGAP8",
               _yzsaas_token: res.data,
               "content-type": "application/x-www-form-urlencoded",
               "X-Requested-With": "XMLHttpRequest"
@@ -92,10 +94,11 @@ App({
               .ajax(url, "GET", {}, header)
               .then(function(res) {
                 console.log("登录获取用户信息", res.data);
-                if (res.data.code == 402) {
-                  console.log("登陆过期");
-                  that.login();
-                } else if (res.data.code == 200) {
+                // if (res.data.code == 402) {
+                //   console.log("登陆过期");
+                //   that.login();
+                // } else 
+                if (res.data.code == 200) {
                   console.log("成功获取allInfo");
                   storage.sets("allInfo", res.data.data);
                 }
@@ -106,7 +109,7 @@ App({
               });
           })
           .catch(function(err) {
-            let timer = that.data.timer;
+            let timer = that.globalData.timer;
             if (timer < 5) {
               setTimeout(() => {
                 that.login();
@@ -191,7 +194,8 @@ App({
         storage.gets("3rd_session").then(function(res) {
           var header = {
             _yzsaas_token: res.data,
-            "content-type": "application/x-www-form-urlencoded"
+            "content-type": "application/x-www-form-urlencoded",
+            "X-Requested-With": "XMLHttpRequest"
           };
           wxInfo(header);
         });

@@ -158,17 +158,14 @@ Page({
         if (arr[0] && arr[0].cardBalance) {
           p_total = turn.tostr(arr[0].cardBalance);
         }
-        console.log(2);
         if (arr[1] && arr[1].cardBalance) {
           t_total = turn.tostr(arr[1].cardBalance);
         }
-        console.log(3);
         this.setData({
           list: arr,
           p_total: p_total,
           t_total: t_total
         });
-        console.log(4);
       })
       .catch(err => {
         console.log("刷新卡错误", err);

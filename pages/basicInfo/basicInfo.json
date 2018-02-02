@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "基础信息",
+  "disableScroll":true,
   "usingComponents": {
     "shade": "../../components/shade/shade"
   }
