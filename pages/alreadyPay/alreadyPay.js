@@ -37,6 +37,7 @@ Page({
     // 获取详情
     http.ajax(url, method, data, header).then(function(res) {
       // console.log(res.data.data);
+      console.log(res.data.data.offerDetailList);
       if (res.data.data.offerDetailList) {
         let off = res.data.data.offerDetailList;
         console.log(res.data.data);

@@ -8,7 +8,7 @@
     <view class="left {{isVip[0]?none:'not-vip'}}" data-scope="VIP" bindtap="toQR">
       <image src="{{isVip[0]?'../../icon/isVip.png':'../../icon/notVip.png'}}"></image>
       <view class="name">
-        会员付款
+        {{isVip[0]?'会员付款':'开通会员'}}
       </view>
     </view>
     <view class="center" bindtap="openScan">
@@ -20,7 +20,7 @@
     <view class="right {{isVip[1]?none:'not-vip'}}" data-scope="TVIP" bindtap="toQR">
       <image src="{{isVip[1]?'../../icon/isTvip.png':'../../icon/notTvip.png'}}"></image>
       <view class="name">
-        团餐付款
+        {{isVip[1]?'团餐付款':'开通团餐'}}
       </view>
     </view>
   </view>

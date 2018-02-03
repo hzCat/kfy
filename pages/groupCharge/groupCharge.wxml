@@ -62,7 +62,7 @@
     <text bindtap="call">{{serviceNumber||'获取失败'}}</text>
   </view>
   <view class="btn-group">
-    <button class="cancel" bindtap="cancelFail" wx:if="{{chargeInfo.orderStatus=='FAIL'}}">取消返回</button>
+    <button class="cancel" bindtap="cancelFail" wx:if="{{chargeInfo.orderStatus=='FAIL'}}">取消并返回</button>
     <button class="submit" bindtap="pushAllInfo" disabled="{{chargeInfo!=null&&chargeInfo.orderStatus=='DEALING'}}">{{(chargeInfo!=null&&chargeInfo.orderStatus=='DEALING')?'处理中':'提交'}}</button>
   </view>
 </view>

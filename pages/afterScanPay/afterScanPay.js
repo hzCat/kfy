@@ -28,7 +28,7 @@ Page({
         let total = turn.tostr(info.orderAmt);
         let pay = turn.tostr(info.payAmt);
         // 如果有优惠
-        if (info.settlementOfferDetailList) {
+        if (info.settlementOfferDetailList.length != 0) {
           let offList = info.settlementOfferDetailList;
           let offLength = offList.length;
           for (let i = 0; i < offLength; i++) {
@@ -53,6 +53,7 @@ Page({
             detail: res.data
           });
         }
+        console.log("youhui", this.data.offList);
         // this.setData({
         //   detail: res.data
         // });

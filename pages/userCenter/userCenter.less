@@ -22,9 +22,12 @@
       border-radius: 50%;
       box-shadow: 0 8rpx 24rpx rgba(218, 137, 44, 0.54);
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .head {
-        width: 180rpx;
-        height: 180rpx;
+        width: 192rpx;
+        height: 192rpx;
         border-radius: 50%;
       }
     }
@@ -42,20 +45,26 @@
       align-items: center;
       height: 96rpx;
       font-size: 34rpx;
-      padding:28rpx 0;
-      line-height: 40rpx;
+      padding: 28rpx 0;
+      // line-height: 40rpx;
       padding-left: 124rpx;
       image {
         width: 40rpx;
         height: 40rpx;
+        line-height: 40rpx;
         margin-right: 32rpx;
       }
-      >view{
-        height:40rpx;
+      > view:last-child {
+        height: 40rpx;
         line-height: 40rpx;
+        text {
+          line-height: 34rpx;
+        }
       }
       text {
+        height: 40rpx;
         font-size: 28rpx;
+        line-height: 40rpx;
         color: #999;
       }
       .order-name {
@@ -64,20 +73,22 @@
         align-items: center;
         text:first-child {
           font-size: 34rpx;
+          line-height: 34rpx;
           color: #000;
         }
-      }
-      .badge {
-        display: inline-block;
-        border-radius: 18rpx;
-        height: 40rpx;
-        line-height: 40rpx;
-        margin:3rpx 0;
-        font-size: 26rpx;
-        background: #f12c20;
-        color: #fff;
-        padding: 0 12rpx;
-        margin-left: 16rpx;
+        .badge {
+          // display: inline-block;
+          border-radius: 18rpx;
+          height: 40rpx;
+          line-height: 40rpx;
+          // margin: 3rpx 0;
+          font-size: 26rpx;
+          background: #f12c20;
+          color: #fff;
+          padding: 0 12rpx;
+          margin-left: 16rpx;
+          margin-top: -6rpx;
+        }
       }
     }
   }

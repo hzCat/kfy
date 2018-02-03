@@ -93,7 +93,7 @@ Page({
     let num = e.detail.value;
     let turnNum = turn.tostr(num);
     console.log(turnNum);
-    if (/^1\d*(\.\d{2}){1}$/.test(turnNum)) {
+    if (/^[123456789]\d*(\.\d{2}){1}$/.test(turnNum)) {
       console.log("金额", e.detail.value);
       let obj = this.data.pushInfo;
       obj.rechargeAmt = turnNum;
@@ -205,6 +205,7 @@ Page({
     });
     let url = "/recharge/userCancelApply";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
+      console.log(res)
       if (res.data.code == 200 && res.data.result == true) {
         update.updateuser(app.globalData.header);
         wx.showToast({
@@ -213,8 +214,8 @@ Page({
           duration: 2000,
           success() {
             setTimeout(() => {
-              // jump.jump("rel", "/pages/vip/vip?type=group");
-              jump.jump("back");
+              jump.jump("rel", "/pages/vip/vip?type=group");
+              // jump.jump("back");
             }, 2000);
           }
         });

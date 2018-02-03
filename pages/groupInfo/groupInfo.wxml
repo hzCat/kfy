@@ -66,7 +66,7 @@
     </view>
   </view>
   <view class="btn-group">
-    <button class="cancel" wx:if="{{applyInfo.applyStatus=='FAIL'}}" bindtap="cancelApply">取消返回</button>
+    <button class="cancel" wx:if="{{applyInfo.applyStatus=='FAIL'}}" bindtap="cancelApply">取消并返回</button>
     <button class='submit' disabled='{{false}}' bindtap="pushAllInfo">提交</button>
   </view>
 </view>

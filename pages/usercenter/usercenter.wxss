@@ -24,10 +24,13 @@
   border-radius: 50%;
   box-shadow: 0 8rpx 24rpx rgba(218, 137, 44, 0.54);
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fixed .header-con .header .head {
-  width: 180rpx;
-  height: 180rpx;
+  width: 192rpx;
+  height: 192rpx;
   border-radius: 50%;
 }
 .fixed .content .name {
@@ -43,20 +46,25 @@
   height: 96rpx;
   font-size: 34rpx;
   padding: 28rpx 0;
-  line-height: 40rpx;
   padding-left: 124rpx;
 }
 .fixed .content .list-one image {
   width: 40rpx;
   height: 40rpx;
+  line-height: 40rpx;
   margin-right: 32rpx;
 }
-.fixed .content .list-one > view {
+.fixed .content .list-one > view:last-child {
   height: 40rpx;
   line-height: 40rpx;
 }
+.fixed .content .list-one > view:last-child text {
+  line-height: 34rpx;
+}
 .fixed .content .list-one text {
+  height: 40rpx;
   font-size: 28rpx;
+  line-height: 40rpx;
   color: #999;
 }
 .fixed .content .list-one .order-name {
@@ -66,17 +74,17 @@
 }
 .fixed .content .list-one .order-name text:first-child {
   font-size: 34rpx;
+  line-height: 34rpx;
   color: #000;
 }
-.fixed .content .list-one .badge {
-  display: inline-block;
+.fixed .content .list-one .order-name .badge {
   border-radius: 18rpx;
   height: 40rpx;
   line-height: 40rpx;
-  margin: 3rpx 0;
   font-size: 26rpx;
   background: #f12c20;
   color: #fff;
   padding: 0 12rpx;
   margin-left: 16rpx;
+  margin-top: -6rpx;
 }

@@ -34,9 +34,11 @@ Page({
     } else if (type == "personal") {
       navbar.title("个人余额");
     }
-    this.setData({
-      by: type
-    });
+    if (type) {
+      this.setData({
+        by: type
+      });
+    }
   },
 
   /**
@@ -75,17 +77,21 @@ Page({
         console.log(p_gift, t_gift);
 
         // console.log(arr2);
-        this.setData({
-          cardList: arr,
-          isVip: arr2,
-          p_total: p_total,
-          t_total: t_total,
-          p_charge: p_charge,
-          t_charge: t_charge,
-          p_gift: p_gift,
-          t_gift: t_gift
-        });
-        wx.hideLoading();
+        this.setData(
+          {
+            cardList: arr,
+            isVip: arr2,
+            p_total: p_total,
+            t_total: t_total,
+            p_charge: p_charge,
+            t_charge: t_charge,
+            p_gift: p_gift,
+            t_gift: t_gift
+          },
+          () => {
+            wx.hideLoading();
+          }
+        );
       })
       .catch(err => {
         console.log(err);

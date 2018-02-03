@@ -1,3 +1,6 @@
+.container {
+  background: #fff;
+}
 .ad-img {
   height: 530rpx;
   width: 100%;

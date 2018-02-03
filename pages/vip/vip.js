@@ -237,7 +237,8 @@ Page({
           });
         } else {
           this.setData({
-            rechargeDeal: true
+            rechargeDeal: true,
+            rechargeFail: false
           });
         }
         break;
