@@ -26,7 +26,7 @@ Page({
       let all = res.data.tradeResponse;
       let total = turn.tostr(all.orderAmt);
       let pay = turn.tostr(all.payAmt);
-      if (all.settlementOfferDetailList) {
+      if (all.settlementOfferDetailList.length != 0) {
         let offList = all.settlementOfferDetailList;
         let offLength = offList.length;
         for (let i = 0; i < offLength; i++) {
@@ -42,11 +42,16 @@ Page({
           offList: offList
         });
       } else {
-        this.setData({
-          detail: all,
-          total: total,
-          pay: pay,
-        });
+        this.setData(
+          {
+            detail: all,
+            total: total,
+            pay: pay
+          },
+          () => {
+            console.log(this.data.offList);
+          }
+        );
       }
     });
   },
