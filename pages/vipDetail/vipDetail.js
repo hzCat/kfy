@@ -2,6 +2,7 @@ let app = getApp();
 let http = require("../../utils/ajax.js");
 let navbar = require("../../utils/navbar.js");
 let jump = require("../../utils/jump.js");
+let turn = require("../../utils/turnto");
 Page({
   /**
    * 页面的初始数据
@@ -92,7 +93,14 @@ Page({
           if (res.data.data) {
             let list = res.data.data.rows;
             let newLength = list.length;
-
+            // 更新list,补充两位小数
+            for (let i = 0; i < newLength; i++) {
+              let obj = list[i];
+              let amount = turn.tostr(obj.amount);
+              console.log(amount);
+              obj.amount = amount;
+              list[i] = obj;
+            }
             let nowList = hasList.concat(list);
             if (nowList.length == 0) {
               this.setData({

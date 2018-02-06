@@ -4,7 +4,7 @@
         <view class="first">
             <view>订单</view>
             <view>
-                <view bindtap="jump" data-pattern="nav" data-jump="/pages/alreadyPay/alreadyPay?id={{item.id}}" wx:for="{{detail.orderList}}"
+                <view bindtap="jump" data-pattern="nav" data-jump="/pages/alreadyPay/alreadyPay?id={{item.id}}&type={{(item.orderSource=='TEAM_ORDER'?'group':'personal')}}" wx:for="{{detail.orderList}}"
                     wx:key="index">{{item.orderNo}}>></view>
             </view>
         </view>
