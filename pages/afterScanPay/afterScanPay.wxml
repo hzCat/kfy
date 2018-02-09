@@ -44,7 +44,8 @@
       <view class="right">￥{{pay||'0.00'}}</view>
     </view>
     <button class="back" data-jump="back" bindtap="jump">返回</button>
-    <button class="show-order" data-jump="/pages/alreadyPay/alreadyPay?id={{detail.tradeResponse.orderList[0].id}}" bindtap="jump">查看订单</button>
+    <button class="show-order" data-jump="/pages/allOrder/allOrder" bindtap="jump">查看订单</button>
+    <!-- <button class="show-order" data-jump="/pages/alreadyPay/alreadyPay?id={{detail.tradeResponse.orderList[0].id}}" bindtap="jump">查看订单</button> -->
   </view>
   <!-- 支付失败 -->
   <view class="fail"></view>
