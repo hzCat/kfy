@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 40rpx;
 }
 .success .icon {
   margin-top: 101rpx;
@@ -16,6 +17,45 @@
   font-size: 40rpx;
   margin-top: 60rpx;
   margin-bottom: 64rpx;
+}
+.success .order-no-title {
+  color: #999;
+  font-size: 30rpx;
+  margin-top: 62rpx;
+}
+.success .order-no-con {
+  margin-top: 28rpx;
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 28rpx;
+}
+.success .order-no-con .onder-no-one {
+  line-height: 36 rpx;
+}
+.success .more {
+  height: 52rpx;
+  line-height: 52rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #999;
+  font-size: 26rpx;
+  color: #999;
+  padding: 0 26rpx;
+}
+.success .more .array {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  border-left: 4rpx solid #999;
+  border-bottom: 4rpx solid #999;
+  transform: rotateZ(-45deg) translateY(-5rpx);
+  margin-right: 16rpx;
+}
+.success .more .rotate {
+  transform: rotateZ(135deg);
+}
+.success .more .num {
+  display: inline-block;
+  line-height: 52rpx;
 }
 .success .detail-one {
   width: 100%;

@@ -17,7 +17,7 @@
 
     <view class="show-more" data-type="food" bindtap="showMore" wx:if="{{orderData.detailList.length>4}}">
       <image class="{{(foodMore>4)&&'img-rotate'}}" src="../../icon/show_more.png"></image>
-      <text>更多菜品({{orderData.detailList.length}})</text>
+      <text>更多菜品{{foodMore>4?'':'('+(orderData.detailList.length-4)+')'}}</text>
     </view>
   </view>
 

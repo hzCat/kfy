@@ -1,13 +1,14 @@
-.container{
-  background:#f0f0f0;
+.container {
+  background: #f0f0f0;
 }
 .success {
   width: 100%;
-  height: 100;
+  // height: 100;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 40rpx;
   .icon {
     margin-top: 101rpx;
   }
@@ -15,6 +16,49 @@
     font-size: 40rpx;
     margin-top: 60rpx;
     margin-bottom: 64rpx;
+  }
+  .order-no-title {
+    color: #999;
+    font-size: 30rpx;
+    margin-top: 62rpx;
+  }
+  .order-no-con {
+    margin-top: 28rpx;
+    font-size: 26rpx;
+    color: #999;
+    margin-bottom: 28rpx;
+
+    .onder-no-one {
+      line-height: (20+16)rpx;
+    }
+  }
+  .more {
+    height: 52rpx;
+    line-height: 52rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #999;
+    font-size: 26rpx;
+    color: #999;
+    padding: 0 26rpx;
+    // display: flex;
+    // justify-content: flex-start;
+    // align-items: center;
+    .array {
+      display: inline-block;
+      width: 14rpx;
+      height: 14rpx;
+      border-left: 4rpx solid #999;
+      border-bottom: 4rpx solid #999;
+      transform: rotateZ(-45deg) translateY(-5rpx);
+      margin-right: 16rpx;
+    }
+    .rotate {
+      transform: rotateZ(135deg);
+    }
+    .num {
+      display: inline-block;
+      line-height: 52rpx;
+    }
   }
   .detail-one {
     width: 100%;
@@ -43,9 +87,9 @@
     font-size: 32rpx;
     margin-top: 64rpx;
   }
-  .show-order{
-    background:#fbfafc;
-    color:#000;
-    border:1rpx solid #d6d5d6;
+  .show-order {
+    background: #fbfafc;
+    color: #000;
+    border: 1rpx solid #d6d5d6;
   }
 }

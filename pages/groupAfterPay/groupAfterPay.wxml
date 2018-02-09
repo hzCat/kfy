@@ -5,11 +5,17 @@
     <view class="order-no-title">订单编号</view>
     <view class="order-no-con">
       <view class="order-no-one" wx:for="{{detail.orderList}}" wx:key="index" wx:if="{{index<=(showNum-1)}}">{{item.orderNo||'暂无'}}</view>
-      <!-- <view class="order-no-one">12345123451234512345</view> -->
+      <!-- <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view> -->
     </view>
     <view class="more" wx:if="{{detail.orderList.length>2}}" bindtap="showMore">
       <view class="array {{showNum>2&&'rotate'}}"></view>
-      <view class="num">更多订单({{detail.orderList.length}})</view>
+      <view class="num">更多订单{{showNum>2?'':'('+(detail.orderList.length-2)+')'}}</view>
     </view>
     <view class="detail-one">
       <view class="left">合计</view>

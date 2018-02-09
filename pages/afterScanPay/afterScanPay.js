@@ -11,7 +11,8 @@ Page({
     modalOn: false,
     total: null,
     pay: null,
-    offList: null
+    offList: null,
+    showNum: 2
   },
 
   /**
@@ -85,5 +86,18 @@ Page({
         }
       }
     );
+  },
+  // 显示更多
+  showMore() {
+    let length = this.data.detail.tradeResponse.orderList.length;
+    if (this.data.showNum == 2) {
+      this.setData({
+        showNum: length
+      });
+    } else {
+      this.setData({
+        showNum: 2
+      });
+    }
   }
 });

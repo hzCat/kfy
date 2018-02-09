@@ -3,15 +3,32 @@
   <view class="success">
     <icon class="icon" type="success" color="#fdaf31" size="100"></icon>
     <view class="title">支付成功</view>
-    <view class="detail-one">
+    <!-- <view class="detail-one">
       <view class="left">订单</view>
       <view class="right">{{detail.tradeResponse.orderList[0].orderNo||'无'}}</view>
+    </view> -->
+
+    <view class="order-no-title">订单编号</view>
+    <view class="order-no-con">
+      <view class="order-no-one" wx:for="{{detail.tradeResponse.orderList}}" wx:key="index" wx:if="{{index<=(showNum-1)}}">{{item.orderNo||'暂无'}}</view>
+      <!-- <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view>
+      <view class="order-no-one">12345123451234512345</view> -->
     </view>
+    <view class="more" wx:if="{{detail.tradeResponse.orderList.length>2}}" bindtap="showMore">
+      <view class="array {{showNum>2&&'rotate'}}"></view>
+      <view class="num">更多订单{{showNum>2?'':'('+(detail.tradeResponse.orderList.length-2)+')'}}</view>
+    </view>
+
     <view class="detail-one">
       <view class="left">合计</view>
       <view class="right">￥{{total||'0.00'}}</view>
     </view>
-     <!-- 无优惠时不显示 -->
+    <!-- 无优惠时不显示 -->
     <view class="detail-one" wx:if="{{offList}}">
       <view class="left discount">优惠</view>
       <view class="right">

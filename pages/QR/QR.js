@@ -23,7 +23,8 @@ Page({
     showMoney: false,
     modalOn: false,
     VIPNo: null,
-    TVIPNo: null
+    TVIPNo: null,
+    timerStop: null
   },
 
   /**
@@ -75,6 +76,7 @@ Page({
       value: that.data.userscreenLight
     });
     wx.closeSocket();
+    clearTimeout(this.data.timerStop);
   },
   onHide() {
     let that = this;
@@ -82,6 +84,7 @@ Page({
       value: that.data.userscreenLight
     });
     wx.closeSocket();
+    clearTimeout(this.data.timerStop);
   },
   // 获取所有信息
   getAllInfo() {
@@ -249,7 +252,7 @@ Page({
   // 定时50s关闭
   openQRmodal() {
     let that = this;
-    setTimeout(() => {
+    var timer = setTimeout(() => {
       // 重新获取,刷新二维码,金额隐藏
       this.setData({
         QRModal: true,
@@ -263,6 +266,9 @@ Page({
         value: that.data.userscreenLight
       });
     }, 50000);
+    this.setData({
+      timerStop: timer
+    });
   },
   // websocket 长连接获取支付信息
   getPayBack(status, id) {

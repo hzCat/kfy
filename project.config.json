@@ -46,7 +46,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "afterScanPay扫码支付成功",
 					"pathName": "pages/afterScanPay/afterScanPay",
 					"query": ""
@@ -58,7 +58,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "groupafterPay团餐支付结果页",
 					"pathName": "pages/groupAfterPay/groupAfterPay",
 					"query": ""

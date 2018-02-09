@@ -16,15 +16,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (options.scanAgain == "true") {
-      this.openScan();
+    if (options.scanAgain) {
+      console.log("onload options", options.scanAgain);
+      setTimeout(() => {
+        this.openScan();
+      }, 500);
     }
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function(options) {
     this.setData({
       modalOn: false
     });
@@ -114,18 +117,18 @@ Page({
   // 打开二维码扫描
   openScan() {
     let that = this;
-    let close = function() {
-      console.log("shade关闭");
-      that.setData({
-        modalOn: false
-      });
-    };
+    // let close = function() {
+    //   console.log("shade关闭");
+    //   that.setData({
+    //     modalOn: false
+    //   });
+    // };
     that.setData(
       {
         modalOn: true
       },
       () => {
-        scan.default(close, close);
+        scan.default();
       }
     );
 
