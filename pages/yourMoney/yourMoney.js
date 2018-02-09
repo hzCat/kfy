@@ -63,18 +63,40 @@ Page({
         let list = res.data.data;
         let arr = card.turn(list);
         let arr2 = card.getvip(list);
-        console.log(111);
-        let p_total = turn.tostr(arr[0].cardBalance);
-        let t_total = turn.tostr(arr[1].cardBalance);
-        console.log(p_total, t_total);
+        console.log("转换卡", arr);
+        let p_total = null;
+        let t_total = null;
+        let p_charge = null;
+        let t_charge = null;
+        let p_gift = null;
+        let t_gift = null;
 
-        let p_charge = turn.tostr(arr[0].totalRecharge);
-        let t_charge = turn.tostr(arr[1].totalRecharge);
-        console.log(p_charge, t_charge);
+        if (arr[0]) {
+          if (arr[0].cardBalance) {
+            p_total = turn.tostr(arr[0].cardBalance);
+          }
+          if (arr[0].totalRecharge) {
+            p_charge = turn.tostr(arr[0].totalRecharge);
+          }
+          if (arr[0].totalGift) {
+            p_gift = turn.tostr(arr[0].totalGift);
+          }
+        }
 
-        let p_gift = turn.tostr(arr[0].totalGift);
-        let t_gift = turn.tostr(arr[1].totalGift);
-        console.log(p_gift, t_gift);
+        if (arr[1]) {
+          if (arr[1].cardBalance) {
+            t_total = turn.tostr(arr[1].cardBalance);
+          }
+          if (arr[1].totalRecharge) {
+            t_charge = turn.tostr(arr[1].totalRecharge);
+          }
+          if (arr[1].totalGift) {
+            t_gift = turn.tostr(arr[1].totalGift);
+          }
+        }
+        console.log("总赠送", p_gift, t_gift);
+        console.log("总余额", p_total, t_total);
+        console.log("总充值", p_charge, t_charge);
 
         // console.log(arr2);
         this.setData(
