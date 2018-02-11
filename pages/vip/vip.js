@@ -66,6 +66,10 @@ Page({
         bindMobile: bindPhone
       });
     });
+    wx.showLoading({
+      title: "更新会员信息",
+      mask: true
+    });
     this.refreshCard();
     this.getVipList();
     this.getTvipList();
@@ -92,14 +96,20 @@ Page({
         console.log("个卡开通等级", level);
         let l = res.data.data.length;
         let w = 750 * l - 130 * (l - 1);
-        that.setData({
-          vipCardList: res.data.data,
-          vipWidth: w,
-          vipLevel: level,
-          isvip: isvip
-        });
+        that.setData(
+          {
+            vipCardList: res.data.data,
+            vipWidth: w,
+            vipLevel: level,
+            isvip: isvip
+          },
+          () => {
+            wx.hideLoading();
+          }
+        );
       })
       .catch(err => {
+        wx.hideLoading();
         let succ = res => {
           if (res.confirm) {
             jump.jump("switch", "/pages/index/index");
@@ -127,14 +137,20 @@ Page({
         console.log("团餐开通等级", level);
         let l = res.data.data.length;
         let w = 750 * l - 130 * (l - 1);
-        that.setData({
-          tvipCardList: res.data.data,
-          tvipWidth: w,
-          tvipLevel: level,
-          istvip: istvip
-        });
+        that.setData(
+          {
+            tvipCardList: res.data.data,
+            tvipWidth: w,
+            tvipLevel: level,
+            istvip: istvip
+          },
+          () => {
+            wx.hideLoading();
+          }
+        );
       })
       .catch(err => {
+        wx.hideLoading();
         let succ = res => {
           if (res.confirm) {
             jump.jump("switch", "/pages/index/index");
@@ -161,13 +177,19 @@ Page({
         if (arr[1] && arr[1].cardBalance) {
           t_total = turn.tostr(arr[1].cardBalance);
         }
-        this.setData({
-          list: arr,
-          p_total: p_total,
-          t_total: t_total
-        });
+        this.setData(
+          {
+            list: arr,
+            p_total: p_total,
+            t_total: t_total
+          },
+          () => {
+            wx.hideLoading();
+          }
+        );
       })
       .catch(err => {
+        wx.hideLoading();
         console.log("刷新卡错误", err);
         modal.modal("提示", "会员信息更新失败,请重试");
       });

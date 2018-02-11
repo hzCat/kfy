@@ -18,7 +18,7 @@ App({
   onLaunch: function() {
     var that = this;
     that.globalData.canCheck = true;
-    console.log("当前版本,v1.1-group");
+    console.log("当前版本,v2.0");
     // 打开调试
     wx.setEnableDebug({
       enableDebug: true
@@ -31,12 +31,16 @@ App({
         modal.modal("提示", "无网络，请检查后重试");
       }
     });
+
+    this.getServiceNum();
+  },
+  // 获取服务号码
+  getServiceNum() {
     http.ajax("/common/getServiceContact").then(res => {
       console.log("客服电话", res.data);
       this.globalData.serviceNumber = res.data;
     });
   },
-
   // 打开小程序就执行
   onShow() {
     let that = this;
@@ -97,7 +101,7 @@ App({
                 // if (res.data.code == 402) {
                 //   console.log("登陆过期");
                 //   that.login();
-                // } else 
+                // } else
                 if (res.data.code == 200) {
                   console.log("成功获取allInfo");
                   storage.sets("allInfo", res.data.data);
@@ -174,7 +178,7 @@ App({
       },
       fail(err) {
         console.log(err);
-        modal.modal("提示", "网络差");
+        modal.modal("提示", "网络差,登录失败");
       }
     });
   },
