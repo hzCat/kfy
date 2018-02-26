@@ -176,6 +176,11 @@ wx-button[disabled]:not([type]) {
   font-size: 28rpx;
   text-align: right;
 }
+.input-con textarea {
+  padding-left: 100rpx;
+  font-size: 28rpx;
+  text-align: right;
+}
 .placeholder {
   color: #999;
 }
