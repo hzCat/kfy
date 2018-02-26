@@ -23,7 +23,8 @@ Page({
     modalOn: false,
     type: "personal",
     groupDetail: null,
-    enter: null
+    enter: null,
+    showAll: false
   },
 
   /**
@@ -43,7 +44,8 @@ Page({
     });
     // 设置进入类型
     this.setData({
-      enter: options.by
+      enter: options.by,
+      showAll: false
     });
     if (type == "group") {
       this.setData({
@@ -77,7 +79,8 @@ Page({
             that.setData({
               orderData: res.data.data,
               offMoney: res.data.data,
-              orderId: res.data.data.id
+              orderId: res.data.data.id,
+              showAll: true
             });
 
             // 获取可用卡
@@ -102,13 +105,15 @@ Page({
               orderData: res.data.data,
               offMoney: res.data.data,
               orderId: orderId,
-              groupDetail: res.data.data.deliveryInfoResponse
+              groupDetail: res.data.data.deliveryInfoResponse,
+              showAll: true
             });
           } else {
             that.setData({
               orderData: res.data.data,
               offMoney: res.data.data,
-              orderId: orderId
+              orderId: orderId,
+              showAll: true
             });
           }
           that.getUserCard(orderId, true);

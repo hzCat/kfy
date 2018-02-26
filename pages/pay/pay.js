@@ -187,8 +187,8 @@ Page({
           let json = res.data.data;
           console.log(json);
           // 调用微信支付
-          if (json.sendRequest == true) {
-            if (code == 200 && result == true) {
+          if (code == 200 && result == true) {
+            if (json.sendRequest == true) {
               pay
                 .wpay(json)
                 .then(function(res) {
@@ -287,99 +287,100 @@ Page({
                   });
                   // modal.modal("提示", "调用微信支付失败");
                 });
-            } else if (code == 400) {
-              modal.modal("提示", "订单不存在");
-            } else if (code == 402) {
-              modal.modal("提示", "登录过期,请重启应用");
-            } else if (code == 5012) {
-              modal.modal("提示", "订单已过期");
-            } else {
-              modal.modal("提示", "系统异常");
+            } else if (json.sendRequest == false) {
+              // 查询提示框,在跳转前结束
+              wx.showLoading({
+                title: "查询中",
+                mask: true
+              });
+              setTimeout(function() {
+                // 查询支付结果
+                pay
+                  .payback(json.settlementId, app.globalData.header)
+                  .then(function(res) {
+                    console.log("微信支付结果", res.data);
+                    let obj = res.data;
+                    let money = null;
+                    let orderNo = null;
+                    if (obj.tradeResponse) {
+                      money = obj.tradeResponse.payAmt;
+                      orderNo = obj.tradeResponse.orderList[0].orderNo;
+                    }
+                    // SUCCESS订单(by,isSucc,money,orderId)
+                    if (obj.tradeStatus == "SUCCESS") {
+                      update.updateuser(app.globalData.header);
+                      wx.hideLoading();
+                      jump.jump(
+                        "redirect",
+                        `/pages/afterPay/afterPay?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}&type=${
+                          that.data.type
+                        }&enter=${that.data.enter}`
+                      );
+                      // FAIL ERROR订单(by,isSucc,orderId)
+                    } else if (
+                      obj.tradeStatus == "FAILED" ||
+                      obj.tradeStatus == "ERROR"
+                    ) {
+                      wx.hideLoading();
+                      jump.jump(
+                        "nav",
+                        `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=${
+                          that.data.enter
+                        }`
+                      );
+                      //UNKNOWN状态订单
+                    } else if (obj.tradeStatus == "UNKNOWN") {
+                      // 二次查询,3s
+                      setTimeout(function() {
+                        // 查询订单支付结果
+                        pay
+                          .payback(json.settlementId, app.globalData.header)
+                          .then(function(res) {
+                            console.log("微信支付结果", res.data);
+                            let obj = res.data;
+                            let money = obj.tradeResponse.payAmt;
+                            let orderNo =
+                              obj.tradeResponse.orderList[0].orderNo;
+                            // SUCCESS订单(by,isSucc,money,orderId)
+                            if (obj.tradeStatus == "SUCCESS") {
+                              update.updateuser(app.globalData.header);
+                              wx.hideLoading();
+                              jump.jump(
+                                "redirect",
+                                `/pages/afterPay/afterPay?by=wechat&money=${money}&orderId=${orderNo}&type=${
+                                  that.data.type
+                                }&enter=${that.data.enter}`
+                              );
+                              // FAIL ERROR订单(by,isSucc,orderId)
+                            } else {
+                              wx.hideLoading();
+                              jump.jump(
+                                "nav",
+                                `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=${
+                                  that.data.enter
+                                }`
+                              );
+                            }
+                          })
+                          .catch(err => {
+                            console.log(err);
+                          });
+                      }, 3000); //二次查询
+                    }
+                  })
+                  .catch(err => {
+                    console.log(err);
+                  });
+              }, 2000); //一次查询
             }
-          } else if (json.sendRequest == false) {
-            // 查询提示框,在跳转前结束
-            wx.showLoading({
-              title: "查询中",
-              mask: true
-            });
-            setTimeout(function() {
-              // 查询支付结果
-              pay
-                .payback(json.settlementId, app.globalData.header)
-                .then(function(res) {
-                  console.log("微信支付结果", res.data);
-                  let obj = res.data;
-                  let money = null;
-                  let orderNo = null;
-                  if (obj.tradeResponse) {
-                    money = obj.tradeResponse.payAmt;
-                    orderNo = obj.tradeResponse.orderList[0].orderNo;
-                  }
-                  // SUCCESS订单(by,isSucc,money,orderId)
-                  if (obj.tradeStatus == "SUCCESS") {
-                    update.updateuser(app.globalData.header);
-                    wx.hideLoading();
-                    jump.jump(
-                      "redirect",
-                      `/pages/afterPay/afterPay?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}&type=${
-                        that.data.type
-                      }&enter=${that.data.enter}`
-                    );
-                    // FAIL ERROR订单(by,isSucc,orderId)
-                  } else if (
-                    obj.tradeStatus == "FAILED" ||
-                    obj.tradeStatus == "ERROR"
-                  ) {
-                    wx.hideLoading();
-                    jump.jump(
-                      "nav",
-                      `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=${
-                        that.data.enter
-                      }`
-                    );
-                    //UNKNOWN状态订单
-                  } else if (obj.tradeStatus == "UNKNOWN") {
-                    // 二次查询,3s
-                    setTimeout(function() {
-                      // 查询订单支付结果
-                      pay
-                        .payback(json.settlementId, app.globalData.header)
-                        .then(function(res) {
-                          console.log("微信支付结果", res.data);
-                          let obj = res.data;
-                          let money = obj.tradeResponse.payAmt;
-                          let orderNo = obj.tradeResponse.orderList[0].orderNo;
-                          // SUCCESS订单(by,isSucc,money,orderId)
-                          if (obj.tradeStatus == "SUCCESS") {
-                            update.updateuser(app.globalData.header);
-                            wx.hideLoading();
-                            jump.jump(
-                              "redirect",
-                              `/pages/afterPay/afterPay?by=wechat&money=${money}&orderId=${orderNo}&type=${
-                                that.data.type
-                              }&enter=${that.data.enter}`
-                            );
-                            // FAIL ERROR订单(by,isSucc,orderId)
-                          } else {
-                            wx.hideLoading();
-                            jump.jump(
-                              "nav",
-                              `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=${
-                                that.data.enter
-                              }`
-                            );
-                          }
-                        })
-                        .catch(err => {
-                          console.log(err);
-                        });
-                    }, 3000); //二次查询
-                  }
-                })
-                .catch(err => {
-                  console.log(err);
-                });
-            }, 2000); //一次查询
+          } else if (code == 400) {
+            modal.modal("提示", "订单不存在");
+          } else if (code == 402) {
+            modal.modal("提示", "登录过期,请重启应用");
+          } else if (code == 5012) {
+            modal.modal("提示", "订单已过期");
+          } else {
+            modal.modal("提示", "系统异常");
           }
         })
         .catch(function(err) {
@@ -475,7 +476,7 @@ Page({
               "nav",
               `/pages/afterPay/afterPay?by=card&isSucc=false&code=${code}&enter=${
                 that.data.enter
-              }`
+              }&type=${that.data.type}`
             );
           }
         })

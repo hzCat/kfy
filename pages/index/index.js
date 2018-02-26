@@ -2,6 +2,7 @@ let jump = require("../../utils/jump.js");
 let storage = require("../../utils/storage.js");
 let scan = require("../../utils/scanQR.js");
 let card = require("../../utils/cardTurn.js");
+let modal = require("../../utils/modal");
 Page({
   /**
    * 页面的初始数据
@@ -9,7 +10,8 @@ Page({
   data: {
     modalOn: false,
     isVip: [],
-    showLoad: false
+    showLoad: false,
+    reqTimer: 0
   },
 
   /**
@@ -62,7 +64,16 @@ Page({
           });
         }
         setTimeout(() => {
-          this.getAllInfo();
+          if (that.data.reqTimer < 30) {
+            let now = that.data.reqTimer;
+            this.getAllInfo();
+            this.setData({
+              reqTimer: now + 1
+            });
+          } else {
+            wx.hideLoading();
+            modal.modal("提示", "登录失败,请稍后重试");
+          }
         }, 500);
       });
   },

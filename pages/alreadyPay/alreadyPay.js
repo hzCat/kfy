@@ -1,6 +1,8 @@
 var http = require("../../utils/ajax.js");
 var navbar = require("../../utils/navbar.js");
 var offColor = require("../../utils/offColor.js");
+let jump = require("../../utils/jump");
+let modal = require("../../utils/modal");
 let app = getApp();
 Page({
   /*** 页面的初始数据*/
@@ -38,6 +40,15 @@ Page({
     http.ajax(url, method, data, header).then(function(res) {
       // console.log(res.data.data);
       console.log(res.data.data.offerDetailList);
+      if (res.data.data.orderStatus) {
+        let status = res.data.data.orderStatus;
+        if (status == "NOT_PAY") {
+          let succ = () => {
+            jump.jump("back_2");
+          };
+          modal.modal("提示", "订单未支付,请返回刷新列表", false, succ);
+        }
+      }
       if (res.data.data.offerDetailList) {
         let off = res.data.data.offerDetailList;
         console.log(res.data.data);

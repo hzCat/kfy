@@ -48,7 +48,7 @@
         font-size: 34rpx;
         height: 120rpx;
         line-height: 120rpx;
-        border-bottom:1rpx solid #e5e5e5;
+        border-bottom: 1rpx solid #e5e5e5;
         image {
           width: 40rpx;
           height: 40rpx;
@@ -108,7 +108,7 @@
       }
     }
     .vip-show {
-      margin-bottom:24rpx;
+      margin-bottom: 24rpx;
       .your {
         padding: 0 40rpx;
         line-height: 120rpx;
@@ -209,12 +209,21 @@
   // top: 0;
   // z-index: 500;
   width: 100%;
-  height: 88rpx;
+  height: 0rpx;
   background: rgba(233, 79, 79, 0.91);
   color: #fff;
-  padding: 0rpx 40rpx 0rpx 80rpx;
+  padding: 0rpx 16rpx 0rpx 80rpx;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  transition: height 0.3s linear;
+  .close {
+    height: 88rpx;
+    width: 88rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   image {
     width: 40rpx;
     height: 40rpx;
@@ -223,8 +232,11 @@
     font-size: 34rpx;
     height: 40rpx;
     line-height: 40rpx;
-    width: 550rpx;
+    width: 526rpx;
     display: inline-block;
     padding-left: 24rpx;
   }
+}
+.fail-tips-show {
+  height: 88rpx;
 }

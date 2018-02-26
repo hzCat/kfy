@@ -99,7 +99,11 @@ Page({
     this.setData({
       modalOn: true
     });
-    jump.jump("rel", "/pages/index/index?scanAgain=true");
+    if (this.data.type == "group") {
+      jump.jump("back");
+    }else{
+      jump.jump("rel", "/pages/index/index?scanAgain=true");
+    }
     // let by = this.data.enter;
     // scan.refresh(by);
   }

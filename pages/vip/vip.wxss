@@ -202,11 +202,20 @@
 }
 .fail-tips {
   width: 100%;
-  height: 88rpx;
+  height: 0rpx;
   background: rgba(233, 79, 79, 0.91);
   color: #fff;
-  padding: 0rpx 40rpx 0rpx 80rpx;
+  padding: 0rpx 16rpx 0rpx 80rpx;
   display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: height 0.3s linear;
+}
+.fail-tips .close {
+  height: 88rpx;
+  width: 88rpx;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .fail-tips image {
@@ -217,7 +226,10 @@
   font-size: 34rpx;
   height: 40rpx;
   line-height: 40rpx;
-  width: 550rpx;
+  width: 526rpx;
   display: inline-block;
   padding-left: 24rpx;
+}
+.fail-tips-show {
+  height: 88rpx;
 }

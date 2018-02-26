@@ -46,6 +46,7 @@
 .success .btn-again,
 .fail .btn-again {
   margin-top: 80rpx;
+  font-size: 32rpx;
 }
 .success .btn-quit,
 .fail .btn-quit {
@@ -53,6 +54,7 @@
   background: #fbfafc;
   border: 1rpx solid #d5d6d5;
   color: #333;
+  font-size: 32rpx;
 }
 .success .quit-group,
 .fail .quit-group {
@@ -76,4 +78,5 @@
 .success .fail-btn-again,
 .fail .fail-btn-again {
   margin-top: 131rpx;
+  font-size: 32rpx;
 }

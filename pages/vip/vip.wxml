@@ -1,16 +1,20 @@
 <!--pages/vip/vip.wxml-->
 <view class="container">
   <!-- 申请失败 -->
-  <view class="fail-tips" wx:if="{{applyFail}}">
+  <view class="fail-tips {{applyFail&&'fail-tips-show'}}">
     <image src="../../icon/fail_tips.png"></image>
     <text decode="true" bindtap="jump" data-jump="/pages/groupInfo/groupInfo">申请失败, 查看详情>></text>
-    <image src="../../icon/xxx.png" catchtap="closeFail"></image>
+    <view class="close" catchtap="closeFail">
+      <image src="../../icon/xxx.png"></image>
+    </view>
   </view>
   <!-- 充值失败 -->
-  <view class="fail-tips" wx:if="{{rechargeFail}}">
+  <view class="fail-tips {{rechargeFail&&'fail-tips-show'}}">
     <image src="../../icon/fail_tips.png"></image>
     <text decode="true" bindtap="jump" data-jump="/pages/groupCharge/groupCharge">申请失败, 查看详情>></text>
-    <image src="../../icon/xxx.png" catchtap="closeFail"></image>
+    <view class="close" catchtap="closeFail">
+      <image src="../../icon/xxx.png"></image>
+    </view>
   </view>
 
   <!-- 切换 -->
