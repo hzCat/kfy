@@ -27,7 +27,7 @@
         <image wx:if="{{willGetLevel||currentLevel}}" class='vip-img' src="../../img/chargemoney/VIP{{willGetLevel.level||currentLevel.level}}.png"></image>
         <!-- <image wx:if="{{currentLevel}}" class='vip-img' src="../../img/chargemoney/{{currentLevel.levelName}}.png"></image> -->
         <view class='vip-text'>
-          <view>1.充值 {{currentLevel.rechargeGetAmt||willGetLevel.rechargeGiftAmt}} 赠送 {{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</view>
+          <view>1.充值 {{currentLevel.rechargeGetAmt||willGetLevel.rechargeGetAmt}} 赠送 {{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</view>
           <!-- <view>2.消费订单结算 {{currentLevel.baseSettlementProportion||willGetLevel.baseSettlementProportion}} 折</view> -->
           <view>2.积分比例 1：{{currentLevel.baseIntegralProportion||willGetLevel.baseIntegralProportion}}</view>
         </view>

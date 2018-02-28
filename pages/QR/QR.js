@@ -5,6 +5,7 @@ let storage = require("../../utils/storage.js");
 let jump = require("../../utils/jump.js");
 let card = require("../../utils/cardTurn.js");
 let update = require("../../utils/update");
+let modal = require("../../utils/modal");
 Page({
   /**
    * 页面的初始数据
@@ -89,33 +90,40 @@ Page({
   // 获取所有信息
   getAllInfo() {
     wx.showLoading({
-      title: "获取中"
+      title: "获取中",
+      mask: true
     });
     // 接口获取
     let url = "/vip/getVipCardList";
-    http.ajax(url, "GET", {}, app.globalData.header).then(res => {
-      console.log("QR获取卡详情", res.data.data);
-      let list = res.data.data;
-      let arr = card.turn(list);
-      this.setData({
-        cardList: arr
+    http
+      .ajax(url, "GET", {}, app.globalData.header)
+      .then(res => {
+        console.log("QR获取卡详情", res.data.data);
+        let list = res.data.data;
+        let arr = card.turn(list);
+        this.setData({
+          cardList: arr
+        });
+        if (arr[0]) {
+          let cardNo1 = arr[0].vipCardNo;
+          let newNo = this.replaceCardNo(cardNo1);
+          this.setData({
+            VIPNo: newNo
+          });
+        }
+        if (arr[1]) {
+          let cardNo2 = arr[1].vipCardNo;
+          let newNo = this.replaceCardNo(cardNo2);
+          this.setData({
+            TVIPNo: newNo
+          });
+        }
+        wx.hideLoading();
+      })
+      .catch(function(err) {
+        wx.hideLoading();
+        modal.modal("提示", "连接失败");
       });
-      if (arr[0]) {
-        let cardNo1 = arr[0].vipCardNo;
-        let newNo = this.replaceCardNo(cardNo1);
-        this.setData({
-          VIPNo: newNo
-        });
-      }
-      if (arr[1]) {
-        let cardNo2 = arr[1].vipCardNo;
-        let newNo = this.replaceCardNo(cardNo2);
-        this.setData({
-          TVIPNo: newNo
-        });
-      }
-      wx.hideLoading();
-    });
 
     // 缓存获取
     // storage.gets("allInfo").then(res => {

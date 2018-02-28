@@ -77,6 +77,10 @@ App({
     wx.checkSession({
       success: function() {
         console.log("checksession_success");
+        wx.showLoading({
+          title: "登录中",
+          mask: true
+        });
         // 获取第三方token
         storage
           .gets("3rd_session")
@@ -106,10 +110,12 @@ App({
                   console.log("成功获取allInfo");
                   storage.sets("allInfo", res.data.data);
                 }
+                wx.hideLoading();
               })
               .catch(function(err) {
                 console.log(err.errMsg);
-                modal.modal("提示", "有点小问题，请重启小程序");
+                wx.hideLoading();
+                modal.modal("提示", "获取会员信息失败");
               });
           })
           .catch(function(err) {
@@ -120,7 +126,7 @@ App({
                 that.globalData.timer = timer + 1;
               }, 500);
             } else {
-              modal.modal("提示", "网络差");
+              modal.modal("提示", "网络差,登录失败");
             }
           });
       },
@@ -173,7 +179,7 @@ App({
           })
           .catch(function(error) {
             console.log(error);
-            modal.modal("提示", "有点小问题，请重启小程序");
+            modal.modal("提示", "网络差,登录失败");
           });
       },
       fail(err) {
