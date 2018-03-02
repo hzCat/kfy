@@ -6,7 +6,7 @@
 <view class="fixed">
   <view class="header-con">
     <view class="header" bindtap="getHead" data-jump="/pages/basicInfo/basicInfo">
-      <image class="head" wx:if="{{(staticUrl&&allInfo.avatar)}}" src="{{'http://'+staticUrl+allInfo.avatar}}"></image>
+      <image class="head" wx:if="{{(staticUrl&&allInfo.avatar)}}" src="{{staticUrl+allInfo.avatar}}"></image>
       <image class="head" wx:elif="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}"></image>
       <image class="head" wx:else src="{{headDefault}}"></image>
       <!-- <image class="head" src="{{userInfo.avatarUrl||headDefault}}"></image> -->

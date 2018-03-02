@@ -67,6 +67,7 @@ Page({
         obj.rechargeAmt = getInfo.rechargeAmt;
         obj.note = getInfo.note;
         obj.contact = getInfo.contact;
+        console.log(obj);
         this.setData({
           chargeInfo: getInfo,
           pushInfo: obj
@@ -93,15 +94,19 @@ Page({
     let num = e.detail.value;
     let turnNum = turn.tostr(num);
     console.log(turnNum);
-    if (/^[123456789]\d*(\.\d{2}){1}$/.test(turnNum)) {
-      console.log("金额", e.detail.value);
-      let obj = this.data.pushInfo;
-      obj.rechargeAmt = turnNum;
-      this.setData({
-        money: turnNum,
-        pushInfo: obj
-      });
+    // if (/^[123456789]\d*(\.\d{2}){1}$/.test(turnNum)) {
+    if (/^\d*(\.\d{2}){1}$/.test(turnNum)) {
+      if (turnNum > 0) {
+        console.log("金额", e.detail.value);
+        let obj = this.data.pushInfo;
+        obj.rechargeAmt = turnNum;
+        this.setData({
+          money: turnNum,
+          pushInfo: obj
+        });
+      }
     }
+    console.log(this.data.pushInfo)
     // else {
     //   modal.modal("提示", "请输入正确输入小数点后两位");
     // }
@@ -205,7 +210,7 @@ Page({
     });
     let url = "/recharge/userCancelApply";
     http.ajax(url, "GET", {}, app.globalData.header).then(res => {
-      console.log(res)
+      console.log(res);
       if (res.data.code == 200 && res.data.result == true) {
         update.updateuser(app.globalData.header);
         wx.showToast({

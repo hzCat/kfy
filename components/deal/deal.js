@@ -9,8 +9,7 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {
-  },
+  data: {},
 
   /**
    * 组件的方法列表
@@ -31,7 +30,9 @@ Component({
     // 获取协议文档
     getDoc() {
       let downloadUrl =
-        "http://192.168.1.146:11811/group1/M00/00/01/wKgBkloeYFyAdaptAABP-yHX5mA65_big.docx";
+        "https://www.kongfuy.cn/static/doc/CATERING-RECHARGE-PROTOCAL.docx";
+      // let downloadUrl =
+      //   "http://192.168.1.146:11811/group1/M00/00/01/wKgBkloeYFyAdaptAABP-yHX5mA65_big.docx";
       // 下载
       wx.downloadFile({
         url: downloadUrl,

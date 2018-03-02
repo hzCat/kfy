@@ -156,7 +156,8 @@ Page({
   getMoney(e) {
     let num = e.detail.value;
     let turnNum = turn.tostr(num);
-    if (/^[123456789]\d{0,4}(\.\d{2}){1}$/.test(turnNum)) {
+    // if (/^[123456789]\d{0,4}(\.\d{2}){1}$/.test(turnNum)) {
+    if (/^\d{0,5}(\.\d{2}){1}$/.test(turnNum) && turnNum > 0) {
       console.log("Money", e.detail.value);
       let obj = this.data.pushInfo;
       obj.transferAmt = turnNum;

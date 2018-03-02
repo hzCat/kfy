@@ -19,10 +19,13 @@ App({
     var that = this;
     that.globalData.canCheck = true;
     console.log("当前版本,v2.0");
+
     // 打开调试
-    wx.setEnableDebug({
-      enableDebug: true
-    });
+
+    // wx.setEnableDebug({
+    //   enableDebug: true
+    // });
+
     // 网络监控
     wx.onNetworkStatusChange(function(res) {
       if (res.networkType == "2g") {

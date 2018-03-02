@@ -1,7 +1,7 @@
-<view class="container2">
+<view class="container2" wx:if="{{!noOrder}}">
   <!-- 一项 -->
   <view class="order-one" wx:for="{{orderList}}" wx:key="index" data-jump="{{item.orderStatus=='NOT_PAY'?'/pages/waitPay/waitPay?by=orderlist&id='+item.orderId+'&type='+(item.orderSource=='TEAM_ORDER'?'group':'personal'):'/pages/alreadyPay/alreadyPay?id='+item.orderId+'&type='+(item.orderSource=='TEAM_ORDER'?'group':'personal')}}"
-    bindtap="jump" wx:if="{{!noOrder}}">
+    bindtap="jump">
     <view class="left">
       <view class="mark {{item.orderSource=='TEAM_ORDER'&&'mark-g'}}">团</view>
       <view class="money">￥{{item.payAmt}}</view>
