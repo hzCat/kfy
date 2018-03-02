@@ -243,7 +243,7 @@ Page({
         console.log("WebSocket连接已打开！", res);
       });
       wx.onSocketError(function(err) {
-        console.log("WebSocket连接打开失败，请检查！", err);
+        console.log("WebSocket连接打开失败!", err);
       });
       wx.onSocketClose(function(res) {
         console.log("WebSocket 已关闭！", res);
