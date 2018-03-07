@@ -1,4 +1,56 @@
-.success {
+.container1 {
+  width: 100%;
+  padding: 0 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container1 .success {
+  width: 100%;
+}
+.container1 .success .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 83rpx;
+}
+.container1 .success .title view {
+  font-size: 40rpx;
+  line-height: 40rpx;
+  margin-left: 16rpx;
+}
+.container1 .success .total {
+  text-align: center;
+  font-size: 80rpx;
+  line-height: 80rpx;
+  margin-top: 40rpx;
+}
+.container1 .success .detail {
+  padding: 39rpx 0 40rpx 0;
+  border-top: 1rpx solid #cccccc;
+  border-bottom: 1rpx solid #cccccc;
+  margin-top: 80rpx;
+}
+.container1 .success .detail .one {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container1 .success .detail .one .left {
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  color: #333333;
+  width: 158rpx;
+}
+.container1 .success .detail .one .right {
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  color: #999999;
+}
+.container .success {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -6,28 +58,28 @@
   flex-direction: column;
   padding-bottom: 40rpx;
 }
-.success .icon {
+.container .success .icon {
   margin-top: 54rpx;
 }
-.success .title {
+.container .success .title {
   font-size: 40rpx;
   margin-top: 60rpx;
 }
-.success .order-no-title {
+.container .success .order-no-title {
   color: #999;
   font-size: 30rpx;
   margin-top: 62rpx;
 }
-.success .order-no-con {
+.container .success .order-no-con {
   margin-top: 28rpx;
   font-size: 26rpx;
   color: #999;
   margin-bottom: 28rpx;
 }
-.success .order-no-con .onder-no-one {
+.container .success .order-no-con .onder-no-one {
   line-height: 36 rpx;
 }
-.success .more {
+.container .success .more {
   height: 52rpx;
   line-height: 52rpx;
   border-radius: 10rpx;
@@ -36,7 +88,7 @@
   color: #999;
   padding: 0 26rpx;
 }
-.success .more .array {
+.container .success .more .array {
   display: inline-block;
   width: 14rpx;
   height: 14rpx;
@@ -45,14 +97,14 @@
   transform: rotateZ(-45deg) translateY(-5rpx);
   margin-right: 16rpx;
 }
-.success .more .rotate {
+.container .success .more .rotate {
   transform: rotateZ(135deg);
 }
-.success .more .num {
+.container .success .more .num {
   display: inline-block;
   line-height: 52rpx;
 }
-.success .detail-one {
+.container .success .detail-one {
   margin-top: 11rpx;
   display: flex;
   justify-content: flex-start;
@@ -62,33 +114,33 @@
   color: #999;
   font-size: 28rpx;
 }
-.success .detail-one .left {
+.container .success .detail-one .left {
   width: 124rpx;
   line-height: 56rpx;
 }
-.success .detail-one .right {
+.container .success .detail-one .right {
   line-height: 56rpx;
 }
-.success .detail-one .discount {
+.container .success .detail-one .discount {
   line-height: 56rpx;
 }
-.success .detail-one .discount text {
+.container .success .detail-one .discount text {
   display: inline-block;
   width: 140rpx;
 }
-.success .btn-group {
+.container .success .btn-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 49rpx;
 }
-.success .btn-group button {
+.container .success .btn-group button {
   height: 70rpx;
   line-height: 70rpx;
   width: 198rpx;
   font-size: 32rpx;
 }
-.success .btn-group .btn-order-detail {
+.container .success .btn-group .btn-order-detail {
   margin-right: 40rpx;
   color: #333;
   background: #fff;

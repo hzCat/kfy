@@ -200,7 +200,8 @@ Page({
     let that = this;
     this.getAllInfo();
     wx.connectSocket({
-      url: "wss://www.kongfuy.cn/websocket/tradePushServer",
+      // url: "wss://www.kongfuy.cn/websocket/tradePushServer",
+      url: "ws://192.168.1.146/websocket/tradePushServer",
       data: {},
       header: app.globalData.header,
       method: "GET"

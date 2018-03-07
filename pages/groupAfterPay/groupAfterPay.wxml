@@ -1,3 +1,37 @@
+<view class="container1">
+  <view class="success">
+    <!-- 1 -->
+    <view class="title">
+      <icon class="icon" type="success" color="#5bc446" size="20"></icon>
+      <view>支付成功</view>
+    </view>
+
+    <!-- 2.总金额 -->
+    <view class="total">￥{{total||'0.00'}}</view>
+
+    <!-- 3.详细 -->
+    <view class="detail">
+      <view class="one">
+        <view class="left">订单</view>
+        <view class="right">{{detail.orderList.orderNo||'暂无'}}</view>
+      </view>
+      <view class="one">
+        <view class="left">合计</view>
+        <view class="right"></view>
+      </view>
+      <view class="one">
+        <view class="left">优惠</view>
+        <view class="right"></view>
+      </view>
+      <view class="one">
+        <view class="left">支付方式</view>
+        <view class="right"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- old -->
 <view class="container">
   <view class="success">
     <icon class="icon" type="success" color="#fdaf31" size="100"></icon>
