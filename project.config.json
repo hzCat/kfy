@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -133,6 +133,18 @@
 					"id": -1,
 					"name": "pay确认支付",
 					"pathName": "pages/pay/pay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "邀请有礼shareGift",
+					"pathName": "pages/shareGift/shareGift",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "反馈feedback",
+					"pathName": "pages/feedback/feedback",
 					"query": ""
 				}
 			]

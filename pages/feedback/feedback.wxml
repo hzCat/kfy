@@ -1,0 +1,88 @@
+<view class="container">
+  <!-- 选择 -->
+  <view class="choose_title title">请选择遇到的问题和就餐门店</view>
+  <view class="choose">
+    <!-- 问题 -->
+    <view class="section">
+      <view class="section__title">问题类型</view>
+      <picker bindchange="QSchoose" value="{{QSindex}}" range="{{questions}}">
+        <view class="picker_left" wx:if="{{!questions[QSindex]}}">
+          请选择问题分类
+        </view>
+        <view class="picker_right">
+          {{questions[QSindex]}}
+        </view>
+      </picker>
+    </view>
+    <!-- 门店 -->
+    <view class="section" wx:if="{{showStore}}">
+      <view class="section__title">门店</view>
+      <picker bindchange="storeChoose" value="{{storeIndex}}" range="{{store}}">
+        <view class="picker_left" wx:if="{{!store[storeIndex]}}">
+          请选择就餐门店店名
+        </view>
+        <view class="picker_right">
+          {{store[storeIndex]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 描述 -->
+  <view class="title detail_title">请具体描述您遇到的问题</view>
+  <view class="QSdetail_container">
+    <textarea name="QSdetail" class="QSdetail" maxlength="120" bindinput="wordNum" rows="10"></textarea>
+    <!-- <textarea name="QSdetail" class="QSdetail" maxlength="120" placeholder="您的反馈，将使功夫元做得更好!" placeholder-class="QSdetail_placeholder"
+      bindinput="wordNum" rows="10"></textarea> -->
+    <view class="detail_num">{{wordLength}}/120</view>
+    <view class="QSdetail_placeholder" wx:if="{{!wordLength>0}}">您的反馈，将使功夫元做得更好!</view>
+  </view>
+
+  <!-- 上传 -->
+  <view class="title image_title">上传凭证不超过3张</view>
+  <view class="image_container">
+    <view class="image_one" wx:if="{{imageArr!=[]}}" wx:for="{{imageArr}}" wx:key="index">
+      <image class="image_one" src="{{item}}"></image>
+      <image class="image_delete" src="../../icon/image_delete.png" data-idx="{{index}}" catchtap="deleteImage"></image>
+    </view>
+    <view class="image_one pick_image" bindtap="getImage" wx:if="{{imageNum<3}}">
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+
+  <!-- 信息 -->
+  <view class="title user_title">用户信息</view>
+  <view class="user_info_container">
+
+    <view class="contact">
+      <label for="c1">联系方式</label>
+      <input type="number" id="c1" class="c_one" placeholder="请输入您的手机号码（必填项）" placeholder-class="c_placeholder" maxlength="11"></input>
+    </view>
+
+    <view class="contact">
+      <label for="c2">姓氏</label>
+      <input type="text" id="c2" class="c_one" placeholder="请输入您的姓氏（非必填项）" placeholder-class="c_placeholder" maxlength="1"></input>
+    </view>
+
+    <view class="choose">
+      <!-- 问题 -->
+      <view class="section">
+        <view class="section__title">性别</view>
+        <picker bindchange="chooseSex" value="{{sexIndex}}" range="{{sex}}">
+          <view class="picker_left" wx:if="{{!sex[sexIndex]}}">
+            请选择（非必填项）
+          </view>
+          <view class="picker_right">
+            {{sex[sexIndex]}}
+          </view>
+        </picker>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 按钮 -->
+  <button class="submit_btn" bindtap="submitAll">提交</button>
+</view>

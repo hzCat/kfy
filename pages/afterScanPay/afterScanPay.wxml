@@ -1,4 +1,50 @@
-<view class="container">
+<view class="container1">
+    <view class="success">
+      <!-- 1 -->
+      <view class="title">
+        <icon class="icon" type="success" color="#5BC446" size="20"></icon>
+        <view>支付成功</view>
+      </view>
+  
+      <!-- 2.总金额 -->
+      <view class="total">￥{{total||'0.00'}}</view>
+  
+      <!-- 3.详细 -->
+      <view class="detail">
+        <view class="one">
+          <view class="left">订单</view>
+          <view class="right">{{detail.orderList.orderNo||'暂无'}}</view>
+        </view>
+        <view class="one">
+          <view class="left">合计</view>
+          <view class="right">￥{{total||'0.00'}}</view>
+        </view>
+        <view class="one">
+          <view class="left off">优惠<image class="rotate" src="../../icon/rotate.png"></image></view>
+          <view class="right"></view>
+        </view>
+        <view class="one">
+          <view class="left"></view>
+          <view class="right">
+            <!-- <view class="discount" wx:for="{{offList}}" wx:key="index">
+            <text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view> -->
+            <view class="discount">
+            <text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view>
+          </view>
+        </view>
+        <view class="one">
+          <view class="left">支付方式</view>
+          <view class="right">微信</view>
+        </view>
+      </view>
+      <view class="btn-group">
+        <button class="complete">完成</button>
+        <button class="rating" disabled>我要评价</button>
+      </view>
+    </view>
+  </view>
+<!-- old -->
+<view class="container" wx:if="{{false}}">
   <!-- 支付成功 -->
   <view class="success">
     <icon class="icon" type="success" color="#fdaf31" size="100"></icon>

@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="top">
+    <image class="share_bg" src="../../img/share.png"></image>
+    <view class="gift_code">12asdas</view>
+  </view>
+  <!-- 分享按钮 -->
+  <view class="share_btn">
+    <button>邀请微信好友</button>
+    <image src="../../icon/invite.png"></image>
+  </view>
+  <!-- 活动说明 -->
+
+  <view class="details">
+    <view class="title">活动说明</view>
+    <view class="detail">1.活动时间，2018/2/15~2018/4/15
+    </view>
+    <view class="detail">2.功夫会员成功邀请微信朋友成为VIP会员，即获得 “功夫元通用现金抵用红包" </view>
+  </view>
+
+</view>

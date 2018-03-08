@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  .top {
+    position: relative;
+    .share_bg {
+      width: 670rpx;
+      height: 759rpx;
+    }
+    .gift_code {
+      position: absolute;
+      width: 100%;
+      top: 379rpx;
+      text-align: center;
+      font-size: 40rpx;
+      color: #000;
+      font-weight: bold;
+    }
+  }
+  .share_btn {
+    position: relative;
+    width: 500rpx;
+    height: 112rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+    margin-top:39rpx;
+    button {
+      width: 500rpx;
+      height: 112rpx;
+      line-height: 112rpx;
+      font-size: 34rpx;
+      background: -webkit-linear-gradient(left,#c9af94, #b08960);
+      text-align: left;
+      padding-left:169rpx;
+    }
+    image {
+      width: 34rpx;
+      height: 34rpx;
+      position: absolute;
+      top: 39rpx;
+      left: 128rpx;
+    }
+  }
+  .details{
+    width:624rpx;
+    color: #B08960;
+    font-size: 28rpx;
+    margin-top:40rpx;
+    .title,.detail{
+      line-height: 56rpx;
+    }
+  }
+}

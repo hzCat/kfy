@@ -2,7 +2,7 @@
   <view class="success">
     <!-- 1 -->
     <view class="title">
-      <icon class="icon" type="success" color="#5bc446" size="20"></icon>
+      <icon class="icon" type="success" color="#5BC446" size="20"></icon>
       <view>支付成功</view>
     </view>
 
@@ -13,24 +13,52 @@
     <view class="detail">
       <view class="one">
         <view class="left">订单</view>
-        <view class="right">{{detail.orderList.orderNo||'暂无'}}</view>
+        <view class="right">
+          <view class="order-no-one" wx:for="{{detail.tradeResponse.orderList}}" wx:key="index" wx:if="{{index<=(showNum-1)}}">{{item.orderNo||'暂无'}}</view>
+          <!-- <view class="order-no-one">12345123451234512345</view>
+          <view class="order-no-one">12345123451234512345</view>
+          <view class="order-no-one">12345123451234512345</view>
+          <view class="order-no-one">12345123451234512345</view>
+          <view class="order-no-one">12345123451234512345</view>
+          <view class="order-no-one">12345123451234512345</view>
+          <view class="order-no-one">12345123451234512345</view> -->
+          <!-- 显示更多 -->
+          <view class="show_more" wx:if="{{detail.orderList.length>2}}" bindtap="showMore">
+            <image class="{{showNum>2&&'rotate'}}" src="../../icon/rotate.png"></image>
+            更多订单{{showNum>2?'':'('+(detail.orderList.length-2)+')'}}
+          </view>
+        </view>
       </view>
       <view class="one">
         <view class="left">合计</view>
+        <view class="right">￥{{total||'0.00'}}</view>
+      </view>
+      <view class="one">
+        <view class="left off">优惠
+          <image class="rotate" src="../../icon/rotate.png"></image>
+        </view>
         <view class="right"></view>
       </view>
       <view class="one">
-        <view class="left">优惠</view>
-        <view class="right"></view>
+        <view class="left"></view>
+        <view class="right">
+          <!-- <view class="discount" wx:for="{{offList}}" wx:key="index">
+            <text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view> -->
+          <view class="discount">
+            <text>-￥{{item.offerAmt||'0.00'}}</text>({{item.offerTypeDisplayName||'优惠'}})</view>
+        </view>
       </view>
       <view class="one">
         <view class="left">支付方式</view>
-        <view class="right"></view>
+        <view class="right">微信</view>
       </view>
+    </view>
+    <view class="btn-group">
+      <button class="complete">完成</button>
+      <button class="rating" disabled>我要评价</button>
     </view>
   </view>
 </view>
-
 <!-- old -->
 <view class="container">
   <view class="success">

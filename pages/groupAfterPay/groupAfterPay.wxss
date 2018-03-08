@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
 }
 .container1 .success {
   width: 100%;
@@ -49,6 +51,47 @@
   font-size: 28rpx;
   line-height: 56rpx;
   color: #999999;
+}
+.container1 .success .detail .one .right .show_more {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container1 .success .detail .one .right .show_more image {
+  width: 26rpx;
+  height: 26rpx;
+}
+.container1 .success .detail .one .off {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container1 .success .detail .one .off image {
+  height: 26rpx;
+  width: 26rpx;
+  margin-left: 7rpx;
+}
+.container1 .success .detail .one .off .rotate {
+  transform: rotateX(180deg);
+}
+.container1 .success .btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.container1 .success .btn-group button {
+  width: 324rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+}
+.container1 .success .btn-group .complete {
+  background: #fff;
+  border: 1rpx solid #d6d5d6;
+  border-radius: 10rpx;
+  color: #333333;
+  margin-right: 22rpx;
 }
 .container .success {
   width: 100%;

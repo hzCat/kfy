@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  height: 100vh;
+  background: #f0f0f0;
   .success {
     width: 100%;
     .title {
@@ -46,13 +48,53 @@
           font-size: 28rpx;
           line-height: 56rpx;
           color: #999999;
+          .show_more{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            image{
+              width:26rpx;
+              height:26rpx;
+
+            }
+          }
         }
+        .off {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          image {
+            height: 26rpx;
+            width: 26rpx;
+            margin-left: 7rpx;
+          }
+          .rotate {
+            transform: rotateX(180deg);
+          }
+        }
+      }
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40rpx;
+      button {
+        width: 324rpx;
+        height: 70rpx;
+        line-height: 70rpx;
+        font-size: 32rpx;
+      }
+      .complete {
+        background: #fff;
+        border: 1rpx solid #d6d5d6;
+        border-radius: 10rpx;
+        color: #333333;
+        margin-right: 22rpx;
       }
     }
   }
 }
-
-
 // old
 .container {
   .success {

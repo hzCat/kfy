@@ -6,7 +6,8 @@ image,
 button,
 input,
 label,
-text {
+text,
+textarea {
   box-sizing: border-box;
 }
 

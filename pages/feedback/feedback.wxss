@@ -1,0 +1,155 @@
+.container .title {
+  color: #999;
+  font-size: 26rpx;
+  text-align: left;
+  padding: 0 43rpx;
+}
+.container .choose_title {
+  margin: 31rpx 0 16rpx 0;
+}
+.container .detail_title {
+  margin: 30rpx 0 17rpx 0;
+}
+.container .image_title {
+  margin: 29rpx 0 17rpx 0;
+}
+.container .user_title {
+  margin: 30rpx 0 16rpx 0;
+}
+.container .choose {
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  background: #fff;
+}
+.container .choose .section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 34rpx;
+  line-height: 88rpx;
+  padding: 0 43rpx;
+}
+.container .choose .section .section__title {
+  width: 200rpx;
+  text-align: left;
+}
+.container .choose .section picker {
+  font-size: 30rpx;
+}
+.container .choose .section picker .picker_left {
+  width: 464rpx;
+  text-align: left;
+  color: #999999;
+}
+.container .choose .section picker .picker_right {
+  width: 464rpx;
+  text-align: right;
+  color: #666666;
+}
+.container .choose .section:first-child {
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.container .QSdetail_container {
+  position: relative;
+  font-size: 30rpx;
+}
+.container .QSdetail_container .QSdetail {
+  width: 100%;
+  height: 314rpx;
+  background: #fff;
+  padding: 40rpx 53rpx 40rpx 39rpx;
+  color: #666666;
+}
+.container .QSdetail_container .QSdetail_placeholder {
+  position: absolute;
+  top: 40rpx;
+  left: 39rpx;
+  height: 1rpx;
+  line-height: 30rp;
+  color: #cccccc;
+}
+.container .QSdetail_container .detail_num {
+  position: absolute;
+  right: 41rpx;
+  bottom: 19rpx;
+  color: #ccc;
+}
+.container .image_container {
+  width: 100%;
+  height: 224rpx;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 39rpx;
+}
+.container .image_container .image_one {
+  position: relative;
+  width: 144rpx;
+  height: 144rpx;
+  border-radius: 4rpx;
+  margin-right: 30rpx;
+}
+.container .image_container .image_one .image_delete {
+  position: absolute;
+  width: 37rpx;
+  height: 37rpx;
+  top: -18rpx;
+  right: -18rpx;
+}
+.container .image_container .pick_image {
+  position: relative;
+  border: 1rpx dashed #999999;
+}
+.container .image_container .pick_image view {
+  position: absolute;
+  border: 1rpx solid #ccc;
+}
+.container .image_container .pick_image view:first-child {
+  width: 86rpx;
+  height: 2rpx;
+  top: 71rpx;
+  left: 29rpx;
+}
+.container .image_container .pick_image view:last-child {
+  width: 2rpx;
+  height: 86rpx;
+  left: 71rpx;
+  top: 29rpx;
+}
+.container .user_info_container .contact {
+  background: #fff;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.container .user_info_container .contact label {
+  font-size: 34rpx;
+  width: 200rpx;
+}
+.container .user_info_container .contact .c_one {
+  text-align: right;
+  font-size: 30rpx;
+  color: #666666;
+  width: 464rpx;
+}
+.container .user_info_container .contact .c_placeholder {
+  font-size: 30rpx;
+  color: #999999;
+  text-align: left;
+}
+.container .user_info_container .choose {
+  border: none;
+}
+.container .user_info_container .choose .section {
+  border: none;
+}
+.container .submit_btn {
+  margin: 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
