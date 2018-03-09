@@ -1,0 +1,140 @@
+page {
+  background: #f0f0f0;
+}
+.container .switch {
+  width: 100%;
+  background: #fff;
+  height: 88rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30rpx;
+  color: #999999;
+  padding: 12rpx 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.container .switch view {
+  height: 64rpx;
+  line-height: 64rpx;
+  width: 250rpx;
+  text-align: center;
+}
+.container .switch .s2 {
+  border-left: 1rpx solid #e5e5e5;
+  border-right: 1rpx solid #e5e5e5;
+}
+.container .switch .selected {
+  color: #fdaf31;
+}
+.container .switch .switch_line {
+  position: absolute;
+  width: 249rpx;
+  height: 4rpx;
+  background: #fdaf31;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s linear;
+}
+.container .switch .switch_line_2 {
+  transform: translateX(250rpx);
+}
+.container .switch .switch_line_3 {
+  transform: translateX(500rpx);
+}
+.container .ticket {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.container .ticket scroll-view {
+  width: 0;
+  transition: width 0.3s linear, opacity 0.5s linear;
+  height: 100vh;
+  padding-top: 112rpx;
+  opacity: 0;
+  overflow: hidden;
+}
+.container .ticket scroll-view .get_more {
+  font-size: 28rpx;
+  text-align: center;
+  padding: 24rpx 0;
+  color: #999;
+}
+.container .ticket .selected {
+  width: 750rpx;
+  padding-top: 112rpx;
+  opacity: 1;
+}
+.container .ticket .ticket_one {
+  width: 670rpx;
+  overflow: hidden;
+  position: relative;
+  height: 260rpx;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 40rpx;
+}
+.container .ticket .ticket_one > view {
+  position: relative;
+  z-index: 3;
+}
+.container .ticket .ticket_one .left {
+  width: 226rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #e55c4e;
+  padding-left: 63rpx;
+  font-size: 30rpx;
+}
+.container .ticket .ticket_one .left .strong {
+  font-size: 60rpx;
+  font-weight: bold;
+}
+.container .ticket .ticket_one .right {
+  font-size: 28rpx;
+}
+.container .ticket .ticket_one .right view {
+  line-height: 52rpx;
+  color: #454545;
+}
+.container .ticket .ticket_one .right view:first-child {
+  color: #454545;
+  font-weight: bold;
+}
+.container .ticket .ticket_one .right view:last-child {
+  color: #999;
+}
+.container .ticket .ticket_one .ticket_bg {
+  width: 670rpx;
+  height: 260rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.container .ticket .ticket_one .ticket_logo {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  width: 109rpx;
+  height: 116rpx;
+}
+.container .ticket .ticket_one:not(:first-child) {
+  margin-top: 24rpx;
+}
+.container .ticket .ticket_overdue .ticket_one .left,
+.container .ticket .ticket_used .ticket_one .left {
+  color: #999;
+}
+.container .ticket .ticket_overdue .ticket_one .right view,
+.container .ticket .ticket_used .ticket_one .right view {
+  color: #999;
+}

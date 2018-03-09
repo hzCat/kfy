@@ -5,7 +5,7 @@
   </view>
   <!-- 分享按钮 -->
   <view class="share_btn">
-    <button>邀请微信好友</button>
+    <button open-type="share">邀请微信好友</button>
     <image src="../../icon/invite.png"></image>
   </view>
   <!-- 活动说明 -->

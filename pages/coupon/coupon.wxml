@@ -1,0 +1,252 @@
+<view class="container">
+  <!-- 切换 -->
+  <view class="switch">
+    <!-- 可用 -->
+    <view class="s1 {{select=='useable'&&'selected'}}" data-select="useable" catchtap="select">可使用</view>
+    <!-- 用了 -->
+    <view class="s2 {{select=='used'&&'selected'}}" data-select="used" catchtap="select">已使用</view>
+    <!-- 过期 -->
+    <view class="s3 {{select=='overdue'&&'selected'}}" data-select="overdue" catchtap="select">已过期</view>
+    <!-- 线 -->
+    <view class="switch_line {{select=='used'&&'switch_line_2'}} {{select=='overdue'&&'switch_line_3'}}"></view>
+  </view>
+
+  <!-- 票 -->
+  <view class="ticket">
+
+    <!-- 可用可用可用可用可用可用可用可用可用可用可用可用可用可用可用 -->
+    <scroll-view class="ticket_useable {{select=='useable'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="useable" lower-threshold="0">
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <!-- 背景 -->
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+      </view>
+
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <!-- 背景 -->
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <!-- 背景 -->
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <!-- 背景 -->
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <!-- 背景 -->
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+      </view>
+      <view class="get_more">显示更多</view>
+    </scroll-view>
+
+    <!-- 用了用了用了用了用了用了用了用了用了用了用了用了用 -->
+    <scroll-view class="ticket_used {{select=='used'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="used" lower-threshold="0">
+
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
+      </view>
+
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
+      </view>
+
+      <view class="get_more">显示更多</view>
+
+    </scroll-view>
+
+
+    <!-- 过期过期过期过期过期过期过期过期过期过期过期过期过期过期过期 -->
+    <scroll-view class="ticket_overdue {{select=='overdue'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="overdue" lower-threshold="0">
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+      </view>
+      <!-- ticket_one -->
+      <view class="ticket_one">
+        <!-- 文字 -->
+        <view class="left">￥
+          <text class="strong">88</text>
+        </view>
+        <view class="right">
+          <view>通用券</view>
+          <view>满20可用</view>
+          <view>有效期至2017-06-01</view>
+        </view>
+        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+      </view>
+
+      <view class="get_more">显示更多</view>
+
+
+    </scroll-view>
+
+  </view>
+</view>

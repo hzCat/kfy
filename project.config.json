@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -145,6 +145,12 @@
 					"id": -1,
 					"name": "反馈feedback",
 					"pathName": "pages/feedback/feedback",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "奖券coupon",
+					"pathName": "pages/coupon/coupon",
 					"query": ""
 				}
 			]

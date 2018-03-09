@@ -21,7 +21,8 @@
     "pages/chargeSuccFail/chargeSuccFail",
     "pages/pay/pay",
     "pages/shareGift/shareGift",
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",

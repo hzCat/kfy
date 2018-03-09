@@ -7,7 +7,8 @@ button,
 input,
 label,
 text,
-textarea {
+textarea,
+scroll-view {
   box-sizing: border-box;
 }
 
