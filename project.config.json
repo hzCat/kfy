@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -94,7 +94,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "userCenter个人中心",
 					"pathName": "pages/userCenter/userCenter",
 					"query": ""
@@ -133,6 +133,12 @@
 					"id": -1,
 					"name": "pay确认支付",
 					"pathName": "pages/pay/pay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "输入金额付款",
+					"pathName": "pages/enterAmount/enterAmount",
 					"query": ""
 				}
 			]

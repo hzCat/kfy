@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "向功夫元门店付款",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

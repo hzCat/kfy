@@ -1,2 +1,6 @@
-<!--pages/enterAmount/enterAmount.wxml-->
-<text>pages/enterAmount/enterAmount.wxml</text>
+<view class="container">
+  <view class="input">
+    <view class="title">香年店</view>
+    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p"></input>
+  </view>
+</view>
