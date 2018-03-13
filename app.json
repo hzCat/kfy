@@ -22,7 +22,8 @@
     "pages/pay/pay",
     "pages/shareGift/shareGift",
     "pages/feedback/feedback",
-    "pages/coupon/coupon"
+    "pages/coupon/coupon",
+    "pages/chargeMoney_info/chargeMoney_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

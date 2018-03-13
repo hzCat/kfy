@@ -19,32 +19,81 @@
     <!-- <input placeholder='自定义金额(需是50的倍数)' type='number' bindblur='chooseMoneyInput' value='{{isFifty}}'></input> -->
   </view>
 
-  <view class='vip-info'>
+  <!-- <view class='vip-info'>
+
     <view class='vip-1' wx:if="{{willGetLevel||currentLevel}}">
       <view wx:if="{{willGetLevel}}">您将获得功夫元【{{willGetLevel.levelName}}】会员</view>
       <view wx:if="{{currentLevel}}">当前【{{currentLevel.levelName}}】会员</view>
       <view class='vip-con flex'>
         <image wx:if="{{willGetLevel||currentLevel}}" class='vip-img' src="../../img/chargemoney/VIP{{willGetLevel.level||currentLevel.level}}.png"></image>
-        <!-- <image wx:if="{{currentLevel}}" class='vip-img' src="../../img/chargemoney/{{currentLevel.levelName}}.png"></image> -->
+
         <view class='vip-text'>
           <view>1.充值 {{currentLevel.rechargeGetAmt||willGetLevel.rechargeGetAmt}} 赠送 {{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</view>
-          <!-- <view>2.消费订单结算 {{currentLevel.baseSettlementProportion||willGetLevel.baseSettlementProportion}} 折</view> -->
+
           <view>2.积分比例 1：{{currentLevel.baseIntegralProportion||willGetLevel.baseIntegralProportion}}</view>
         </view>
       </view>
     </view>
+
     <view class='vip-2' wx:if="{{nextGetLevel}}">
       <view>再充值 ￥{{nextNeed}}，您将获得功夫元【{{nextGetLevel.levelName}}】会员</view>
       <view class='vip-con flex'>
         <image class='vip-img' src="../../img/chargemoney/VIP{{nextGetLevel.level}}.png"></image>
         <view class='vip-text'>
           <view>1.充值 {{nextGetLevel.rechargeGetAmt}} 赠送 {{nextGetLevel.rechargeGiftAmt}}</view>
-          <!-- <view>2.消费订单结算 {{nextGetLevel.baseSettlementProportion}} 折</view> -->
           <view>2.积分比例 1：{{nextGetLevel.baseIntegralProportion}}</view>
         </view>
       </view>
     </view>
+  </view> -->
+
+  <!-- v3版本修改 -->
+  <view class="vip_detail">
+    <view class="top">
+
+      <view class="left">
+        <view class="title" wx:if="{{willGetLevel}}">您将获得</view>
+        <view class="title" wx:if="{{currentLevel}}">当前等级</view>
+        <view class="info">
+          <image src="../../icon/recharge1.png"></image>
+          <view class="word">
+            <view wx:if="{{willGetLevel}}">{{willGetLevel.levelName}}</view>
+            <view wx:if="{{currentLevel}}">{{currentLevel.levelName}}</view>
+            <view class="second">赠送
+              <text>{{currentLevel.rechargeGiftAmt||willGetLevel.rechargeGiftAmt}}</text> 元</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="right" wx:if="{{nextGetLevel}}">
+        <view class="title">再充值
+          <text class="other_color">￥{{nextNeed}} </text>将获得</view>
+        <view class="info">
+          <image src="../../icon/recharge2.png"></image>
+          <view class="word">
+            <view>{{nextGetLevel.levelName}}</view>
+            <view class="second">赠送
+              <text>{{nextGetLevel.rechargeGiftAmt}}</text> 元</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <navigator class="bottom" url="../chargeMoney_info/chargeMoney_info" hover-class="none">更多权益</navigator>
   </view>
+
+
+  <!-- 邀请码 -->
+  <view class="share" wx:if="{{isVip=='true'}}">
+    <view class="title">好友邀请码</view>
+    <input type="text" placeholder="正确填写邀请码，和好友一起领取‘功夫红包’" placeholder-class="input_p" maxlength="15" value="{{invite}}"></input>
+  </view>
+
+
+
+
+
+
 
   <view class="pay-btn-group">
     <button class='pay-btn' bindtap='wechatPay' disabled='{{allDisable}}'>微信支付</button>

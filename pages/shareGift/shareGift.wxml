@@ -1,7 +1,7 @@
 <view class="container">
   <view class="top">
     <image class="share_bg" src="../../img/share.png"></image>
-    <view class="gift_code">12asdas</view>
+    <view class="gift_code">{{inviteCode||'获取失败,请重试'}}</view>
   </view>
   <!-- 分享按钮 -->
   <view class="share_btn">
@@ -12,9 +12,9 @@
 
   <view class="details">
     <view class="title">活动说明</view>
-    <view class="detail">1.活动时间，2018/2/15~2018/4/15
+    <view class="detail">1. 活动时间，{{actAll.startTime||"现在"}}~{{actAll.endTime||""}}
     </view>
-    <view class="detail">2.功夫会员成功邀请微信朋友成为VIP会员，即获得 “功夫元通用现金抵用红包" </view>
+    <view class="detail">2. 功夫会员成功邀请微信朋友成为VIP会员，即获得 “功夫元通用现金抵用红包" </view>
   </view>
 
 </view>

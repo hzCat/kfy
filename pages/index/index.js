@@ -3,6 +3,8 @@ let storage = require("../../utils/storage.js");
 let scan = require("../../utils/scanQR.js");
 let card = require("../../utils/cardTurn.js");
 let modal = require("../../utils/modal");
+let http = require("../../utils/ajax");
+let app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -18,10 +20,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log("进入参数", options);
     if (options.scanAgain) {
       console.log("onload options", options.scanAgain);
       setTimeout(() => {
         this.openScan();
+      }, 500);
+    }
+    if (options.actid && options.invite) {
+      let invite = options.invite;
+      let actid = options.actid;
+      let n = 0;
+      let timer = setInterval(() => {
+        console.log(`第${n}次`);
+        n++;
+        if (app.globalData.header) {
+          clearInterval(timer);
+          timer = null;
+          http
+            .ajax(
+              "/activityInvite/isValid",
+              "GET",
+              { activityId: actid },
+              app.globalData.header
+            )
+            .then(res => {
+              console.log("活动是否有效", res.data);
+              if (res.data.data) {
+                jump.jump(
+                  "rel",
+                  `/pages/vip/vip?invite=${invite}&actid=${actid}`
+                );
+              } else {
+                jump.jump("nav", "");
+              }
+            });
+        } else if (n == 10) {
+          clearInterval(timer);
+          timer = null;
+        }
       }, 500);
     }
   },

@@ -3,6 +3,7 @@ let app = getApp();
 let storage = require("../../utils/storage");
 let http = require("../../utils/ajax");
 let modal = require("../../utils/modal");
+let jump = require("../../utils/jump")
 Page({
   /**
    * 页面的初始数据
@@ -36,7 +37,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     storage.gets("allInfo").then(res => {
       console.log("feedback获取用户信息缓存", res.data);
       let mobile = res.data.mobile;
@@ -73,7 +74,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     console.log(app.globalData.header);
 
     setTimeout(() => {
@@ -173,7 +174,7 @@ Page({
       sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ["album", "camera"], // 可以指定来源是相册还是相机，默认二者都有
       count: 3 - length,
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
         let arr = that.data.imageArr;
@@ -208,7 +209,7 @@ Page({
     });
   },
   upLoadImg(arr, head, i) {
-    return new Promise(function(res, rej) {
+    return new Promise(function (res, rej) {
       let uploadTask = wx.uploadFile({
         url: `${http.baseUrl}/vipCommon/uploadImg`,
         filePath: arr[i],
@@ -226,7 +227,7 @@ Page({
     let push = this.data.pushInfo;
     let errInfo = "请检查以下项目";
 
-    let submit = function() {
+    let submit = function () {
       wx.showLoading({
         title: "上传中"
       });
@@ -276,8 +277,9 @@ Page({
                     let code = res.data.code;
                     let result = res.data.result;
                     if (code == 200 && result == true) {
-                      setTimeout(function() {
+                      setTimeout(function () {
                         wx.hideLoading();
+                        jump.jump("switch", "/pages/userCenter/userCenter")
                       }, 1000);
                     }
                   });
@@ -295,8 +297,9 @@ Page({
             let code = res.data.code;
             let result = res.data.result;
             if (code == 200 && result == true) {
-              setTimeout(function() {
+              setTimeout(function () {
                 wx.hideLoading();
+                jump.jump("switch", "/pages/userCenter/userCenter")
               }, 1000);
             }
           });
@@ -313,13 +316,11 @@ Page({
       ) {
         submit();
         // 非必须store
-      } else if (
-        !(
+      } else if (!(
           push.feedType == "STORE_SERVICE" ||
           push.feedType == "DISHES_QUALITY" ||
           push.feedType == "KONGF_TEAM"
-        )
-      ) {
+        )) {
         submit();
       } else {
         modal.modal("提示", "门店选项是必须的");

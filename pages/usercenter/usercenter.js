@@ -17,7 +17,8 @@ Page({
     hasUserInfo: false,
     modalOn: false,
     staticUrl: null,
-    isPullDown: false
+    isPullDown: false,
+    hasAct: false
   },
 
   /**
@@ -25,7 +26,9 @@ Page({
    */
   onLoad: function(options) {
     this.getStatic();
+    this.getActivity();
   },
+  // 获取静态地址
   getStatic() {
     if (app.globalData.staticUrl) {
       this.setData({
@@ -39,7 +42,33 @@ Page({
       }, 500);
     }
   },
-
+  // 获取是否有活动
+  getActivity() {
+    http
+      .ajax(
+        "/activityInvite/getValidActivity",
+        "GET",
+        {},
+        app.globalData.header
+      )
+      .then(res => {
+        console.log("活动", res.data.data);
+        let act = res.data.data;
+        if (act.hasValidActivity) {
+          storage.sets("hasAct", act.validActivity).then(res => {
+            this.setData({
+              hasAct: true
+            });
+          });
+        } else {
+          storage.removes("hasAct").then(res => {
+            this.setData({
+              hasAct: false
+            });
+          });
+        }
+      });
+  },
   /**
    * 生命周期函数--监听页面显示
    */

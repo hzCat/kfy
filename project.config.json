@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 21,
 			"list": [
 				{
 					"id": -1,
@@ -85,7 +85,7 @@
 					"id": 9,
 					"name": "充值chargeMoney",
 					"pathName": "pages/chargeMoney/chargeMoney",
-					"query": "isVip=true&money=3&by=VIP&level=4&buy=false"
+					"query": "by=VIP&money=100&isVip=true&level=15&buy=false"
 				},
 				{
 					"id": -1,
@@ -151,6 +151,12 @@
 					"id": 20,
 					"name": "奖券coupon",
 					"pathName": "pages/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "充值chargeMoney_info",
+					"pathName": "pages/chargeMoney_info/chargeMoney_info",
 					"query": ""
 				}
 			]

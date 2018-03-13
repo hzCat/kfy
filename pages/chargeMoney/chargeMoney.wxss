@@ -59,7 +59,7 @@
 
 /* 会员信息 */
 
-.vip-info {
+/* .vip-info {
   padding: 0rpx 41rpx 47rpx 41rpx;
   border-top: 1px dashed #dbdbdb;
   background: #fff;
@@ -101,11 +101,96 @@
   padding-top: 18rpx;
   justify-content: left;
   align-items: center;
+} */
+
+/* v3.0修改 */
+
+.vip_detail {
+  padding: 48rpx 41rpx 35rpx;
+  background: #fff;
+}
+.vip_detail .top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.vip_detail .top .left,
+.vip_detail .top .right {
+  width: 50%;
+  font-size: 30rpx;
+  color: #333;
+}
+.vip_detail .top .right .other_color {
+  color: #fdaf31;
+}
+.vip_detail .top .left .info,
+.vip_detail .top .right .info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:30rpx;
+}
+.vip_detail .top .left .info image,
+.vip_detail .top .right .info image {
+  width: 72rpx;
+  height: 72rpx;
+}
+.vip_detail .top .left .info .word,
+.vip_detail .top .right .info .word {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.vip_detail .top .left .info .word view,
+.vip_detail .top .right .info .word view {
+  line-height:46rpx;
+  margin-left:35rpx;
+}
+.vip_detail .top .left .info .word .second,
+.vip_detail .top .right .info .word .second {
+  font-size: 24rpx;
+  font-weight: normal;
+}
+.vip_detail .top .left .info .word .second text,
+.vip_detail .top .right .info .word .second text{
+  font-size: 30rpx;
+  font-weight: bold;
 }
 
-/* .vip-info .vip-text>view {
-    margin-top: 18rpx;
-} */
+.vip_detail .bottom {
+  text-align: center;
+  color: #38c5fe;
+  font-size: 26rpx;
+  margin-top: 34rpx;
+}
+
+
+/* 邀请码 */
+.share{
+  padding:39rpx 48rpx 32rpx 45rpx;
+  margin-top:24rpx;
+  background:#fff;
+}
+.share .title{
+  font-size:34rpx;
+  font-weight: bold;
+}
+.share input{
+  height:88rpx;
+  width: 100%;
+  line-height: 88rpx;
+  border-bottom:2rpx solid #FDAF31;
+  margin-top:26rpx;
+  text-align: center;
+}
+.share .input_p{
+  font-size:30rpx;
+  color:#ccc;
+  text-align: left
+}
+
+
+
+
 
 /* 支付按钮 */
 

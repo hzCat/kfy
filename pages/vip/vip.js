@@ -34,17 +34,26 @@ Page({
     isvip: false,
     istvip: false,
     p_total: null,
-    t_total: null
+    t_total: null,
+    invite: null,
+    actid: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log("vip得到的参数", options);
     if (options.type) {
       let type = options.type;
       this.setData({
         cardType: type
+      });
+    }
+    if (options.invite && options.actid) {
+      this.setData({
+        invite: options.invite,
+        actid: options.actid
       });
     }
   },

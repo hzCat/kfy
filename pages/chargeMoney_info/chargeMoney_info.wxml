@@ -1,0 +1,15 @@
+<view class="container">
+  <image class="bg" src="../../img/chargeMoney_info_bg.png"></image>
+  <view class="detail">
+    <view class="items">
+      <view class="item">会员等级</view>
+      <view class="item">赠送金额</view>
+      <view class="item">积分比例</view>
+    </view>
+    <view class="info_items">
+      <view class="item">元气一冲</view>
+      <view class="item">赠送金额</view>
+      <view class="item">积分比例</view>
+    </view>
+  </view>
+</view>

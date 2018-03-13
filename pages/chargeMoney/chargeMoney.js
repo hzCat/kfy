@@ -24,7 +24,9 @@ Page({
     nextGetLevel: null,
     nextNeed: null,
     willGetLevel: null,
-    modalOn: false
+    modalOn: false,
+    invite: null,
+    actid: null
   },
 
   /*** 生命周期函数--监听页面加载*/
@@ -37,6 +39,8 @@ Page({
       vipScope: options.by,
       // vipLevelId: options.level,
       // buy: options.buy
+      invite: options.invite,
+      actid: options.actid
     });
     wx.getStorage({
       key: "3rd_session",
@@ -188,7 +192,9 @@ Page({
       var url = "/recharge/wxRecharge";
       var data = {
         vipScope: that.data.vipScope,
-        rechargeAmt: that.data.nowMoney
+        rechargeAmt: that.data.nowMoney,
+        extendNumber2: that.data.actid,
+        inviterCode: that.data.invite
       };
       http
         .ajax(url, method, data, header)

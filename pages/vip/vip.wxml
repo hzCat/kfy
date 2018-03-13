@@ -129,14 +129,14 @@
 
     <!-- 按钮 -->
     <view class="btn-group" wx:if="{{(nowIndex>vipLevel||!isvip)&&cardType=='personal'}}">
-      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false"
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false&invite={{invite}}&actid={{actid}}"
         catchtap="jump" wx:if="{{bindMobile}}">
         <!-- <text class="money"> -->
         充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
         <!-- </text> -->
         <!-- <text class="tips" decode="true">会员权益福利全部赠送&nbsp;>></text> -->
       </button>
-      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false"
+      <button class="btn" data-jump="/pages/chargeMoney/chargeMoney?by={{vipCardList[nowIndex].vipScope}}&money={{vipCardList[nowIndex].rechargeGetAmt}}&isVip={{isvip}}&level={{vipCardList[nowIndex].vipLevelId}}&buy=false&invite={{invite}}&actid={{actid}}"
         open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!bindMobile}}">
         <!-- <text class="money"> -->
         充值￥{{vipCardList[nowIndex].rechargeGetAmt}}
