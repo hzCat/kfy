@@ -30,7 +30,7 @@ Page({
   },
 
   /*** 生命周期函数--监听页面加载*/
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this;
     console.log("充值页面得到参数", options);
     that.setData({
@@ -44,7 +44,7 @@ Page({
     });
     wx.getStorage({
       key: "3rd_session",
-      success: function(res) {
+      success: function (res) {
         that.setData({
           third: res.data,
           header: {
@@ -61,7 +61,7 @@ Page({
   },
 
   /*** 生命周期函数--监听页面显示*/
-  onShow: function() {
+  onShow: function () {
     // navbar.title("充值");
     this.setData({
       modalOn: false,
@@ -198,7 +198,7 @@ Page({
       };
       http
         .ajax(url, method, data, header)
-        .then(function(res) {
+        .then(function (res) {
           console.log(res.data);
           if (res.data.data) {
             var orderId = res.data.data.orderId;
@@ -208,7 +208,7 @@ Page({
           if (res.data.code == 200 && res.data.result == true) {
             pay
               .wpay(json)
-              .then(function(res) {
+              .then(function (res) {
                 // 查询提示框,在跳转前结束
                 that.setData({
                   modalOn: false
@@ -218,10 +218,10 @@ Page({
                   mask: true
                 });
                 // 定时查询结果,2s
-                setTimeout(function() {
+                setTimeout(function () {
                   pay
                     .chargeback(orderId, header)
-                    .then(function(res) {
+                    .then(function (res) {
                       console.log(res.data);
                       // 更新用户信息
                       let obj = res.data;
@@ -251,10 +251,10 @@ Page({
                         //UNKNOWN状态订单
                       } else if (obj.tradeStatus == "UNKNOWN") {
                         // 第二次查询,3s
-                        setTimeout(function() {
+                        setTimeout(function () {
                           pay
                             .chargeback(res.data.data.orderId, header)
-                            .then(function(res) {
+                            .then(function (res) {
                               let obj = res.data;
                               let money = obj.tradeResponse.rechargeAmt;
                               let orderNo = obj.tradeResponse.orderNo;
@@ -309,6 +309,7 @@ Page({
           }
         })
         .catch(err => {
+          console.log(err);
           that.setData({
             modalOn: false
           });
