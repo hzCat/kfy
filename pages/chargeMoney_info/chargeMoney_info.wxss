@@ -14,7 +14,20 @@
   padding: 40rpx;
   background: rgba(255, 255, 255, 0.72);
   font-size: 28rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.container .detail .items view {
+.container .detail .items {
+  width: 179rpx;
+}
+.container .detail .items_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 490rpx;
+}
+.container .detail .item {
   line-height: 56rpx;
+  text-align: left;
 }

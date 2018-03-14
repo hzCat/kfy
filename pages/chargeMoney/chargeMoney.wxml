@@ -84,9 +84,9 @@
 
 
   <!-- 邀请码 -->
-  <view class="share" wx:if="{{isVip=='true'}}">
+  <view class="share" wx:if="{{isVip=='false'}}">
     <view class="title">好友邀请码</view>
-    <input type="text" placeholder="正确填写邀请码，和好友一起领取‘功夫红包’" placeholder-class="input_p" maxlength="15" value="{{invite}}"></input>
+    <input type="text" placeholder="正确填写邀请码，和好友一起领取‘功夫红包’" placeholder-class="input_p" maxlength="15" value="{{(invite!='null'&&invite!='undefined')?invite:''}}"></input>
   </view>
 
 

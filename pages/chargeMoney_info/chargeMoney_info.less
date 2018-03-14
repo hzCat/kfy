@@ -7,16 +7,27 @@
     height: 100%;
     z-index: -1;
   }
-  .detail{
-    width:100%;
-    margin-top:624rpx;
-    padding:40rpx;
-    background:rgba(255,255,255,0.72);
+  .detail {
+    width: 100%;
+    margin-top: 624rpx;
+    padding: 40rpx;
+    background: rgba(255, 255, 255, 0.72);
     font-size: 28rpx;
-    .items{
-      view{
-        line-height: 56rpx;
-      }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .items {
+      width: 179rpx;
+    }
+    .items_2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 490rpx;
+    }
+    .item {
+      line-height: 56rpx;
+      text-align: left;
     }
   }
 }

@@ -6,10 +6,12 @@
       <view class="item">赠送金额</view>
       <view class="item">积分比例</view>
     </view>
-    <view class="info_items">
-      <view class="item">元气一冲</view>
-      <view class="item">赠送金额</view>
-      <view class="item">积分比例</view>
+    <view class="items_2">
+      <view class="info_items" wx:for="{{cardList||3}}" wx:key="index">
+        <view class="item">{{item.vipLevelName||'VIP'}}</view>
+        <view class="item">￥{{item.rechargeGiftAmt||'查询中'}}</view>
+        <view class="item">1:{{item.baseIntegralProportion||'1'}}</view>
+      </view>
     </view>
   </view>
 </view>
