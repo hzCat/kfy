@@ -1,7 +1,10 @@
+.container {
+  transition: all 0.5s linear;
+}
 .container .input {
   padding: 61rpx 40rpx 40rpx;
   background: #fff;
-  border-bottom: 1rpx solid #E5E5E5;
+  border-bottom: 1rpx solid #e5e5e5;
 }
 .container .input .title {
   text-align: center;
@@ -17,5 +20,96 @@
   background: #f2f2f2;
 }
 .container .input .input_p {
-  color: #BFBFBF;
+  color: #bfbfbf;
+}
+.container .btn-group .tips {
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48rpx;
+  margin-bottom: 24rpx;
+}
+.container .btn-group .tips view {
+  margin-left: 7rpx;
+  color: #999;
+}
+.container .btn-group .submit {
+  margin: 0 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
+}
+.second_step {
+  height: 0;
+  opacity: 0;
+}
+.container_1 .top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 54rpx;
+  padding-bottom: 55rpx;
+  background: #fff;
+}
+.container_1 .top image {
+  height: 120rpx;
+  width: 120rpx;
+}
+.container_1 .top .amount {
+  font-size: 80rpx;
+  line-height: 80rpx;
+  margin-top: 25rpx;
+}
+.container_1 .top .word {
+  font-size: 28rpx;
+  line-height: 29rpx;
+  color: #999;
+  margin-top: 40rpx;
+}
+.container_1 .choose_card {
+  background: #fff;
+  margin-top: 24rpx;
+  width: 100%;
+}
+.container_1 .choose_card .option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88rpx;
+  width: 100%;
+  padding: 0 40rpx;
+}
+.container_1 .choose_card .option .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 34rpx;
+  color: #333;
+  height: 34rpx;
+}
+.container_1 .choose_card .option .left image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 17rpx;
+}
+.container_1 .choose_card .option .left .two {
+  height: 34rpx;
+  padding-top: 5rpx;
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 16rpx;
+}
+.container_1 .choose_card .line {
+  width: 646rpx;
+  height: 1rpx;
+  background: #e5e5e5;
+  margin-left: 104rpx;
+}
+.container_1 .pay {
+  margin: 48rpx 40rpx 0 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
 }

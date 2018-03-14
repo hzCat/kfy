@@ -1,6 +1,52 @@
-<view class="container">
+<view class="container {{second_step&&'second_step'}}">
   <view class="input">
-    <view class="title">香年店</view>
-    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p"></input>
+    <view class="title">{{nowStore.codeValue||'功夫元'}}</view>
+    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p" bindblur="inputMoney" value="{{money}}"></input>
   </view>
+  <view class="btn-group">
+    <view class="tips">
+      <icon type="warn" size="11" color="#8DCE70"></icon>
+      <view>请向店员确认金额</view>
+    </view>
+    <button class="submit" bindtap="submit">确认金额</button>
+  </view>
+</view>
+
+
+
+<view class="container container_1 {{!second_step&&'second_step'}}">
+
+  <view class="top">
+    <image src="../../icon/enter_amount_pay_icon.png"></image>
+    <view class="amount">1110.00</view>
+    <view class="word">需支付</view>
+  </view>
+
+  <view class="choose_card">
+    <!-- 个人 -->
+    <view class="option" data-card="VIP" bindtap="chooseCard">
+      <view class="left">
+        <image src="../../icon/vip_option.png" mode="aspectFit"></image>
+        <view class="one">个人卡</view>
+        <view class="two">(余额：￥21.00)</view>
+      </view>
+      <icon type="success" size="22" color="#FDAF31" wx:if="{{select_card=='VIP'}}"></icon>
+    </view>
+    <view class="line"></view>
+    <!-- 微信 -->
+    <view class="option" data-card="WECHART" bindtap="chooseCard">
+      <view class="left">
+        <image src="../../icon/wechat_option.png" mode="aspectFit"></image>
+        <view class="one">微信</view>
+        <view class="two">储值赠送，更多福利详见功夫会员</view>
+      </view>
+      <icon type="success" size="22" color="#FDAF31" wx:if="{{select_card=='WECHART'}}"></icon>
+    </view>
+  </view>
+
+  <!-- 确认支付 -->
+  <button class="pay" bindtap="pay">确认支付</button>
+
+
+
 </view>

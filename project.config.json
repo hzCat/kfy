@@ -20,12 +20,16 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -136,10 +140,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 18,
 					"name": "输入金额付款",
 					"pathName": "pages/enterAmount/enterAmount",
-					"query": ""
+					"query": "storeCode=07"
 				}
 			]
 		}

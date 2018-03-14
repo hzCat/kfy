@@ -1,24 +1,120 @@
-.container{
-  .input{
-    padding:61rpx 40rpx 40rpx;
-    background:#fff;
-    border-bottom:1rpx solid #E5E5E5;
-    .title{
+.container {
+  transition: all 0.5s linear;
+  .input {
+    padding: 61rpx 40rpx 40rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #e5e5e5;
+    .title {
       text-align: center;
       font-size: 40rpx;
-      line-height:40rpx;
-
+      line-height: 40rpx;
     }
-    input{
-      width:100%;
+    input {
+      width: 100%;
       text-align: center;
-      margin-top:61rpx;
-      height:120rpx;
-      line-height:120rpx;
-      background:rgba(242,242,242,1);
+      margin-top: 61rpx;
+      height: 120rpx;
+      line-height: 120rpx;
+      background: rgba(242, 242, 242, 1);
     }
-    .input_p{
-      color:#BFBFBF;
+    .input_p {
+      color: #bfbfbf;
     }
+  }
+  .btn-group {
+    .tips {
+      font-size: 24rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 48rpx;
+      margin-bottom: 24rpx;
+      view {
+        margin-left: 7rpx;
+        color: #999;
+      }
+    }
+    .submit {
+      margin: 0 40rpx;
+      height: 88rpx;
+      line-height: 88rpx;
+      font-size: 34rpx;
+    }
+  }
+}
+.second_step {
+  height: 0;
+  opacity: 0;
+}
+.container_1 {
+  .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 54rpx;
+    padding-bottom: 55rpx;
+    background: #fff;
+    image {
+      height: 120rpx;
+      width: 120rpx;
+    }
+    .amount {
+      font-size: 80rpx;
+      line-height: 80rpx;
+      margin-top: 25rpx;
+    }
+    .word {
+      font-size: 28rpx;
+      line-height: 29rpx;
+      color: #999;
+      margin-top: 40rpx;
+    }
+  }
+  .choose_card {
+    background: #fff;
+    margin-top: 24rpx;
+    width: 100%;
+    .option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 88rpx;
+      width: 100%;
+      padding: 0 40rpx;
+
+      .left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 34rpx;
+        color: #333;
+        height:34rpx;
+        image {
+          width: 44rpx;
+          height: 44rpx;
+          margin-right: 17rpx;
+        }
+        .two {
+          height:34rpx;
+          padding-top:5rpx;
+          font-size: 26rpx;
+          color: #999;
+          margin-left:16rpx;
+        }
+      }
+    }
+    .line {
+      width: 646rpx;
+      height: 1rpx;
+      background: #e5e5e5;
+      margin-left: 104rpx;
+    }
+  }
+  .pay{
+    margin: 48rpx 40rpx 0 40rpx;
+    height:88rpx;
+    line-height:88rpx;
+    font-size: 34rpx;
   }
 }
