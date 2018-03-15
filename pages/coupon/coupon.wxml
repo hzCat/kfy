@@ -31,62 +31,9 @@
         <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
       </view>
 
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <!-- 背景 -->
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <!-- 背景 -->
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <!-- 背景 -->
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <!-- 背景 -->
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-      </view>
+      <coupon couponState="useable" wx:for="{{list}}" wx:key="index" payAmt="25" canUse="{{item.canUse}}" offerMoney="{{item.offerMoney}}"
+      time="{{item.time}}" couponName="{{item.couponName}}"></coupon>
+
       <view class="get_more">显示更多</view>
     </scroll-view>
 
@@ -108,48 +55,9 @@
         <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
       </view>
 
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
-      </view>
+      <coupon couponState="used" wx:for="{{list}}" wx:key="index" payAmt="25" canUse="{{item.canUse}}" offerMoney="{{item.offerMoney}}"
+        time="{{item.time}}" couponName="{{item.couponName}}"></coupon>
+
 
       <view class="get_more">显示更多</view>
 
@@ -172,76 +80,10 @@
         <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
         <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
       </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
-      </view>
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
-      </view>
+
+      <coupon couponState="overdue"  wx:for="{{list}}" wx:key="index" payAmt="25" canUse="{{item.canUse}}" offerMoney="{{item.offerMoney}}"
+      time="{{item.time}}" couponName="{{item.couponName}}"></coupon>
+
 
       <view class="get_more">显示更多</view>
 

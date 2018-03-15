@@ -1,0 +1,57 @@
+<!-- 可用 -->
+
+<view class="ticket_one useable" wx:if="{{couponState=='useable'}}">
+  <!-- 文字 -->
+  <view class="left">￥
+    <text class="strong">{{offerMoney||'0'}}</text>
+  </view>
+  <view class="right">
+    <view>{{couponName||'优惠券'}}</view>
+    <view>满{{canUse||'0'}}可用</view>
+    <view>有效期至{{time||'0000-00-00'}}</view>
+  </view>
+  <!-- 背景 -->
+  <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+  <image class="ticket_logo" src="../../icon/ticket_cantuse.png" wx:if="{{payAmt<canUse&&payAmt}}"></image>
+</view>
+
+
+
+
+
+<!-- 已经使用 -->
+
+<view class="ticket_one used" wx:if="{{couponState=='used'}}">
+  <!-- 文字 -->
+  <view class="left">￥
+    <text class="strong">{{offerMoney||'0'}}</text>
+  </view>
+  <view class="right">
+    <view>{{couponName||'优惠券'}}</view>
+    <view>满{{canUse||'0'}}可用</view>
+    <view>有效期至{{time||'0000-00-00'}}</view>
+  </view>
+  <!-- 背景 -->
+  <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+  <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
+</view>
+
+
+
+
+<!-- 已经过期 -->
+
+<view class="ticket_one overdue" wx:if="{{couponState=='overdue'}}">
+  <!-- 文字 -->
+  <view class="left">￥
+    <text class="strong">{{offerMoney||'0'}}</text>
+  </view>
+  <view class="right">
+    <view>{{couponName||'优惠券'}}</view>
+    <view>满{{canUse||'0'}}可用</view>
+    <view>有效期至{{time||'0000-00-00'}}</view>
+  </view>
+  <!-- 背景 -->
+  <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
+  <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
+</view>

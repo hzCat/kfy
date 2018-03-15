@@ -1,0 +1,68 @@
+.ticket_one {
+  width: 670rpx;
+  overflow: hidden;
+  position: relative;
+  height: 260rpx;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 40rpx;
+  margin-top: 24rpx;
+}
+.ticket_one > view {
+  position: relative;
+  z-index: 3;
+}
+.ticket_one .left {
+  width: 226rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #e55c4e;
+  padding-left: 63rpx;
+  font-size: 30rpx;
+}
+.ticket_one .left .strong {
+  font-size: 60rpx;
+  font-weight: bold;
+}
+.ticket_one .right {
+  font-size: 28rpx;
+}
+.ticket_one .right view {
+  line-height: 52rpx;
+  color: #454545;
+}
+.ticket_one .right view:first-child {
+  color: #454545;
+  font-weight: bold;
+}
+.ticket_one .right view:last-child {
+  color: #999;
+}
+.ticket_one .ticket_bg {
+  width: 670rpx;
+  height: 260rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.ticket_one .ticket_logo {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  width: 109rpx;
+  height: 116rpx;
+}
+.overdue .left,
+.used .left {
+  color: #999;
+}
+.overdue .right view,
+.used .right view {
+  color: #999;
+}

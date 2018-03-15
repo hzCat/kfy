@@ -1,1 +1,7 @@
-{}
+{
+  "navigationBarTitleText": "优惠券",
+  "usingComponents": {
+    "shade": "../../components/shade/shade",
+    "coupon": "../../components/couponCard/couponCard"
+  }
+}
