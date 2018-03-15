@@ -21,6 +21,39 @@
       color: #bfbfbf;
     }
   }
+  .off_detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40rpx;
+    font-size: 34rpx;
+    height: 0rpx;
+    background: #fff;
+    transition: height 0.3s linear;
+    overflow: hidden;
+    .left {
+      color: #333;
+    }
+    .right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      color: #fb3d3c;
+      font-weight: bold;
+
+      .array {
+        width: 14rpx;
+        height: 14rpx;
+        border-right: 4rpx solid #999;
+        border-bottom: 4rpx solid #999;
+        transform: rotateZ(-45deg);
+        margin-left: 40rpx;
+      }
+    }
+  }
+  .off_detail_show {
+    height: 120rpx;
+  }
   .btn-group {
     .tips {
       font-size: 24rpx;
@@ -65,6 +98,8 @@
       margin-top: 25rpx;
     }
     .word {
+      width:300rpx;
+      text-align: center;
       font-size: 28rpx;
       line-height: 29rpx;
       color: #999;
@@ -89,18 +124,18 @@
         align-items: center;
         font-size: 34rpx;
         color: #333;
-        height:34rpx;
+        height: 34rpx;
         image {
           width: 44rpx;
           height: 44rpx;
           margin-right: 17rpx;
         }
         .two {
-          height:34rpx;
-          padding-top:5rpx;
+          height: 34rpx;
+          padding-top: 5rpx;
           font-size: 26rpx;
           color: #999;
-          margin-left:16rpx;
+          margin-left: 16rpx;
         }
       }
     }
@@ -111,10 +146,10 @@
       margin-left: 104rpx;
     }
   }
-  .pay{
+  .pay {
     margin: 48rpx 40rpx 0 40rpx;
-    height:88rpx;
-    line-height:88rpx;
+    height: 88rpx;
+    line-height: 88rpx;
     font-size: 34rpx;
   }
 }

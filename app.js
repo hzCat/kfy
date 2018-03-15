@@ -9,7 +9,7 @@ App({
     userInfo: null,
     canCheck: true,
     staticUrl: null,
-    header: {},
+    header: null,
     serviceNumber: "",
     timer: 0,
     test: 1

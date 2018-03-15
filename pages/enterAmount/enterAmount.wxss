@@ -22,6 +22,38 @@
 .container .input .input_p {
   color: #bfbfbf;
 }
+.container .off_detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  font-size: 34rpx;
+  height: 0rpx;
+  background: #fff;
+  transition: height 0.3s linear;
+  overflow: hidden;
+}
+.container .off_detail .left {
+  color: #333;
+}
+.container .off_detail .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #fb3d3c;
+  font-weight: bold;
+}
+.container .off_detail .right .array {
+  width: 14rpx;
+  height: 14rpx;
+  border-right: 4rpx solid #999;
+  border-bottom: 4rpx solid #999;
+  transform: rotateZ(-45deg);
+  margin-left: 40rpx;
+}
+.container .off_detail_show {
+  height: 120rpx;
+}
 .container .btn-group .tips {
   font-size: 24rpx;
   display: flex;
@@ -63,6 +95,8 @@
   margin-top: 25rpx;
 }
 .container_1 .top .word {
+  width: 300rpx;
+  text-align: center;
   font-size: 28rpx;
   line-height: 29rpx;
   color: #999;

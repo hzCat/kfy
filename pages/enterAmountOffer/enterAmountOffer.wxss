@@ -1,0 +1,34 @@
+.detail_one .one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  height: 120rpx;
+  padding: 0 40rpx;
+  border-top: 1rpx solid #e5e5e5;
+}
+.detail_one .one .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.detail_one .one .left .mark {
+  width: 32rpx;
+  height: 32rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 32rpx;
+  border-radius: 8rpx;
+  margin-right: 23rpx;
+  color: #fff;
+}
+.detail_one .one .left .word {
+  font-size: 34rpx;
+  line-height: 32rpx;
+  color: #333;
+  text-align: left;
+}
+.detail_one .one .right {
+  font-size: 34rpx;
+  font-weight: bold;
+}

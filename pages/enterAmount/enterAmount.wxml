@@ -1,36 +1,45 @@
 <view class="container {{second_step&&'second_step'}}">
   <view class="input">
     <view class="title">{{nowStore.codeValue||'功夫元'}}</view>
-    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p" bindblur="inputMoney" value="{{money}}"></input>
+    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p" bindblur="inputMoney" bindtap="clearMoney" value="{{money}}"></input>
   </view>
+  <!-- 有优惠的时候显示 -->
+  <view class="off_detail {{calc_all.totalOfferAmt>0&&'off_detail_show'}}" bindtap="offerDetail">
+    <view class="left">其他优惠</view>
+    <view class="right">
+      <view class="money">-￥{{calc_all.totalOfferAmt}}</view>
+      <view class="array"></view>
+    </view>
+  </view>
+
   <view class="btn-group">
     <view class="tips">
       <icon type="warn" size="11" color="#8DCE70"></icon>
       <view>请向店员确认金额</view>
     </view>
-    <button class="submit" bindtap="submit">确认金额</button>
+    <button class="submit" bindtap="submit">确认金额{{calc_money?'￥'+calc_money:""}}</button>
   </view>
 </view>
 
 
-
+<!-- 第二步 -->
 <view class="container container_1 {{!second_step&&'second_step'}}">
 
   <view class="top">
     <image src="../../icon/enter_amount_pay_icon.png"></image>
-    <view class="amount">1110.00</view>
+    <view class="amount">{{calc_money}}</view>
     <view class="word">需支付</view>
   </view>
 
   <view class="choose_card">
     <!-- 个人 -->
-    <view class="option" data-card="VIP" bindtap="chooseCard">
+    <view class="option" data-card="VIP_CARD" bindtap="chooseCard" wx:if="{{cardList[0].vipScope=='VIP'}}">
       <view class="left">
         <image src="../../icon/vip_option.png" mode="aspectFit"></image>
         <view class="one">个人卡</view>
-        <view class="two">(余额：￥21.00)</view>
+        <view class="two">(余额：￥{{cardList[0].cardBalance}})</view>
       </view>
-      <icon type="success" size="22" color="#FDAF31" wx:if="{{select_card=='VIP'}}"></icon>
+      <icon type="success" size="22" color="#FDAF31" wx:if="{{select_card=='VIP_CARD'}}"></icon>
     </view>
     <view class="line"></view>
     <!-- 微信 -->
@@ -45,7 +54,7 @@
   </view>
 
   <!-- 确认支付 -->
-  <button class="pay" bindtap="pay">确认支付</button>
+  <button class="pay" bindtap="payClick">确认支付</button>
 
 
 

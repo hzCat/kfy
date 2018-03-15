@@ -143,7 +143,13 @@
 					"id": 18,
 					"name": "输入金额付款",
 					"pathName": "pages/enterAmount/enterAmount",
-					"query": "storeCode=07"
+					"query": "storeCode=01"
+				},
+				{
+					"id": -1,
+					"name": "输入金额付款OFFER",
+					"pathName": "pages/enterAmountOffer/enterAmountOffer",
+					"query": ""
 				}
 			]
 		}

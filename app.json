@@ -20,7 +20,8 @@
     "pages/consumeDetails/consumeDetails",
     "pages/chargeSuccFail/chargeSuccFail",
     "pages/pay/pay",
-    "pages/enterAmount/enterAmount"
+    "pages/enterAmount/enterAmount",
+    "pages/enterAmountOffer/enterAmountOffer"
   ],
   "window": {
     "backgroundTextStyle": "light",

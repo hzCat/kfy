@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="detail_one">
+    <view class="one" wx:for="{{offerList}}" wx:key="index">
+      <view class="left">
+        <view class="mark {{item.color}}">{{item.oneWord||'无'}}</view>
+        <view class="word">{{item.name||'无'}}</view>
+      </view>
+      <view class="right price-red">-￥{{item.money||'0.00'}}</view>
+    </view>
+  </view>
+</view>
