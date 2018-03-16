@@ -1,6 +1,8 @@
 <view class="container {{second_step&&'second_step'}}">
   <view class="input">
-    <view class="title">{{nowStore.codeValue||'功夫元'}}</view>
+    <view class="title">
+      <image src="../../icon/icon_shop.png"></image>
+      {{nowStore.codeValue||'功夫元'}}</view>
     <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p" bindblur="inputMoney" bindtap="clearMoney" value="{{money}}"></input>
   </view>
   <!-- 有优惠的时候显示 -->

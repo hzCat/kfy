@@ -124,42 +124,46 @@ Page({
   },
   // 获取输入金额
   inputMoney(e) {
-    wx.showLoading({
-      title: "计算结算金额中",
-      mask: true
-    });
     let that = this;
     let money = turn.tostr(e.detail.value);
-    let json = JSON.stringify({
-      storeId: that.data.nowStore.codeId,
-      orderAmt: e.detail.value
-    });
-    console.log(json);
-    http
-      .ajax("/wxaCodeOrder/payPre", "POST", json, that.data.json_header)
-      .then(res => {
-        console.log(res.data.data);
-        let payAmt = turn.tostr(res.data.data.payAmt);
-        // 如果有优惠,优惠列表设置缓存
-        if (res.data.data.totalOfferAmt > 0) {
-          let list = { offerList: res.data.data.offerList };
-          storage.sets("enterAmountOfferList", list).then(res => {});
-        }
-        setTimeout(() => {
-          that.setData(
-            {
-              calc_money: payAmt,
-              calc_all: res.data.data
-            },
-            () => {
-              wx.hideLoading();
-            }
-          );
-        }, 1000);
-      })
-      .catch(err => {
-        console.log(err);
+    if (this.data.nowStore) {
+      wx.showLoading({
+        title: "确认结算金额中",
+        mask: true
       });
+      let json = JSON.stringify({
+        storeId: that.data.nowStore.codeId,
+        orderAmt: e.detail.value
+      });
+      console.log(json);
+      http
+        .ajax("/wxaCodeOrder/payPre", "POST", json, that.data.json_header)
+        .then(res => {
+          console.log(res.data.data);
+          let payAmt = turn.tostr(res.data.data.payAmt);
+          // 如果有优惠,优惠列表设置缓存
+          if (res.data.data.totalOfferAmt > 0) {
+            let list = { offerList: res.data.data.offerList };
+            storage.sets("enterAmountOfferList", list).then(res => {});
+          }
+          setTimeout(() => {
+            that.setData(
+              {
+                calc_money: payAmt,
+                calc_all: res.data.data
+              },
+              () => {
+                wx.hideLoading();
+              }
+            );
+          }, 1000);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      modal.modal("提示", "门店错误,请重新扫码");
+    }
     this.setData({
       money: money
     });
@@ -198,6 +202,10 @@ Page({
             modal.modal("提示", res.data.message);
           }
         });
+    }else{
+      if(!this.data.nowStore){
+        modal.modal("提示","请重新扫码")
+      }
     }
   },
   // 切换卡片

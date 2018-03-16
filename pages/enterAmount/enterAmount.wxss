@@ -10,6 +10,14 @@
   text-align: center;
   font-size: 40rpx;
   line-height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .input .title image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 16rpx;
 }
 .container .input input {
   width: 100%;
