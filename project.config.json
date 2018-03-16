@@ -162,6 +162,12 @@
 					"name": "充值chargeMoney_info",
 					"pathName": "pages/chargeMoney_info/chargeMoney_info",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "外卖out",
+					"pathName": "pages/out/outIndex/outIndex",
+					"query": ""
 				}
 			]
 		}

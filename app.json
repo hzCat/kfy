@@ -23,7 +23,8 @@
     "pages/shareGift/shareGift",
     "pages/feedback/feedback",
     "pages/coupon/coupon",
-    "pages/chargeMoney_info/chargeMoney_info"
+    "pages/chargeMoney_info/chargeMoney_info",
+    "pages/out/outIndex/outIndex"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,20 +42,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "付款",
-        "iconPath": "icon/icon_home_n.png",
-        "selectedIconPath": "icon/icon_pay_selected.png"
+        "iconPath": "icon/tabbar/icon_home_n.png",
+        "selectedIconPath": "icon/tabbar/icon_pay_selected.png"
       },
       {
         "pagePath": "pages/vip/vip",
         "text": "功夫会员",
-        "iconPath": "icon/tab_icon_membership.png",
-        "selectedIconPath": "icon/tab_icon_membership_selected.png"
+        "iconPath": "icon/tabbar/tab_icon_membership.png",
+        "selectedIconPath": "icon/tabbar/tab_icon_membership_selected.png"
+      },
+      {
+        "pagePath": "pages/out/outIndex/outIndex",
+        "text": "外卖",
+        "iconPath": "icon/tabbar/out.png",
+        "selectedIconPath": "icon/tabbar/out_s.png"
       },
       {
         "pagePath": "pages/userCenter/userCenter",
         "text": "我的",
-        "iconPath": "icon/icon_persionalCerter.png",
-        "selectedIconPath": "icon/icon_persionalCerter_selected.png"
+        "iconPath": "icon/tabbar/icon_persionalCerter.png",
+        "selectedIconPath": "icon/tabbar/icon_persionalCerter_selected.png"
       }
     ]
   }

@@ -39,9 +39,14 @@ Page({
       vipScope: options.by,
       // vipLevelId: options.level,
       // buy: options.buy
-      invite: options.invite,
-      actid: options.actid
     });
+    // 判断是否有活动
+    if (options.invite && options.actid && options.invite != 'null' && options.actid != 'null') {
+      this.setData({
+        invite: options.invite,
+        actid: options.actid
+      })
+    }
     wx.getStorage({
       key: "3rd_session",
       success: function (res) {
@@ -190,12 +195,21 @@ Page({
     if (that.data.buy == "false") {
       console.log(this.data.nowMoney);
       var url = "/recharge/wxRecharge";
-      var data = {
-        vipScope: that.data.vipScope,
-        rechargeAmt: that.data.nowMoney,
-        extendNumber2: that.data.actid,
-        inviterCode: that.data.invite
-      };
+      var data = {}
+      if (that.data.actid && that.data.invite) {
+        data = {
+          vipScope: that.data.vipScope,
+          rechargeAmt: that.data.nowMoney,
+          extendNumber2: that.data.actid,
+          inviterCode: that.data.invite
+        };
+      } else {
+        data = {
+          vipScope: that.data.vipScope,
+          rechargeAmt: that.data.nowMoney,
+        };
+      }
+      console.log(data)
       http
         .ajax(url, method, data, header)
         .then(function (res) {

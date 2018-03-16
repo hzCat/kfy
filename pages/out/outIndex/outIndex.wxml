@@ -1,0 +1,20 @@
+<view class="container">
+  <image class="top" src="../../../img/out_top_ad.png"></image>
+  <!-- 可以外卖 -->
+  <view class="can">
+    <view class="title">选择配送门店</view>
+    <view class="one_store">
+      <view class="detail">
+        <view class="name">香年广场T3店香年店
+        </view>
+        <view class="distance">
+          <image src="../../../icon/distance.png"></image>1.5 km</view>
+        <view class="street">高新区香年广场五区高新区高新区高新区 高新区香年广场五区高新区高新区
+        </view>
+      </view>
+      <image src="../../../icon/icon_dinnerroom.png" class="logo"></image>
+    </view>
+  </view>
+  <!-- 不可以外卖 -->
+  <view class="cant"></view>
+</view>

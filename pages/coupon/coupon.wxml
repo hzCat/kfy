@@ -15,60 +15,34 @@
   <view class="ticket">
 
     <!-- 可用可用可用可用可用可用可用可用可用可用可用可用可用可用可用 -->
-    <scroll-view class="ticket_useable {{select=='useable'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="useable" lower-threshold="0">
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <!-- 背景 -->
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-      </view>
+    <scroll-view class="ticket_useable {{select=='useable'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="useable" lower-threshold="0"
+      wx:if="{{length_one>0}}">
 
-      <coupon couponState="useable" wx:for="{{list}}" wx:key="index" payAmt="25" canUse="{{item.canUse}}" offerMoney="{{item.offerMoney}}"
-      time="{{item.time}}" couponName="{{item.couponName}}"></coupon>
 
-      <view class="get_more">显示更多</view>
+      <coupon couponState="useable" wx:for="{{list_one}}" wx:key="index" canUse="{{item.useThreshold}}" offerMoney="{{item.couponDenomination}}"
+        time="{{item.validTime}}" couponName="{{item.couponName}}"></coupon>
+
+      <view class="get_more">{{more_one?'显示更多':'无更多优惠券'}}</view>
     </scroll-view>
-
     <!-- 用了用了用了用了用了用了用了用了用了用了用了用了用 -->
-    <scroll-view class="ticket_used {{select=='used'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="used" lower-threshold="0">
-
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
-        <view class="left">￥
-          <text class="strong">88</text>
-        </view>
-        <view class="right">
-          <view>通用券</view>
-          <view>满20可用</view>
-          <view>有效期至2017-06-01</view>
-        </view>
-        <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
-        <image class="ticket_logo" src="../../icon/ticket_used.png"></image>
-      </view>
-
-      <coupon couponState="used" wx:for="{{list}}" wx:key="index" payAmt="25" canUse="{{item.canUse}}" offerMoney="{{item.offerMoney}}"
-        time="{{item.time}}" couponName="{{item.couponName}}"></coupon>
+    <scroll-view class="ticket_used {{select=='used'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="used" lower-threshold="0"
+      wx:if="{{length_two>0}}">
 
 
-      <view class="get_more">显示更多</view>
+
+      <coupon couponState="used" wx:for="{{list_two}}" wx:key="index" canUse="{{item.useThreshold}}" offerMoney="{{item.couponDenomination}}"
+        time="{{item.validTime}}" couponName="{{item.couponName}}"></coupon>
+
+
+      <view class="get_more">{{more_two?'显示更多':'无更多优惠券'}}</view>
 
     </scroll-view>
 
 
     <!-- 过期过期过期过期过期过期过期过期过期过期过期过期过期过期过期 -->
-    <scroll-view class="ticket_overdue {{select=='overdue'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="overdue" lower-threshold="0">
-      <!-- ticket_one -->
-      <view class="ticket_one">
-        <!-- 文字 -->
+    <scroll-view class="ticket_overdue {{select=='overdue'&&'selected'}}" scroll-y="{{true}}" bindscrolltolower="overdue" lower-threshold="0"
+      wx:if="{{length_three>0}}">
+      <!-- <view class="ticket_one">
         <view class="left">￥
           <text class="strong">88</text>
         </view>
@@ -79,16 +53,28 @@
         </view>
         <image class="ticket_bg" src="../../img/ticket_bg.png"></image>
         <image class="ticket_logo" src="../../icon/ticket_overdue.png"></image>
-      </view>
+      </view> -->
 
-      <coupon couponState="overdue"  wx:for="{{list}}" wx:key="index" payAmt="25" canUse="{{item.canUse}}" offerMoney="{{item.offerMoney}}"
-      time="{{item.time}}" couponName="{{item.couponName}}"></coupon>
+      <coupon couponState="overdue" wx:for="{{list_three}}" wx:key="index" canUse="{{item.useThreshold}}" offerMoney="{{item.couponDenomination}}"
+        time="{{item.validTime}}" couponName="{{item.couponName}}"></coupon>
 
 
-      <view class="get_more">显示更多</view>
+      <view class="get_more">{{more_three?'显示更多':'无更多优惠券'}}</view>
 
 
     </scroll-view>
 
+  </view>
+  <view class="no_coupon" wx:if="{{select=='useable'&&length_one==0}}">
+    <image src="../../icon/icon_noCoupon.png"></image>
+    <view>暂时没有优惠券哦</view>
+  </view>
+  <view class="no_coupon" wx:if="{{select=='used'&&length_two==0}}">
+    <image src="../../icon/icon_noCoupon.png"></image>
+    <view>暂时没有优惠券哦</view>
+  </view>
+  <view class="no_coupon" wx:if="{{select=='overdue'&&length_three==0}}">
+    <image src="../../icon/icon_noCoupon.png"></image>
+    <view>暂时没有优惠券哦</view>
   </view>
 </view>

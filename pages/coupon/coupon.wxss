@@ -68,73 +68,17 @@ page {
   padding-top: 112rpx;
   opacity: 1;
 }
-.container .ticket .ticket_one {
-  width: 670rpx;
-  overflow: hidden;
-  position: relative;
-  height: 260rpx;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 40rpx;
+.container .no_coupon {
+  text-align: center;
+  padding-top: 112rpx;
 }
-.container .ticket .ticket_one > view {
-  position: relative;
-  z-index: 3;
+.container .no_coupon image {
+  width: 294rpx;
+  height: 227rpx;
+  margin-top: 100rpx;
 }
-.container .ticket .ticket_one .left {
-  width: 226rpx;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: #e55c4e;
-  padding-left: 63rpx;
-  font-size: 30rpx;
-}
-.container .ticket .ticket_one .left .strong {
-  font-size: 60rpx;
-  font-weight: bold;
-}
-.container .ticket .ticket_one .right {
-  font-size: 28rpx;
-}
-.container .ticket .ticket_one .right view {
-  line-height: 52rpx;
-  color: #454545;
-}
-.container .ticket .ticket_one .right view:first-child {
-  color: #454545;
-  font-weight: bold;
-}
-.container .ticket .ticket_one .right view:last-child {
+.container .no_coupon view {
+  font-size: 32rpx;
   color: #999;
-}
-.container .ticket .ticket_one .ticket_bg {
-  width: 670rpx;
-  height: 260rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.container .ticket .ticket_one .ticket_logo {
-  position: absolute;
-  z-index: 4;
-  top: 0;
-  right: 0;
-  width: 109rpx;
-  height: 116rpx;
-}
-.container .ticket .ticket_one:not(:first-child) {
-  margin-top: 24rpx;
-}
-.container .ticket .ticket_overdue .ticket_one .left,
-.container .ticket .ticket_used .ticket_one .left {
-  color: #999;
-}
-.container .ticket .ticket_overdue .ticket_one .right view,
-.container .ticket .ticket_used .ticket_one .right view {
-  color: #999;
+  margin-top: 41rpx;
 }

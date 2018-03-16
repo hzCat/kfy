@@ -68,80 +68,95 @@ page {
       padding-top: 112rpx;
       opacity: 1;
     }
-    .ticket_one {
-      width: 670rpx;
-      overflow: hidden;
-      position: relative;
-      height: 260rpx;
-      z-index: 2;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 0 40rpx;
-      > view {
-        position: relative;
-        z-index: 3;
-      }
-      .left {
-        width: 226rpx;
-        height: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        color: #e55c4e;
-        padding-left: 63rpx;
-        font-size: 30rpx;
-        .strong {
-          font-size: 60rpx;
-          font-weight: bold;
-        }
-      }
-      .right {
-        font-size: 28rpx;
-        view {
-          line-height: 52rpx;
-          color: #454545;
-        }
-        view:first-child {
-          color: #454545;
-          font-weight: bold;
-        }
-        view:last-child {
-          color: #999;
-        }
-      }
-      .ticket_bg {
-        width: 670rpx;
-        height: 260rpx;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-      .ticket_logo {
-        position: absolute;
-        z-index: 4;
-        top: 0;
-        right: 0;
-        width: 109rpx;
-        height: 116rpx;
-      }
+
+    // .ticket_one {
+    //   width: 670rpx;
+    //   overflow: hidden;
+    //   position: relative;
+    //   height: 260rpx;
+    //   z-index: 2;
+    //   display: flex;
+    //   justify-content: flex-start;
+    //   align-items: center;
+    //   margin: 0 40rpx;
+    //   > view {
+    //     position: relative;
+    //     z-index: 3;
+    //   }
+    //   .left {
+    //     width: 226rpx;
+    //     height: 100%;
+    //     display: flex;
+    //     justify-content: flex-start;
+    //     align-items: center;
+    //     color: #e55c4e;
+    //     padding-left: 63rpx;
+    //     font-size: 30rpx;
+    //     .strong {
+    //       font-size: 60rpx;
+    //       font-weight: bold;
+    //     }
+    //   }
+    //   .right {
+    //     font-size: 28rpx;
+    //     view {
+    //       line-height: 52rpx;
+    //       color: #454545;
+    //     }
+    //     view:first-child {
+    //       color: #454545;
+    //       font-weight: bold;
+    //     }
+    //     view:last-child {
+    //       color: #999;
+    //     }
+    //   }
+    //   .ticket_bg {
+    //     width: 670rpx;
+    //     height: 260rpx;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     z-index: 1;
+    //   }
+    //   .ticket_logo {
+    //     position: absolute;
+    //     z-index: 4;
+    //     top: 0;
+    //     right: 0;
+    //     width: 109rpx;
+    //     height: 116rpx;
+    //   }
+    // }
+    // .ticket_one:not(:first-child) {
+    //   margin-top: 24rpx;
+    // }
+    // .ticket_overdue,
+    // .ticket_used {
+    //   .ticket_one {
+    //     .left {
+    //       color: #999;
+    //     }
+    //     .right {
+    //       view {
+    //         color: #999;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+  .no_coupon {
+    text-align: center;
+    padding-top: 112rpx;
+    image {
+      width: 294rpx;
+      height: 227rpx;
+      margin-top:100rpx;
     }
-    .ticket_one:not(:first-child) {
-      margin-top: 24rpx;
-    }
-    .ticket_overdue,
-    .ticket_used {
-      .ticket_one {
-        .left {
-          color: #999;
-        }
-        .right {
-          view {
-            color: #999;
-          }
-        }
-      }
+    view{
+      font-size: 32rpx;
+      color:#999;
+      margin-top:41rpx;
     }
   }
 }

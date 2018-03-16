@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "外卖",
+  "usingComponents": {
+    "shade": "../../../components/shade/shade",
+    "dishes": "../../../components/dishesCard/dishesCard"
+  }
+}

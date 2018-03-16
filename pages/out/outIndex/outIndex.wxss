@@ -1,0 +1,61 @@
+.container .top {
+  width: 100%;
+  height: 436rpx;
+}
+.container .can {
+  padding: 40rpx;
+}
+.container .can .title {
+  font-size: 34rpx;
+  color: #333;
+  text-align: left;
+  padding-bottom: 15rpx;
+}
+.container .can .one_store {
+  position: relative;
+  margin-top: 24rpx;
+}
+.container .can .one_store image.logo {
+  width: 145rpx;
+  height: 145rpx;
+  border: 4rpx solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 36rpx;
+  left: 0;
+}
+.container .can .one_store .detail {
+  background: #fff;
+  width: 594rpx;
+  height: 224rpx;
+  padding: 38rpx 51rpx 37rpx 92rpx;
+  margin-left: 72rpx;
+  border-radius: 24rpx;
+  box-shadow: 1rpx 0rpx 5rpx rgba(0, 0, 0, 0.15);
+}
+.container .can .one_store .detail .name {
+  font-size: 32rpx;
+  line-height: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.container .can .one_store .detail .distance {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #666;
+  margin-top: 23rpx;
+}
+.container .can .one_store .detail .distance image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+.container .can .one_store .detail .street {
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #999;
+  margin-top: 24rpx;
+}
