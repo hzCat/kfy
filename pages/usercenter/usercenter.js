@@ -26,7 +26,6 @@ Page({
    */
   onLoad: function(options) {
     this.getStatic();
-    this.getActivity();
   },
   // 获取静态地址
   getStatic() {
@@ -82,6 +81,7 @@ Page({
     // });
     this.getAllInfo();
     this.getUserInfo();
+    this.getActivity();
   },
   // 下拉刷新用户信息
   onPullDownRefresh() {

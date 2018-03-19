@@ -15,37 +15,64 @@
   </view>
   <view class="content">
     <view class="name">{{allInfo.nickName}}</view>
-    <view class="vip list-one" bindtap="jump" data-jump="/pages/vip/vip">
+    <!-- 快餐 -->
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/allOrder/allOrder">
       <view>
-        <image src="../../icon/icon_member.png"></image>
-      </view>
-      <view>功夫会员</view>
-    </view>
-    <view class="order list-one" bindtap="jump" data-jump="/pages/allOrder/allOrder">
-      <view>
-        <image src="../../icon/icon_order.png"></image>
+        <image src="../../icon/usercenter/icon_fastfoodOrder.png"></image>
       </view>
       <view class="order-name">
-        <text>全部订单</text>
+        <text>快餐订单</text>
         <text class="badge" wx:if="{{allInfo.waitPayOrderCount}}">{{allInfo.waitPayOrderCount||'0'}}</text>
       </view>
     </view>
-    <view class="events list-one">
+    <!-- 团餐 -->
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/allOrder/allOrder">
       <view>
-        <image src="../../icon/icon_promotion.png"></image>
+        <image src="../../icon/usercenter/icon_groupOrder.png"></image>
       </view>
-      <view>近期活动
-        <text>(敬请期待...)</text>
+      <view class="order-name">
+        <text>团餐订单</text>
+        <text class="badge" wx:if="{{allInfo.waitPayOrderCount}}">{{allInfo.waitPayOrderCount||'0'}}</text>
       </view>
     </view>
-    <view class="special list-one">
+    <!-- 功夫券 -->
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/coupon/coupon">
       <view>
-        <image src="../../icon/icon_native.png"></image>
+        <image src="../../icon/usercenter/icon_coupon.png"></image>
       </view>
-      <view>功夫特产
-        <text>(敬请期待...)</text>
+      <view class="order-name">
+        <text>功夫券</text>
+        <text class="badge" wx:if="{{allInfo.waitPayOrderCount}}">{{allInfo.waitPayOrderCount||'0'}}</text>
       </view>
     </view>
+    <!-- 邀请有礼 -->
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/shareGift/shareGift" wx:if="{{hasAct}}">
+      <view>
+        <image src="../../icon/usercenter/icon_invite.png"></image>
+      </view>
+      <view class="order-name">
+        邀请有礼
+      </view>
+    </view>
+    <!-- 配送地址 -->
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/vip/vip">
+      <view>
+        <image src="../../icon/usercenter/icon_address.png"></image>
+      </view>
+      <view class="order-name">
+        配送地址
+      </view>
+    </view>
+    <!-- 意见反馈 -->
+    <view class="vip list-one" bindtap="jump" data-jump="/pages/feedback/feedback">
+      <view>
+        <image src="../../icon/usercenter/icon_suggest.png"></image>
+      </view>
+      <view class="order-name">
+        意见反馈
+      </view>
+    </view>
+
   </view>
 </view>
 <shade modalOn="{{modalOn}}"></shade>
