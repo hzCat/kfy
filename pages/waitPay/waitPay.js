@@ -253,6 +253,6 @@ Page({
       modalOn: true
     });
     let jumpto = e.currentTarget.dataset.jump;
-    jump.jump("nav", jumpto);
+    jump.jump("redirect", jumpto);
   }
 });

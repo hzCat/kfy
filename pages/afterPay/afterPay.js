@@ -101,7 +101,9 @@ Page({
     });
     if (this.data.type == "group") {
       jump.jump("back");
-    }else{
+    } else if (this.data.isSucc == "false" && this.data.enter == "orderlist") {
+      jump.jump("redirect", "/pages/allOrder/allOrder");
+    } else {
       jump.jump("rel", "/pages/index/index?scanAgain=true");
     }
     // let by = this.data.enter;

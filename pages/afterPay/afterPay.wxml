@@ -6,7 +6,7 @@
     <view class="order-no">订单:{{orderId}}</view>
     <view class="wish">祝您用餐愉快</view>
     <!-- 个人按钮 -->
-    <button class="btn-again" bindtap="again" wx:if="{{type!='group'}}">再扫一个</button>
+    <button class="btn-again" bindtap="again" wx:if="{{type!='group'&&enter!='orderlist'}}">再扫一个</button>
     <button class="btn-quit" data-jump="/pages/index/index" bindtap="quit" wx:if="{{type!='group'}}">完成退出</button>
     <!-- 团餐按钮 -->
     <button class="btn-quit quit-group" data-jump="/pages/index/index" bindtap="quit" wx:if="{{type=='group'}}">完成退出</button>
