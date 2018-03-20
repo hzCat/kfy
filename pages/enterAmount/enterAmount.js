@@ -360,7 +360,7 @@ Page({
                               ) {
                                 wx.hideLoading();
                                 jump.jump(
-                                  "nav",
+                                  "redirect",
                                   `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                                 );
                                 //UNKNOWN状态订单
@@ -396,7 +396,7 @@ Page({
                                       } else {
                                         wx.hideLoading();
                                         jump.jump(
-                                          "nav",
+                                          "redirect",
                                           `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                                         );
                                       }
@@ -455,7 +455,7 @@ Page({
                           ) {
                             wx.hideLoading();
                             jump.jump(
-                              "nav",
+                              "redirect",
                               `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                             );
                             //UNKNOWN状态订单
@@ -488,7 +488,7 @@ Page({
                                   } else {
                                     wx.hideLoading();
                                     jump.jump(
-                                      "nav",
+                                      "redirect",
                                       `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                                     );
                                   }
@@ -555,7 +555,7 @@ Page({
                   );
                 } else {
                   jump.jump(
-                    "nav",
+                    "redirect",
                     `/pages/afterPay/afterPay?by=card&isSucc=false&code=${code}&orderId=${orderNo}&enter=orderlist`
                   );
                 }
