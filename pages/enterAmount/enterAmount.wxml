@@ -19,7 +19,7 @@
       <icon type="warn" size="11" color="#8DCE70"></icon>
       <view>请向店员确认金额</view>
     </view>
-    <button class="submit" bindtap="submit">确认金额{{calc_money?'￥'+calc_money:""}}</button>
+    <button class="submit" bindtap="submit" disabled="{{!calc_money}}">确认金额{{calc_money?'￥'+calc_money:""}}</button>
   </view>
 </view>
 

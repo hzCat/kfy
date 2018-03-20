@@ -38,7 +38,8 @@
   font-size: 34rpx;
   height: 0rpx;
   background: #fff;
-  transition: height 0.3s linear;
+  opacity: 0;
+  transition: all 0.3s linear;
   overflow: hidden;
 }
 .container .off_detail .left {
@@ -61,6 +62,7 @@
 }
 .container .off_detail_show {
   height: 120rpx;
+  opacity: 1;
 }
 .container .btn-group .tips {
   font-size: 24rpx;

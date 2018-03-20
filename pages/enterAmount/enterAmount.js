@@ -30,7 +30,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let storeCode = options.storeCode;
     let n = 0;
 
@@ -67,7 +67,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function() {},
   jsonHeader() {
     storage.gets("3rd_session").then(res => {
       console.log(res.data);
@@ -152,7 +152,8 @@ Page({
                 storage.sets("enterAmountOfferList", list).then(res => {});
               }
               setTimeout(() => {
-                that.setData({
+                that.setData(
+                  {
                     calc_money: payAmt,
                     calc_all: res.data.data
                   },
@@ -172,10 +173,10 @@ Page({
           money: money
         });
       } else {
-        modal.modal("提示", "请输入0~99999.99之间的数")
+        modal.modal("提示", "请输入0~99999.99之间的数");
         this.setData({
           money: null
-        })
+        });
       }
     } else {
       this.setData({
@@ -187,6 +188,7 @@ Page({
   // 清空金额
   clearMoney() {
     this.setData({
+      calc_all: null,
       calc_money: null
     });
   },
@@ -240,7 +242,8 @@ Page({
     http
       .ajax(
         "/vipPayment/getCardInfoList",
-        "GET", {
+        "GET",
+        {
           orderId: orderId
         },
         app.globalData.header
@@ -283,7 +286,8 @@ Page({
     http
       .ajax(
         "/wxaCodeOrder/create",
-        "POST", {
+        "POST",
+        {
           storeId: that.data.nowStore.codeId,
           orderAmt: that.data.calc_all.orderAmt
         },
@@ -306,7 +310,7 @@ Page({
             console.log("支付按钮获取订单id", orderId);
             http
               .ajax(url, method, data, app.globalData.header)
-              .then(function (res) {
+              .then(function(res) {
                 console.log(res);
                 let code = res.data.code;
                 let result = res.data.result;
@@ -317,7 +321,7 @@ Page({
                   if (json.sendRequest == true) {
                     pay
                       .wpay(json)
-                      .then(function (res) {
+                      .then(function(res) {
                         console.log(res);
                         // 遮罩关闭
                         // that.setData({
@@ -329,11 +333,11 @@ Page({
                           mask: true
                         });
                         // 支付结果查询,第一次查询,4s
-                        setTimeout(function () {
+                        setTimeout(function() {
                           // 查询支付结果
                           pay
                             .payback(json.settlementId, app.globalData.header)
-                            .then(function (res) {
+                            .then(function(res) {
                               console.log("微信支付结果", res.data);
                               let obj = res.data;
                               let money = obj.tradeResponse.payAmt;
@@ -364,14 +368,14 @@ Page({
                                 //UNKNOWN状态订单
                               } else if (obj.tradeStatus == "UNKNOWN") {
                                 // 二次查询,3s
-                                setTimeout(function () {
+                                setTimeout(function() {
                                   // 查询订单支付结果
                                   pay
                                     .payback(
                                       json.settlementId,
                                       app.globalData.header
                                     )
-                                    .then(function (res) {
+                                    .then(function(res) {
                                       console.log("微信支付结果");
                                       console.log(res.data);
                                       let obj = res.data;
@@ -412,7 +416,7 @@ Page({
                             });
                         }, 2000); //一次查询
                       })
-                      .catch(function (err) {
+                      .catch(function(err) {
                         // 遮罩关闭
                         that.setData({
                           modalOn: false
@@ -425,11 +429,11 @@ Page({
                       title: "查询中",
                       mask: true
                     });
-                    setTimeout(function () {
+                    setTimeout(function() {
                       // 查询支付结果
                       pay
                         .payback(json.settlementId, app.globalData.header)
-                        .then(function (res) {
+                        .then(function(res) {
                           console.log("微信支付结果", res.data);
                           let obj = res.data;
                           let money = null;
@@ -463,14 +467,14 @@ Page({
                             //UNKNOWN状态订单
                           } else if (obj.tradeStatus == "UNKNOWN") {
                             // 二次查询,3s
-                            setTimeout(function () {
+                            setTimeout(function() {
                               // 查询订单支付结果
                               pay
                                 .payback(
                                   json.settlementId,
                                   app.globalData.header
                                 )
-                                .then(function (res) {
+                                .then(function(res) {
                                   console.log("微信支付结果", res.data);
                                   let obj = res.data;
                                   let money = obj.tradeResponse.payAmt;
@@ -518,7 +522,7 @@ Page({
                   modal.modal("提示", "系统异常");
                 }
               })
-              .catch(function (err) {
+              .catch(function(err) {
                 // 遮罩关闭
                 that.setData({
                   modalOn: false
@@ -535,7 +539,7 @@ Page({
             // 个人卡支付
             pay
               .vpay(data, header)
-              .then(function (res) {
+              .then(function(res) {
                 console.log("会员卡支付回调", res.data);
                 // 遮罩
                 that.setData({
@@ -566,7 +570,7 @@ Page({
                   );
                 }
               })
-              .catch(function (err) {
+              .catch(function(err) {
                 console.log(err);
                 // 遮罩
                 that.setData({
