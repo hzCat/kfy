@@ -3,7 +3,8 @@
     <view class="title">
       <image src="../../icon/icon_shop.png"></image>
       {{nowStore.codeValue||'功夫元'}}</view>
-    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p" bindblur="inputMoney" bindtap="clearMoney" value="{{money}}"></input>
+    <input type="digit" placeholder="请输入支付总金额" placeholder-class="input_p" bindblur="inputMoney" bindtap="clearMoney" value="{{money}}"
+      bindinput="ifInput"></input>
   </view>
   <!-- 有优惠的时候显示 -->
   <view class="off_detail {{calc_all.totalOfferAmt>0&&'off_detail_show'}}" bindtap="offerDetail">
@@ -19,7 +20,7 @@
       <icon type="warn" size="11" color="#8DCE70"></icon>
       <view>请向店员确认金额</view>
     </view>
-    <button class="submit" bindtap="submit" disabled="{{!calc_money}}">确认金额{{calc_money?'￥'+calc_money:""}}</button>
+    <button class="submit" bindtap="submit" disabled="{{!(calc_money||canClick)}}">确认金额{{calc_money?'￥'+calc_money:""}}</button>
   </view>
 </view>
 

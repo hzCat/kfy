@@ -24,7 +24,8 @@ Page({
     calc_money: null,
     calc_all: null,
     orderId: null,
-    cardList: null
+    cardList: null,
+    canClick: false
   },
 
   /**
@@ -119,6 +120,19 @@ Page({
     if (!thisStore) {
       modal.modal("提示", "门店ID错误", false, () => {
         jump.jump("back");
+      });
+    }
+  },
+  // 检测输入
+  ifInput(e) {
+    let str = e.detail.value;
+    if (str.length > 0) {
+      this.setData({
+        canClick: true
+      });
+    } else {
+      this.setData({
+        canClick: false
       });
     }
   },
@@ -348,7 +362,7 @@ Page({
                                 update.updateuser(app.globalData.header);
                                 wx.hideLoading();
                                 jump.jump(
-                                  "redirect",
+                                  "rel",
                                   `/pages/afterPay/afterPay?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}&type=${
                                     that.data.type
                                   }&enter=orderlist`
@@ -360,7 +374,7 @@ Page({
                               ) {
                                 wx.hideLoading();
                                 jump.jump(
-                                  "redirect",
+                                  "rel",
                                   `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                                 );
                                 //UNKNOWN状态订单
@@ -387,7 +401,7 @@ Page({
                                         );
                                         wx.hideLoading();
                                         jump.jump(
-                                          "redirect",
+                                          "rel",
                                           `/pages/afterPay/afterPay?by=wechat&money=${money}&orderId=${orderNo}&type=${
                                             that.data.type
                                           }&enter=orderlist`
@@ -396,7 +410,7 @@ Page({
                                       } else {
                                         wx.hideLoading();
                                         jump.jump(
-                                          "redirect",
+                                          "rel",
                                           `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                                         );
                                       }
@@ -443,7 +457,7 @@ Page({
                             update.updateuser(app.globalData.header);
                             wx.hideLoading();
                             jump.jump(
-                              "redirect",
+                              "rel",
                               `/pages/afterPay/afterPay?by=wechat&isSucc=true&money=${money}&orderId=${orderNo}&type=${
                                 that.data.type
                               }&enter=orderlist`
@@ -455,7 +469,7 @@ Page({
                           ) {
                             wx.hideLoading();
                             jump.jump(
-                              "redirect",
+                              "rel",
                               `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                             );
                             //UNKNOWN状态订单
@@ -479,7 +493,7 @@ Page({
                                     update.updateuser(app.globalData.header);
                                     wx.hideLoading();
                                     jump.jump(
-                                      "redirect",
+                                      "rel",
                                       `/pages/afterPay/afterPay?by=wechat&money=${money}&orderId=${orderNo}&type=${
                                         that.data.type
                                       }&enter=orderlist`
@@ -488,7 +502,7 @@ Page({
                                   } else {
                                     wx.hideLoading();
                                     jump.jump(
-                                      "redirect",
+                                      "rel",
                                       `/pages/afterPay/afterPay?by=wechat&isSucc=false&orderId=${orderNo}&enter=orderlist`
                                     );
                                   }
@@ -548,14 +562,14 @@ Page({
                 if (result == true && code == 200 && orderNo != null) {
                   update.updateuser(app.globalData.header);
                   jump.jump(
-                    "redirect",
+                    "rel",
                     `/pages/afterPay/afterPay?by=card&isSucc=true&money=${money}&orderId=${orderNo}&type=${
                       that.data.type
                     }&enter=orderlist`
                   );
                 } else {
                   jump.jump(
-                    "redirect",
+                    "rel",
                     `/pages/afterPay/afterPay?by=card&isSucc=false&code=${code}&orderId=${orderNo}&enter=orderlist`
                   );
                 }
