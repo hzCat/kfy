@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "dishes": "../dishes/dishes"
+    "coupon": "../couponCard/couponCard"
   }
 }

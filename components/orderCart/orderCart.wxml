@@ -1,0 +1,31 @@
+<view class="cart">
+  <view class="img" catchtap="showcart">
+    <image src="../../icon/out/cart.png"></image>
+  </view>
+  <view class="count" wx:if='{{dishesCount>0}}'>{{dishesCount}}</view>
+  <view class="total">￥{{price||0}}</view>
+  <button class="order-btn" catchtap="cartSubmit">立即下单</button>
+</view>
+
+<view class="cart-view {{showcart&&'showcart'}}" style="height:{{showcart&&(64+160*listLength)}}rpx">
+  <view class="delete">
+    <image src="../../icon/out/icon_del.png"></image>
+    <view catchtap="clearCart">全部清空</view>
+  </view>
+  <scroll-view class="detail-container" scroll-y style="height:{{showcart&&(160*listLength)}}rpx">
+
+    <view class="one" wx:for="{{list}}" wx:key="index">
+      <view class="left">
+        <view class="name">{{item.detailList.disheName||'暂无'}}</view>
+        <view class="price">￥{{item.detailList.salePrice||'暂无'}}</view>
+      </view>
+      <view class="right">
+        <image class="cut" src="../../icon/out/cut.png" catchtap="cartCut" data-idx="{{index}}"></image>
+        <view class="count">{{item.count||0}}</view>
+        <image class="add" src="../../icon/out/add.png" catchtap="cartAdd" data-idx="{{index}}"></image>
+      </view>
+    </view>
+
+  </scroll-view>
+
+</view>

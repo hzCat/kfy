@@ -1,0 +1,18 @@
+<view class="dishes">
+
+  <view class="left">
+    <image src="../../img/pic_meal_default.png"></image>
+  </view>
+  <view class="right">
+    <view class="name">{{list.disheName||'暂无'}}</view>
+    <view class="sale_count">已售 {{list.disheSaleQty||'0'}}</view>
+    <view class="add">
+      <view class="price">￥{{list.salePrice||'0.00'}}</view>
+      <view class="count">
+        <image class="cut" src="../../icon/out/cut.png" data-idx="{{list.disheId}}" catchtap="cut" wx:if="{{push.count>0}}"></image>
+        <view class="num" wx:if="{{push.count>0}}">{{push.count}}</view>
+        <image class="plus" src="../../icon/out/add.png" data-idx="{{list.disheId}}" catchtap="add"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 地址 -->
+  <view class="address">
+    <image class="top-line" src="../../../icon/out/line.png"></image>
+    <view class="name">香年广场T3 25楼113号</view>
+    <view class="detail">吴先生 152-1223-2345</view>
+  </view>
+  <!-- 菜品 -->
+  <view class="dishes">
+    <view class="title">菜品</view>
+    <view class="detail-one" wx:for="{{2}}" wx:key="index">
+      <view class="left">
+        <image src="../../../img/pic_meal_default.png"></image>
+        <view class="info">
+          <view>香菇炖鸡饭&西瓜汁</view>
+          <view>x1</view>
+        </view>
+      </view>
+      <view class="right">￥22</view>
+    </view>
+    <view class="more">
+      <image src="../../../icon/show_more.png"></image>更多菜品(30)</view>
+  </view>
+  <!-- 其他费用 -->
+  <view class="other-price">
+    <view class="one">
+      <view class="left">餐盒费</view>
+      <view class="right">￥0</view>
+    </view>
+    <view class="one">
+      <view class="left">配送费</view>
+      <view class="right">￥0</view>
+    </view>
+  </view>
+  <!-- 合计 -->
+  <view class="total">
+    <view class="one">
+      <view class="left">合计</view>
+      <view class="right">￥0</view>
+    </view>
+  </view>
+  <!-- 代金券 -->
+  <couponchoose type="notcheck"></couponchoose>
+  <!-- 优惠 -->
+  <view class="cut-money">
+    <view class="one">
+      <view class="left">满20减3元</view>
+      <view class="right">￥0</view>
+    </view>
+    <view class="one">
+      <view class="left">支付首单减免</view>
+      <view class="right">￥0</view>
+    </view>
+  </view>
+  <!-- 留言 -->
+  <view class="msg">
+    <view class="title">留言</view>
+    <input type="text" placeholder="您可以最多留言20字" placeholder-class="phder" maxlength="20"></input>
+  </view>
+  <!-- 支付 -->
+  <button class="pay-btn">立即支付</button>
+
+</view>

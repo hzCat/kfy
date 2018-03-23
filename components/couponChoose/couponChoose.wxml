@@ -1,0 +1,41 @@
+<!-- 样式1  有选项-->
+<view class="select_1" wx:if="{{type=='check'}}">
+  <view class="left" catchtap="isUse">
+    <view class="check {{isUse&&'border_orange'}}">
+      <icon type="success" size='22' color="#FDAF31" wx:if="{{isUse}}"></icon>
+    </view>
+    <view class="select_name">优惠券</view>
+  </view>
+  <view class="right" bindtap="showAllCoupon">
+    <view class="coupon_name" style="color:{{namecolor}}">通用代金券</view>
+    <view class="array"></view>
+  </view>
+</view>
+
+<!-- 样式2  有图标-->
+<view class="select_2" wx:if="{{type=='notcheck_icon'}}" bindtap="showAllCoupon">
+  <view class="left">
+    <view class="icon">券</view>
+    <view class="name">线上代金券</view>
+  </view>
+  <view class="right">
+    <view class="money">-￥2.00</view>
+    <view class="array"></view>
+  </view>
+</view>
+
+<!-- 样式3 -->
+<view class="select_3" wx:if="{{type=='notcheck'}}" bindtap="showAllCoupon">
+  <view class="left">
+    通用代金券
+  </view>
+  <view class="right">
+    <view class="off_money">-￥2</view>
+    <view class="array"></view>
+  </view>
+</view>
+
+<scroll-view scroll-y class="coupon_all {{show&&'show_all_coupon'}}">
+  <coupon wx:for="{{5}}" wx:key="index" data-id="{{index}}" bindtap="chooseCoupon"></coupon>
+  <button class="not_use">不使用代金券</button>
+</scroll-view>

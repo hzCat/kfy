@@ -1,1 +1,13 @@
-/* components/dishesCard/dishesCard.wxss */
+.card_container {
+  padding: 11rpx 40rpx 24rpx 24rpx;
+  background: #fff;
+  width: 582rpx;
+}
+.card_container .title {
+  font-size: 24rpx;
+  color: #6a6a6a;
+  height: 24rpx;
+  line-height: 24rpx;
+  padding-left: 17rpx;
+  border-left: 4rpx solid #ffa800;
+}

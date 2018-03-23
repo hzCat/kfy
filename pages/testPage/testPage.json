@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "邀请有礼",
+  "usingComponents": {
+    "choosecoupon": "../../components/couponChoose/couponChoose",
+    "dishescard": "../../components/dishesCard/dishesCard"
+  }
+}

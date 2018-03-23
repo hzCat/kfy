@@ -116,6 +116,7 @@ Page({
           app.globalData.header
         )
         .then(res => {
+          console.log(res.data);
           if (res.data.data) {
             console.log("拉取奖券", res.data.data.rows);
             let rows = res.data.data.rows;

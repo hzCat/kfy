@@ -1,0 +1,20 @@
+<view class="container">
+  <scroll-view class="select-container" scroll-y>
+    <view class="one" wx:for="{{4}}">
+      <view class="left">
+        <view class="check">
+          <icon type="success" size="22" color="#FDAF31"></icon>
+        </view>
+        <view class="info">
+          <view>香年广场T3 25楼113号</view>
+          <text decode="true">吴先生&nbsp;&nbsp;&nbsp;&nbsp;152-1223-2345</text>
+        </view>
+        <image src="../../../icon/out/address_toofar.png" wx:if="{{false}}"></image>
+      </view>
+      <image class="right" src="../../../icon/out/edit.png"></image>
+    </view>
+  </scroll-view>
+  <button class="add-new">
+    +新增地址
+  </button>
+</view>

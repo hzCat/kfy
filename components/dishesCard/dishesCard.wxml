@@ -1,3 +1,23 @@
-<view class="card_container">
-    
+<view class="card_container" wx:for="{{mealList}}" wx:key="index">
+  <view class="title">{{item.groupName}}</view>
+  <dishes wx:for="{{item.detailList}}" wx:for-index="idx" wx:for-item="dishes" wx:key="idx" list="{{dishes}}" groupId="{{item.groupId}}" bind:sendAdd="getAdd" bind:sendCut="getCut"></dishes>
 </view>
+<!-- 一个菜品 -->
+  <!-- <view class="dishes" wx:for="{{item.detailList}}" wx:for-index="idx" wx:for-item="dishes" wx:key="idx">
+
+    <view class="left">
+      <image src="../../img/pic_meal_default.png"></image>
+    </view>
+    <view class="right">
+      <view class="name">{{dishes.disheName||'暂无'}}</view>
+      <view class="sale_count">已售 {{dishes.disheSaleQty||'0'}}</view>
+      <view class="add">
+        <view class="price">￥{{dishes.salePrice||'0.00'}}</view>
+        <view class="count">
+          <image class="cut" src="../../icon/out/cut.png" data-group="{{item.groupId}}" data-idx="{{dishes.disheId}}" catchtap="cut"></image>
+          <view class="num">1</view>
+          <image class="plus" src="../../icon/out/add.png" data-group="{{item.groupId}}" data-idx="{{dishes.disheId}}" catchtap="add"></image>
+        </view>
+      </view>
+    </view>
+  </view> -->

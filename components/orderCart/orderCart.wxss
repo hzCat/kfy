@@ -1,0 +1,121 @@
+.cart {
+  height: 104rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.cart .img {
+  height: 96rpx;
+  width: 96rpx;
+  border-radius: 50%;
+  background: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 24rpx;
+}
+.cart .img image {
+  width: 64rpx;
+  height: 58rpx;
+}
+.cart .count {
+  background: #fb3d3c;
+  color: #fff;
+  min-width: 40rpx;
+  min-height: 40rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 40rpx;
+  position: absolute;
+  left: 88rpx;
+  top: -4rpx;
+}
+.cart .total {
+  color: #fb3d3c;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-left: 32rpx;
+}
+.cart .order-btn {
+  position: absolute;
+  right: 0;
+  width: 240rpx;
+  height: 100%;
+  border-radius: 0;
+  line-height: 104rpx;
+  font-size: 34rpx;
+}
+.cart-view {
+  width: 100%;
+  position: fixed;
+  bottom: 104rpx;
+  left: 0;
+  max-height: 864rpx;
+  height: auto;
+  width: 0;
+  background: #fff;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s linear;
+  overflow: hidden;
+}
+.cart-view .delete {
+  padding: 0 40rpx;
+  background: #f4f4f4;
+  line-height: 64rpx;
+  font-size: 24rpx;
+  color: #6a6a6a;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.cart-view .delete image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+}
+.cart-view .detail-container {
+  padding: 0 40rpx;
+}
+.cart-view .detail-container .one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 160rpx;
+  font-size: 32rpx;
+}
+.cart-view .detail-container .one .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.cart-view .detail-container .one .left .name {
+  color: #333;
+  width: 264rpx;
+}
+.cart-view .detail-container .one .left .price {
+  color: #fb3d3c;
+  font-weight: bold;
+}
+.cart-view .detail-container .one .right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 272rpx;
+}
+.cart-view .detail-container .one .right image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.showcart {
+  width: 750rpx;
+  transform: scale(1);
+  opacity: 1;
+}

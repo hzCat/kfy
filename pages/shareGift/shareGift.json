@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "邀请有礼",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

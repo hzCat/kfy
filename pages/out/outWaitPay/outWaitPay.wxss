@@ -1,0 +1,141 @@
+.container .address {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40rpx;
+  background: #fff;
+  box-shadow: 1rpx 0 5rpx rgba(0, 0, 0, 0.15);
+}
+.container .address .top-line {
+  width: 100%;
+  height: 10rpx;
+  position: absolute;
+  top: 0;
+}
+.container .address view {
+  text-align: center;
+}
+.container .address .name {
+  padding-top: 40rpx;
+  font-weight: bold;
+  color: #333333;
+  font-size: 34rpx;
+}
+.container .address .detail {
+  font-size: 28rpx;
+  color: #999;
+}
+.container .dishes {
+  margin-top: 24rpx;
+  background: #fff;
+}
+.container .dishes .title {
+  height: 86rpx;
+  line-height: 82rpx;
+  text-align: left;
+  padding: 0rpx 40rpx;
+  padding-top: 4rpx;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: normal;
+}
+.container .dishes .detail-one {
+  background: #f8f8f8;
+  margin-top: 4rpx;
+  padding: 24rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.container .dishes .detail-one .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .dishes .detail-one .left image {
+  height: 111rpx;
+  width: 111rpx;
+  border-radius: 4rpx;
+  box-shadow: 0rpx 0px 25rpx rgba(0, 0, 0, 0.15);
+}
+.container .dishes .detail-one .left .info {
+  margin-left: 24rpx;
+  letter-spacing: 50;
+}
+.container .dishes .detail-one .left .info view:first-child {
+  font-size: 28rpx;
+  line-height: 70rpx;
+  color: #333;
+}
+.container .dishes .detail-one .left .info view:last-child {
+  font-size: 34rpx;
+  line-height: 70rpx;
+  color: #999;
+}
+.container .dishes .detail-one .right {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 70rpx;
+}
+.container .dishes .more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 35rpx;
+}
+.container .dishes .more image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.container .other-price,
+.container .total,
+.container .cut-money {
+  padding: 20rpx 40rpx 10rpx;
+  background: #fff;
+}
+.container .other-price .one,
+.container .total .one,
+.container .cut-money .one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.container .total {
+  padding: 0 40rpx;
+  height: 75rpx;
+}
+.container .total .one {
+  height: 100%;
+  border-top: 1rpx dashed #ccc;
+  border-bottom: 1rpx dashed #ccc;
+}
+.container .cut-money {
+  padding: 0 40rpx 20rpx;
+  transform: translateY(-14rpx);
+}
+.container .msg {
+  background: #fff;
+  padding: 25rpx 40rpx;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+}
+.container .msg view,
+.container .msg input {
+  height: 37rpx;
+  line-height: 37rpx;
+}
+.container .msg .phder {
+  color: #ccc;
+}
+.container .pay-btn {
+  margin-top: 25rpx;
+  width: 100%;
+  height: 104rpx;
+  line-height: 104rpx;
+  font-size: 34rpx;
+  border-radius: 0;
+}

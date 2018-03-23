@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "提交订单",
+  "usingComponents": {
+    "shade": "../../../components/shade/shade",
+    "couponchoose": "../../../components/couponChoose/couponChoose"
+  }
+}

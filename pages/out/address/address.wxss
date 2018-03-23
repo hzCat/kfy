@@ -1,0 +1,60 @@
+.container .select-container {
+  background: #fff;
+  max-height: 1045rpx;
+}
+.container .select-container .one {
+  margin-left: 40rpx;
+  padding: 42rpx 40rpx 42rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .select-container .one .left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .select-container .one .left .check {
+  height: 44rpx;
+  width: 44rpx;
+  border: 1rpx solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.container .select-container .one .left .info {
+  width: 337rpx;
+  font-size: 28rpx;
+  margin-left: 24rpx;
+}
+.container .select-container .one .left .info view:first-child {
+  color: #333;
+  font-weight: bold;
+}
+.container .select-container .one .left .info text {
+  color: #999;
+}
+.container .select-container .one .left image {
+  width: 130rpx;
+  height: 97rpx;
+  margin-left: 59rpx;
+}
+.container .select-container .one .right {
+  width: 40rpx;
+  height: 41rpx;
+}
+.container .select-container .one:not(:last-child) {
+  border-bottom: 1rpx solid #ccc;
+}
+.container .add-new {
+  background: #fff;
+  color: #fdaf31;
+  font-size: 34rpx;
+  width: 670rpx;
+  height: 96rpx;
+  border: 1rpx solid #b3b3b3;
+  position: fixed;
+  bottom: 39rpx;
+  left: 40rpx;
+}

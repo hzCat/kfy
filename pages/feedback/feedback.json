@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "意见反馈",
+  "usingComponents": {
+    "shade": "../../components/shade/shade"
+  }
+}

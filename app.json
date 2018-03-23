@@ -24,7 +24,11 @@
     "pages/feedback/feedback",
     "pages/coupon/coupon",
     "pages/chargeMoney_info/chargeMoney_info",
-    "pages/out/outIndex/outIndex"
+    "pages/out/outIndex/outIndex",
+    "pages/testPage/testPage",
+    "pages/out/chooseMeal/chooseMeal",
+    "pages/out/outWaitPay/outWaitPay",
+    "pages/out/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",

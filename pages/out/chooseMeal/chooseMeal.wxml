@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 顶部地址 -->
+  <view class="top_address">
+    <image class="left" src="../../../icon/out/icon_dinnerroom.png"></image>
+    <view class="right" catchtap="openMap">
+      <view class="store">好功夫香年广场店
+        <image src="../../../icon/out/icon_map.png"></image>
+      </view>
+      <view class="address">地 址：香年广场T1楼32号占位的...</view>
+      <view class="time">营业时间：09:00~19:00</view>
+    </view>
+  </view>
+  <!-- 底部选项 -->
+  <view class="choose_container">
+    <!-- 标签 -->
+    <scroll-view class="left" scroll-y>
+      <view class="one {{scrollId==('g'+item.groupId)&&'select_one'}}" wx:for="{{list}}" wx:key="index" data-id="g{{item.groupId}}" catchtap="changeScroll">
+        <text>{{item.groupName}}</text>
+      </view>
+    </scroll-view>
+    <!-- 菜单列表 -->
+    <scroll-view class="right" scroll-y scroll-into-view="{{scrollId}}" scroll-with-animation="{{true}}" bindscroll="getHeight">
+      <!-- <dishescard mealList="{{list}}" bind:sendAll="getOrder"></dishescard> -->
+      <view class="card_container" wx:for="{{list}}" wx:key="index" >
+        <view class="title" id="g{{item.groupId}}">{{item.groupName}}</view>
+        <!-- 单个菜单 -->
+        <dishes wx:for="{{item.detailList}}" wx:for-index="idx" wx:for-item="dishes" wx:key="idx" list="{{dishes}}" groupId="{{item.groupId}}"
+          bind:sendAdd="getAdd" bind:sendCut="getCut" changeList="{{pushInfo}}"></dishes>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 购物车栏 -->
+<ordercart list="{{pushInfo}}" bind:sendList="getCartList" bind:cartSubmit="confirmOrder"></ordercart>
